@@ -1,2 +1,6 @@
 sphinx
 sphinx-autobuild
+sphinxcontrib-httpdomain
+sphinx-jsonschema
+nbsphinx
+sphinx_rtd_theme

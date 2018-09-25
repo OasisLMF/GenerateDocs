@@ -1,22 +1,56 @@
 #/bin/bash
 
-# Create Python virtualenv
-PY_ENV=/home/sam/repos/env/py2
+DIR_BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+DIR_ENV=$DIR_BASE/venv
+DIR_MODULES=$DIR_BASE/modules
 
 
 # Clone repos
 # update and clone repos rather than submodules? 
 # or clone non recurisce and update at this point
 
-# Update python env
-pip install -r /home/sam/repos/support/OasisLMF.github.io/modules/OasisPlatform/requirements.in
-pip install -r requirements.txt
+
+## SETUP BUILD ENVIROMENT 
+    git_modules=(
+        'OasisLMF'
+        'OasisPlatform'
+        'oasis_keys_server'
+        'Ktools'
+    )
+    for module in "${git_modules[@]}"; do
+        cd $DIR_MODULES
+        if [ ! -d $module ]; then
+            printf "\n== Download %s ==\n" "${module}"
+            git clone "git@github.com:OasisLMF/${module}.git"
+        else 
+            printf "\n== Update %s ==\n" "${module}"
+            cd $module
+            git pull
+        fi 
+    done
+
+
+    # Create Python virtualenv
+    cd $DIR_BASE
+    if [ ! -f ${DIR_ENV}/bin/activate ]; then
+        printf "\n == Create Python virtualenv =="
+        virtualenv $DIR_ENV
+    fi 
+    source ${DIR_ENV}/bin/activate
+
+    # Update python env
+    pip install -r requirements.txt
+    pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
+    pip install -r $DIR_BASE/modules/oasis_keys_server/requirements.txt 
+
+
+
 
 # script to extract / prase RELEASE.md / CHANGELOG.md  notes 
 
 # Build docs
-cd ./src/
-make html SPHINXBUILD="python ${PY_ENV}/bin/sphinx-build"
+cd $DIR_BASE/src/
+make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
 
 
 # prompt for overwrite?
