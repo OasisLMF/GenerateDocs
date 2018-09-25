@@ -1,0 +1,467 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Model Development Kit (MDK) &mdash; Oasis LMF 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Oasis LMF 0.1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Module documentation" href="modules.html"/>
+        <link rel="prev" title="Oasis API" href="oasis_rest_api.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installing_command_line_toolkit.html">Installing the command line toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_simple_model.html">Running a simple model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/using_the_oasis_ui.html">Using the Oasis UI</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Module documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Model Development Kit (MDK)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/oasis_mdk.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="model-development-kit-mdk">
+<h1>Model Development Kit (MDK)<a class="headerlink" href="#model-development-kit-mdk" title="Permalink to this headline">¶</a></h1>
+<p>The oasislmf Python package comes with a command line interface for creating, testing and managing models.
+The tool is split into several namespaces that group similar commands.
+For a full list of namespaces use <code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">--help</span></code>, and <code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">&lt;namespace&gt;</span> <span class="pre">--help</span></code> for a full list of commands available in each namespace.</p>
+<p>Overview</p>
+<p>Python package</p>
+<div class="section" id="config">
+<h2>config<a class="headerlink" href="#config" title="Permalink to this headline">¶</a></h2>
+<p>The <code class="docutils literal notranslate"><span class="pre">oasislmf</span></code> tool can be configured using using a JSON configuration file. 
+By default this is stored in <code class="docutils literal notranslate"><span class="pre">oasislmf.json</span></code> but the path can be overridden using the <code class="docutils literal notranslate"><span class="pre">--config</span></code> flag.</p>
+<p>This configuration file should contain any or all of the following properties.
+The path-related keys should be string paths, given relative to the location of JSON file.
+Arguments can be overridden for a specific command using appropriate run time parameter.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">source_exposures_file_path:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">File path to source exposure data, in CSV format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">source_exposures_validation_file_path:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">File path to schema for validating source exposure, in XSD format.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">source_to_canonical_exposures_transformation_file_path:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">File path to transform to select and store a subset of the source exposure, in XSLT format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">canonical_exposures_profile_json_path:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">File path to profile that describes the structure of the stored data.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">canonical_exposures_validation_file_path:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">File path to schema for validating stored exposure, in XSD format.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">canonical_to_model_exposures_transformation_file_path:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">File path to transform to select a subset of the stored exposure for invoking the keys lookup logic, in XSD format.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">lookup_package_path:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Path to the Python package that contains the model keys lookup class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name">keys_data_path:</th><td class="field-body">Path to directory containing data files required by the model keys lookup class.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">model_version_file_path:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Path to model version specification file (<cite>ModelVersion.csv</cite>), required to correctly instantiate the model keys lookup class.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">model_exposures_file_path:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">File path to the inputs to the model keys lookup class in CSV format.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">keys_file_path:</th><td class="field-body">Path for the file containing keys for locations with successful lookups.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">keys_error_file_path:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Path for the file containing keys for locations with failing or non-matching looups.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">keys_format:</th><td class="field-body">Specifies the format of the keys files generated by the model keys lookup class. The default is <cite>oasis</cite> (Oasis CSV format), with <cite>json</cite> as alternative choice.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">model_data_path:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Path to directory containing the model data.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">model_run_dir_path:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Path to directory in which the canonical files, keys files, Oasis files and output files are generated, including the source files and analysis settings file, which are copied from their original locations.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">analysis_settings_json_file_path:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">File path to the settings file that parameterizes the model run.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">ktools_script_name:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body">Specifies the ktools shell script that performs the model run, which is created and ran from the model_run_dir_path. Default is “run_ktools.sh”.</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">ktools_num_processes:</th></tr>
+<tr class="field-even field"><td>&#160;</td><td class="field-body">Specifies the number of concurrent processes used by the model run. Default is 2.</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">no_execute:</th><td class="field-body">Specifies whether to perform the model run. Default is “False”, which means the ktools script is executed.</td>
+</tr>
+</tbody>
+</table>
+<p>As an example, this is the master script configuration file for PiWind</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;source_exposures_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;tests/data/SourceLocPiWind1K.csv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source_exposures_validation_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;flamingo/PiWind/Files/ValidationFiles/Generic_Windstorm_SourceLoc.xsd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;source_to_canonical_exposures_transformation_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;flamingo/PiWind/Files/TransformationFiles/MappingMapToGeneric_Windstorm_CanLoc_A.xslt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;canonical_exposures_profile_json_path&quot;</span><span class="p">:</span> <span class="s2">&quot;oasislmf-piwind-canonical-loc-profile.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;canonical_exposures_validation_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;flamingo/PiWind/Files/ValidationFiles/Generic_Windstorm_CanLoc_B.xsd&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;canonical_to_model_exposures_transformation_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;flamingo/PiWind/Files/TransformationFiles/MappingMapTopiwind_modelloc.xslt&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;lookup_package_path&quot;</span><span class="p">:</span> <span class="s2">&quot;src/keys_server&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keys_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;keys_data/PiWind&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model_version_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;keys_data/PiWind/ModelVersion.csv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model_exposures_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/tmp/model_exposure_PiWind.csv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keys_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/tmp/keys_PiWind.csv&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;keys_error_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/tmp/keys_erros_PiWind.json&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model_data_path&quot;</span><span class="p">:</span> <span class="s2">&quot;model_data/PiWind&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;model_run_dir_path&quot;</span><span class="p">:</span> <span class="s2">&quot;/tmp/run_PiWind&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;analysis_settings_json_file_path&quot;</span><span class="p">:</span> <span class="s2">&quot;analysis_settings.json&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>It can also be obtained <a class="reference external" href="https://github.com/OasisLMF/OasisPiWind/blob/master/oasislmf.json">here</a>.</p>
+</div>
+<div class="section" id="model">
+<h2>model<a class="headerlink" href="#model" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="oasislmf-model-generate-keys">
+<h3><code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">model</span> <span class="pre">generate-keys</span></code><a class="headerlink" href="#oasislmf-model-generate-keys" title="Permalink to this headline">¶</a></h3>
+<p>Generate Oasis keys records (location records with area peril ID and
+vulnerability ID) for a model, and also writes them to file.</p>
+<p>The command line arguments can be supplied in the configuration file
+(<code class="docutils literal notranslate"><span class="pre">oasislmf.json</span></code> by default or specified with the <code class="docutils literal notranslate"><span class="pre">--config</span></code> flag).
+Run <code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">config</span> <span class="pre">--help</span></code> for more information.</p>
+<p>Keys records returned by an Oasis keys lookup service (see the PiWind
+lookup service for reference) will be Python dicts with the following
+structure</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="p">{</span>
+    <span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">loc</span><span class="o">.</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;peril_id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Oasis</span> <span class="n">peril</span> <span class="nb">type</span> <span class="n">ID</span> <span class="o">-</span> <span class="n">oasislmf</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">peril</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;coverage&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">Oasis</span> <span class="n">coverage</span> <span class="nb">type</span> <span class="n">ID</span> <span class="o">-</span> <span class="n">see</span> <span class="n">oasislmf</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">coverage</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;area_peril_id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">area</span> <span class="n">peril</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;vulnerability_id&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">vulnerability</span> <span class="n">ID</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">lookup</span> <span class="n">status</span> <span class="n">message</span><span class="o">&gt;</span><span class="p">,</span>
+    <span class="s2">&quot;status&quot;</span><span class="p">:</span> <span class="o">&lt;</span><span class="n">lookup</span> <span class="n">status</span> <span class="n">code</span> <span class="o">-</span> <span class="n">see</span> <span class="n">oasislmf</span><span class="o">/</span><span class="n">utils</span><span class="o">/</span><span class="n">status</span><span class="o">.</span><span class="n">py</span><span class="o">&gt;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>The command can generate keys records in this format, and write them to file.</p>
+<p>For model loss calculations however <code class="docutils literal notranslate"><span class="pre">ktools</span></code> requires a keys CSV file with
+the following format</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LocID</span><span class="p">,</span><span class="n">PerilID</span><span class="p">,</span><span class="n">CoverageID</span><span class="p">,</span><span class="n">AreaPerilID</span><span class="p">,</span><span class="n">VulnerabilityID</span>
+<span class="o">..</span>
+<span class="o">..</span>
+</pre></div>
+</div>
+<p>where the headers correspond to the relevant Oasis keys record fields.
+The command can also generate and write Oasis keys files. It will also
+optionally write an Oasis keys error file, which is a file containing
+keys records for locations with unsuccessful lookups (locations with
+a failing or non-matching lookup). It has the format</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">LocID</span><span class="p">,</span><span class="n">PerilID</span><span class="p">,</span><span class="n">CoverageID</span><span class="p">,</span><span class="n">Message</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="oasislmf-model-generate-losses">
+<h3><code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">model</span> <span class="pre">generate-losses</span></code><a class="headerlink" href="#oasislmf-model-generate-losses" title="Permalink to this headline">¶</a></h3>
+<p>Generate losses using the installed ktools framework.</p>
+<p>Given Oasis files, model analysis settings JSON file, model data, and
+some other parameters. can generate losses using the installed ktools framework.</p>
+<p>The command line arguments can be supplied in the configuration file
+(<code class="docutils literal notranslate"><span class="pre">oasislmf.json</span></code> by default or specified with the <code class="docutils literal notranslate"><span class="pre">--config</span></code> flag).
+Run <code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">config</span> <span class="pre">--help</span></code> for more information.</p>
+<p>The script creates a time-stamped folder in the model run directory and
+sets that as the new model run directory, copies the analysis settings
+JSON file into the run directory and creates the following folder
+structure</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>├── analysis_settings.json
+├── fifo/
+├── input/
+├── output/
+├── static/
+└── work/
+</pre></div>
+</div>
+<p>Depending on the OS type the model data is symlinked (Linux, Darwin) or
+copied (Cygwin, Windows) into the <code class="docutils literal notranslate"><span class="pre">static</span></code> subfolder. The input files
+are kept in the <code class="docutils literal notranslate"><span class="pre">input</span></code> subfolder and the losses are generated as CSV
+files in the <code class="docutils literal notranslate"><span class="pre">output</span></code> subfolder.</p>
+<p>By default executing the generated ktools losses script will automatically
+execute, this can be overridden by providing the <code class="docutils literal notranslate"><span class="pre">--no-execute</span></code> flag.</p>
+</div>
+<div class="section" id="oasislmf-model-generate-oasis-files">
+<h3><code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">model</span> <span class="pre">generate-oasis-files</span></code><a class="headerlink" href="#oasislmf-model-generate-oasis-files" title="Permalink to this headline">¶</a></h3>
+<p>Generate Oasis files (items, coverages, GUL summary) for a model</p>
+<p>The command line arguments can be supplied in the configuration file
+(<code class="docutils literal notranslate"><span class="pre">oasislmf.json</span></code> by default or specified with the <code class="docutils literal notranslate"><span class="pre">--config</span></code> flag).</p>
+</div>
+<div class="section" id="oasislmf-model-run">
+<h3><code class="docutils literal notranslate"><span class="pre">oasislmf</span> <span class="pre">model</span> <span class="pre">run</span></code><a class="headerlink" href="#oasislmf-model-run" title="Permalink to this headline">¶</a></h3>
+<p>Run models end to end.</p>
+<p>The command line arguments can be supplied in the configuration file
+(<code class="docutils literal notranslate"><span class="pre">oasislmf.json</span></code> by default or specified with the <code class="docutils literal notranslate"><span class="pre">--config</span></code> flag).</p>
+</div>
+</div>
+<div class="section" id="version">
+<h2>version<a class="headerlink" href="#version" title="Permalink to this headline">¶</a></h2>
+<p>Prints the CLI version</p>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="modules.html" class="btn btn-neutral float-right" title="Module documentation" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="oasis_rest_api.html" class="btn btn-neutral" title="Oasis API" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Oasis LMF.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>

@@ -1,0 +1,1428 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Oasis API &mdash; Oasis LMF 0.1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Oasis LMF 0.1.0 documentation" href="../index.html"/>
+        <link rel="next" title="Model Development Kit (MDK)" href="oasis_mdk.html"/>
+        <link rel="prev" title="Risk metrics" href="../modelling_methodology/risk_metrics.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/installing_command_line_toolkit.html">Installing the command line toolkit</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_simple_model.html">Running a simple model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/using_the_oasis_ui.html">Using the Oasis UI</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="modules.html">Module documentation</a></li>
+<li class="toctree-l1"><a class="reference internal" href="general.html">General Documentation</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Oasis API</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/docs/oasis_rest_api.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast,
+.nboutput.nblast {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast + .nbinput {
+    margin-top: -19px;
+}
+
+/* nice headers on first paragraph of info/warning boxes */
+.admonition .first {
+    margin: -12px;
+    padding: 6px 12px;
+    margin-bottom: 12px;
+    color: #fff;
+    line-height: 1;
+    display: block;
+}
+.admonition.warning .first {
+    background: #f0b37e;
+}
+.admonition.note .first {
+    background: #6ab0de;
+}
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+</style>
+<div class="section" id="oasis-api">
+<h1>Oasis API<a class="headerlink" href="#oasis-api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="summary">
+<h2>Summary<a class="headerlink" href="#summary" title="Permalink to this headline">¶</a></h2>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The Oasis REST API currently supports running model analyses.
+We are extending the API to include exposure management capabilities.</p>
+</div>
+<table border="1" class="colwidths-given docutils">
+<colgroup>
+<col width="20%" />
+<col width="45%" />
+<col width="35%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Resource</th>
+<th class="head">Operation</th>
+<th class="head">Description</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#delete--analysis_status-(location)">DELETE /analysis_status/(location)</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="#delete--analysis_status">DELETE /analysis_status</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#get--healthcheck">GET /healthcheck</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="#post--exposure">POST /exposure</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#get--spec">GET /spec</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="#get--exposure_summary">GET /exposure_summary</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#get--exposure_summary-(location)">GET /exposure_summary/(location)</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="#get--analysis_status-(location)">GET /analysis_status/(location)</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#get--exposure-(location)">GET /exposure/(location)</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="#delete--exposure">DELETE /exposure</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#delete--exposure-(location)">DELETE /exposure/(location)</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="#post--analysis-(input_location)">POST /analysis/(input_location)</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#get--outputs-(location)">GET /outputs/(location)</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-odd"><td>&#160;</td>
+<td><a class="reference external" href="#delete--outputs">DELETE /outputs</a></td>
+<td>&#160;</td>
+</tr>
+<tr class="row-even"><td>&#160;</td>
+<td><a class="reference external" href="#delete--outputs-(location)">DELETE /outputs/(location)</a></td>
+<td>&#160;</td>
+</tr>
+</tbody>
+</table>
+<p>A typical interaction with the Oasis REST API is illustrated in the following diagram.
+Exposure is uploaded to the platform, an analysis is started, the analysis status is polled, and when the anlaysis completes the outputs are downloaded.</p>
+<div class="figure">
+<img alt="Oasis REST API" src="../_images/oasis_api.png" />
+</div>
+</div>
+<div class="section" id="api-details">
+<h2>API Details<a class="headerlink" href="#api-details" title="Permalink to this headline">¶</a></h2>
+<dl class="delete">
+<dt id="delete--analysis_status-(location)">
+<code class="descname">DELETE </code><code class="descname">/analysis_status/</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--analysis_status-(location)" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--analysis_status">
+<code class="descname">DELETE </code><code class="descname">/analysis_status</code><a class="headerlink" href="#delete--analysis_status" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an analysis status resource
+—
+description: Deletes an analysis status resource. If no location</p>
+<blockquote>
+<div>is given all analysis status resources will be deleted.</div></blockquote>
+<p>produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd>description: OK</dd>
+<dt>404:</dt>
+<dd>description: Resource not found</dd>
+</dl>
+</div></blockquote>
+<p>parameters:
+- name: location</p>
+<blockquote>
+<div>in: path
+description: The location of the analysis status resource to delete.
+required: true
+type: string</div></blockquote>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--healthcheck">
+<code class="descname">GET </code><code class="descname">/healthcheck</code><a class="headerlink" href="#get--healthcheck" title="Permalink to this definition">¶</a></dt>
+<dd><p>Basic healthcheck response.</p>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--exposure">
+<code class="descname">POST </code><code class="descname">/exposure</code><a class="headerlink" href="#post--exposure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Upload an exposure resource
+—
+description: Uploads an exposure resource by posting an exposure tar file.</p>
+<blockquote>
+<div>The tar file can be compressed or uncompressed.</div></blockquote>
+<p>produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd><p class="first">description: The exposure summary of the created exposure resource.
+schema:</p>
+<blockquote class="last">
+<div>$ref: ‘#/definitions/ExposureSummary’</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--spec">
+<code class="descname">GET </code><code class="descname">/spec</code><a class="headerlink" href="#get--spec" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create Swagger docs</p>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--exposure_summary">
+<code class="descname">GET </code><code class="descname">/exposure_summary</code><a class="headerlink" href="#get--exposure_summary" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="get">
+<dt id="get--exposure_summary-(location)">
+<code class="descname">GET </code><code class="descname">/exposure_summary/</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#get--exposure_summary-(location)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get exposure summary
+—
+definitions:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>schema:</dt>
+<dd><p class="first">id: ExposureSummary
+properties:</p>
+<blockquote class="last">
+<div><dl class="docutils">
+<dt>location:</dt>
+<dd>type: string
+description: The location of the exposure data.</dd>
+<dt>size:</dt>
+<dd>type: integer
+description: The size of the uncompressed exposure data in bytes.</dd>
+<dt>created_date:</dt>
+<dd>type: string
+format: dateTime
+description: The date when the exposure data was uploaded.</dd>
+</dl>
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>description: Gets a summary of a exposure resources and their contents.</dt>
+<dd>If location parameter is not supplied returns a summary of
+all exposures.</dd>
+</dl>
+<p>produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd><p class="first">description: A list of exposure summaries.
+schema:</p>
+<blockquote class="last">
+<div><p>type: array
+items:</p>
+<blockquote>
+<div>$ref: “#/definitions/ExposureSummary”</div></blockquote>
+</div></blockquote>
+</dd>
+</dl>
+<p>404:</p>
+<blockquote>
+<div>description: Resource not found</div></blockquote>
+</div></blockquote>
+<p>parameters:
+- name: location</p>
+<blockquote>
+<div>in: path
+description: The location of the exposure resource to summarise.
+required: true
+type: string</div></blockquote>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--analysis_status-(location)">
+<code class="descname">GET </code><code class="descname">/analysis_status/</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#get--analysis_status-(location)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an analysis status resource
+—
+definitions:
+- schema:</p>
+<blockquote>
+<div><p>id: AnalysisStatus
+properties:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>id:</dt>
+<dd>type: string
+description: The analysis ID.</dd>
+<dt>status:</dt>
+<dd>type: string
+description: The analysis status.</dd>
+<dt>message:</dt>
+<dd>type: string
+description: The analysis status message.</dd>
+<dt>outputs_summary:</dt>
+<dd>type: OutputsSummary
+description: Summary of the outputs.</dd>
+</dl>
+</div></blockquote>
+<p>id: OutputsSummary</p>
+<dl class="docutils">
+<dt>properties:</dt>
+<dd><dl class="first last docutils">
+<dt>location:</dt>
+<dd>type: string
+description: The location of the data.</dd>
+<dt>size:</dt>
+<dd>type: integer
+description: The size of the uncompressed data in bytes.</dd>
+<dt>created_date:</dt>
+<dd><p class="first">type: string
+format: dateTime</p>
+<p class="last">description: The date when the data was created.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+<dl class="docutils">
+<dt>description: Gets an analysis status resource. If no location is given</dt>
+<dd>all exposure status resources are returned.</dd>
+</dl>
+<p>produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd><p class="first">description: A list of analysis status resources.
+schema:</p>
+<blockquote class="last">
+<div><p>type: array
+items:</p>
+<blockquote>
+<div>$ref: ‘#/definitions/AnalysisStatus’</div></blockquote>
+</div></blockquote>
+</dd>
+<dt>404:</dt>
+<dd>description: Resource not found.</dd>
+</dl>
+</div></blockquote>
+<p>parameters:
+-   name: location</p>
+<blockquote>
+<div>in: path
+description: The location of the outputs resource to download.
+required: true
+type: string</div></blockquote>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--exposure-(location)">
+<code class="descname">GET </code><code class="descname">/exposure/</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#get--exposure-(location)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get an exposure resource
+—
+description: Returns an exposure resource.
+produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd>description: A compressed tar file containing the Oasis exposure files.</dd>
+<dt>404:</dt>
+<dd>description: Resource not found</dd>
+</dl>
+</div></blockquote>
+<p>parameters:
+- name: location</p>
+<blockquote>
+<div>in: path
+description: The location of the exposure resource.
+required: true
+type: string</div></blockquote>
+</dd></dl>
+
+<dl class="delete">
+<dt id="delete--exposure">
+<code class="descname">DELETE </code><code class="descname">/exposure</code><a class="headerlink" href="#delete--exposure" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--exposure-(location)">
+<code class="descname">DELETE </code><code class="descname">/exposure/</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--exposure-(location)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Delete an exposure resource
+—
+description: Deletes an exposure resource. If no location is given all exposure resources will be deleted.
+produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd>description: OK</dd>
+<dt>404:</dt>
+<dd>description: Resource not found</dd>
+</dl>
+</div></blockquote>
+<p>parameters:
+- name: location</p>
+<blockquote>
+<div>in: path
+description: location of exposure resource to delete.
+required: true
+type: string</div></blockquote>
+</dd></dl>
+
+<dl class="post">
+<dt id="post--analysis-(input_location)">
+<code class="descname">POST </code><code class="descname">/analysis/</code><span class="sig-paren">(</span><em>input_location</em><span class="sig-paren">)</span><a class="headerlink" href="#post--analysis-(input_location)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Start an analysis
+—
+description: Starts an analysis by creating an analysis status resource.
+produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd><p class="first">description: The analysis status resource for the new analysis.
+schema:</p>
+<blockquote class="last">
+<div>$ref: ‘#/definitions/AnalysisStatus’</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p>produces:
+- application/json
+parameters:
+-   name: input_location</p>
+<blockquote>
+<div>in: path
+description: The location of the input resource to analyse.
+required: true
+type: string</div></blockquote>
+<ul class="simple">
+<li>name: analysis_settings
+in: formData
+description: The analysis settings
+required: true
+type: file</li>
+</ul>
+</dd></dl>
+
+<dl class="get">
+<dt id="get--outputs-(location)">
+<code class="descname">GET </code><code class="descname">/outputs/</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#get--outputs-(location)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a outputs resource
+—
+description: Gets a outputs resource, returning a compressed outputs tar file.
+produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd>description: A compressed tar of the outputs generated by an analysis.</dd>
+<dt>404:</dt>
+<dd>description: Resource not found.</dd>
+</dl>
+</div></blockquote>
+<p>parameters:
+-   name: location</p>
+<blockquote>
+<div>in: path
+description: The location of the outputs resource to download.
+required: true
+type: string</div></blockquote>
+</dd></dl>
+
+<dl class="delete">
+<dt id="delete--outputs">
+<code class="descname">DELETE </code><code class="descname">/outputs</code><a class="headerlink" href="#delete--outputs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="delete">
+<dt id="delete--outputs-(location)">
+<code class="descname">DELETE </code><code class="descname">/outputs/</code><span class="sig-paren">(</span><em>location</em><span class="sig-paren">)</span><a class="headerlink" href="#delete--outputs-(location)" title="Permalink to this definition">¶</a></dt>
+<dd><p>download_directory = ‘/var/www/oasis/download’
+Delete a outputs resource
+—
+description: Deletes a outputs resource. If no location is given all</p>
+<blockquote>
+<div>outputs resources will be deleted.</div></blockquote>
+<p>produces:
+- application/json
+responses:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>200:</dt>
+<dd>description: OK</dd>
+<dt>404:</dt>
+<dd>description: Resource not found</dd>
+</dl>
+</div></blockquote>
+<p>parameters:
+- name: location</p>
+<blockquote>
+<div>in: path
+description: The location of the outputs resource to delete.
+required: true
+type: string</div></blockquote>
+</dd></dl>
+
+</div>
+<div class="section" id="analysis-settings-schema">
+<h2>Analysis Settings Schema<a class="headerlink" href="#analysis-settings-schema" title="Permalink to this headline">¶</a></h2>
+<p>The following schema defines the analysis settings document that is used to configure an analysis.
+This document defines:
+* General analysis settings, such as the number of Monte Carlo samples.
+* Specific model settings, such as running/not-running specific sub-perils.
+* What outputs to generate, for what financial perspectives and by what reporting groups.</p>
+<div class="section" id="analysis-settings">
+<h3>Analysis settings.<a class="headerlink" href="#analysis-settings" title="Permalink to this headline">¶</a></h3>
+<table border="1" class="docutils">
+<colgroup>
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td colspan="6">Specifies the model settings and outputs for an analysis.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="5"><em>object</em></td>
+</tr>
+<tr class="row-odd"><td colspan="6">properties</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>source_tag</li>
+</ul>
+</td>
+<td colspan="5"><em>Source Tag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">Labels the origin of the analysis for logging purposes e.g. Flamingo system name.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="4"><em>string</em></td>
+</tr>
+<tr class="row-odd"><td>minLength</td>
+<td colspan="4">1</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>analysis_tag</li>
+</ul>
+</td>
+<td colspan="5"><em>Analysis Tag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">Labels the analysis with an identifier e.g. Flamingo process ID.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="4"><em>string</em></td>
+</tr>
+<tr class="row-odd"><td>minLength</td>
+<td colspan="4">1</td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="first last simple">
+<li>module_supplier_id</li>
+</ul>
+</td>
+<td colspan="5"><em>Module supplier ID</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">Identifier for the model vendor/module supplier.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="4"><em>string</em></td>
+</tr>
+<tr class="row-odd"><td rowspan="3"><ul class="first last simple">
+<li>model_version_id</li>
+</ul>
+</td>
+<td colspan="5"><em>Model version ID</em></td>
+</tr>
+<tr class="row-even"><td colspan="5">Identifier for the model and version.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="4"><em>string</em></td>
+</tr>
+<tr class="row-even"><td rowspan="5"><ul class="first last simple">
+<li>number_of_samples</li>
+</ul>
+</td>
+<td colspan="5"><em>Number of samples.</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">The number of samples generated per event.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="4"><em>integer</em></td>
+</tr>
+<tr class="row-odd"><td>minimum</td>
+<td colspan="4">1</td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="4">100</td>
+</tr>
+<tr class="row-odd"><td rowspan="5"><ul class="first last simple">
+<li>gul_threshold</li>
+</ul>
+</td>
+<td colspan="5"><em>Ground-up loss threshold</em></td>
+</tr>
+<tr class="row-even"><td colspan="5">The threshold at which groun-up losses will be capped.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="4"><em>number</em></td>
+</tr>
+<tr class="row-even"><td>minimum</td>
+<td colspan="4">0</td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td colspan="4">0</td>
+</tr>
+<tr class="row-even"><td rowspan="11"><ul class="first last simple">
+<li>model_settings</li>
+</ul>
+</td>
+<td colspan="5"><em>Model settings</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">Model specific settings.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="4"><em>object</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">properties</td>
+</tr>
+<tr class="row-even"><td rowspan="3"><ul class="first last simple">
+<li><strong>use_random_number_file</strong></li>
+</ul>
+</td>
+<td colspan="4"><em>Use random number file</em></td>
+</tr>
+<tr class="row-odd"><td colspan="4">If true use a pre-generated set of random number, if false generate random numbers dynamically.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="3"><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li><strong>event_occurrence_file_id</strong></li>
+</ul>
+</td>
+<td colspan="4"><em>Event occurrence file ID.</em></td>
+</tr>
+<tr class="row-even"><td colspan="4">Identifier for the event occurrence file that is used for output calculations.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="3"><em>integer</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="3">1</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>gul_output</li>
+</ul>
+</td>
+<td colspan="5"><em>Produce GUL output</em></td>
+</tr>
+<tr class="row-even"><td colspan="5">If true generate ground-up loss outputs as per specified gul-summaries.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="4"><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="4">False</td>
+</tr>
+<tr class="row-odd"><td rowspan="71"><ul class="first last simple">
+<li>gul_summaries</li>
+</ul>
+</td>
+<td colspan="5"><em>Ground-up loss summary outputs</em></td>
+</tr>
+<tr class="row-even"><td colspan="5">Specified which outputs should be generated for which summary sets, for ground-up losses.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="4"><em>array</em></td>
+</tr>
+<tr class="row-even"><td colspan="5">items</td>
+</tr>
+<tr class="row-odd"><td rowspan="66"><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>type</td>
+<td colspan="3"><em>object</em></td>
+</tr>
+<tr class="row-even"><td colspan="4">properties</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li><strong>id</strong></li>
+</ul>
+</td>
+<td colspan="3"><em>Summary ID</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">Identifier for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="2"><em>integer</em></td>
+</tr>
+<tr class="row-even"><td>multipleOf</td>
+<td colspan="2">1</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>summarycalc</li>
+</ul>
+</td>
+<td colspan="3"><em>Summary calculation flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">If true, output summary calculations by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>eltcalc</li>
+</ul>
+</td>
+<td colspan="3"><em>ELT calculation flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">If true, output the event loss table by level  for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>aalcalc</li>
+</ul>
+</td>
+<td colspan="3"><em>AAL calculation flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">If true, output the average annual loss by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>pltcalc</li>
+</ul>
+</td>
+<td colspan="3"><em>PLT calculation flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">If true, output the period loss table by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>lec_output</li>
+</ul>
+</td>
+<td colspan="3"><em>LEC calculation flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">If true, output loss exceed curves by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-odd"><td rowspan="40"><ul class="first last simple">
+<li>leccalc</li>
+</ul>
+</td>
+<td colspan="3"><em>LEC calculation settings</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">Specifies which loss exceedence curve types will be outputed for the summary level</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td colspan="2"><em>object</em></td>
+</tr>
+<tr class="row-even"><td colspan="3">properties</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>return_period_file</li>
+</ul>
+</td>
+<td colspan="2"><em>Return period file flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true, a file listing the return periods will be provided as part of the analysis inputs. If false, a default set will be used.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>full_uncertainty_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Full uncertainty AEP flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the full uncertainty aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>True</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>full_uncertainty_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Full uncertainty OEP flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the full uncertainty occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf AEP flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the wheatsheaf aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf OEP flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the wheatsheaf occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_mean_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf mean AEP flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the wheatsheaf mean aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_mean_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf mean OEP schema.</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the wheatsheaf occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>sample_mean_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Sample mean AEP flag</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the sample mean aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td rowspan="4"><ul class="first last simple">
+<li>sample_mean_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Sample mean OEP schema.</em></td>
+</tr>
+<tr class="row-even"><td colspan="2">If true and LEC output is true, output the sample occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-odd"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-even"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-odd"><td>uniqueItems</td>
+<td colspan="4">False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>il_output</li>
+</ul>
+</td>
+<td colspan="5"><em>Produce il output</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">If true generate insured loss outputs as per specified il-summaries.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="4"><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td colspan="4">False</td>
+</tr>
+<tr class="row-even"><td rowspan="71"><ul class="first last simple">
+<li>il_summaries</li>
+</ul>
+</td>
+<td colspan="5"><em>Insured loss summary outputs</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">Specified which outputs should be generated for which summary sets, for insured losses.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="4"><em>array</em></td>
+</tr>
+<tr class="row-odd"><td colspan="5">items</td>
+</tr>
+<tr class="row-even"><td rowspan="66"><ul class="first last simple">
+<li></li>
+</ul>
+</td>
+<td>type</td>
+<td colspan="3"><em>object</em></td>
+</tr>
+<tr class="row-odd"><td colspan="4">properties</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li><strong>id</strong></li>
+</ul>
+</td>
+<td colspan="3"><em>Summary ID</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">Identifier for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="2"><em>integer</em></td>
+</tr>
+<tr class="row-odd"><td>multipleOf</td>
+<td colspan="2">1</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>summarycalc</li>
+</ul>
+</td>
+<td colspan="3"><em>Summary calculation flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">If true, output summary calculations by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>eltcalc</li>
+</ul>
+</td>
+<td colspan="3"><em>ELT calculation flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">If true, output the event loss table by level  for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>aalcalc</li>
+</ul>
+</td>
+<td colspan="3"><em>AAL calculation flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">If true, output the average annual loss by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>pltcalc</li>
+</ul>
+</td>
+<td colspan="3"><em>PLT calculation flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">If true, output the period loss table by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>lec_output</li>
+</ul>
+</td>
+<td colspan="3"><em>LEC calculation flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">If true, output loss exceed curves by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="2"><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td colspan="2">False</td>
+</tr>
+<tr class="row-even"><td rowspan="40"><ul class="first last simple">
+<li>leccalc</li>
+</ul>
+</td>
+<td colspan="3"><em>LEC calculation settings</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">Specifies which loss exceedence curve types will be outputed for the summary level</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td colspan="2"><em>object</em></td>
+</tr>
+<tr class="row-odd"><td colspan="3">properties</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>return_period_file</li>
+</ul>
+</td>
+<td colspan="2"><em>Return period file flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true, a file listing the return periods will be provided as part of the analysis inputs. If false, a default set will be used.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>full_uncertainty_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Full uncertainty AEP flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the full uncertainty aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>True</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>full_uncertainty_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Full uncertainty OEP flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the full uncertainty occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf AEP flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the wheatsheaf aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf OEP flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the wheatsheaf occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_mean_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf mean AEP flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the wheatsheaf mean aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>wheatsheaf_mean_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Wheatsheaf mean OEP schema.</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the wheatsheaf occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>sample_mean_aep</li>
+</ul>
+</td>
+<td colspan="2"><em>Sample mean AEP flag</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the sample mean aggregate loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td rowspan="4"><ul class="first last simple">
+<li>sample_mean_oep</li>
+</ul>
+</td>
+<td colspan="2"><em>Sample mean OEP schema.</em></td>
+</tr>
+<tr class="row-odd"><td colspan="2">If true and LEC output is true, output the sample occurrence loss exceedence curve by level for the summary set.</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td><em>boolean</em></td>
+</tr>
+<tr class="row-odd"><td>default</td>
+<td>False</td>
+</tr>
+<tr class="row-even"><td>uniqueItems</td>
+<td colspan="4">False</td>
+</tr>
+<tr class="row-odd"><td colspan="6"><ul class="first last simple">
+<li>required</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+
+
+           </div>
+           <div class="articleComments">
+            
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="oasis_mdk.html" class="btn btn-neutral float-right" title="Model Development Kit (MDK)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../modelling_methodology/risk_metrics.html" class="btn btn-neutral" title="Risk metrics" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, Oasis LMF.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'0.1.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true,
+            SOURCELINK_SUFFIX: '.txt'
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+   
+
+</body>
+</html>
