@@ -49,7 +49,7 @@ DIR_MODULES=$DIR_BASE/modules
 # script to extract / prase RELEASE.md / CHANGELOG.md  notes 
 
 # Build docs
-cd $DIR_BASE/src/
+cd $DIR_BASE
 make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
 
 

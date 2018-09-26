@@ -16,9 +16,9 @@ import os
 import sys
 from sphinx.ext import autodoc
 
-sys.path.insert(0, os.path.abspath('../../modules/OasisLMF'))
-sys.path.insert(0, os.path.abspath('../../modules/oasis_keys_server'))
-sys.path.insert(0, os.path.abspath('../../modules/OasisPlatform'))
+sys.path.insert(0, os.path.abspath('../modules/OasisLMF'))
+sys.path.insert(0, os.path.abspath('../modules/oasis_keys_server'))
+sys.path.insert(0, os.path.abspath('../modules/OasisPlatform'))
 
 import src.server.app
 
