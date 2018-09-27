@@ -1,16 +1,23 @@
 oasis_keys_server Module Documentation
 ======================================
 
-``oasis_keys_server.app``
--------------------------
+``custom.app``
+--------------
 
-.. automodule:: oasis_keys_server.app
+.. automodule:: custom.app
    :members:
    :undoc-members:
 
-``oasis_keys_server.tests``
----------------------------
+``builtin.app``
+---------------
 
-.. automodule:: oasis_keys_server.tests.KeysServerTests
+.. automodule:: builtin.app
+   :members:
+   :undoc-members:
+
+``tests.KeysServerTests``
+-------------------------
+
+.. automodule:: tests.KeysServerTests
    :members:
    :undoc-members:

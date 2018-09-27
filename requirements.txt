@@ -4,3 +4,4 @@ sphinxcontrib-httpdomain
 sphinx-jsonschema
 nbsphinx
 sphinx_rtd_theme
+recommonmark

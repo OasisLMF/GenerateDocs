@@ -15,6 +15,7 @@
 import os
 import sys
 from sphinx.ext import autodoc
+from recommonmark.parser import CommonMarkParser
 
 sys.path.insert(0, os.path.abspath('../modules/OasisLMF'))
 sys.path.insert(0, os.path.abspath('../modules/oasis_keys_server'))
@@ -59,6 +60,7 @@ extensions = [
     'sphinx.ext.mathjax',
 ]
 
+
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
 
@@ -66,7 +68,10 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_suffix = '.rst'
+source_parsers = {
+    '.md': CommonMarkParser,
+}
+source_suffix = ['.rst', '.md']
 
 # The master toctree document.
 master_doc = 'index'

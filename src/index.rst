@@ -72,3 +72,16 @@ It allows regression of the models after updates to the Oasis Platform code, and
     docs/oasis_mdk
     docs/modules
     docs/general
+
+.. toctree::
+    :titlesonly:
+    :caption: Releases
+
+    releases/oasis_platform.md
+
+.. toctree::
+    :titlesonly:
+    :caption: Change Logs
+    :maxdepth: 0
+
+    releases/ktools.md

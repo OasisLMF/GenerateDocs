@@ -34,7 +34,7 @@ DIR_MODULES=$DIR_BASE/modules
     cd $DIR_BASE
     if [ ! -f ${DIR_ENV}/bin/activate ]; then
         printf "\n == Create Python virtualenv =="
-        virtualenv $DIR_ENV
+        virtualenv2 $DIR_ENV
     fi 
     source ${DIR_ENV}/bin/activate
 
@@ -47,6 +47,14 @@ DIR_MODULES=$DIR_BASE/modules
 
 
 # script to extract / prase RELEASE.md / CHANGELOG.md  notes 
+#    git_modules=(
+#        'OasisLMF/'
+#        'OasisPlatform'
+#        'Ktools'
+#    )
+
+
+
 
 # Build docs
 cd $DIR_BASE
