@@ -16,7 +16,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
         cd $DIR_MODULES
         if [ ! -d $module ]; then
             printf "\n== Download %s ==\n" "${module}"
-            git clone "https://github.com/OasisLMF/${module}.git"
+            git clone --depth 1 "https://github.com/OasisLMF/${module}.git"
         else 
             printf "\n== Update %s ==\n" "${module}"
             cd $module
@@ -25,7 +25,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
     done
 
 # Update python env
-    pip install -r requirements.txt
+    pip install -r $DIR_BASE/requirements.txt
     pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
     pip install -r $DIR_BASE/modules/oasis_keys_server/requirements.txt 
 
@@ -36,8 +36,8 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
 
 # Build docs
     cd $DIR_BASE
-    make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
+    make html
 
 # Create TAR
     tar -czvf oasis_docs.tar.gz -C build/html/ .
-
+    mv oasis_docs.tar.gz $DIR_BASE/output/

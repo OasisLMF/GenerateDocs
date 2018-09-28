@@ -1,9 +1,11 @@
 FROM coreoasis/oasis_base:latest
 
-RUN mkdir -p /tmp/autodoc/modules
-COPY ./src /tmp/autodoc/src
+RUN mkdir -p /tmp/modules && \
+    mkdir /tmp/output         
+COPY ./src /tmp/src
 COPY ["./docker/entrypoint_build.sh", \
       "Makefile", \
+      "requirements.txt", \
       "/tmp/"]
 
 WORKDIR /tmp/
