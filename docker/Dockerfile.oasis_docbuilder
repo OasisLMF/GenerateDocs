@@ -4,6 +4,7 @@ RUN mkdir -p /tmp/autodoc/modules
 COPY ./src /tmp/autodoc/src
 COPY ["build.sh", \
       "Makefile", \
-      "/tmp/autodoc/"]
+      "/tmp/"]
 
-CMD /tmp/autodoc/build.sh
+WORKDIR /tmp/
+CMD ./build.sh
