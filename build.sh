@@ -3,12 +3,7 @@
 DIR_BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DIR_ENV=$DIR_BASE/venv
 DIR_MODULES=$DIR_BASE/modules
-
-
-# Clone repos
-# update and clone repos rather than submodules? 
-# or clone non recurisce and update at this point
-
+DIR_RELEASE="${DIR_BASE}/src/releases/" 
 
 ## SETUP BUILD ENVIROMENT 
     git_modules=(
@@ -29,7 +24,6 @@ DIR_MODULES=$DIR_BASE/modules
         fi 
     done
 
-
     # Create Python virtualenv
     cd $DIR_BASE
     if [ ! -f ${DIR_ENV}/bin/activate ]; then
@@ -38,28 +32,16 @@ DIR_MODULES=$DIR_BASE/modules
     fi 
     source ${DIR_ENV}/bin/activate
 
-    # Update python env
+# Update python env
     pip install -r requirements.txt
     pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
     pip install -r $DIR_BASE/modules/oasis_keys_server/requirements.txt 
 
-
-
-
 # script to extract / prase RELEASE.md / CHANGELOG.md  notes 
-#    git_modules=(
-#        'OasisLMF/'
-#        'OasisPlatform'
-#        'Ktools'
-#    )
-
-
-
+    cat $DIR_MODULES/Ktools/CHANGE.md > $DIR_RELEASE/ktools.md
+    cat $DIR_MODULES/OasisLMF/CHANGELOG.rst > $DIR_RELEASE/oasislmf.rst
+    cat $DIR_MODULES/OasisPlatform/RELEASE.md > $DIR_RELEASE/oasis_platform.md
 
 # Build docs
-cd $DIR_BASE
-make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
-
-
-# prompt for overwrite?
-# Copy to root of dir
+    cd $DIR_BASE
+    make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"

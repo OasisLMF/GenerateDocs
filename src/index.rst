@@ -76,6 +76,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
 .. toctree::
     :titlesonly:
     :caption: Release Notes
+    :maxdepth: 0
 
     releases/oasis_platform.md
 
