@@ -2,7 +2,7 @@ FROM coreoasis/oasis_base:latest
 
 RUN mkdir -p /tmp/autodoc/modules
 COPY ./src /tmp/autodoc/src
-COPY ["./docker/build.sh", \
+COPY ["./docker/entrypoint_build.sh", \
       "Makefile", \
       "/tmp/"]
 
