@@ -24,14 +24,6 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
         fi 
     done
 
-    # Create Python virtualenv
-    cd $DIR_BASE
-    if [ ! -f ${DIR_ENV}/bin/activate ]; then
-        printf "\n == Create Python virtualenv =="
-        virtualenv $DIR_ENV
-    fi 
-    source ${DIR_ENV}/bin/activate
-
 # Update python env
     pip install -r requirements.txt
     pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
@@ -45,3 +37,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
 # Build docs
     cd $DIR_BASE
     make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
+
+# Create TAR
+    tar -czvf oasis_docs.tar.gz -C build/html/ .
+
