@@ -28,7 +28,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
     cd $DIR_BASE
     if [ ! -f ${DIR_ENV}/bin/activate ]; then
         printf "\n == Create Python virtualenv =="
-        virtualenv2 $DIR_ENV
+        virtualenv $DIR_ENV
     fi 
     source ${DIR_ENV}/bin/activate
 
