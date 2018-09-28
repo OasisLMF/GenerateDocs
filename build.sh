@@ -1,4 +1,4 @@
-#/bin/bash
+#!/bin/bash
 
 DIR_BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DIR_ENV=$DIR_BASE/venv
@@ -16,7 +16,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
         cd $DIR_MODULES
         if [ ! -d $module ]; then
             printf "\n== Download %s ==\n" "${module}"
-            git clone "git@github.com:OasisLMF/${module}.git"
+            git clone "https://github.com/OasisLMF/${module}.git"
         else 
             printf "\n== Update %s ==\n" "${module}"
             cd $module
@@ -28,7 +28,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
     cd $DIR_BASE
     if [ ! -f ${DIR_ENV}/bin/activate ]; then
         printf "\n == Create Python virtualenv =="
-        virtualenv2 $DIR_ENV
+        virtualenv $DIR_ENV
     fi 
     source ${DIR_ENV}/bin/activate
 
@@ -45,3 +45,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
 # Build docs
     cd $DIR_BASE
     make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
+
+# Create TAR
+    tar -czvf oasis_docs.tar.gz -C build/html/ .
+
