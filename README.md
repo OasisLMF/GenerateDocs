@@ -1,7 +1,7 @@
 # GenerateDocs
 
 
-## Building the Documentaion via Docker 
+## Building the Documentation via Docker 
 `docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .`
 
 `docker run -v $(pwd):/tmp/output oasis_doc_builder:latest`
