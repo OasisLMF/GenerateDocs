@@ -30,8 +30,7 @@ This is the core part of Oasis underpinning the other components and is where mo
 **Oasis User Interface (UI)** is a web-based application for uploading exposure data, running models deployed in Oasis, and retrieving results data.
 It is targeted at operating models by (re)insurance companies in in conjunction with existing exposure management and reporting tools; model evaluation; and using models in government or third sector contexts.
 
-**Oasis Model Development Kit (MDK)** is a set of tools for building, calibrating and creating a model, ready to be deployed into the Oasis Platform.
-It is designed with a model developer or academic user in mind, who are likely to be comfortable working directly with the data from the command line or programmatically.
+**Oasis Model Development Kit (MDK)** provides various features and tools for developing, implementing, running and testing Oasis models. It has two features - a command line interface, and a set of Python modules and class frameworks for building and running lookups, exposure management, and general utilities.
 
 **Oasis Model Library** is a hosted catalogue for Oasis models, hosted in AWS. 
 It allows regression of the models after updates to the Oasis Platform code, and validation of model operation and scalability within a hosted Oasis Platform.
@@ -40,8 +39,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :titlesonly:
     :caption: Getting started
 
-    getting_started/installing_command_line_toolkit
-    getting_started/running_a_simple_model
+    getting_started/mdk_quickstart
     getting_started/using_the_oasis_ui
 
 
@@ -66,10 +64,10 @@ It allows regression of the models after updates to the Oasis Platform code, and
 
 .. toctree::
     :titlesonly:
-    :caption: Documentation
+    :caption: Module documentation
 
     docs/oasis_rest_api
-    docs/oasis_mdk
+    docs/mdk
     docs/modules
     docs/general
 
