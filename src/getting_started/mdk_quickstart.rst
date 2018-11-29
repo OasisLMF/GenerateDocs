@@ -7,6 +7,7 @@ The model development kit (MDK) is the `oasislmf <https://pypi.org/project/oasis
 * Implementing and testing lookups
 * Working with Oasis models as objects
 * Exposure management
+* Utilities
 
 Command line interface (CLI)
 ----------------------------
