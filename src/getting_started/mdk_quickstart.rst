@@ -1,7 +1,7 @@
 Model Development Kit  (MDK) Quickstart Guide
 =============================================
 
-The model development kit (MDK) is the `oasislmf <https://pypi.org/project/oasislmf/>`_ Python package. It provides various features and tools for developing, implementing, running and testing models compatible with the Oasis framework. Installation instructions are provided on the PyPI package home page. This quickstart guide will cover the following topics.
+The model development kit (MDK) is the `oasislmf <https://pypi.org/project/oasislmf/>`_ Python package. It provides various features and tools for developing, implementing, running and testing Oasis models. Installation instructions are provided on the PyPI package home page. This quickstart guide will cover the following topics.
 
 * Command line interface
 * Implementing and testing lookups
@@ -63,7 +63,7 @@ The command can be run either by providing all the arguments directly in the inv
                                                  [-v /path/to/validation/file]
                                                  [-o /path/to/output/file]
 
-The mandatory arguments are the source and (XSLT) transformation file paths, while the (XSD) validation and output file paths are optional. The ``-y`` option can be used to indicate type of the source file - whether it contains exposure (``exposures``) or accounts, i.e. financial terms, (``accounts``) - the default is ``exposures``. If no output file path is provided then it will be created in the working directory where the command was run, with a default filename of ``canexp.csv`` for exposure or ``canacc.csv` for accounts. If using a configuration file it should be a JSON file with the keys ``source_file_path`` and ``transformation_file_path``, and optionally ``source_file_type``, ``validation_file_path``, ``output_file_path``.
+The mandatory arguments are the source and (XSLT) transformation file paths, while the (XSD) validation and output file paths are optional. The ``-y`` option can be used to indicate type of the source file - whether it contains exposure (``exposures``) or accounts, i.e. financial terms, (``accounts``) - the default is ``exposures``. If no output file path is provided then it will be created in the working directory where the command was run, with a default filename of ``canexp.csv`` for exposure or ``canacc.csv`` for accounts. If using a configuration file it should be a JSON file with the keys ``source_file_path`` and ``transformation_file_path``, and optionally ``source_file_type``, ``validation_file_path``, ``output_file_path``.
 
 
 We describe an example using a `sample PiWind OED source file <https://github.com/OasisLMF/OasisPiWind/blob/master/tests/data/SourceLocOEDPiWind2.csv>`_ with 2 exposures. Here's the source file.
