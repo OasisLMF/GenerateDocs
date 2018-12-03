@@ -53,10 +53,10 @@ _________________________________________________________
 
 The ``transform-source-to-canonical`` subcommand can be used to transform a source exposure or accounts CSV file (in either EDM or OED format) to an appropriate canonical Oasis format. The transformation is done by converting the source CSV to XML, applying an XSLT transformation, and an optional XSD schema validation (if one is provided), and converting the transformed XML back to CSV.
 
-The command can be run either by providing all the arguments directly in the invocation, or by defining them as keys in a (JSON) configuration file and using the ``-C`` (or ``--config``) option. It is probably simpler to use the first option.
+The command can be run either by providing all the arguments directly in the invocation, or by defining them as keys in a (JSON) command configuration file and using the ``-C`` (or ``--config``) option. It is probably simpler to use the first option.
 ::
 
-    oasislmf model transform-source-to-canonical [-C /path/to/configuration/file] |
+    oasislmf model transform-source-to-canonical [-C /path/to/cmd/configuration/file] |
                                                  -s /path/to/source/file
                                                  -x /path/to/transformation/file
                                                  [-y 'exposures'|'accounts']
@@ -94,17 +94,16 @@ _______________________________________________
 
 The ``transform-canonical-to-model`` subcommand can be used to transform a canonical exposure CSV file (in either EDM or OED format) to a format that can be processed by the model lookup. The transformation is done by converting the source CSV to XML, applying an XSLT transformation, and an optional XSD schema validation (if one is provided), and converting the transformed XML back to CSV.
 
-The command can be run either by providing all the arguments directly in the invocation, or by defining them as keys in a (JSON) configuration file and using the ``-C`` (or ``--config``) option. It is probably simpler to use the first option.
+The command can be run either by providing all the arguments directly in the invocation, or by defining them as keys in a (JSON) command configuration file and using the ``-C`` (or ``--config``) option. It is probably simpler to use the first option.
 ::
 
-    oasislmf model transform-canonical-to-model [-C /path/to/configuration/file] |
+    oasislmf model transform-canonical-to-model [-C /path/to/cmd/configuration/file] |
                                                  -c /path/to/canonical/file
                                                  -x /path/to/transformation/file
                                                  [-v /path/to/validation/file]
                                                  [-o /path/to/output/file]
 
 The mandatory arguments are the canonical and (XSLT) transformation file paths, while the (XSD) validation and output file paths are optional. If no output file path is provided then it will be created in the working directory where the command was run, with a default filename of ``modexp.csv``. If a configuration file is used it define the keys ``canonical_exposures_file_path`` and ``transformation_file_path``, and optionally ``validation_file_path`` and ``output_file_path``.
-
 
 We can use the sample PiWind OED canonical exposure file generated in the example above as the source file. The transformation command, with command logging output, is
 ::
@@ -121,3 +120,54 @@ This will produce the following canonical OED file.
 	ROW_ID,ID,LAT,LON,COVERAGE,CLASS_1,CLASS_2
 	1,1,52.76698052,-0.895469856,1,R,R
 	2,2,52.76697956,-0.89536613,1,R,R
+
+Generating keys files
+_____________________
+
+The ``generate-keys`` subcommand can be used to generate keys files from model lookups - the keys file links the model exposure with the model hazard and vulnerability components by defining an area peril ID and a vulnerability ID for each location/exposure, for all combinations of peril and coverage types supported by the model. There are two ways of running the command, depending on whether the model lookup is a custom lookup implementing the base Oasis lookup (``OasisBaseKeysLookup``) or the data-driven built-in lookup provided within the package (as with PiWind). For the custom lookups the command syntax is given by::
+
+    oasislmf model generate-keys [-C /path/to/cmd/configuration/file] |
+                                 -v /path/to/model/version/file
+                                 -d /path/to/keys/or/lookup/data
+                                 -l /path/to/lookup/package
+                                 [-f "oasis" | "json" ]
+                                 -x /path/to/model/exposure/file
+                                 [-k /path/to/keys/file]
+                                 [-e /path/to/keys/errors/file]
+
+The ``-f`` option is used to indicate whether the keys file should be an Oasis style keys file (``"oasis"``; this is the default option), which has the format::
+
+    LocID,PerilID,CoverageTypeID,AreaPerilID,VulnerabilityID
+    ..
+    ..
+
+or simply a listing of the lookup-generated keys, which are dicts with the following format::
+
+	{
+	    'id': <loc. ID>,
+	    'peril_id': <sub peril ID - must be a code that matches relevant Oasis flag>,
+	    'coverage_type': <cov. type - must be a code that matches relevant Oasis flag>,
+	    'area_peril_id': <area peril ID>,
+	    'vulnerability_id': <vuln. ID>,
+	    'message': <an optional message - best to keep it short or copy status flag>,
+	    'status': <status flag - 'success', 'nomatch' or 'fail'
+	}
+
+The command also generates a second file called the keys errors file, which lists all those locations/exposures for which the model lookup has been unable to assign area peril and vulnerability IDs either because of an internal error or because of insufficient or incomplete data. With the ``"oasis"`` output option the keys errors file has the following format::
+
+	LocID,PerilID,CoverageTypeID,Message
+	..
+	..
+
+The keys and keys errors file paths are optional - if either or both are not provided then timestamped files are created in the working directory where the command was run. If using a (JSON) command configuration file the file must define the following keys: ``model_version_file_path``, ``keys_data_path``, ``lookup_package_path``, and optionally ``keys_format``, ``model_exposures_file_path``, ``keys_file_path``, ``keys_errors_file_path``.
+
+With built-in lookups like PiWind, which are automated lookups entirely driven by data and a lookup configuration file, and do not require a model version file, custom lookup source code or data, the command syntax is given by::
+
+    oasislmf model generate-keys [-C /path/to/cmd/configuration/file] |
+                                 -g /path/to/lookup/configuration/file
+                                 [-f "oasis" | "json" ]
+                                 -x /path/to/model/exposure/file
+                                 [-k /path/to/keys/file]
+                                 [-e /path/to/keys/errors/file]
+
+The lookup configuration file is better understood in the context of the built-in lookup framework, which will be described in more detail later on. But essentially the configuration file defines the location of the lookup data, and also the peril, coverage type and vulnerability components of the model. The ``PiWind lookup configuration <https://github.com/OasisLMF/OasisPiWind/blob/master/keys_data/PiWind/lookup.json>``_ can be used as a template.
