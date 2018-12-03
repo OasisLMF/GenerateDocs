@@ -170,4 +170,4 @@ With built-in lookups like PiWind, which are automated lookups entirely driven b
                                  [-k /path/to/keys/file]
                                  [-e /path/to/keys/errors/file]
 
-The lookup configuration file is better understood in the context of the built-in lookup framework, which will be described in more detail later on. But essentially the configuration file defines the location of the lookup data, and also the peril, coverage type and vulnerability components of the model. The ``PiWind lookup configuration <https://github.com/OasisLMF/OasisPiWind/blob/master/keys_data/PiWind/lookup.json>``_ can be used as a template.
+The lookup configuration file is better understood in the context of the built-in lookup framework, which will be described in more detail later on. But essentially the configuration file defines the location of the lookup data, and also the peril, coverage type and vulnerability components of the model. The `PiWind lookup configuration <https://github.com/OasisLMF/OasisPiWind/blob/master/keys_data/PiWind/lookup.json>`_ can be used as a template.
