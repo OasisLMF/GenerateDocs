@@ -124,7 +124,8 @@ This will produce the following canonical OED file.
 Generating keys files
 _____________________
 
-The ``generate-keys`` subcommand can be used to generate keys files from model lookups - the keys file links the model exposure with the model hazard and vulnerability components by defining an area peril ID and a vulnerability ID for each location/exposure, for all combinations of peril and coverage types supported by the model. There are two ways of running the command, depending on whether the model lookup is a custom lookup implementing the base Oasis lookup (``OasisBaseKeysLookup``) or the data-driven built-in lookup provided within the package (as with PiWind). For the custom lookups the command syntax is given by::
+The ``generate-keys`` subcommand can be used to generate keys files from model lookups - the keys file links the model exposure with the model hazard and vulnerability components by defining an area peril ID and a vulnerability ID for each location/exposure, for all combinations of peril and coverage types supported by the model. There are two ways of running the command, depending on whether the model lookup is a custom lookup implementing the base Oasis lookup (``OasisBaseKeysLookup``) or the data-driven built-in lookup provided within the package (as with PiWind). For the custom lookups the command syntax is given by
+::
 
     oasislmf model generate-keys [-C /path/to/cmd/configuration/file] |
                                  -v /path/to/model/version/file
@@ -135,13 +136,15 @@ The ``generate-keys`` subcommand can be used to generate keys files from model l
                                  [-k /path/to/keys/file]
                                  [-e /path/to/keys/errors/file]
 
-The ``-f`` option is used to indicate whether the keys file should be an Oasis style keys file (``"oasis"``; this is the default option), which has the format::
+The ``-f`` option is used to indicate whether the keys file should be an Oasis style keys file (``"oasis"``; this is the default option), which has the format
+::
 
     LocID,PerilID,CoverageTypeID,AreaPerilID,VulnerabilityID
     ..
     ..
 
-or simply a listing of the lookup-generated keys, which are dicts with the following format::
+or simply a listing of the lookup-generated keys, which are dicts with the following format
+::
 
 	{
 	    'id': <loc. ID>,
@@ -153,7 +156,8 @@ or simply a listing of the lookup-generated keys, which are dicts with the follo
 	    'status': <status flag - 'success', 'nomatch' or 'fail'
 	}
 
-The command also generates a second file called the keys errors file, which lists all those locations/exposures for which the model lookup has been unable to assign area peril and vulnerability IDs either because of an internal error or because of insufficient or incomplete data. With the ``"oasis"`` output option the keys errors file has the following format::
+The command also generates a second file called the keys errors file, which lists all those locations/exposures for which the model lookup has been unable to assign area peril and vulnerability IDs either because of an internal error or because of insufficient or incomplete data. With the ``"oasis"`` output option the keys errors file has the following format
+::
 
 	LocID,PerilID,CoverageTypeID,Message
 	..
@@ -161,7 +165,8 @@ The command also generates a second file called the keys errors file, which list
 
 The keys and keys errors file paths are optional - if either or both are not provided then timestamped files are created in the working directory where the command was run. If using a (JSON) command configuration file the file must define the following keys: ``model_version_file_path``, ``keys_data_path``, ``lookup_package_path``, and optionally ``keys_format``, ``model_exposures_file_path``, ``keys_file_path``, ``keys_errors_file_path``.
 
-With built-in lookups like PiWind, which are automated lookups entirely driven by data and a lookup configuration file, and do not require a model version file, custom lookup source code or data, the command syntax is given by::
+With built-in lookups like PiWind, which are automated lookups entirely driven by data and a lookup configuration file, and do not require a model version file, custom lookup source code or data, the command syntax is given by
+::
 
     oasislmf model generate-keys [-C /path/to/cmd/configuration/file] |
                                  -g /path/to/lookup/configuration/file
