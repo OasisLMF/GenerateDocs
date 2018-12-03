@@ -131,10 +131,14 @@ The ``generate-keys`` subcommand can be used to generate keys files from model l
                                  -v /path/to/model/version/file
                                  -d /path/to/keys/or/lookup/data
                                  -l /path/to/lookup/package
-                                 [-f "oasis" | "json" ]
                                  -x /path/to/model/exposure/file
+                                 [-f "oasis" | "json" ]
                                  [-k /path/to/keys/file]
                                  [-e /path/to/keys/errors/file]
+
+All file path arguments can be given relative or absolute to the wher the command is run. The model version file should be a single line CSV file defining the model supplier ID, model ID and version string, e.g.::
+
+    OasisLMF,PiWind,0.0.0.1
 
 The ``-f`` option is used to indicate whether the keys file should be an Oasis style keys file (``"oasis"``; this is the default option), which has the format
 ::
@@ -176,3 +180,65 @@ With built-in lookups like PiWind, which are automated lookups entirely driven b
                                  [-e /path/to/keys/errors/file]
 
 The lookup configuration file is better understood in the context of the built-in lookup framework, which will be described in more detail later on. But essentially the configuration file defines the location of the lookup data, and also the peril, coverage type and vulnerability components of the model. The `PiWind lookup configuration <https://github.com/OasisLMF/OasisPiWind/blob/master/keys_data/PiWind/lookup.json>`_ can be used as a template.
+
+Here's an example of generating a PiWind keys file using this command, starting with a sample 10 row model exposure file.
+::
+
+	ID,LAT,LON,COVERAGE,CLASS_1,CLASS_2
+	1,52.76698052,-0.895469856,1,R,R
+	2,52.76697956,-0.89536613,1,R,R
+	3,52.76697845,-0.895247587,1,R,R
+	4,52.76696096,-0.895473908,1,R,R
+	5,52.76695804,-0.895353484,1,R,R
+	6,52.76695885,-0.89524749,1,R,R
+	7,52.7670776,-0.895274721,1,R,R
+	8,52.76712254,-0.895273583,1,R,R
+	9,52.76718545,-0.895271991,1,R,R
+	10,52.76724836,-0.895270399,1,R,R
+
+The command, with logging output, is given below.
+::
+
+	oasislmf model generate-keys -g /path/to/OasisPiWind/keys_data/PiWind/lookup.json -x /path/to/OasisPiWind/tests/data/ModelLocPiWind10.csv
+
+	Getting model info and lookup
+	STARTED: oasislmf.keys.lookup.__init__
+	STARTED: oasislmf.keys.lookup.__init__
+	COMPLETED: oasislmf.keys.lookup.__init__ in 0.0s
+	STARTED: oasislmf.keys.lookup.__init__
+	STARTED: oasislmf.keys.lookup.__init__
+	COMPLETED: oasislmf.keys.lookup.__init__ in 0.0s
+	COMPLETED: oasislmf.keys.lookup.__init__ in 0.0s
+	STARTED: oasislmf.keys.lookup.__init__
+	STARTED: oasislmf.keys.lookup.__init__
+	COMPLETED: oasislmf.keys.lookup.__init__ in 0.0s
+	STARTED: oasislmf.keys.lookup.get_vulnerabilities
+	COMPLETED: oasislmf.keys.lookup.get_vulnerabilities in 0.05s
+	COMPLETED: oasislmf.keys.lookup.__init__ in 0.05s
+	COMPLETED: oasislmf.keys.lookup.__init__ in 0.06s
+		{u'model_version': u'0.0.0.1', u'model_id': u'PiWind', u'supplier_id': u'OasisLMF'}, <oasislmf.keys.lookup.OasisLookup object at 0x1053b3b10>
+
+	Saving keys records to file
+	STARTED: oasislmf.keys.lookup.bulk_lookup
+	COMPLETED: oasislmf.keys.lookup.bulk_lookup in 0.0s
+
+	10 successful results saved to keys file /path/to/oasislmf-piwind-0.0.0.1-keys-20181203174128.csv
+
+	0 unsuccessful results saved to keys errors file /path/to/oasislmf-piwind-0.0.0.1-keys-errors-20181203174128.csv
+
+	Finished keys files generation (0.025 seconds)
+
+There are no errors in the keys, and the generated keys file should look as below.
+::
+
+	LocID,PerilID,CoverageTypeID,AreaPerilID,VulnerabilityID
+	1,1,1,54,3
+	2,1,1,54,3
+	3,1,1,54,3
+	4,1,1,54,3
+	5,1,1,54,3
+	6,1,1,54,3
+	7,1,1,54,3
+	8,1,1,54,3
+	9,1,1,54,3
+	10,1,1,54,3
