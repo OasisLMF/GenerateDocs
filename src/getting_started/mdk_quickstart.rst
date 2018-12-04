@@ -53,7 +53,7 @@ _________________________________________________________
 
 The ``transform-source-to-canonical`` subcommand can be used to transform a source exposure or accounts CSV file (in either EDM or OED format) to an appropriate canonical Oasis format. The transformation is done by converting the source CSV to XML, applying an XSLT transformation, and an optional XSD schema validation (if one is provided), and converting the transformed XML back to CSV.
 
-The command can be run either by providing all the arguments directly in the invocation, or by defining them as keys in a (JSON) command configuration file and using the ``-C`` (or ``--config``) option. It is probably simpler to use the first option.
+The command can be run either by providing all the arguments directly in the invocation, or by defining them as keys in a (JSON) command configuration file and using the ``-C`` (or ``--config``) option. For this command it is probably simpler to use the first option.
 ::
 
     oasislmf model transform-source-to-canonical [-C /path/to/cmd/configuration/file] |
@@ -63,7 +63,7 @@ The command can be run either by providing all the arguments directly in the inv
                                                  [-v /path/to/validation/file]
                                                  [-o /path/to/output/file]
 
-The mandatory arguments are the source and (XSLT) transformation file paths, while the (XSD) validation and output file paths are optional. The ``-y`` option can be used to indicate type of the source file - whether it contains exposure (``exposures``) or accounts, i.e. financial terms, (``accounts``) - the default is ``exposures``. If no output file path is provided then it will be created in the working directory where the command was run, with a default filename of ``canexp.csv`` for exposure or ``canacc.csv`` for accounts. If a configuration file is used it should define the keys ``source_file_path`` and ``transformation_file_path``, and optionally ``source_file_type``, ``validation_file_path``, ``output_file_path``.
+The mandatory arguments are the source and (XSLT) transformation file paths, while the (XSD) validation and output file paths are optional. The ``-y`` option can be used to indicate type of the source file - whether it contains exposure (``exposures``) or accounts, i.e. financial terms, (``accounts``) - the default is ``exposures``. If no output file path is provided then it will be created in the working directory where the command was run, with a default filename of ``canexp.csv`` for exposure or ``canacc.csv`` for accounts. If a command configuration file is used it should define the keys ``source_file_path`` and ``transformation_file_path``, and optionally ``source_file_type``, ``validation_file_path``, ``output_file_path``, and the values for all file path keys should be specified either as relative paths (relative to the configuration file path) or absolute paths.
 
 
 We describe an example using the following `sample PiWind OED source file <https://github.com/OasisLMF/OasisPiWind/blob/master/tests/data/SourceLocOEDPiWind2.csv>`_ with 2 exposures.
@@ -103,7 +103,7 @@ The command can be run either by providing all the arguments directly in the inv
                                                  [-v /path/to/validation/file]
                                                  [-o /path/to/output/file]
 
-The mandatory arguments are the canonical and (XSLT) transformation file paths, while the (XSD) validation and output file paths are optional. If no output file path is provided then it will be created in the working directory where the command was run, with a default filename of ``modexp.csv``. If a configuration file is used it define the keys ``canonical_exposures_file_path`` and ``transformation_file_path``, and optionally ``validation_file_path`` and ``output_file_path``.
+The mandatory arguments are the canonical and (XSLT) transformation file paths, while the (XSD) validation and output file paths are optional. If no output file path is provided then it will be created in the working directory where the command was run, with a default filename of ``modexp.csv``. If a command configuration file is used it should define the keys ``canonical_exposures_file_path`` and ``transformation_file_path``, and optionally ``validation_file_path`` and ``output_file_path``, and the values for all file path keys should be specified either as relative paths (relative to the configuration file path) or absolute paths.
 
 We can use the sample PiWind OED canonical exposure file generated in the example above as the source file. The transformation command, with command logging output, is
 ::
@@ -124,7 +124,7 @@ This will produce the following canonical OED file.
 Generating keys files
 _____________________
 
-The ``generate-keys`` subcommand can be used to generate keys files from model lookups - the keys file links the model exposure with the model hazard and vulnerability components by defining an area peril ID and a vulnerability ID for each location/exposure, for all combinations of peril and coverage types supported by the model. There are two ways of running the command, depending on whether the model lookup is a custom lookup implementing the base Oasis lookup (``OasisBaseKeysLookup``) or the data-driven built-in lookup provided within the package (as with PiWind). For the custom lookups the command syntax is given by
+The ``generate-keys`` subcommand can be used to generate keys files from model lookups - the keys file links the model exposure with the model hazard and vulnerability components by defining an area peril ID and a vulnerability ID for each location/exposure, for all combinations of peril and coverage types supported by the model. There are two ways of running the command, depending on whether the model lookup is a custom lookup implemented by the model developer, or the data-driven built-in lookup provided within the package (as with PiWind). For the custom lookups the command syntax is given by
 ::
 
     oasislmf model generate-keys [-C /path/to/cmd/configuration/file] |
@@ -167,7 +167,7 @@ The command also generates a second file called the keys errors file, which list
     ..
     ..
 
-The keys and keys errors file paths are optional - if either or both are not provided then timestamped files are created in the working directory where the command was run. If using a (JSON) command configuration file the file must define the following keys: ``model_version_file_path``, ``keys_data_path``, ``lookup_package_path``, and optionally ``keys_format``, ``model_exposures_file_path``, ``keys_file_path``, ``keys_errors_file_path``.
+The keys and keys errors file paths are optional - if either or both are not provided then timestamped files are created in the working directory where the command was run. If a command configuration file it used it should define the following keys: ``model_version_file_path``, ``keys_data_path``, ``lookup_package_path``, and optionally ``keys_format``, ``model_exposures_file_path``, ``keys_file_path``, ``keys_errors_file_path``,  and the values for all file path keys should be specified either as relative paths (relative to the configuration file path) or absolute paths.
 
 With built-in lookups like PiWind, which are automated lookups entirely driven by data and a lookup configuration file, and do not require a model version file, custom lookup source code or data, the command syntax is given by
 ::
@@ -242,3 +242,32 @@ There are no errors in the keys, and the generated keys file should look as belo
     8,1,1,54,3
     9,1,1,54,3
     10,1,1,54,3
+
+Generating Oasis files
+______________________
+
+Oasis files are the input CSV files required for generating the model analysis output files in the model execution stage - they consist of ground-up loss (GUL) input files and, optionally, insured loss (IL/FM) input files. The ``generate-oasis-files`` subcommand can be used to generate these. The command can either be used to generate GUL files only (default), or GUL and FM files if the ``fm`` option is present. Assuming a custom model lookup the command syntax to generate Oasis files is
+::
+
+    oasislmf model generate-oasis-files [-C /path/to/cmd/configuration/file] |
+                                        -x /path/to/source/exposure/file
+                                        -c /path/to/source/exposure/transformation/file
+                                        -p /path/to/canonical/exposure/profile
+                                        -f /path/to/canonical/exposure/transformation/file
+                                        -v /path/to/model/version/file
+                                        -k /path/to/keys/or/lookup/data
+                                        -l /path/to/lookup/package
+                                        [-a /path/to/source/exposure/validation/file]
+                                        [-e /path/to/canonical/exposure/validation/file]
+                                        [--fm]
+                                        [-y /path/to/source/accounts/file]
+                                        [-d /path/to/source/accounts/transformation/file]
+                                        [-b /path/to/source/accounts/validation/file]
+                                        [-q /path/to/canonical/accounts/profile]
+                                        [-u /path/to/fm/aggregation/profile]
+                                        [-o /path/to/oasis/files]
+
+The source files (exposure and accounts) can be in EDM or OED format, and the mandatory (XSLT) transformation and/or optional validation files must match the format of the source files. The canonical profiles are JSON files that describe the properties of columns in the canonical exposure and acccounts files that are relevant for generating the GUL and FM input files. The canonical profiles must also match the format of the source exposure file, i.e. OED source files require canonical profiles that describe the OED canonical files generated from those source files. The `PiWind OED canonical exposure profile <https://github.com/OasisLMF/OasisPiWind/blob/master/canonical-oed-loc-profile.json>`_ and `OED canonical accounts profile <https://github.com/OasisLMF/OasisPiWind/blob/master/canonical-oed-acc-profile.json>`_ can be used as templates for creating OED profiles. The arguments for the model version file, lookup data and lookup package paths are as described in the keys generation command - they are all required when the lookup is a custom lookup. If FM input files are required the ``--fm`` option must be provided, and in this case the source accounts file, accounts transformation file, canonical accounts profile and FM aggregation profile must all be provided. The Oasis files path is optional - if it is not present the Oasis files are generated in a timestamped folder ``OasisFiles-<UTC timestamp>`` in the working directory.
+
+If a command configuration file is used then, for the GUL only option, and still assuming a custom lookup, it should have the following keys: ``source_exposures_file_path``, ``source_to_canonical_exposures_transformation_file_path``, ``canonical_exposures_profile_json_path``, ``canonical_to_model_exposures_transformation_file_path``, ``model_version_file_path``, ``keys_data_path``, ``lookup_package_path``. For the FM option the additional keys ``source_accounts_file_path``, ``source_to_canonical_accounts_transformation_file_path``, ``canonical_accounts_profile_json_path``, ``fm_agg_profile_path`` are required.
+
