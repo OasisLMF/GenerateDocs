@@ -3,14 +3,14 @@ Model Development Kit  (MDK) Quickstart Guide
 
 The model development kit (MDK) is the `oasislmf <https://pypi.org/project/oasislmf/>`_ Python package. It provides various features and tools for developing, implementing, running and testing Oasis models. Installation instructions are provided on the PyPI package home page. This quickstart guide will cover the following topics.
 
-* Command line interface
-* Implementing and testing lookups
-* Working with Oasis models as objects
-* Exposure management
-* Utilities
+1. Command line interface
+2. Implementing and testing lookups
+3. Working with Oasis models as objects
+4. Exposure management
+5. Utilities
 
-Command line interface (CLI)
-----------------------------
+1. Command line interface (CLI)
+-------------------------------
 
 The package provides a command line interface (CLI) with different groups of commands for doing different things.
 
@@ -43,13 +43,13 @@ Available subcommands within a command group can be explored by using the ``-h``
       -C CONFIG, --config CONFIG
                             The oasislmf config to load
 
-Model
-~~~~~
+1.1 Model
+~~~~~~~~~
 
 The ``model`` commands are the most important in terms of functionality, so we start with a description of how these can be used, with examples using the `PiWind <https://github.com/OasisLMF/OasisPiWind>`_ demonstration model.
 
-Source -> canonical exposure/accounts file transformation
-_________________________________________________________
+1.1.1 Source -> canonical exposure/accounts file transformation
+_______________________________________________________________
 
 The ``transform-source-to-canonical`` subcommand can be used to transform a source exposure or accounts CSV file (in either EDM or OED format) to an appropriate canonical Oasis format. The transformation is done by converting the source CSV to XML, applying an XSLT transformation, and an optional XSD schema validation (if one is provided), and converting the transformed XML back to CSV.
 
@@ -89,8 +89,8 @@ This will produce the following canonical OED file.
     1,11111,1,10002082046,0,0,0,0,0,0,0,0,0,52.76698052,-0.895469856,0,LE13 0HL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1000,5000,1900,2,1,0,0,0,0,0,0,0,64,220000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,198000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
     2,11111,2,10002082047,0,0,0,0,0,0,0,0,0,52.76697956,-0.89536613,0,LE13 0HL,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,1000,5000,1900,2,1,0,0,0,0,0,0,0,64,790000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,711000,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0
 
-Canonical -> model exposure file transformation
-_______________________________________________
+1.1.2 Canonical -> model exposure file transformation
+_____________________________________________________
 
 The ``transform-canonical-to-model`` subcommand can be used to transform a canonical exposure CSV file (in either EDM or OED format) to a format that can be processed by the model lookup. The transformation is done by converting the source CSV to XML, applying an XSLT transformation, and an optional XSD schema validation (if one is provided), and converting the transformed XML back to CSV.
 
@@ -121,8 +121,8 @@ This will produce the following canonical OED file.
     1,1,52.76698052,-0.895469856,1,R,R
     2,2,52.76697956,-0.89536613,1,R,R
 
-Generating keys files
-_____________________
+1.1.3 Generating keys files
+___________________________
 
 The ``generate-keys`` subcommand can be used to generate keys files from model lookups - the keys file links the model exposure with the model hazard and vulnerability components by defining an area peril ID and a vulnerability ID for each location/exposure, for all combinations of peril and coverage types supported by the model. There are two ways of running the command, depending on whether the model lookup is a custom lookup implemented by the model developer, or the data-driven built-in lookup provided within the package (as with PiWind). For the custom lookups the command syntax is given by
 ::
@@ -243,8 +243,8 @@ There are no errors in the keys, and the generated keys file should look as belo
     9,1,1,54,3
     10,1,1,54,3
 
-Generating Oasis files
-______________________
+1.1.4 Generating Oasis files
+____________________________
 
 Oasis files are the input CSV files required for generating the model analysis output files in the model execution stage - they consist of ground-up loss (GUL) input files and, optionally, insured loss (IL/FM) input files. The ``generate-oasis-files`` subcommand can be used to generate these. The command can either be used to generate GUL files only (default), or GUL and FM files if the ``--fm`` option is present. Assuming a custom model lookup the command syntax to generate Oasis files is
 ::
@@ -294,3 +294,6 @@ The Oasis files generated in the default output directory ``/path/to/OasisFiles-
     ├── modexp-20181204123434.csv
     ├── oasiskeys-20181204123434.csv
     └── oasiskeys-errors-20181204123434.csv
+
+1.1.5 Generating losses
+_______________________
