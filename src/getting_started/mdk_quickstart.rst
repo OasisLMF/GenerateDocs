@@ -297,3 +297,18 @@ The Oasis files generated in the default output directory ``/path/to/OasisFiles-
 
 1.1.5 Generating losses
 _______________________
+
+1.1.6 Running a model end-to-end
+________________________________
+
+2. Implementing and testing lookups
+___________________________________
+
+3. Oasis models as objects
+__________________________
+
+4. Exposure management
+______________________
+
+5. Utilities
+____________
