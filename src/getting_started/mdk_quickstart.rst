@@ -121,7 +121,10 @@ This will produce the following canonical OED file.
     1,1,52.76698052,-0.895469856,1,R,R
     2,2,52.76697956,-0.89536613,1,R,R
 
-1.1.3 Generating keys files
+1.1.3 Generating an Rtree spatial index of peril areas for the built-in lookup
+______________________________________________________________________________
+
+1.1.4 Generating keys files
 ___________________________
 
 The ``generate-keys`` subcommand can be used to generate keys files from model lookups - the keys file links the model exposure with the model hazard and vulnerability components by defining an area peril ID and a vulnerability ID for each location/exposure, for all combinations of peril and coverage types supported by the model. There are two ways of running the command, depending on whether the model lookup is a custom lookup implemented by the model developer, or the data-driven built-in lookup provided within the package (as with PiWind). For the custom lookups the command syntax is given by
@@ -243,7 +246,7 @@ There are no errors in the keys, and the generated keys file should look as belo
     9,1,1,54,3
     10,1,1,54,3
 
-1.1.4 Generating Oasis files
+1.1.5 Generating Oasis files
 ____________________________
 
 Oasis files are the input CSV files required for generating the model analysis output files in the model execution stage - they consist of ground-up loss (GUL) input files and, optionally, insured loss (IL/FM) input files. The ``generate-oasis-files`` subcommand can be used to generate these. The command can either be used to generate GUL files only (default), or GUL and FM files if the ``--fm`` option is present. Assuming a custom model lookup the command syntax to generate Oasis files is
@@ -295,10 +298,10 @@ The Oasis files generated in the default output directory ``/path/to/OasisFiles-
     ├── oasiskeys-20181204123434.csv
     └── oasiskeys-errors-20181204123434.csv
 
-1.1.5 Generating losses
+1.1.6 Generating losses
 _______________________
 
-1.1.6 Running a model end-to-end
+1.1.7 Running a model end-to-end
 ________________________________
 
 2. Implementing and testing lookups
