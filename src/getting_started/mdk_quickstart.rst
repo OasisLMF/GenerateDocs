@@ -124,6 +124,8 @@ This will produce the following canonical OED file.
 1.1.3 Generating an Rtree spatial index of peril areas for the built-in lookup
 ______________________________________________________________________________
 
+The ``generate-peril-areas-rtree-file-index`` subcommand can be used to generate an Rtree spatial index of peril areas (model defined areas subject to the model perils) in the format expected by the `built-in lookup <https://github.com/OasisLMF/OasisLMF/blob/master/oasislmf/keys/lookup.py#L691>`_.
+
 1.1.4 Generating keys files
 ___________________________
 
@@ -182,7 +184,7 @@ With built-in lookups like PiWind, which are automated lookups entirely driven b
                                    [-k /path/to/keys/file]
                                    [-e /path/to/keys/errors/file]
 
-The lookup configuration file is better understood in the context of the built-in lookup framework, which will be described in more detail later on. But essentially the configuration file defines the location of the lookup data, and also the peril, coverage type and vulnerability components of the model. The `PiWind lookup configuration <https://github.com/OasisLMF/OasisPiWind/blob/master/keys_data/PiWind/lookup.json>`_ can be used as a template.
+The lookup configuration file is better understood in the context of the `built-in lookup <https://github.com/OasisLMF/OasisLMF/blob/master/oasislmf/keys/lookup.py#L691>`_ framework, which will be described in more detail later on. But essentially the configuration file defines the location of the lookup data, and also the peril, coverage type and vulnerability components of the model. The `PiWind lookup configuration <https://github.com/OasisLMF/OasisPiWind/blob/master/keys_data/PiWind/lookup.json>`_ can be used as a template.
 
 Here's an example of generating a PiWind keys file using this command, starting with a sample 10 row model exposure file.
 ::
