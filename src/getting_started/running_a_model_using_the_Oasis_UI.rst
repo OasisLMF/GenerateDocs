@@ -1,12 +1,9 @@
 Run a model using the Oasis UI
 ==============================
 
-The Oasis UI is a browser-based application for managing exposure data and operating modelling workflows.
-It is built using the `Shiny framework <https://shiny.rstudio.com/>`_, an R package that makes it easy to build interactive web applications.
-An evaluation version of the Oasis platform and using can be deployed using the `Oasis evaluation repository <https://github.com/OasisLMF/OasisEvaluation>`_.
-
-
-The movie below shows the modelling workflow and main features of the Oasis UI.
+The Oasis User Interface (UI) is a web-browser application and the front-end of the Oasis framework where the user imports their exposure and financial data before executing a cat model. The results produced by the model are based on the user-defined outputs, which are extensively customisable, catering for most user requirements.
+The UI is simple and intuitive to use, and demonstration videos can be found at the link below. 
+There is an extended training video with voice instructions and a shorter “bitesize” version capturing the major components of the process.
 
 .. raw:: html
 
