@@ -32,5 +32,4 @@ Features
 --------
 Our development work is prioritized to maximise value to the Oasis community. 
 We rank the features based on discussions with the membership, balancing with technology requirements and the logical sequencing required in some areas. 
-We maintain a backlog of main features with a target schedule for a 12-month rolling horizon. 
-The backlog is available for review and comment `here <https://trello.com/b/7O0krVYr/backlog>`_.
+The backlog is available for review and comment `here <https://github.com/orgs/OasisLMF/projects/11>`_.

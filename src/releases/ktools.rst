@@ -1,0 +1,1 @@
+.. mdinclude:: ../../modules/Ktools/CHANGELOG.rst
