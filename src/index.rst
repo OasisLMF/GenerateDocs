@@ -44,6 +44,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     getting_started/running_a_model_using_the_MDK
     getting_started/running_a_model_using_the_Oasis_API
     getting_started/running_a_model_using_the_Oasis_UI
+    getting_started/FAQ
 
 .. toctree::
     :titlesonly:
