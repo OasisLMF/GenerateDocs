@@ -1,0 +1,330 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../_sources/autoapi/src/server/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-src.server">
+<span id="src-server"></span><h1><a class="reference internal" href="#module-src.server" title="src.server"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server</span></code></a><a class="headerlink" href="#module-src.server" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="subpackages">
+<h2>Subpackages<a class="headerlink" href="#subpackages" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="oasisapi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi</span></code></a><ul>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/analyses/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analyses/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analyses/admin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.admin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analyses/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analyses/serializers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.serializers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analyses/tasks/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.tasks</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analyses/viewsets/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.viewsets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/analysis_models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analysis_models</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analysis_models/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analysis_models.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analysis_models/admin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analysis_models.admin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analysis_models/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analysis_models.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analysis_models/serializers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analysis_models.serializers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/analysis_models/viewsets/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analysis_models.viewsets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/auth/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.auth</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/auth/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.auth.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/auth/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.auth.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/auth/serializers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.auth.serializers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/auth/urls/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.auth.urls</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/auth/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.auth.views</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/data_files/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.data_files</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/data_files/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.data_files.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/data_files/admin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.data_files.admin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/data_files/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.data_files.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/data_files/serializers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.data_files.serializers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/data_files/viewsets/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.data_files.viewsets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/files/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/files/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/files/admin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files.admin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/files/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/files/serializers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files.serializers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/files/upload/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files.upload</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/files/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files.views</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/files/viewsets/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.files.viewsets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/healthcheck/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.healthcheck</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/healthcheck/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.healthcheck.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/healthcheck/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.healthcheck.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/healthcheck/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.healthcheck.views</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/oed_info/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.oed_info</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/oed_info/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.oed_info.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/oed_info/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.oed_info.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/oed_info/peril/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.oed_info.peril</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/oed_info/views/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.oed_info.views</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/portfolios/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.portfolios</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/portfolios/tests/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.portfolios.tests</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/portfolios/admin/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.portfolios.admin</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/portfolios/models/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.portfolios.models</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/portfolios/serializers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.portfolios.serializers</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/portfolios/viewsets/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.portfolios.viewsets</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/schemas/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.schemas</span></code></a><ul>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/schemas/custom_swagger/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.schemas.custom_swagger</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="oasisapi/schemas/serializers/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.schemas.serializers</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/celery/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.celery</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/filters/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.filters</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/settings/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.settings</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/urls/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.urls</span></code></a></li>
+<li class="toctree-l2"><a class="reference internal" href="oasisapi/wsgi/index.html"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.wsgi</span></code></a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

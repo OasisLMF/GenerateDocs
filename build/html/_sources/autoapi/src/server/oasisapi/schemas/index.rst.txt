@@ -1,0 +1,16 @@
+:mod:`src.server.oasisapi.schemas`
+==================================
+
+.. py:module:: src.server.oasisapi.schemas
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   custom_swagger/index.rst
+   serializers/index.rst
+
+

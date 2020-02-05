@@ -1,0 +1,48 @@
+:mod:`src.server.oasisapi.files.serializers`
+============================================
+
+.. py:module:: src.server.oasisapi.files.serializers
+
+
+Module Contents
+---------------
+
+.. data:: logger
+   
+
+   
+
+.. data:: CONTENT_TYPE_MAPPING
+   
+
+   
+
+.. function:: md5_filehash(in_memory_file, chunk_size=4096)
+
+
+.. py:class:: RelatedFileSerializer(*args, content_types=None, **kwargs)
+
+   Bases: :class:`rest_framework.serializers.ModelSerializer`
+
+   .. py:class:: Meta
+
+      .. attribute:: model
+         
+
+         
+
+      .. attribute:: fields
+         :annotation: = ['created', 'file', 'filename']
+
+         
+
+
+   .. method:: validate(self, attrs)
+
+
+
+   .. method:: validate_file(self, value)
+
+
+
+

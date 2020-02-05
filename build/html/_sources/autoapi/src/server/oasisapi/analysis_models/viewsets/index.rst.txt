@@ -1,0 +1,173 @@
+:mod:`src.server.oasisapi.analysis_models.viewsets`
+===================================================
+
+.. py:module:: src.server.oasisapi.analysis_models.viewsets
+
+
+Module Contents
+---------------
+
+.. py:class:: AnalysisModelFilter
+
+   Bases: :class:`src.server.oasisapi.filters.TimeStampedFilter`
+
+   .. py:class:: Meta
+
+      .. attribute:: model
+         
+
+         
+
+      .. attribute:: fields
+         :annotation: = ['supplier_id', 'supplier_id__contains', 'model_id', 'model_id__contains', 'version_id', 'version_id__contains', 'user']
+
+         
+
+
+   .. attribute:: supplier_id
+      
+
+      
+
+   .. attribute:: supplier_id__contains
+      
+
+      
+
+   .. attribute:: model_id
+      
+
+      
+
+   .. attribute:: model_id__contains
+      
+
+      
+
+   .. attribute:: version_id
+      
+
+      
+
+   .. attribute:: version_id__contains
+      
+
+      
+
+   .. attribute:: user
+      
+
+      
+
+
+.. py:class:: AnalysisModelViewSet
+
+   Bases: :class:`rest_framework.viewsets.ModelViewSet`
+
+   list:
+   Returns a list of Model objects.
+
+   ### Examples
+
+   To get all models with 'foo' in their name
+
+       /models/?supplier_id__contains=foo
+
+   To get all models with 'bar' in their name
+
+       /models/?version_id__contains=bar
+
+   To get all models created on 1970-01-01
+
+       /models/?created__date=1970-01-01
+
+   To get all models updated before 2000-01-01
+
+       /models/?modified__lt=2000-01-01
+
+   retrieve:
+   Returns the specific model entry.
+
+   create:
+   Creates a model based on the input data
+
+   update:
+   Updates the specified model
+
+   partial_update:
+   Partially updates the specified model (only provided fields are updated)
+
+   .. attribute:: queryset
+      
+
+      
+
+   .. attribute:: serializer_class
+      
+
+      
+
+   .. attribute:: filter_class
+      
+
+      
+
+   .. method:: get_serializer_class(self)
+
+
+
+   .. method:: parser_classes(self)
+      :property:
+
+
+
+   .. method:: versions(self, request, pk=None, version=None)
+
+
+
+   .. method:: resource_file(self, request, pk=None, version=None)
+
+
+      get:
+      Gets the models `resource_file` contents
+
+      delete:
+      Disassociates the moodels `resource_file` contents
+
+
+   .. method:: set_resource_file(self, request, pk=None, version=None)
+
+
+      post:
+      Sets the models `resource_file` contents
+
+
+   .. method:: data_files(self, request, pk=None, version=None)
+
+
+
+
+.. py:class:: ModelSettingsView
+
+   Bases: :class:`rest_framework.viewsets.ModelViewSet`
+
+   .. attribute:: queryset
+      
+
+      
+
+   .. attribute:: serializer_class
+      
+
+      
+
+   .. attribute:: filter_class
+      
+
+      
+
+   .. method:: model_settings(self, request, pk=None, version=None)
+
+
+
+

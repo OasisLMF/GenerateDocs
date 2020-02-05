@@ -1,0 +1,248 @@
+:mod:`oasislmf.model_execution.bash`
+====================================
+
+.. py:module:: oasislmf.model_execution.bash
+
+
+Module Contents
+---------------
+
+.. data:: RUNTYPE_GROUNDUP_LOSS
+   :annotation: = gul
+
+   
+
+.. data:: RUNTYPE_INSURED_LOSS
+   :annotation: = il
+
+   
+
+.. data:: RUNTYPE_REINSURANCE_LOSS
+   :annotation: = ri
+
+   
+
+.. data:: WAIT_PROCESSING_SWITCHES
+   
+
+   
+
+.. function:: print_command(command_file, cmd)
+
+   Writes the supplied command to the end of the generated script
+
+   :param command_file: File to append command to.
+   :param cmd: The command to append
+
+
+.. function:: leccalc_enabled(lec_options)
+
+   Checks if leccalc is enabled in the leccalc options
+
+   :param lec_options: The leccalc options from the analysis settings
+   :type lec_options: dict
+
+   :return: True is leccalc is enables, False otherwise.
+
+
+.. function:: do_post_wait_processing(runtype, analysis_settings, filename, process_counter, work_sub_dir='', output_dir='output/')
+
+
+.. function:: do_fifos_exec(runtype, max_process_id, filename, fifo_dir, action='mkfifo')
+
+
+.. function:: do_fifos_calc(runtype, analysis_settings, max_process_id, filename, fifo_dir='fifo/', action='mkfifo')
+
+
+.. function:: create_workfolders(runtype, analysis_settings, filename, work_dir='work/')
+
+
+.. function:: do_kats(runtype, analysis_settings, max_process_id, filename, process_counter, work_dir='work/kat/', output_dir='output/')
+
+
+.. function:: do_summarycalcs(runtype, analysis_settings, process_id, filename, fifo_dir='fifo/', stderr_guard=True, num_reinsurance_iterations=0, gul_alloc_rule=None)
+
+
+.. function:: do_tees(runtype, analysis_settings, process_id, filename, process_counter, fifo_dir='fifo/', work_dir='work/')
+
+
+.. function:: do_any(runtype, analysis_settings, process_id, filename, process_counter, fifo_dir='fifo/', work_dir='work/')
+
+
+.. function:: ri(analysis_settings, max_process_id, filename, process_counter, num_reinsurance_iterations, fifo_dir='fifo/', work_dir='work/', stderr_guard=True)
+
+
+.. function:: il(analysis_settings, max_process_id, filename, process_counter, fifo_dir='fifo/', work_dir='work/', stderr_guard=True)
+
+
+.. function:: do_gul(analysis_settings, max_process_id, filename, process_counter, fifo_dir='fifo/', work_dir='work/', gul_alloc_rule=None, stderr_guard=True, full_correlation=False)
+
+
+.. function:: do_waits(wait_variable, wait_count, filename)
+
+   Add waits to the script
+
+   :param wait_variable: The type of wait
+   :type wait_variable: str
+
+   :param wait_count: The number of processes to wait for
+   :type wait_count: int
+
+   :param filename: Script to add waits to
+   :type filename: str
+
+
+.. function:: do_pwaits(filename, process_counter)
+
+   Add pwaits to the script
+
+
+.. function:: do_awaits(filename, process_counter)
+
+   Add awaits to the script
+
+
+.. function:: do_lwaits(filename, process_counter)
+
+   Add lwaits to the script
+
+
+.. function:: do_kwaits(filename, process_counter)
+
+   Add kwaits to the script
+
+
+.. function:: do_fcwaits(filename, process_counter)
+
+   Add fcwaits to the script
+
+
+.. function:: get_getmodel_itm_cmd(number_of_samples, gul_threshold, use_random_number_file, gul_alloc_rule, item_output, process_id, max_process_id, correlated_output, **kwargs)
+
+   Gets the getmodel ktools command (3.1.0+) Gulcalc item stream
+   :param number_of_samples: The number of samples to run
+   :type number_of_samples: int
+   :param gul_threshold: The GUL threshold to use
+   :type gul_threshold: float
+   :param use_random_number_file: flag to use the random number file
+   :type use_random_number_file: bool
+   :param gul_alloc_rule: back allocation rule for gulcalc
+   :type gul_alloc_rule: int
+   :param item_output: The item output
+   :type item_output: str
+   :return: The generated getmodel command
+
+
+.. function:: get_getmodel_cov_cmd(number_of_samples, gul_threshold, use_random_number_file, coverage_output, item_output, process_id, max_process_id, **kwargs)
+
+   Gets the getmodel ktools command (version < 3.0.8) gulcalc coverage stream
+   :param number_of_samples: The number of samples to run
+   :type number_of_samples: int
+   :param gul_threshold: The GUL threshold to use
+   :type gul_threshold: float
+   :param use_random_number_file: flag to use the random number file
+   :type use_random_number_file: bool
+   :param coverage_output: The coverage output
+   :type coverage_output: str
+   :param item_output: The item output
+   :type item_output: str
+   :return: The generated getmodel command
+
+
+.. function:: get_main_cmd_ri_stream(cmd, process_id, il_output, il_alloc_rule, ri_alloc_rule, num_reinsurance_iterations, fifo_dir='fifo/', stderr_guard=True, full_correlation=False, process_counter=None)
+
+   Gets the fmcalc ktools command reinsurance stream
+   :param cmd: either gulcalc command stream or correlated output file
+   :type cmd: str
+   :param process_id: ID corresponding to thread
+   :type process_id: int
+   :param il_output: If insured loss outputs required 
+   :type il_output: Boolean 
+   :param il_alloc_rule: insured loss allocation rule for fmcalc
+   :type il_alloc_rule: int
+   :param ri_alloc_rule: reinsurance allocation rule for fmcalc
+   :type ri_alloc_rule: int
+   :param num_reinsurance_iterations: number of reinsurance iterations
+   :type num_reinsurance_iterations: int
+   :param fifo_dir: path to fifo directory
+   :type fifo_dir: str
+   :param stderr_guard: send stderr output to log file
+   :type stderr_guard: bool
+   :param full_correlation: execute fmcalc on fully correlated data
+   :type full_correlation: bool
+   :param process_counter: process counter
+   :type process_counter: Counter
+   :return: generated fmcalc command as str
+
+
+.. function:: get_main_cmd_il_stream(cmd, process_id, il_alloc_rule, fifo_dir='fifo/', stderr_guard=True, full_correlation=False, process_counter=None)
+
+   Gets the fmcalc ktools command insured losses stream
+   :param cmd: either gulcalc command stream or correlated output file
+   :type cmd: str
+   :param process_id: ID corresponding to thread
+   :type process_id: int
+   :param il_alloc_rule: insured loss allocation rule for fmcalc
+   :type il_alloc_rule: int
+   :param fifo_dir: path to fifo directory
+   :type fifo_dir: str
+   :param stderr_guard: send stderr output to log file
+   :type stderr_guard: bool
+   :param full_correlation: execute fmcalc on fully correlated data
+   :type full_correlation: bool
+   :param process_counter: process counter
+   :type process_counter: Counter
+   :return: generated fmcalc command as str
+
+
+.. function:: get_main_cmd_gul_stream(cmd, process_id, fifo_dir='fifo/', stderr_guard=True)
+
+   Gets the command to output ground up losses
+   :param cmd: either gulcalc command stream or correlated output file
+   :type cmd: str
+   :param process_id: ID corresponding to thread
+   :type process_id: int
+   :param fifo_dir: path to fifo directory
+   :type fifo_dir: str
+   :param stderr_guard: send stderr output to log file
+   :type stderr_guard: bool
+   :return: generated command as str
+
+
+.. function:: do_computes(outputs)
+
+
+.. function:: genbash(max_process_id, analysis_settings, num_reinsurance_iterations=0, fifo_tmp_dir=True, gul_alloc_rule=None, il_alloc_rule=None, ri_alloc_rule=None, stderr_guard=True, bash_trace=False, filename='run_kools.sh', _get_getmodel_cmd=None, custom_args={})
+
+   Generates a bash script containing ktools calculation instructions for an
+   Oasis model.
+
+   :param max_process_id: The number of processes to create
+   :type max_process_id: int
+
+   :param analysis_settings: The analysis settings
+   :type analysis_settings: dict
+
+   :param filename: The output file name
+   :type filename: string
+
+   :param num_reinsurance_iterations: The number of reinsurance iterations
+   :type num_reinsurance_iterations: int
+
+   :param fifo_tmp_dir: When set to True, Create and use FIFO quese in `/tmp/[A-Z,0-9]/fifo`, if False run in './fifo'
+   :type fifo_tmp_dir: boolean
+
+   :param gul_alloc_rule: Allocation rule (None or 1) for gulcalc, if not set default to coverage stream
+   :type gul_alloc_rule: Int
+
+   :param il_alloc_rule: Allocation rule (0, 1 or 2) for fmcalc
+   :type il_alloc_rule: Int
+
+   :param ri_alloc_rule: Allocation rule (0, 1 or 2) for fmcalc
+   :type ri_alloc_rule: Int
+
+   :param get_getmodel_cmd: Method for getting the getmodel command, by default
+       ``GenerateLossesCmd.get_getmodel_cmd`` is used.
+   :type get_getmodel_cmd: callable
+
+

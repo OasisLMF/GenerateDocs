@@ -1,0 +1,24 @@
+:mod:`src.server.oasisapi.schemas.custom_swagger`
+=================================================
+
+.. py:module:: src.server.oasisapi.schemas.custom_swagger
+
+
+Module Contents
+---------------
+
+.. data:: FILE_RESPONSE
+   
+
+   
+
+.. data:: HEALTHCHECK
+   
+
+   
+
+.. data:: TOKEN_REFRESH_HEADER
+   
+
+   
+

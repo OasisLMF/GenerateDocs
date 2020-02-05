@@ -1,0 +1,73 @@
+:mod:`src.server.oasisapi.analyses.tests.test_analysis_model`
+=============================================================
+
+.. py:module:: src.server.oasisapi.analyses.tests.test_analysis_model
+
+
+Module Contents
+---------------
+
+.. py:class:: AnalysisCancel
+
+   Bases: :class:`django_webtest.WebTestMixin`, :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_state_is_running___revoke_is_called(self, task_id)
+
+
+
+   .. method:: test_state_is_not_running___validation_error_is_raised_revoke_is_not_called(self, status, task_id)
+
+
+
+
+.. py:class:: AnalysisRun
+
+   Bases: :class:`django_webtest.WebTestMixin`, :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_state_is_ready___run_is_started(self, status, task_id)
+
+
+
+   .. method:: test_state_is_running_or_generating_inputs___validation_error_is_raised_revoke_is_not_called(self, status, task_id)
+
+
+
+   .. method:: test_run_analysis_signature_is_correct(self)
+
+
+
+
+.. py:class:: AnalysisCancelInputGeneration
+
+   Bases: :class:`django_webtest.WebTestMixin`, :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_state_is_generating_inputs___revoke_is_called(self, task_id)
+
+
+
+   .. method:: test_state_is_not_generating_inputs___validation_error_is_raised_revoke_is_not_called(self, status, task_id)
+
+
+
+
+.. py:class:: AnalysisGenerateInputs
+
+   Bases: :class:`django_webtest.WebTestMixin`, :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_state_is_not_running___run_is_started(self, status, task_id)
+
+
+
+   .. method:: test_state_is_running_or_generating_inputs___validation_error_is_raised_revoke_is_not_called(self, status, task_id)
+
+
+
+   .. method:: test_portfolio_has_no_location_file___validation_error_is_raised_revoke_is_not_called(self, task_id)
+
+
+
+   .. method:: test_generate_input_signature_is_correct(self)
+
+
+
+

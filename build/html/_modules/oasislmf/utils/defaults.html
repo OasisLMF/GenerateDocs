@@ -1,0 +1,405 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.utils.defaults &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../oasislmf.html">oasislmf</a> &raquo;</li>
+        
+      <li>oasislmf.utils.defaults</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for oasislmf.utils.defaults</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;get_config_profile&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_default_accounts_profile&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_default_deterministic_analysis_settings&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_default_exposure_profile&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_default_fm_aggregation_profile&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_default_unified_profile&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_loc_dtypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_acc_dtypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_scope_dtypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_info_dtypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;store_exposure_fp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;find_exposure_fp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GROUP_ID_COLS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KTOOLS_ALLOC_GUL_MAX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KTOOLS_ALLOC_FM_MAX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KTOOLS_FIFO_RELATIVE&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KTOOLS_DEBUG&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KTOOLS_ERR_GUARD&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;KTOOLS_NUM_PROCESSES&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OASIS_FILES_PREFIXES&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SUMMARY_MAPPING&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SUMMARY_OUTPUT&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;SOURCE_IDX&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;STATIC_DATA_FP&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;WRITE_CHUNKSIZE&#39;</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">.data</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_json</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">SOURCE_FILENAMES</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+    <span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="s1">&#39;location.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="s1">&#39;account.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="s1">&#39;reinsinfo.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;scope&#39;</span><span class="p">:</span> <span class="s1">&#39;reinsscope.csv&#39;</span>
+<span class="p">})</span>
+
+<span class="c1"># Store index from merged source files (for later slice &amp; dice)</span>
+<div class="viewcode-block" id="SOURCE_IDX"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.SOURCE_IDX">[docs]</a><span class="n">SOURCE_IDX</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+    <span class="s1">&#39;loc&#39;</span><span class="p">:</span> <span class="s1">&#39;loc_idx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;acc&#39;</span><span class="p">:</span> <span class="s1">&#39;acc_idx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;info&#39;</span><span class="p">:</span> <span class="s1">&#39;info_idx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;scope&#39;</span><span class="p">:</span> <span class="s1">&#39;scope_idx&#39;</span></div>
+<span class="p">})</span>
+
+<div class="viewcode-block" id="SUMMARY_MAPPING"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.SUMMARY_MAPPING">[docs]</a><span class="n">SUMMARY_MAPPING</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+    <span class="s1">&#39;gul_map_fn&#39;</span><span class="p">:</span> <span class="s1">&#39;gul_summary_map.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fm_map_fn&#39;</span><span class="p">:</span> <span class="s1">&#39;fm_summary_map.csv&#39;</span></div>
+<span class="p">})</span>
+
+<div class="viewcode-block" id="SUMMARY_OUTPUT"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.SUMMARY_OUTPUT">[docs]</a><span class="n">SUMMARY_OUTPUT</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+    <span class="s1">&#39;gul&#39;</span><span class="p">:</span> <span class="s1">&#39;gulsummaryxref.csv&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;il&#39;</span><span class="p">:</span> <span class="s1">&#39;fmsummaryxref.csv&#39;</span></div>
+<span class="p">})</span>
+
+<span class="c1"># Path for storing static data/metadata files used in the package</span>
+<div class="viewcode-block" id="STATIC_DATA_FP"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.STATIC_DATA_FP">[docs]</a><span class="n">STATIC_DATA_FP</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="vm">__file__</span><span class="p">),</span> <span class="n">os</span><span class="o">.</span><span class="n">pardir</span><span class="p">)),</span> <span class="s1">&#39;_data&#39;</span><span class="p">)</span></div>
+
+<span class="c1"># Default profiles that describe the financial terms in the OED acc. and loc.</span>
+<span class="c1"># (exposure) files, as well as how aggregation of FM input items is performed</span>
+<span class="c1"># in the different OED FM levels</span>
+
+
+
+<div class="viewcode-block" id="store_exposure_fp"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.store_exposure_fp">[docs]</a><span class="k">def</span> <span class="nf">store_exposure_fp</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="n">exposure_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Preserve original exposure file extention if its in a pandas supported</span>
+<span class="sd">    compressed format</span>
+
+<span class="sd">    compression : {‘infer’, ‘gzip’, ‘bz2’, ‘zip’, ‘xz’, None}, default ‘infer’</span>
+<span class="sd">                  For on-the-fly decompression of on-disk data. If ‘infer’ and </span>
+<span class="sd">                  filepath_or_buffer is path-like, then detect compression from </span>
+<span class="sd">                  the following extensions: ‘.gz’, ‘.bz2’, ‘.zip’, or ‘.xz’ </span>
+<span class="sd">                  (otherwise no decompression). </span>
+<span class="sd">                  </span>
+<span class="sd">                  If using ‘zip’, the ZIP file must contain only one data file </span>
+<span class="sd">                  to be read in. Set to None for no decompression.</span>
+
+<span class="sd">                New in version 0.18.1: support for ‘zip’ and ‘xz’ compression.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">compressed_ext</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;.gz&#39;</span><span class="p">,</span> <span class="s1">&#39;.bz2&#39;</span><span class="p">,</span> <span class="s1">&#39;.zip&#39;</span><span class="p">,</span><span class="s1">&#39;.xz&#39;</span><span class="p">)</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="n">SOURCE_FILENAMES</span><span class="p">[</span><span class="n">exposure_type</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">fp</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">compressed_ext</span><span class="p">):</span>
+        <span class="k">return</span> <span class="s1">&#39;.&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">([</span><span class="n">filename</span><span class="p">,</span> <span class="n">fp</span><span class="o">.</span><span class="n">rsplit</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="o">-</span><span class="mi">1</span><span class="p">]])</span>
+    <span class="k">else</span><span class="p">:</span>    
+        <span class="k">return</span> <span class="n">filename</span></div>
+
+<div class="viewcode-block" id="find_exposure_fp"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.find_exposure_fp">[docs]</a><span class="k">def</span> <span class="nf">find_exposure_fp</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">exposure_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">    Find an OED exposure file stored in the oasis inputs dir</span>
+<span class="sd">    while preserving the compressed ext  </span>
+<span class="sd">    &quot;&quot;&quot;</span> 
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="n">SOURCE_FILENAMES</span><span class="p">[</span><span class="n">exposure_type</span><span class="p">]</span> <span class="o">+</span> <span class="s1">&#39;*&#39;</span><span class="p">))</span>
+    <span class="k">return</span> <span class="n">fp</span><span class="o">.</span><span class="n">pop</span><span class="p">()</span></div>
+
+<div class="viewcode-block" id="get_default_accounts_profile"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_default_accounts_profile">[docs]</a><span class="k">def</span> <span class="nf">get_default_accounts_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;default_acc_profile.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="k">else</span> <span class="n">fp</span></div>
+
+
+<div class="viewcode-block" id="get_default_exposure_profile"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_default_exposure_profile">[docs]</a><span class="k">def</span> <span class="nf">get_default_exposure_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;default_loc_profile.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="k">else</span> <span class="n">fp</span></div>
+
+
+<div class="viewcode-block" id="get_config_profile"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_config_profile">[docs]</a><span class="k">def</span> <span class="nf">get_config_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;config_compatibility_profile.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="k">else</span> <span class="n">fp</span></div>
+
+
+<div class="viewcode-block" id="get_default_unified_profile"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_default_unified_profile">[docs]</a><span class="k">def</span> <span class="nf">get_default_unified_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;default_unified_profile.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="k">else</span> <span class="n">fp</span></div>
+
+
+<div class="viewcode-block" id="get_default_fm_aggregation_profile"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_default_fm_aggregation_profile">[docs]</a><span class="k">def</span> <span class="nf">get_default_fm_aggregation_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;default_fm_agg_profile.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="p">):</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="k">else</span> <span class="n">fp</span></div>
+
+
+<div class="viewcode-block" id="get_loc_dtypes"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_loc_dtypes">[docs]</a><span class="k">def</span> <span class="nf">get_loc_dtypes</span><span class="p">():</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;loc_dtypes.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_acc_dtypes"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_acc_dtypes">[docs]</a><span class="k">def</span> <span class="nf">get_acc_dtypes</span><span class="p">():</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;acc_dtypes.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_scope_dtypes"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_scope_dtypes">[docs]</a><span class="k">def</span> <span class="nf">get_scope_dtypes</span><span class="p">():</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;scope_dtypes.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_info_dtypes"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_info_dtypes">[docs]</a><span class="k">def</span> <span class="nf">get_info_dtypes</span><span class="p">():</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;info_dtypes.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="WRITE_CHUNKSIZE"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.WRITE_CHUNKSIZE">[docs]</a><span class="n">WRITE_CHUNKSIZE</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="p">(</span><span class="mi">10</span> <span class="o">**</span> <span class="mi">5</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GROUP_ID_COLS"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.GROUP_ID_COLS">[docs]</a><span class="n">GROUP_ID_COLS</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span></div>
+
+<span class="c1"># Default name prefixes of the Oasis input files (GUL + IL)</span>
+<div class="viewcode-block" id="OASIS_FILES_PREFIXES"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.OASIS_FILES_PREFIXES">[docs]</a><span class="n">OASIS_FILES_PREFIXES</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+    <span class="s1">&#39;gul&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;complex_items&#39;</span><span class="p">:</span> <span class="s1">&#39;complex_items&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;items&#39;</span><span class="p">:</span> <span class="s1">&#39;items&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coverages&#39;</span><span class="p">:</span> <span class="s1">&#39;coverages&#39;</span><span class="p">,</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;il&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;fm_policytc&#39;</span><span class="p">:</span> <span class="s1">&#39;fm_policytc&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fm_profile&#39;</span><span class="p">:</span> <span class="s1">&#39;fm_profile&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fm_programme&#39;</span><span class="p">:</span> <span class="s1">&#39;fm_programme&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;fm_xref&#39;</span><span class="p">:</span> <span class="s1">&#39;fm_xref&#39;</span><span class="p">,</span></div>
+    <span class="p">}</span>
+<span class="p">})</span>
+
+
+<span class="c1"># Default analysis settings for deterministic loss generation</span>
+<div class="viewcode-block" id="get_default_deterministic_analysis_settings"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.get_default_deterministic_analysis_settings">[docs]</a><span class="k">def</span> <span class="nf">get_default_deterministic_analysis_settings</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">STATIC_DATA_FP</span><span class="p">,</span> <span class="s1">&#39;analysis_settings.json&#39;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">fp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">path</span> <span class="k">else</span> <span class="n">fp</span></div>
+
+
+<span class="c1"># Defaults for Ktools runtime parameters</span>
+<div class="viewcode-block" id="KTOOLS_NUM_PROCESSES"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.KTOOLS_NUM_PROCESSES">[docs]</a><span class="n">KTOOLS_NUM_PROCESSES</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span></div>
+<div class="viewcode-block" id="KTOOLS_FIFO_RELATIVE"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.KTOOLS_FIFO_RELATIVE">[docs]</a><span class="n">KTOOLS_FIFO_RELATIVE</span> <span class="o">=</span> <span class="kc">False</span></div>
+<div class="viewcode-block" id="KTOOLS_ERR_GUARD"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.KTOOLS_ERR_GUARD">[docs]</a><span class="n">KTOOLS_ERR_GUARD</span> <span class="o">=</span> <span class="kc">True</span></div>
+<div class="viewcode-block" id="KTOOLS_ALLOC_FM_MAX"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.KTOOLS_ALLOC_FM_MAX">[docs]</a><span class="n">KTOOLS_ALLOC_FM_MAX</span> <span class="o">=</span> <span class="mi">3</span></div>
+<div class="viewcode-block" id="KTOOLS_ALLOC_GUL_MAX"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.KTOOLS_ALLOC_GUL_MAX">[docs]</a><span class="n">KTOOLS_ALLOC_GUL_MAX</span> <span class="o">=</span> <span class="mi">1</span>     <span class="c1"># 1 = new item stream, 0 = use prev Coverage stream</span></div>
+<span class="n">KTOOLS_ALLOC_GUL_DEFAULT</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">KTOOLS_ALLOC_IL_DEFAULT</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">KTOOLS_ALLOC_RI_DEFAULT</span> <span class="o">=</span> <span class="mi">3</span>
+
+<div class="viewcode-block" id="KTOOLS_DEBUG"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/defaults/index.html#oasislmf.utils.defaults.KTOOLS_DEBUG">[docs]</a><span class="n">KTOOLS_DEBUG</span> <span class="o">=</span> <span class="kc">False</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

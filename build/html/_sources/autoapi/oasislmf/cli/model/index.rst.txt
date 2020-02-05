@@ -1,0 +1,241 @@
+:mod:`oasislmf.cli.model`
+=========================
+
+.. py:module:: oasislmf.cli.model
+
+
+Module Contents
+---------------
+
+.. py:class:: GeneratePerilAreasRtreeFileIndexCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Generates and writes an Rtree file index of peril area IDs (area peril IDs)
+   and area polygon bounds from a peril areas (area peril) file.
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Generates and writes an Rtree file index of peril area IDs (area peril IDs)
+      and area polygon bounds from a peril areas (area peril) file.
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: GenerateKeysCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Generates keys from a model lookup, and write Oasis keys and keys error files.
+
+   The model lookup, which is normally independently implemented by the model
+   supplier, should generate keys as dicts with the following format
+   ::
+
+       {
+           "id": <loc. ID>,
+           "peril_id": <OED sub-peril ID>,
+           "coverage_type": <OED coverage type ID>,
+           "area_peril_id": <area peril ID>,
+           "vulnerability_id": <vulnerability ID>,
+           "message": <loc. lookup status message>,
+           "status": <loc. lookup status flag indicating success, failure or no-match>
+       }
+
+   The keys generation command can generate these dicts, and write them to
+   file. It can also be used to write these to an Oasis keys file (which is a
+   requirement for model execution), which has the following format.::
+
+       LocID,PerilID,CoverageTypeID,AreaPerilID,VulnerabilityID
+       ..
+       ..
+   This file only lists the locations for which there has been a successful
+   lookup. The keys errors file lists all the locations with failing or
+   non-matching lookups and has the following format::
+
+       LocID,PerilID,CoverageTypeID,Message
+       ..
+       ..
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Generates keys from a model lookup, and write Oasis keys and keys error files.
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: GenerateOasisFilesCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Generates the standard Oasis GUL input files + optionally the IL/FM input
+   files and the RI input files.
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Generates the standard Oasis GUL input files + optionally the IL/FM input
+      files and the RI input files.
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: GenerateLossesCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Generates losses using the installed ktools framework given Oasis files,
+   model analysis settings JSON file, model data and model package data.
+
+   The command line arguments can be supplied in the configuration file
+   (``oasislmf.json`` by default or specified with the ``--config`` flag).
+   Run ``oasislmf config --help`` for more information.
+
+   The script creates a time-stamped folder in the model run directory and
+   sets that as the new model run directory, copies the analysis settings
+   JSON file into the run directory and creates the following folder
+   structure
+   ::
+
+       |-- analysis_settings.json
+       |-- fifo
+       |-- input
+       |-- output
+       |-- RI_1
+       |-- ri_layers.json
+       |-- run_ktools.sh
+       |-- static
+       `-- work
+
+   Depending on the OS type the model data is symlinked (Linux, Darwin) or
+   copied (Cygwin, Windows) into the ``static`` subfolder. The input files
+   are kept in the ``input`` subfolder and the losses are generated as CSV
+   files in the ``output`` subfolder.
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Generates losses using the installed ktools framework given Oasis files,
+      model analysis settings JSON file, model data and model package data.
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: RunCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Run models end to end.
+
+   The command line arguments can be supplied in the configuration file
+   (``oasislmf.json`` by default or specified with the ``--config`` flag).
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Run models end to end.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Generate Oasis files (items, coverages, GUL summary) for a model
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: ModelCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Model subcommands::
+
+   * generating an Rtree spatial index for the area peril lookup component of the built-in lookup framework
+   * generating keys files from model lookups
+   * generating Oasis input CSV files (GUL [+ IL, RI])
+   * generating losses from a preexisting set of Oasis input CSV files
+   * generating deterministic losses (no model)
+   * running a model end-to-end
+
+   .. attribute:: sub_commands
+      
+
+      
+
+

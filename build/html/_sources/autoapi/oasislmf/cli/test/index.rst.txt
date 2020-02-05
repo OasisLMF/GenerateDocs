@@ -1,0 +1,47 @@
+:mod:`oasislmf.cli.test`
+========================
+
+.. py:module:: oasislmf.cli.test
+
+
+Module Contents
+---------------
+
+.. py:class:: ModelValidationCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Checks model data for validity.
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Performs validity checks on model data csv files using ktools
+      executables.
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: TestCmd
+
+   Bases: :class:`argparsetree.BaseCommand`
+
+   Test models and keys servers
+
+   .. attribute:: sub_commands
+      
+
+      
+
+

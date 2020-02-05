@@ -1,0 +1,34 @@
+:mod:`oasislmf.utils`
+=====================
+
+.. py:module:: oasislmf.utils
+
+.. autoapi-nested-parse::
+
+   Utils for stuff
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   calc_rules/index.rst
+   compress/index.rst
+   coverages/index.rst
+   data/index.rst
+   defaults/index.rst
+   deterministic_loss/index.rst
+   diff/index.rst
+   exceptions/index.rst
+   fm/index.rst
+   log/index.rst
+   path/index.rst
+   peril/index.rst
+   profiles/index.rst
+   status/index.rst
+   version_info/index.rst
+
+

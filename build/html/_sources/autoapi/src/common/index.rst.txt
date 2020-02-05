@@ -1,0 +1,20 @@
+:mod:`src.common`
+=================
+
+.. py:module:: src.common
+
+.. autoapi-nested-parse::
+
+   Module initialiser.
+
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   data/index.rst
+
+

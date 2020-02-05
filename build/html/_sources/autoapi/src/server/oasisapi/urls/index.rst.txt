@@ -1,0 +1,50 @@
+:mod:`src.server.oasisapi.urls`
+===============================
+
+.. py:module:: src.server.oasisapi.urls
+
+
+Module Contents
+---------------
+
+.. data:: api_router
+   
+
+   
+
+.. data:: include_root_view
+   :annotation: = False
+
+   
+
+.. data:: api_info
+   
+
+   
+
+.. data:: schema_view
+   
+
+   Developer note:
+
+   These are custom routes to use the endpoint 'settings'
+   adding the method 'def settings( .. )' fails under 
+   viewsets.ModelViewSet due to it overriding 
+   the internal Django settings object 
+
+
+.. data:: model_settings
+   
+
+   
+
+.. data:: analyses_settings
+   
+
+   
+
+.. data:: urlpatterns
+   
+
+   
+

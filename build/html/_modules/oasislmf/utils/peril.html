@@ -1,0 +1,676 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.utils.peril &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../oasislmf.html">oasislmf</a> &raquo;</li>
+        
+      <li>oasislmf.utils.peril</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for oasislmf.utils.peril</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;DEFAULT_RTREE_INDEX_PROPS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;generate_index_entries&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_peril_areas&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_peril_areas_index&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_rtree_index&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PerilArea&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PerilAreasIndex&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PERILS&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PERIL_GROUPS&#39;</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">copy</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">rtree.core</span> <span class="kn">import</span> <span class="n">RTreeError</span>
+<span class="kn">from</span> <span class="nn">rtree.index</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">Index</span> <span class="k">as</span> <span class="n">RTreeIndex</span><span class="p">,</span>
+    <span class="n">Property</span> <span class="k">as</span> <span class="n">RTreeIndexProperty</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">box</span><span class="p">,</span>
+    <span class="n">MultiPoint</span><span class="p">,</span>
+    <span class="n">Polygon</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">speedups</span> <span class="k">as</span> <span class="n">shapely_speedups</span>
+
+<span class="kn">import</span> <span class="nn">pickle</span>
+
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="n">OasisException</span>
+<span class="kn">from</span> <span class="nn">.data</span> <span class="kn">import</span> <span class="n">get_dataframe</span>
+
+<span class="k">if</span> <span class="n">shapely_speedups</span><span class="o">.</span><span class="n">available</span><span class="p">:</span>
+    <span class="n">shapely_speedups</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+
+
+<span class="n">PRL_BBF</span> <span class="o">=</span> <span class="s1">&#39;BBF&#39;</span>
+<span class="n">PRL_BFR</span> <span class="o">=</span> <span class="s1">&#39;BFR&#39;</span>
+<span class="n">PRL_BSK</span> <span class="o">=</span> <span class="s1">&#39;BSK&#39;</span>
+<span class="n">PRL_MNT</span> <span class="o">=</span> <span class="s1">&#39;MNT&#39;</span>
+<span class="n">PRL_MTR</span> <span class="o">=</span> <span class="s1">&#39;MTR&#39;</span>
+<span class="n">PRL_ORF</span> <span class="o">=</span> <span class="s1">&#39;ORF&#39;</span>
+<span class="n">PRL_OSF</span> <span class="o">=</span> <span class="s1">&#39;OSF&#39;</span>
+<span class="n">PRL_QEQ</span> <span class="o">=</span> <span class="s1">&#39;QEQ&#39;</span>
+<span class="n">PRL_QFF</span> <span class="o">=</span> <span class="s1">&#39;QFF&#39;</span>
+<span class="n">PRL_QLF</span> <span class="o">=</span> <span class="s1">&#39;QLF&#39;</span>
+<span class="n">PRL_QLS</span> <span class="o">=</span> <span class="s1">&#39;QLS&#39;</span>
+<span class="n">PRL_QSL</span> <span class="o">=</span> <span class="s1">&#39;QSL&#39;</span>
+<span class="n">PRL_QTS</span> <span class="o">=</span> <span class="s1">&#39;QTS&#39;</span>
+<span class="n">PRL_WEC</span> <span class="o">=</span> <span class="s1">&#39;WEC&#39;</span>
+<span class="n">PRL_WSS</span> <span class="o">=</span> <span class="s1">&#39;WSS&#39;</span>
+<span class="n">PRL_WTC</span> <span class="o">=</span> <span class="s1">&#39;WTC&#39;</span>
+<span class="n">PRL_XHL</span> <span class="o">=</span> <span class="s1">&#39;XHL&#39;</span>
+<span class="n">PRL_XLT</span> <span class="o">=</span> <span class="s1">&#39;XLT&#39;</span>
+<span class="n">PRL_XSL</span> <span class="o">=</span> <span class="s1">&#39;XSL&#39;</span>
+<span class="n">PRL_XTD</span> <span class="o">=</span> <span class="s1">&#39;XTD&#39;</span>
+<span class="n">PRL_ZFZ</span> <span class="o">=</span> <span class="s1">&#39;ZFZ&#39;</span>
+<span class="n">PRL_ZIC</span> <span class="o">=</span> <span class="s1">&#39;ZIC&#39;</span>
+<span class="n">PRL_ZSN</span> <span class="o">=</span> <span class="s1">&#39;ZSN&#39;</span>
+<span class="n">PRL_ZST</span> <span class="o">=</span> <span class="s1">&#39;ZST&#39;</span>
+
+<span class="n">PRL_GRP_AA1</span> <span class="o">=</span> <span class="s1">&#39;AA1&#39;</span>
+<span class="n">PRL_GRP_BB1</span> <span class="o">=</span> <span class="s1">&#39;BB1&#39;</span>
+<span class="n">PRL_GRP_MM1</span> <span class="o">=</span> <span class="s1">&#39;MM1&#39;</span>
+<span class="n">PRL_GRP_OO1</span> <span class="o">=</span> <span class="s1">&#39;OO1&#39;</span>
+<span class="n">PRL_GRP_QQ1</span> <span class="o">=</span> <span class="s1">&#39;QQ1&#39;</span>
+<span class="n">PRL_GRP_WW1</span> <span class="o">=</span> <span class="s1">&#39;WW1&#39;</span>
+<span class="n">PRL_GRP_WW2</span> <span class="o">=</span> <span class="s1">&#39;WW2&#39;</span>
+<span class="n">PRL_GRP_XX1</span> <span class="o">=</span> <span class="s1">&#39;XX1&#39;</span>
+<span class="n">PRL_GRP_XZ1</span> <span class="o">=</span> <span class="s1">&#39;XZ1&#39;</span>
+<span class="n">PRL_GRP_ZZ1</span> <span class="o">=</span> <span class="s1">&#39;ZZ1&#39;</span>
+
+<div class="viewcode-block" id="PERIL_GROUPS"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PERIL_GROUPS">[docs]</a><span class="n">PERIL_GROUPS</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+    <span class="s1">&#39;all&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_AA1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;All perils&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_QEQ</span><span class="p">,</span> <span class="n">PRL_QFF</span><span class="p">,</span> <span class="n">PRL_QTS</span><span class="p">,</span> <span class="n">PRL_QSL</span><span class="p">,</span> <span class="n">PRL_QLS</span><span class="p">,</span> <span class="n">PRL_QLF</span><span class="p">,</span> <span class="n">PRL_WTC</span><span class="p">,</span> <span class="n">PRL_WEC</span><span class="p">,</span> <span class="n">PRL_WSS</span><span class="p">,</span> <span class="n">PRL_ORF</span><span class="p">,</span> <span class="n">PRL_OSF</span><span class="p">,</span> <span class="n">PRL_XSL</span><span class="p">,</span> <span class="n">PRL_XTD</span><span class="p">,</span> <span class="n">PRL_XHL</span><span class="p">,</span> <span class="n">PRL_ZSN</span><span class="p">,</span> <span class="n">PRL_ZIC</span><span class="p">,</span> <span class="n">PRL_ZFZ</span><span class="p">,</span> <span class="n">PRL_BFR</span><span class="p">,</span> <span class="n">PRL_BBF</span><span class="p">,</span> <span class="n">PRL_MNT</span><span class="p">,</span> <span class="n">PRL_MTR</span><span class="p">,</span> <span class="n">PRL_XLT</span><span class="p">,</span> <span class="n">PRL_ZST</span><span class="p">,</span> <span class="n">PRL_BSK</span><span class="p">]},</span>
+    <span class="s1">&#39;wildfire w/ smoke&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_BB1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Wildfire with smoke&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_BBF</span><span class="p">,</span> <span class="n">PRL_BSK</span><span class="p">]},</span>
+    <span class="s1">&#39;terrorism&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_MM1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Terrorism&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_MNT</span><span class="p">,</span> <span class="n">PRL_MTR</span><span class="p">]},</span>
+    <span class="s1">&#39;flood w/o storm surge&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_OO1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Flood w/o storm surge&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_ORF</span><span class="p">,</span> <span class="n">PRL_OSF</span><span class="p">]},</span>
+    <span class="s1">&#39;earthquake&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_QQ1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;All EQ perils&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_QEQ</span><span class="p">,</span> <span class="n">PRL_QFF</span><span class="p">,</span> <span class="n">PRL_QTS</span><span class="p">,</span> <span class="n">PRL_QSL</span><span class="p">,</span> <span class="n">PRL_QLS</span><span class="p">,</span> <span class="n">PRL_QLF</span><span class="p">]},</span>
+    <span class="s1">&#39;windstorm w/ storm surge&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_WW1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Windstorm with storm surge&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_WTC</span><span class="p">,</span> <span class="n">PRL_WEC</span><span class="p">,</span> <span class="n">PRL_WSS</span><span class="p">]},</span>
+    <span class="s1">&#39;windstorm w/o storm surge&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_WW2</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Windstorm w/o storm surge&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_WTC</span><span class="p">,</span> <span class="n">PRL_WEC</span><span class="p">]},</span>
+    <span class="s1">&#39;convective storm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_XX1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Convective Storm&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_XSL</span><span class="p">,</span> <span class="n">PRL_XTD</span><span class="p">,</span> <span class="n">PRL_XHL</span><span class="p">,</span> <span class="n">PRL_XLT</span><span class="p">]},</span>
+    <span class="s1">&#39;convective storm rms&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_XZ1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Convective storm (incl winter storm) - for RMS users&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_XSL</span><span class="p">,</span> <span class="n">PRL_XTD</span><span class="p">,</span> <span class="n">PRL_XHL</span><span class="p">,</span> <span class="n">PRL_ZSN</span><span class="p">,</span> <span class="n">PRL_ZIC</span><span class="p">,</span> <span class="n">PRL_ZFZ</span><span class="p">,</span> <span class="n">PRL_XLT</span><span class="p">,</span> <span class="n">PRL_ZST</span><span class="p">]},</span>
+    <span class="s1">&#39;winter storm&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_GRP_ZZ1</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Winter storm&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_ids&#39;</span><span class="p">:</span> <span class="p">[</span><span class="n">PRL_ZSN</span><span class="p">,</span> <span class="n">PRL_ZIC</span><span class="p">,</span> <span class="n">PRL_ZFZ</span><span class="p">,</span> <span class="n">PRL_ZST</span><span class="p">]}</span></div>
+<span class="p">})</span>
+
+<div class="viewcode-block" id="PERILS"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PERILS">[docs]</a><span class="n">PERILS</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+    <span class="s1">&#39;wildfire&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_BBF</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Wildfire / Bushfire&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;wildfire w/ smoke&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;noncat&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_BFR</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;NonCat&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;wildfire w/ smoke&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;smoke&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_BSK</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Smoke&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;wildfire w/ smoke&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;nbcr terrorism&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_MNT</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;NBCR Terrorism&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;terrorism&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;terrorism&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_MTR</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Conventional Terrorism&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;terrorism&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;river flood&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_ORF</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;River / Fluvial Flood&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;flood w/o storm surge&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;flash flood&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_OSF</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Flash / Surface / Pluvial Flood&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;flood w/o storm surge&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;earthquake&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_QEQ</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Earthquake - Shake only&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;earthquake&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;fire following&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_QFF</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Fire Following&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;earthquake&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;liquefaction&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_QLF</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Liquefaction&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;earthquake&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;landslide&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_QLS</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Landslide&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;earthquake&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;sprinkler leakage&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_QSL</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Sprinkler Leakage&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;earthquake&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;tsunami&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_QTS</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Tsunami&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;earthquake&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;extra tropical cyclone&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_WEC</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Extra Tropical Cyclone&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;windstorm w/o storm surge&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;storm surge&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_WSS</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Storm Surge&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;windstorm with storm surge&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;tropical cyclone&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_WTC</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Tropical Cyclone&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;windstorm w/o storm surge&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;hail&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_XHL</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Hail&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;convective storm rms&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;lightning&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_XLT</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Lightning&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;convective storm&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;convective wind&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_XSL</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Straight-line / other convective wind&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;convective storm&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;tornado&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_XTD</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Tornado&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;convective storm&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;freeze&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_ZFZ</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Freeze&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;winter storm&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;ice&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_ZIC</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Ice&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;winter storm&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;snow&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_ZSN</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Snow&#39;</span><span class="p">,</span> <span class="s1">&#39;eqv_oasis_peril&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;winter storm&#39;</span><span class="p">},</span>
+    <span class="s1">&#39;winterstorm wind&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;id&#39;</span><span class="p">:</span> <span class="n">PRL_ZST</span><span class="p">,</span> <span class="s1">&#39;desc&#39;</span><span class="p">:</span> <span class="s1">&#39;Winterstorm Wind&#39;</span><span class="p">,</span> <span class="s1">&#39;group_peril&#39;</span><span class="p">:</span> <span class="s1">&#39;winter storm&#39;</span><span class="p">}</span></div>
+<span class="p">})</span>
+
+
+<div class="viewcode-block" id="DEFAULT_RTREE_INDEX_PROPS"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.DEFAULT_RTREE_INDEX_PROPS">[docs]</a><span class="n">DEFAULT_RTREE_INDEX_PROPS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;buffering_capacity&#39;</span><span class="p">:</span> <span class="mi">10</span><span class="p">,</span>
+    <span class="s1">&#39;custom_storage_callbacks&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s1">&#39;custom_storage_callbacks_size&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;dat_extension&#39;</span><span class="p">:</span> <span class="s1">&#39;dat&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;dimension&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;filename&#39;</span><span class="p">:</span> <span class="s1">&#39;&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fill_factor&#39;</span><span class="p">:</span> <span class="mf">0.7</span><span class="p">,</span>
+    <span class="s1">&#39;idx_extension&#39;</span><span class="p">:</span> <span class="s1">&#39;idx&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;index_capacity&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s1">&#39;index_id&#39;</span><span class="p">:</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="s1">&#39;leaf_capacity&#39;</span><span class="p">:</span> <span class="mi">100</span><span class="p">,</span>
+    <span class="s1">&#39;near_minimum_overlap_factor&#39;</span><span class="p">:</span> <span class="mi">32</span><span class="p">,</span>
+    <span class="s1">&#39;overwrite&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;pagesize&#39;</span><span class="p">:</span> <span class="mi">4096</span><span class="p">,</span>
+    <span class="s1">&#39;point_pool_capacity&#39;</span><span class="p">:</span> <span class="mi">500</span><span class="p">,</span>
+    <span class="s1">&#39;region_pool_capacity&#39;</span><span class="p">:</span> <span class="mi">1000</span><span class="p">,</span>
+    <span class="s1">&#39;reinsert_factor&#39;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span>
+    <span class="s1">&#39;split_distribution_factor&#39;</span><span class="p">:</span> <span class="mf">0.4</span><span class="p">,</span>
+    <span class="s1">&#39;storage&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;tight_mbr&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;tpr_horizon&#39;</span><span class="p">:</span> <span class="mf">20.0</span><span class="p">,</span>
+    <span class="s1">&#39;type&#39;</span><span class="p">:</span> <span class="mi">0</span><span class="p">,</span>
+    <span class="s1">&#39;variant&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="s1">&#39;writethrough&#39;</span><span class="p">:</span> <span class="kc">False</span></div>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="generate_index_entries"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.generate_index_entries">[docs]</a><span class="k">def</span> <span class="nf">generate_index_entries</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">objects</span><span class="p">:</span>
+        <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span><span class="p">),</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">objects</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span><span class="p">,</span> <span class="n">obj</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span><span class="p">,</span> <span class="kc">None</span></div>
+
+
+<div class="viewcode-block" id="get_peril_areas"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.get_peril_areas">[docs]</a><span class="k">def</span> <span class="nf">get_peril_areas</span><span class="p">(</span><span class="n">areas</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="n">peril_area_id</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">,</span> <span class="n">other_props</span> <span class="ow">in</span> <span class="n">areas</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">PerilArea</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">peril_id</span><span class="o">=</span><span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="o">=</span><span class="n">coverage_type</span><span class="p">,</span> <span class="n">peril_area_id</span><span class="o">=</span><span class="n">peril_area_id</span><span class="p">,</span> <span class="o">**</span><span class="n">other_props</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_peril_areas_index"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.get_peril_areas_index">[docs]</a><span class="k">def</span> <span class="nf">get_peril_areas_index</span><span class="p">(</span>
+    <span class="n">areas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">peril_areas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">properties</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">areas</span> <span class="ow">or</span> <span class="n">peril_areas</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;Either areas or peril areas must be provided&#39;</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">PerilAreasIndex</span><span class="p">(</span><span class="n">areas</span><span class="o">=</span><span class="n">areas</span><span class="p">,</span> <span class="n">peril_areas</span><span class="o">=</span><span class="n">peril_areas</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">properties</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_rtree_index"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.get_rtree_index">[docs]</a><span class="k">def</span> <span class="nf">get_rtree_index</span><span class="p">(</span>
+    <span class="n">items</span><span class="p">,</span>
+    <span class="n">objects</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">properties</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">RTreeIndex</span><span class="p">(</span><span class="n">generate_index_entries</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="n">objects</span><span class="p">),</span> <span class="n">properties</span><span class="o">=</span><span class="n">RTreeIndexProperty</span><span class="p">(</span><span class="o">**</span><span class="n">properties</span><span class="p">))</span> <span class="k">if</span> <span class="n">properties</span>
+        <span class="k">else</span> <span class="n">RTreeIndex</span><span class="p">(</span><span class="n">generate_index_entries</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="n">objects</span><span class="p">))</span></div>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="PerilArea"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilArea">[docs]</a><span class="k">class</span> <span class="nc">PerilArea</span><span class="p">(</span><span class="n">Polygon</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">coords</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">_coords</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">coords</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_coords</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;No peril area coordinates&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">_coords</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_multipoint</span> <span class="o">=</span> <span class="n">MultiPoint</span><span class="p">(</span><span class="n">_coords</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">_coords</span><span class="p">)</span> <span class="o">==</span> <span class="mi">2</span><span class="p">:</span>
+            <span class="n">minx</span><span class="p">,</span> <span class="n">miny</span><span class="p">,</span> <span class="n">maxx</span><span class="p">,</span> <span class="n">maxy</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">_c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">_coords</span> <span class="k">for</span> <span class="n">_c</span> <span class="ow">in</span> <span class="n">c</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_multipoint</span> <span class="o">=</span> <span class="n">MultiPoint</span><span class="p">(</span><span class="n">box</span><span class="p">(</span><span class="n">minx</span><span class="p">,</span> <span class="n">miny</span><span class="p">,</span> <span class="n">maxx</span><span class="p">,</span> <span class="n">maxy</span><span class="p">)</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">len</span><span class="p">(</span><span class="n">_coords</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="o">=</span> <span class="n">_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span> <span class="n">_coords</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span>
+            <span class="n">r</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;area_reg_poly_radius&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="mf">0.0016</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_multipoint</span> <span class="o">=</span> <span class="n">MultiPoint</span><span class="p">(</span>
+                <span class="nb">tuple</span><span class="p">((</span><span class="n">x</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">i</span><span class="p">,</span> <span class="n">y</span> <span class="o">+</span> <span class="n">r</span> <span class="o">*</span> <span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span><span class="o">**</span><span class="n">j</span><span class="p">)</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">))</span>
+            <span class="p">)</span>
+
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">shell</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">_multipoint</span><span class="o">.</span><span class="n">convex_hull</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coordinates</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">exterior</span><span class="o">.</span><span class="n">coords</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_centre</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">centroid</span><span class="o">.</span><span class="n">y</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coverage_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_peril_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril_id&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_id</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;area_peril_id&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril_area_id&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">16</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilArea.multipoint"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilArea.multipoint">[docs]</a>    <span class="k">def</span> <span class="nf">multipoint</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_multipoint</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilArea.coordinates"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilArea.coordinates">[docs]</a>    <span class="k">def</span> <span class="nf">coordinates</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coordinates</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilArea.centre"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilArea.centre">[docs]</a>    <span class="k">def</span> <span class="nf">centre</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_centre</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilArea.coverage_type"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilArea.coverage_type">[docs]</a>    <span class="k">def</span> <span class="nf">coverage_type</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coverage_type</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilArea.peril_id"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilArea.peril_id">[docs]</a>    <span class="k">def</span> <span class="nf">peril_id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_id</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilArea.id"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilArea.id">[docs]</a>    <span class="k">def</span> <span class="nf">id</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_id</span></div></div>
+
+
+<div class="viewcode-block" id="PerilAreasIndex"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex">[docs]</a><span class="k">class</span> <span class="nc">PerilAreasIndex</span><span class="p">(</span><span class="n">RTreeIndex</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span>
+
+        <span class="n">idx_fp</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fp&#39;</span><span class="p">)</span>
+
+        <span class="n">areas</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;areas&#39;</span><span class="p">)</span>
+        <span class="n">peril_areas</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril_areas&#39;</span><span class="p">)</span>
+
+        <span class="n">props</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;properties&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">DEFAULT_RTREE_INDEX_PROPS</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">idx_fp</span> <span class="ow">or</span> <span class="n">areas</span> <span class="ow">or</span> <span class="n">peril_areas</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RTreeIndexProperty</span><span class="p">(</span><span class="o">**</span><span class="n">props</span><span class="p">)</span>
+            <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">idx_fp</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">_idx_fp</span> <span class="o">=</span> <span class="n">idx_fp</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">_idx_fp</span><span class="p">):</span>
+                <span class="n">_idx_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">_idx_fp</span><span class="p">)</span>
+
+            <span class="n">idx_ext</span> <span class="o">=</span> <span class="n">props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;idx_extension&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;idx&#39;</span>
+            <span class="n">dat_ext</span> <span class="o">=</span> <span class="n">props</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dat_extension&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;dat&#39;</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_idx_fp</span><span class="p">,</span> <span class="n">idx_ext</span><span class="p">))</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_idx_fp</span><span class="p">,</span> <span class="n">dat_ext</span><span class="p">))):</span>
+                <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RTreeIndexProperty</span><span class="p">(</span><span class="o">**</span><span class="n">props</span><span class="p">)</span>
+
+            <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">_idx_fp</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+                <span class="n">pa</span><span class="o">.</span><span class="n">id</span><span class="p">:</span> <span class="n">pa</span> <span class="k">for</span> <span class="n">pa</span> <span class="ow">in</span> <span class="p">(</span><span class="n">peril_areas</span> <span class="k">if</span> <span class="n">peril_areas</span> <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_peril_areas</span><span class="p">(</span><span class="n">areas</span><span class="p">))</span>
+            <span class="p">})</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_index_entries</span><span class="p">(</span>
+                <span class="p">((</span><span class="n">paid</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">bounds</span><span class="p">)</span> <span class="k">for</span> <span class="n">paid</span><span class="p">,</span> <span class="n">pa</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span><span class="o">.</span><span class="n">items</span><span class="p">()),</span>
+                <span class="n">objects</span><span class="o">=</span><span class="p">((</span><span class="n">paid</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">coordinates</span><span class="p">)</span> <span class="k">for</span> <span class="n">paid</span><span class="p">,</span> <span class="n">pa</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span><span class="o">.</span><span class="n">items</span><span class="p">())</span>
+            <span class="p">)</span>
+            <span class="n">kwargs</span><span class="p">[</span><span class="s1">&#39;properties&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">RTreeIndexProperty</span><span class="p">(</span><span class="o">**</span><span class="n">props</span><span class="p">)</span>
+            <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_stream</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PerilAreasIndex.dumps"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex.dumps">[docs]</a>    <span class="k">def</span> <span class="nf">dumps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PerilAreasIndex.loads"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex.loads">[docs]</a>    <span class="k">def</span> <span class="nf">loads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">data</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">data</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PerilAreasIndex._get_peril_areas"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex._get_peril_areas">[docs]</a>    <span class="k">def</span> <span class="nf">_get_peril_areas</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">areas</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="n">peril_area_id</span><span class="p">,</span> <span class="n">coordinates</span><span class="p">,</span> <span class="n">other_props</span> <span class="ow">in</span> <span class="n">areas</span><span class="p">:</span>
+            <span class="k">yield</span> <span class="n">PerilArea</span><span class="p">(</span><span class="n">coordinates</span><span class="p">,</span> <span class="n">peril_id</span><span class="o">=</span><span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="o">=</span><span class="n">coverage_type</span><span class="p">,</span> <span class="n">peril_area_id</span><span class="o">=</span><span class="n">peril_area_id</span><span class="p">,</span> <span class="o">**</span><span class="n">other_props</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="PerilAreasIndex._generate_index_entries"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex._generate_index_entries">[docs]</a>    <span class="k">def</span> <span class="nf">_generate_index_entries</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">items</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">objects</span><span class="p">:</span>
+            <span class="k">for</span> <span class="p">(</span><span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span><span class="p">),</span> <span class="n">obj</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">items</span><span class="p">,</span> <span class="n">objects</span><span class="p">):</span>
+                <span class="k">yield</span> <span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span><span class="p">,</span> <span class="n">obj</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span> <span class="ow">in</span> <span class="n">items</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">key</span><span class="p">,</span> <span class="n">poly_bounds</span><span class="p">,</span> <span class="kc">None</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilAreasIndex.protocol"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex.protocol">[docs]</a>    <span class="k">def</span> <span class="nf">protocol</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_protocol</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilAreasIndex.peril_areas"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex.peril_areas">[docs]</a>    <span class="k">def</span> <span class="nf">peril_areas</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="PerilAreasIndex.stream"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex.stream">[docs]</a>    <span class="k">def</span> <span class="nf">stream</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_generate_index_entries</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span><span class="p">)</span>
+            <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_stream</span>
+        <span class="k">return</span> <span class="kc">None</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="PerilAreasIndex.create_from_peril_areas_file"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex.create_from_peril_areas_file">[docs]</a>    <span class="k">def</span> <span class="nf">create_from_peril_areas_file</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">src_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">src_type</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span>
+        <span class="n">peril_id_col</span><span class="o">=</span><span class="s1">&#39;peril_id&#39;</span><span class="p">,</span>
+        <span class="n">coverage_type_col</span><span class="o">=</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">,</span>
+        <span class="n">peril_area_id_col</span><span class="o">=</span><span class="s1">&#39;area_peril_id&#39;</span><span class="p">,</span>
+        <span class="n">non_na_cols</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;peril_id&#39;</span><span class="p">,</span> <span class="s1">&#39;coverage_type&#39;</span><span class="p">,</span> <span class="s1">&#39;area_peril_id&#39;</span><span class="p">,),</span>
+        <span class="n">col_dtypes</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;peril_id&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;coverage_type&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">,</span> <span class="s1">&#39;area_peril_id&#39;</span><span class="p">:</span> <span class="nb">int</span><span class="p">},</span>
+        <span class="n">sort_cols</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;area_peril_id&#39;</span><span class="p">],</span>
+        <span class="n">area_poly_coords_cols</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">area_poly_coords_seq_start_idx</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">area_reg_poly_radius</span><span class="o">=</span><span class="mf">0.00166</span><span class="p">,</span>
+        <span class="n">static_props</span><span class="o">=</span><span class="p">{},</span>
+        <span class="n">index_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">index_props</span><span class="o">=</span><span class="n">copy</span><span class="o">.</span><span class="n">deepcopy</span><span class="p">(</span><span class="n">DEFAULT_RTREE_INDEX_PROPS</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">src_fp</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                <span class="s1">&#39;An areas source CSV or JSON file path must be provided&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">_src_fp</span> <span class="o">=</span> <span class="n">src_fp</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">_src_fp</span><span class="p">):</span>
+            <span class="n">_src_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">_src_fp</span><span class="p">)</span>
+
+        <span class="n">_non_na_cols</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">non_na_cols</span><span class="p">)</span>
+
+        <span class="n">_peril_id_col</span> <span class="o">=</span> <span class="n">peril_id_col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">_coverage_type_col</span> <span class="o">=</span> <span class="n">coverage_type_col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">_peril_area_id_col</span> <span class="o">=</span> <span class="n">peril_area_id_col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">_non_na_cols</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">([</span><span class="n">_peril_id_col</span><span class="p">,</span> <span class="n">_coverage_type_col</span><span class="p">,</span> <span class="n">_peril_area_id_col</span><span class="p">]):</span>
+            <span class="n">_non_na_cols</span> <span class="o">=</span> <span class="n">_non_na_cols</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="n">_peril_id_col</span><span class="p">,</span> <span class="n">_coverage_type_col</span><span class="p">,</span> <span class="n">_peril_area_id_col</span><span class="p">})</span>
+
+        <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">area_poly_coords_cols</span><span class="o">.</span><span class="n">values</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">col</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_non_na_cols</span><span class="p">:</span>
+                <span class="n">_non_na_cols</span> <span class="o">=</span> <span class="n">_non_na_cols</span><span class="o">.</span><span class="n">union</span><span class="p">({</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()})</span>
+
+        <span class="n">_non_na_cols</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">_non_na_cols</span><span class="p">)</span>
+
+        <span class="n">_sort_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sort_cols</span><span class="p">]</span>
+
+        <span class="n">areas_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+            <span class="n">src_fp</span><span class="o">=</span><span class="n">_src_fp</span><span class="p">,</span>
+            <span class="n">src_type</span><span class="o">=</span><span class="n">src_type</span><span class="p">,</span>
+            <span class="n">non_na_cols</span><span class="o">=</span><span class="n">_non_na_cols</span><span class="p">,</span>
+            <span class="n">col_dtypes</span><span class="o">=</span><span class="n">col_dtypes</span><span class="p">,</span>
+            <span class="n">sort_cols</span><span class="o">=</span><span class="p">(</span><span class="n">_sort_cols</span> <span class="ow">or</span> <span class="p">[</span><span class="n">_peril_area_id_col</span><span class="p">])</span>
+        <span class="p">)</span>
+
+        <span class="n">coords_cols</span> <span class="o">=</span> <span class="n">area_poly_coords_cols</span>
+
+        <span class="n">seq_start</span> <span class="o">=</span> <span class="n">area_poly_coords_seq_start_idx</span>
+
+        <span class="n">len_seq</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">(</span><span class="mi">1</span> <span class="k">if</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;x(\d+)?&#39;</span><span class="p">,</span> <span class="n">k</span><span class="p">)</span> <span class="k">else</span> <span class="mi">0</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">coords_cols</span><span class="o">.</span><span class="n">keys</span><span class="p">())</span>
+
+        <span class="n">peril_areas</span> <span class="o">=</span> <span class="bp">cls</span><span class="p">()</span><span class="o">.</span><span class="n">_get_peril_areas</span><span class="p">(</span>
+            <span class="p">(</span>
+                <span class="n">ar</span><span class="p">[</span><span class="n">_peril_id_col</span><span class="p">],</span>
+                <span class="n">ar</span><span class="p">[</span><span class="n">_coverage_type_col</span><span class="p">],</span>
+                <span class="n">ar</span><span class="p">[</span><span class="n">_peril_area_id_col</span><span class="p">],</span>
+                <span class="nb">tuple</span><span class="p">(</span>
+                    <span class="p">(</span><span class="n">ar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">coords_cols</span><span class="p">[</span><span class="s1">&#39;x</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">,</span> <span class="n">ar</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">coords_cols</span><span class="p">[</span><span class="s1">&#39;y</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">i</span><span class="p">)]</span><span class="o">.</span><span class="n">lower</span><span class="p">())</span> <span class="ow">or</span> <span class="mi">0</span><span class="p">)</span>
+                    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">seq_start</span><span class="p">,</span> <span class="n">len_seq</span> <span class="o">+</span> <span class="mi">1</span><span class="p">)</span>
+                <span class="p">),</span>
+                <span class="n">static_props</span>
+            <span class="p">)</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">ar</span> <span class="ow">in</span> <span class="n">areas_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()</span>
+        <span class="p">)</span>
+
+        <span class="n">_index_fp</span> <span class="o">=</span> <span class="n">index_fp</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">_index_fp</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;No output file index path provided&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">):</span>
+            <span class="n">_index_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="p">()</span><span class="o">.</span><span class="n">save</span><span class="p">(</span>
+                <span class="n">_index_fp</span><span class="p">,</span>
+                <span class="n">peril_areas</span><span class="o">=</span><span class="n">peril_areas</span><span class="p">,</span>
+                <span class="n">index_props</span><span class="o">=</span><span class="n">index_props</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">OasisException</span><span class="p">:</span>
+            <span class="k">raise</span></div>
+
+<div class="viewcode-block" id="PerilAreasIndex.save"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/peril/index.html#oasislmf.utils.peril.PerilAreasIndex.save">[docs]</a>    <span class="k">def</span> <span class="nf">save</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">index_fp</span><span class="p">,</span>
+        <span class="n">peril_areas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">index_props</span><span class="o">=</span><span class="n">DEFAULT_RTREE_INDEX_PROPS</span>
+    <span class="p">):</span>
+        <span class="n">_index_fp</span> <span class="o">=</span> <span class="n">index_fp</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">):</span>
+            <span class="n">_index_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">)</span>
+
+        <span class="k">class</span> <span class="nc">myindex</span><span class="p">(</span><span class="n">RTreeIndex</span><span class="p">):</span>
+            <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">protocol</span> <span class="o">=</span> <span class="n">pickle</span><span class="o">.</span><span class="n">HIGHEST_PROTOCOL</span>
+                <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">dumps</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">protocol</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">protocol</span><span class="p">)</span>
+
+            <span class="k">def</span> <span class="nf">loads</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+                <span class="k">return</span> <span class="n">pickle</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">obj</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">index</span> <span class="o">=</span> <span class="n">myindex</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="n">RTreeIndexProperty</span><span class="p">(</span><span class="o">**</span><span class="n">index_props</span><span class="p">))</span>
+
+            <span class="n">_peril_areas</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_areas</span> <span class="ow">or</span> <span class="n">peril_areas</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">_peril_areas</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                    <span class="s1">&#39;No peril areas found in instance or in arguments - &#39;</span>
+                    <span class="s1">&#39;this is required to write the index to file&#39;</span>
+                <span class="p">)</span>
+
+            <span class="n">peril_areas_seq</span> <span class="o">=</span> <span class="kc">None</span>
+
+            <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">peril_areas</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">peril_areas</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+                <span class="n">peril_areas_seq</span> <span class="o">=</span> <span class="p">(</span><span class="n">pa</span> <span class="k">for</span> <span class="n">pa</span> <span class="ow">in</span> <span class="n">peril_areas</span><span class="p">)</span>
+            <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">peril_areas</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">GeneratorType</span><span class="p">):</span>
+                <span class="n">peril_areas_seq</span> <span class="o">=</span> <span class="n">peril_areas</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">peril_areas</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)):</span>
+                <span class="n">peril_areas_seq</span> <span class="o">=</span> <span class="n">peril_areas</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+
+            <span class="k">for</span> <span class="n">pa</span> <span class="ow">in</span> <span class="n">peril_areas_seq</span><span class="p">:</span>
+                <span class="n">index</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">obj</span><span class="o">=</span><span class="p">(</span><span class="n">pa</span><span class="o">.</span><span class="n">peril_id</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">coverage_type</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">pa</span><span class="o">.</span><span class="n">coordinates</span><span class="p">))</span>
+
+            <span class="n">index</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="n">RTreeError</span><span class="p">):</span>
+            <span class="k">raise</span>
+
+        <span class="k">return</span> <span class="n">_index_fp</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

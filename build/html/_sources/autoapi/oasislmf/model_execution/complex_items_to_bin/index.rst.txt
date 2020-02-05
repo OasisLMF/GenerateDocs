@@ -1,0 +1,20 @@
+:mod:`oasislmf.model_execution.complex_items_to_bin`
+====================================================
+
+.. py:module:: oasislmf.model_execution.complex_items_to_bin
+
+.. autoapi-nested-parse::
+
+   Implementation of ktool items conversion tool including complex item data serialized with msgpack.
+
+
+
+Module Contents
+---------------
+
+.. function:: items_to_bin(source, output)
+
+
+.. function:: main()
+
+

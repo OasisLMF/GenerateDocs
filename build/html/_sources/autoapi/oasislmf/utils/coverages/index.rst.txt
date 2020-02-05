@@ -1,0 +1,19 @@
+:mod:`oasislmf.utils.coverages`
+===============================
+
+.. py:module:: oasislmf.utils.coverages
+
+
+Module Contents
+---------------
+
+.. data:: COVERAGE_TYPES
+   
+
+   
+
+.. data:: SUPPORTED_COVERAGE_TYPES
+   
+
+   
+

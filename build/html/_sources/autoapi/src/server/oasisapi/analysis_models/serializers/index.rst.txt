@@ -1,0 +1,76 @@
+:mod:`src.server.oasisapi.analysis_models.serializers`
+======================================================
+
+.. py:module:: src.server.oasisapi.analysis_models.serializers
+
+
+Module Contents
+---------------
+
+.. py:class:: AnalysisModelSerializer
+
+   Bases: :class:`rest_framework.serializers.ModelSerializer`
+
+   .. py:class:: Meta
+
+      .. attribute:: model
+         
+
+         
+
+      .. attribute:: fields
+         :annotation: = ['id', 'supplier_id', 'model_id', 'version_id', 'created', 'modified', 'data_files', 'resource_file', 'settings', 'versions']
+
+         
+
+
+   .. attribute:: resource_file
+      
+
+      
+
+   .. attribute:: settings
+      
+
+      
+
+   .. attribute:: versions
+      
+
+      
+
+   .. method:: create(self, validated_data)
+
+
+
+   .. method:: get_resource_file(self, instance)
+
+
+
+   .. method:: get_settings(self, instance)
+
+
+
+   .. method:: get_versions(self, instance)
+
+
+
+
+.. py:class:: ModelVersionsSerializer
+
+   Bases: :class:`rest_framework.serializers.ModelSerializer`
+
+   .. py:class:: Meta
+
+      .. attribute:: model
+         
+
+         
+
+      .. attribute:: fields
+         :annotation: = ['ver_ktools', 'ver_oasislmf', 'ver_platform']
+
+         
+
+
+

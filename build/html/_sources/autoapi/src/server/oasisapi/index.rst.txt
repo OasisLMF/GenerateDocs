@@ -1,0 +1,36 @@
+:mod:`src.server.oasisapi`
+==========================
+
+.. py:module:: src.server.oasisapi
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   analyses/index.rst
+   analysis_models/index.rst
+   auth/index.rst
+   data_files/index.rst
+   files/index.rst
+   healthcheck/index.rst
+   oed_info/index.rst
+   portfolios/index.rst
+   schemas/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   celery/index.rst
+   filters/index.rst
+   settings/index.rst
+   urls/index.rst
+   wsgi/index.rst
+
+

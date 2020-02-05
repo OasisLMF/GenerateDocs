@@ -1,0 +1,27 @@
+:mod:`src.server.oasisapi.data_files`
+=====================================
+
+.. py:module:: src.server.oasisapi.data_files
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   tests/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   admin/index.rst
+   models/index.rst
+   serializers/index.rst
+   viewsets/index.rst
+
+

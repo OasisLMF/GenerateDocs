@@ -1,0 +1,570 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.model_preparation.lookup &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.model_preparation.lookup</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/autoapi/oasislmf/model_preparation/lookup/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-oasislmf.model_preparation.lookup">
+<span id="oasislmf-model-preparation-lookup"></span><h1><a class="reference internal" href="#module-oasislmf.model_preparation.lookup" title="oasislmf.model_preparation.lookup"><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.model_preparation.lookup</span></code></a><a class="headerlink" href="#module-oasislmf.model_preparation.lookup" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.model_preparation.lookup.</code><code class="sig-name descname">OasisBuiltinBaseLookup</code><span class="sig-paren">(</span><em class="sig-param">config=None</em>, <em class="sig-param">config_json=None</em>, <em class="sig-param">config_fp=None</em>, <em class="sig-param">config_dir=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.__tweak_config_data__">
+<code class="sig-name descname">__tweak_config_data__</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.__tweak_config_data__"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.__tweak_config_data__" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.config">
+<em class="property">property </em><code class="sig-name descname">config</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.config"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.config" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.peril_ids">
+<em class="property">property </em><code class="sig-name descname">peril_ids</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.peril_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.peril_ids" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.peril_id_col">
+<em class="property">property </em><code class="sig-name descname">peril_id_col</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.peril_id_col"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.peril_id_col" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.coverage_types">
+<em class="property">property </em><code class="sig-name descname">coverage_types</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.coverage_types"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.coverage_types" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.coverage_type_col">
+<em class="property">property </em><code class="sig-name descname">coverage_type_col</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.coverage_type_col"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.coverage_type_col" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.lookup">
+<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc</em>, <em class="sig-param">peril_id</em>, <em class="sig-param">coverage_type</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Lookup for an individual location item, which could be a dict or a
+Pandas series object.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.process_locations_multiproc">
+<code class="sig-name descname">process_locations_multiproc</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc_df</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.process_locations_multiproc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.process_locations_multiproc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process and return the lookup results a location row
+Used in multiprocessing based query</p>
+<p>location_row is of type &lt;class ‘pandas.core.series.Series’&gt;</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.bulk_lookup">
+<code class="sig-name descname">bulk_lookup</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">locs</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBuiltinBaseLookup.bulk_lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.bulk_lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bulk vulnerability lookup for a list, tuple, generator, pandas data
+frame or dict of location items, which can be dicts or Pandas series
+objects or any object which has as a dict-like interface.</p>
+<p>Generates results using <code class="docutils literal notranslate"><span class="pre">yield</span></code>.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.model_preparation.lookup.OasisBaseKeysLookup">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.model_preparation.lookup.</code><code class="sig-name descname">OasisBaseKeysLookup</code><span class="sig-paren">(</span><em class="sig-param">keys_data_directory=None</em>, <em class="sig-param">supplier=None</em>, <em class="sig-param">model_name=None</em>, <em class="sig-param">model_version=None</em>, <em class="sig-param">complex_lookup_config_fp=None</em>, <em class="sig-param">output_directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBaseKeysLookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBaseKeysLookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>Old Oasis base class -deprecated</p>
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBaseKeysLookup.process_locations">
+<code class="sig-name descname">process_locations</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc_df</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBaseKeysLookup.process_locations"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBaseKeysLookup.process_locations" title="Permalink to this definition">¶</a></dt>
+<dd><p>Process location rows - passed in as a pandas dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_area_peril_id">
+<code class="sig-name descname">_get_area_peril_id</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">record</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBaseKeysLookup._get_area_peril_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_area_peril_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the area peril ID for a particular location record.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_vulnerability_id">
+<code class="sig-name descname">_get_vulnerability_id</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">record</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBaseKeysLookup._get_vulnerability_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_vulnerability_id" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the vulnerability ID for a particular location record.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_area_peril_ids">
+<code class="sig-name descname">_get_area_peril_ids</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc_data</em>, <em class="sig-param">include_context=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBaseKeysLookup._get_area_peril_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_area_peril_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates area peril IDs in two modes - if include_context is
+True (default) it will generate location records/rows including
+the area peril IDs, otherwise it will generate pairs of location
+IDs and the corresponding area peril IDs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_vulnerability_ids">
+<code class="sig-name descname">_get_vulnerability_ids</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc_data</em>, <em class="sig-param">include_context=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBaseKeysLookup._get_vulnerability_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_vulnerability_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates vulnerability IDs in two modes - if include_context is
+True (default) it will generate location records/rows including
+the area peril IDs, otherwise it will generate pairs of location
+IDs and the corresponding vulnerability IDs.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_custom_lookup_success">
+<code class="sig-name descname">_get_custom_lookup_success</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">ap_id</em>, <em class="sig-param">vul_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisBaseKeysLookup._get_custom_lookup_success"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_custom_lookup_success" title="Permalink to this definition">¶</a></dt>
+<dd><p>Determine the status of the keys lookup.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.model_preparation.lookup.</code><code class="sig-name descname">OasisLookupFactory</code><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/3/library/functions.html#object" title="(in Python v3.8)"><code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></a></p>
+<p>A factory class to load and run keys lookup services for different
+models/suppliers.</p>
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.get_model_info">
+<em class="property">classmethod </em><code class="sig-name descname">get_model_info</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">model_version_file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.get_model_info"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.get_model_info" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get model information from the model version file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.get_custom_lookup_package">
+<em class="property">classmethod </em><code class="sig-name descname">get_custom_lookup_package</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">lookup_package_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.get_custom_lookup_package"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.get_custom_lookup_package" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the lookup service parent package (called <cite>keys_server</cite> and
+located in <cite>src</cite> in the model keys server Git repository or in
+<cite>var/www/oasis</cite> in the keys server Docker container) from the given
+path.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.get_custom_lookup">
+<em class="property">classmethod </em><code class="sig-name descname">get_custom_lookup</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">lookup_package</em>, <em class="sig-param">keys_data_path</em>, <em class="sig-param">model_info</em>, <em class="sig-param">complex_lookup_config_fp=None</em>, <em class="sig-param">user_data_dir=None</em>, <em class="sig-param">output_directory=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.get_custom_lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.get_custom_lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the keys lookup class instance.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.get_exposure">
+<em class="property">classmethod </em><code class="sig-name descname">get_exposure</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">lookup=None</em>, <em class="sig-param">source_exposure=None</em>, <em class="sig-param">source_exposure_fp=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.get_exposure"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.get_exposure" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get the source OED exposure/location data as a Pandas dataframe.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.write_oasis_keys_file">
+<em class="property">classmethod </em><code class="sig-name descname">write_oasis_keys_file</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">records</em>, <em class="sig-param">output_file_path</em>, <em class="sig-param">output_success_msg=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.write_oasis_keys_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.write_oasis_keys_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes an Oasis keys file from an iterable of keys records.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.write_oasis_keys_errors_file">
+<em class="property">classmethod </em><code class="sig-name descname">write_oasis_keys_errors_file</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">records</em>, <em class="sig-param">output_file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.write_oasis_keys_errors_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.write_oasis_keys_errors_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes an Oasis keys errors file from an iterable of keys records.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.write_json_keys_file">
+<em class="property">classmethod </em><code class="sig-name descname">write_json_keys_file</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">records</em>, <em class="sig-param">output_file_path</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.write_json_keys_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.write_json_keys_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the keys records as a simple list to file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.create">
+<em class="property">classmethod </em><code class="sig-name descname">create</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">model_keys_data_path=None</em>, <em class="sig-param">model_version_file_path=None</em>, <em class="sig-param">lookup_package_path=None</em>, <em class="sig-param">lookup_config=None</em>, <em class="sig-param">lookup_config_json=None</em>, <em class="sig-param">lookup_config_fp=None</em>, <em class="sig-param">complex_lookup_config_fp=None</em>, <em class="sig-param">user_data_dir=None</em>, <em class="sig-param">output_directory=None</em>, <em class="sig-param">builtin_lookup_type='combined'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.create"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.create" title="Permalink to this definition">¶</a></dt>
+<dd><p>Creates a keys lookup class instance for the given model and supplier -
+local file paths are required for the model keys data folder, the model
+version file and the Git repository for the model keys server. Returns a
+pair <code class="docutils literal notranslate"><span class="pre">(model_info,</span> <span class="pre">klc)</span></code>, where <code class="docutils literal notranslate"><span class="pre">model_info</span></code> is a dictionary holding
+model information from the model version file and <cite>klc</cite> is the lookup
+service class instance for the model.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_base">
+<em class="property">classmethod </em><code class="sig-name descname">get_keys_base</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">lookup</em>, <em class="sig-param">loc_df</em>, <em class="sig-param">success_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.get_keys_base"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_base" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used when lookup is an instances of <cite>OasisBaseKeysLookup(object)</cite></p>
+<p>Generates keys records (JSON) for the given model and supplier -
+requires an instance of the lookup service (which can be created using
+the <cite>create</cite> method in this factory class), and either the model
+location file path or the string contents of such a file.</p>
+<p>The optional keyword argument <code class="docutils literal notranslate"><span class="pre">success_only</span></code> indicates whether only
+records with successful lookups should be returned (default), or all
+records.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_builtin">
+<em class="property">classmethod </em><code class="sig-name descname">get_keys_builtin</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">lookup</em>, <em class="sig-param">loc_df</em>, <em class="sig-param">success_only=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.get_keys_builtin"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_builtin" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used when lookup is an instances of <cite>OasisBuiltinBaseLookup(object)</cite></p>
+<p>Generates lookup results (dicts) for the given model and supplier -
+requires a lookup instance (which can be created using the <cite>create2</cite>
+method in this factory class), and the source exposures/locations
+dataframe.</p>
+<p>The optional keyword argument <code class="docutils literal notranslate"><span class="pre">success_only</span></code> indicates whether only
+results with successful lookup status should be returned (default),
+or all results.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_multiproc">
+<em class="property">classmethod </em><code class="sig-name descname">get_keys_multiproc</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">lookup</em>, <em class="sig-param">loc_df</em>, <em class="sig-param">success_only=False</em>, <em class="sig-param">num_cores=None</em>, <em class="sig-param">num_partitions=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.get_keys_multiproc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_multiproc" title="Permalink to this definition">¶</a></dt>
+<dd><p>Used for CPU bound lookup operations, Depends on a method</p>
+<p><cite>process_locations_multiproc(dataframe)</cite></p>
+<p>where single_row is a pandas series from a location Pandas DataFrame
+and returns a list of dicts holding the lookup results for that single row</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.save_keys">
+<em class="property">classmethod </em><code class="sig-name descname">save_keys</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">keys_data</em>, <em class="sig-param">keys_file_path=None</em>, <em class="sig-param">keys_errors_file_path=None</em>, <em class="sig-param">keys_format='oasis'</em>, <em class="sig-param">keys_success_msg=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.save_keys"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.save_keys" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a keys file, and optionally a keys error file, for the keys
+generated by the lookup service for the given model, supplier and
+exposure sfile - requires a lookup service instance (which can be
+created using the <cite>create</cite> method in this factory class), the path of
+the model location file, the path of the keys file, and the format of
+the output file which can be an Oasis keys file (<code class="docutils literal notranslate"><span class="pre">oasis</span></code>) or a
+simple listing of the records to file (<code class="docutils literal notranslate"><span class="pre">json</span></code>).</p>
+<p>The optional keyword argument <code class="docutils literal notranslate"><span class="pre">keys_error_file_path</span></code> if present
+indicates that all keys records, whether for locations with successful
+or unsuccessful lookups, will be generated and written to separate
+files. A keys record with a successful lookup will have a <cite>status</cite>
+field whose value will be <cite>success</cite>, otherwise the record will have
+a <cite>status</cite> field value of <cite>failure</cite> or <cite>nomatch</cite>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">keys_errors_file_path</span></code> is not present then the method returns a
+pair <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code> where <code class="docutils literal notranslate"><span class="pre">p</span></code> is the keys file path and <code class="docutils literal notranslate"><span class="pre">n</span></code> is the
+number of “successful” keys records written to the keys file, otherwise
+it returns a quadruple <code class="docutils literal notranslate"><span class="pre">(p1,</span> <span class="pre">n1,</span> <span class="pre">p2,</span> <span class="pre">n2)</span></code> where <code class="docutils literal notranslate"><span class="pre">p1</span></code> is the keys
+file path, <code class="docutils literal notranslate"><span class="pre">n1</span></code> is the number of “successful” keys records written to
+the keys file, <code class="docutils literal notranslate"><span class="pre">p2</span></code> is the keys errors file path and <code class="docutils literal notranslate"><span class="pre">n2</span></code> is the
+number of “unsuccessful” keys records written to keys errors file.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookupFactory.save_results">
+<em class="property">classmethod </em><code class="sig-name descname">save_results</code><span class="sig-paren">(</span><em class="sig-param">cls</em>, <em class="sig-param">lookup</em>, <em class="sig-param">location_df</em>, <em class="sig-param">successes_fp=None</em>, <em class="sig-param">errors_fp=None</em>, <em class="sig-param">multiprocessing=True</em>, <em class="sig-param">format='oasis'</em>, <em class="sig-param">keys_success_msg=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookupFactory.save_results"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookupFactory.save_results" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a keys file, and optionally a keys error file, for the keys
+generated by the lookup service for the given model, supplier and
+exposure sfile - requires a lookup service instance (which can be
+created using the <cite>create</cite> method in this factory class), the path of
+the model location file, the path of the keys file, and the format of
+the output file which can be an Oasis keys file (<code class="docutils literal notranslate"><span class="pre">oasis</span></code>) or a
+simple listing of the records to file (<code class="docutils literal notranslate"><span class="pre">json</span></code>).</p>
+<p>The optional keyword argument <code class="docutils literal notranslate"><span class="pre">keys_error_file_path</span></code> if present
+indicates that all keys records, whether for locations with successful
+or unsuccessful lookups, will be generated and written to separate
+files. A keys record with a successful lookup will have a <cite>status</cite>
+field whose value will be <cite>success</cite>, otherwise the record will have
+a <cite>status</cite> field value of <cite>failure</cite> or <cite>nomatch</cite>.</p>
+<p>If <code class="docutils literal notranslate"><span class="pre">keys_errors_file_path</span></code> is not present then the method returns a
+pair <code class="docutils literal notranslate"><span class="pre">(p,</span> <span class="pre">n)</span></code> where <code class="docutils literal notranslate"><span class="pre">p</span></code> is the keys file path and <code class="docutils literal notranslate"><span class="pre">n</span></code> is the
+number of “successful” keys records written to the keys file, otherwise
+it returns a quadruple <code class="docutils literal notranslate"><span class="pre">(p1,</span> <span class="pre">n1,</span> <span class="pre">p2,</span> <span class="pre">n2)</span></code> where <code class="docutils literal notranslate"><span class="pre">p1</span></code> is the keys
+file path, <code class="docutils literal notranslate"><span class="pre">n1</span></code> is the number of “successful” keys records written to
+the keys file, <code class="docutils literal notranslate"><span class="pre">p2</span></code> is the keys errors file path and <code class="docutils literal notranslate"><span class="pre">n2</span></code> is the
+number of “unsuccessful” keys records written to keys errors file.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.model_preparation.lookup.OasisLookup">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.model_preparation.lookup.</code><code class="sig-name descname">OasisLookup</code><span class="sig-paren">(</span><em class="sig-param">config=None</em>, <em class="sig-param">config_json=None</em>, <em class="sig-param">config_fp=None</em>, <em class="sig-param">config_dir=None</em>, <em class="sig-param">areas=None</em>, <em class="sig-param">peril_areas=None</em>, <em class="sig-param">peril_areas_index=None</em>, <em class="sig-param">peril_areas_index_props=None</em>, <em class="sig-param">loc_to_global_areas_boundary_min_distance=0</em>, <em class="sig-param">vulnerabilities=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup" title="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup"><code class="xref py py-class docutils literal notranslate"><span class="pre">oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup</span></code></a></p>
+<p>Combined peril and vulnerability lookup</p>
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisLookup.lookup">
+<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc</em>, <em class="sig-param">peril_id</em>, <em class="sig-param">coverage_type</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisLookup.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisLookup.lookup" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.model_preparation.lookup.OasisPerilLookup">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.model_preparation.lookup.</code><code class="sig-name descname">OasisPerilLookup</code><span class="sig-paren">(</span><em class="sig-param">areas=None</em>, <em class="sig-param">config=None</em>, <em class="sig-param">config_json=None</em>, <em class="sig-param">config_fp=None</em>, <em class="sig-param">config_dir=None</em>, <em class="sig-param">loc_to_global_areas_boundary_min_distance=0</em>, <em class="sig-param">peril_areas=None</em>, <em class="sig-param">peril_areas_index=None</em>, <em class="sig-param">peril_areas_index_fp=None</em>, <em class="sig-param">peril_areas_index_props=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisPerilLookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisPerilLookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup" title="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup"><code class="xref py py-class docutils literal notranslate"><span class="pre">oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup</span></code></a></p>
+<p>Single peril, single coverage type, lon/lat point-area poly lookup using
+an Rtree index to store peril areas - index entries are
+#
+#    (peril area ID, peril area bounds)
+#
+# pairs. Areas must be represented as polygons with vertices which are
+# lon/lat coordinates, and be passed in to the constructor as a list,
+# tuple, or generator of triples of the form
+#
+#    (peril area ID, polygon lon/lat vertices, dict with optional properties)
+#
+# An optional distance measure <code class="docutils literal notranslate"><span class="pre">loc_to_global_areas_boundary_min_distance</span></code> can be passed
+# that defines how far, in an abstract unit, a given lon/lat location can be
+# from the boundary of the polygon containing all the individual peril area
+# polygons in order to be assigned an peril area ID. By default this distance
+# is 0, which means any lon/lat location outside the polygon containing all
+# peril area polygons will not be assigned a peril area ID.</p>
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisPerilLookup.lookup">
+<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc</em>, <em class="sig-param">peril_id</em>, <em class="sig-param">coverage_type</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisPerilLookup.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisPerilLookup.lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Area peril lookup for an individual lon/lat location item, which can be
+provided as a dict or a Pandas series. The data structure should contain
+the keys <cite>lon</cite> or <cite>longitude</cite> for longitude and <cite>lat</cite> or <cite>latitude</cite> for
+latitude.</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.model_preparation.lookup.OasisVulnerabilityLookup">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.model_preparation.lookup.</code><code class="sig-name descname">OasisVulnerabilityLookup</code><span class="sig-paren">(</span><em class="sig-param">config=None</em>, <em class="sig-param">config_json=None</em>, <em class="sig-param">config_fp=None</em>, <em class="sig-param">config_dir=None</em>, <em class="sig-param">vulnerabilities=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisVulnerabilityLookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisVulnerabilityLookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup" title="oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup"><code class="xref py py-class docutils literal notranslate"><span class="pre">oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup</span></code></a></p>
+<p>Simple key-value based vulnerability lookup</p>
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisVulnerabilityLookup.get_vulnerabilities">
+<code class="sig-name descname">get_vulnerabilities</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">vulnerabilities=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisVulnerabilityLookup.get_vulnerabilities"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisVulnerabilityLookup.get_vulnerabilities" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.model_preparation.lookup.OasisVulnerabilityLookup.lookup">
+<code class="sig-name descname">lookup</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">loc</em>, <em class="sig-param">peril_id</em>, <em class="sig-param">coverage_type</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/lookup.html#OasisVulnerabilityLookup.lookup"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.lookup.OasisVulnerabilityLookup.lookup" title="Permalink to this definition">¶</a></dt>
+<dd><p>Vulnerability lookup for an individual location item, which could be a dict or a
+Pandas series.</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

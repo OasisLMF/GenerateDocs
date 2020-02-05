@@ -1,0 +1,286 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Release process &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="What is a catastrophe model" href="../modelling_methodology/what_is_a_catastrophe_model.html" />
+    <link rel="prev" title="Technology stack" href="technology_stack.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>Release process</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/developer_guide/release_process.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="release-process">
+<h1>Release process<a class="headerlink" href="#release-process" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="continuous-integration">
+<h2>Continuous Integration<a class="headerlink" href="#continuous-integration" title="Permalink to this headline">¶</a></h2>
+<p>A critical feature of any production system is a robust process for building, testing and deploying new releases.
+Of critical importance for a catastrophe modelling platform is that software updates do not materially impact the modelled numbers, and if they do then a robust change management process is required.
+We use Jenkins as a Continuous Integration system, included regession of the models in the Oasis Model Library.
+A schematic of our build process is shown below:</p>
+<div class="figure align-default">
+<img alt="Oasis build process" src="../_images/oasis_ci.png" />
+</div>
+<p>Changelogs for each component can be viewed in the relevant <a class="reference internal" href="github_repositories.html#github-repositories"><span class="std std-ref">GitHub repositories</span></a>.</p>
+</div>
+<div class="section" id="releases-process-and-versioning">
+<h2>Releases Process and Versioning<a class="headerlink" href="#releases-process-and-versioning" title="Permalink to this headline">¶</a></h2>
+<p>We operate on a monthly release cycle.
+We use semantic versioning (<a class="reference external" href="https://semver.org/">SemVer</a>) to label our releases.
+Given a version number MAJOR.MINOR.PATCH, increment the:</p>
+<ul class="simple">
+<li><p>MAJOR version when you make incompatible API changes,</p></li>
+<li><p>MINOR version when you add functionality in a backwards-compatible manner, and</p></li>
+<li><p>PATCH version when you make backwards-compatible bug fixes.</p></li>
+</ul>
+<p>The latest stable builds are listed in <a class="reference internal" href="github_repositories.html#github-repositories"><span class="std std-ref">GitHub repositories</span></a>.</p>
+</div>
+<div class="section" id="features">
+<h2>Features<a class="headerlink" href="#features" title="Permalink to this headline">¶</a></h2>
+<p>Our development work is prioritized to maximise value to the Oasis community.
+We rank the features based on discussions with the membership, balancing with technology requirements and the logical sequencing required in some areas.
+The backlog is available for review and comment <a class="reference external" href="https://github.com/orgs/OasisLMF/projects/11">here</a>.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../modelling_methodology/what_is_a_catastrophe_model.html" class="btn btn-neutral float-right" title="What is a catastrophe model" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="technology_stack.html" class="btn btn-neutral float-left" title="Technology stack" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

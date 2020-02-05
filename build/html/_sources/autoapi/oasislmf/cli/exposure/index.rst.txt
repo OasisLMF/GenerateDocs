@@ -1,0 +1,59 @@
+:mod:`oasislmf.cli.exposure`
+============================
+
+.. py:module:: oasislmf.cli.exposure
+
+
+Module Contents
+---------------
+
+.. py:class:: RunCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Generates deterministic losses using the installed ktools framework given
+   direct Oasis files (GUL + optionally IL and RI input files).
+
+   The command line arguments can be supplied in the configuration file
+   (``oasislmf.json`` by default or specified with the ``--config`` flag).
+   Run ``oasislmf config --help`` for more information.
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Generates deterministic losses using the installed ktools framework given
+      direct Oasis files (GUL + optionally IL and RI input files).
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: ExposureCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Exposure subcommands::
+
+   * generate - and optionally, validate - deterministic losses (GUL, IL or RIL)
+
+   .. attribute:: sub_commands
+      
+
+      
+
+

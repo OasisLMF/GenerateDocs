@@ -1,0 +1,644 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.model_execution.bin &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../oasislmf.html">oasislmf</a> &raquo;</li>
+        
+      <li>oasislmf.model_execution.bin</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for oasislmf.model_execution.bin</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Python utilities used for setting up the structure of the run directory</span>
+<span class="sd">    in which to prepare the inputs to run a model or generate deterministic</span>
+<span class="sd">    losses, and store the outputs.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;check_binary_tar_file&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;check_conversion_tools&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;check_inputs_directory&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;cleanup_bin_directory&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;create_binary_tar_file&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;csv_to_bin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prepare_run_directory&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;prepare_run_inputs&#39;</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">filecmp</span>
+<span class="kn">import</span> <span class="nn">glob</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">shutil</span>
+<span class="kn">import</span> <span class="nn">shutilwhich</span>
+<span class="kn">import</span> <span class="nn">subprocess</span>
+<span class="kn">import</span> <span class="nn">tarfile</span>
+
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">chain</span>
+
+<span class="kn">from</span> <span class="nn">pathlib2</span> <span class="kn">import</span> <span class="n">Path</span>
+
+<span class="kn">from</span> <span class="nn">..utils.exceptions</span> <span class="kn">import</span> <span class="n">OasisException</span>
+<span class="kn">from</span> <span class="nn">..utils.log</span> <span class="kn">import</span> <span class="n">oasis_log</span>
+<span class="kn">from</span> <span class="nn">.files</span> <span class="kn">import</span> <span class="n">TAR_FILE</span><span class="p">,</span> <span class="n">INPUT_FILES</span><span class="p">,</span> <span class="n">GUL_INPUT_FILES</span><span class="p">,</span> <span class="n">IL_INPUT_FILES</span>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="prepare_run_directory"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.prepare_run_directory">[docs]</a><span class="k">def</span> <span class="nf">prepare_run_directory</span><span class="p">(</span>
+    <span class="n">run_dir</span><span class="p">,</span>
+    <span class="n">oasis_src_fp</span><span class="p">,</span>
+    <span class="n">model_data_fp</span><span class="p">,</span>
+    <span class="n">analysis_settings_fp</span><span class="p">,</span>
+    <span class="n">inputs_archive</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">user_data_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">ri</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Ensures that the model run directory has the correct folder structure in</span>
+<span class="sd">    order for the model run script (ktools) to be executed. Without the RI</span>
+<span class="sd">    flag the model run directory will have the following structure</span>
+
+<span class="sd">    ::</span>
+
+<span class="sd">        &lt;run_directory&gt;</span>
+<span class="sd">        |-- fifo/</span>
+<span class="sd">        |-- input/</span>
+<span class="sd">        |   `-- csv/</span>
+<span class="sd">        |-- output/</span>
+<span class="sd">        |-- static/</span>
+<span class="sd">        |-- work/</span>
+<span class="sd">        |-- analysis_settings.json</span>
+<span class="sd">        `-- run_ktools.sh</span>
+
+
+<span class="sd">    where the direct GUL and/or FM input files exist in the ``input/csv``</span>
+<span class="sd">    subfolder and the corresponding binaries exist in the ``input`` subfolder.</span>
+
+<span class="sd">    With the RI flag the model run directory has the following structure</span>
+
+<span class="sd">    ::</span>
+<span class="sd">        &lt;run_directory&gt;</span>
+<span class="sd">        |-- fifo</span>
+<span class="sd">        |-- input</span>
+<span class="sd">        |-- RI_1</span>
+<span class="sd">        |-- RI_2</span>
+<span class="sd">        |-- ...</span>
+<span class="sd">        |-- output</span>
+<span class="sd">        |-- static</span>
+<span class="sd">        |-- work</span>
+<span class="sd">        |-- ri_layers.json</span>
+<span class="sd">        |-- analysis_settings.json</span>
+<span class="sd">        `-- run_ktools.sh</span>
+
+<span class="sd">    where the direct GUL and/or FM input files, and the corresponding binaries</span>
+<span class="sd">    exist in the ``input`` subfolder, and the RI layer input files and binaries</span>
+<span class="sd">    exist in the ``RI`` prefixed subfolders.</span>
+
+<span class="sd">    If any subfolders are missing they are created.</span>
+
+<span class="sd">    Optionally, if the path to a set of Oasis files is provided then they</span>
+<span class="sd">    are copied into the ``input/csv`` subfolder.</span>
+
+<span class="sd">    Optionally, if the path to the analysis settings JSON file is provided</span>
+<span class="sd">    then it is copied to the base of the run directory.</span>
+
+<span class="sd">    Optionally, if the path to model data is provided then the files are</span>
+<span class="sd">    symlinked into the ``static`` subfolder provided the OS is of type</span>
+<span class="sd">    Darwin or Linux, otherwise the source folder tree is recursively</span>
+<span class="sd">    copied into the ``static`` subfolder.</span>
+
+<span class="sd">    :param run_dir: the model run directory</span>
+<span class="sd">    :type run_dir: str</span>
+
+<span class="sd">    :param oasis_src_fp: path to a set of Oasis files</span>
+<span class="sd">    :type oasis_src_fp: str</span>
+
+<span class="sd">    :param ri: Boolean flag for RI mode</span>
+<span class="sd">    :type ri: bool</span>
+
+<span class="sd">    :param analysis_settings_fp: analysis settings JSON file path</span>
+<span class="sd">    :type analysis_settings_fp: str</span>
+
+<span class="sd">    :param model_data_fp: model data source path</span>
+<span class="sd">    :type model_data_fp: str</span>
+
+<span class="sd">    :param inputs_archive: path to a tar file containing input files</span>
+<span class="sd">    :type inputs_archive: str</span>
+
+<span class="sd">    :param: user_data_dir: path to a directory containing additional user-supplied model data</span>
+<span class="sd">    :type user_data_dir: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">subdir</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;fifo&#39;</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;work&#39;</span><span class="p">]:</span>
+            <span class="n">Path</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="n">subdir</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">inputs_archive</span><span class="p">:</span>
+            <span class="n">Path</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">parents</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">inputs_archive</span><span class="p">)</span> <span class="k">as</span> <span class="n">input_tarfile</span><span class="p">:</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">ri</span> <span class="k">else</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">)</span>
+                <span class="n">input_tarfile</span><span class="o">.</span><span class="n">extractall</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="n">p</span><span class="p">)</span>
+
+        <span class="n">oasis_dst_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">oasis_src_fp</span><span class="p">):</span>
+            <span class="n">src</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">oasis_src_fp</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">src</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.tar&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">src</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;.tar.gz&#39;</span><span class="p">):</span>
+                <span class="k">continue</span>
+            <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">oasis_dst_fp</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;RI_\d+$&#39;</span><span class="p">,</span> <span class="n">p</span><span class="p">)</span> <span class="ow">or</span> <span class="n">p</span> <span class="o">==</span> <span class="s1">&#39;ri_layers.json&#39;</span><span class="p">):</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copy2</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">oasis_dst_fp</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span> <span class="ow">and</span> <span class="n">filecmp</span><span class="o">.</span><span class="n">cmp</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">dst</span><span class="p">))</span> <span class="k">else</span> <span class="kc">None</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">move</span><span class="p">(</span><span class="n">src</span><span class="p">,</span> <span class="n">run_dir</span><span class="p">)</span>
+
+        <span class="n">dst</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;analysis_settings.json&#39;</span><span class="p">)</span>
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">analysis_settings_fp</span><span class="p">,</span> <span class="n">dst</span><span class="p">)</span> <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">dst</span><span class="p">)</span> <span class="ow">and</span> <span class="n">filecmp</span><span class="o">.</span><span class="n">cmp</span><span class="p">(</span><span class="n">analysis_settings_fp</span><span class="p">,</span> <span class="n">dst</span><span class="p">,</span> <span class="n">shallow</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="n">model_data_dst_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_data_fp</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)):</span>
+            <span class="n">fn</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_data_dst_fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="n">os</span><span class="o">.</span><span class="n">symlink</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_data_dst_fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+            <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">model_data_fp</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_data_dst_fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">user_data_dir</span> <span class="ow">and</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">user_data_dir</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">path</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">user_data_dir</span><span class="p">,</span> <span class="s1">&#39;*&#39;</span><span class="p">)):</span>
+                <span class="n">fn</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">name</span> <span class="o">==</span> <span class="s1">&#39;nt&#39;</span><span class="p">:</span>
+                        <span class="n">shutil</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">oasis_dst_fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+                    <span class="k">else</span><span class="p">:</span>
+                        <span class="n">os</span><span class="o">.</span><span class="n">symlink</span><span class="p">(</span><span class="n">path</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">oasis_dst_fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+                <span class="k">except</span> <span class="ne">Exception</span><span class="p">:</span>
+                    <span class="n">shutil</span><span class="o">.</span><span class="n">copytree</span><span class="p">(</span><span class="n">user_data_dir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">oasis_dst_fp</span><span class="p">,</span> <span class="n">fn</span><span class="p">))</span>
+
+    <span class="k">except</span> <span class="ne">OSError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">OasisException</span> <span class="kn">from</span> <span class="nn">e</span></div>
+
+
+<span class="k">def</span> <span class="nf">_prepare_input_bin</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="n">bin_name</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">setting_key</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="n">bin_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_name</span><span class="p">))</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">bin_fp</span><span class="p">):</span>
+        <span class="n">setting_val</span> <span class="o">=</span> <span class="n">model_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">setting_key</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">setting_val</span><span class="p">:</span>
+            <span class="n">model_data_bin_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_name</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Format for data file names</span>
+            <span class="n">setting_val</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="n">setting_val</span><span class="p">)</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+            <span class="n">model_data_bin_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_</span><span class="si">{}</span><span class="s1">.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_name</span><span class="p">,</span> <span class="n">setting_val</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_data_bin_fp</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;Could not find </span><span class="si">{}</span><span class="s1"> data file: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">bin_name</span><span class="p">,</span> <span class="n">model_data_bin_fp</span><span class="p">))</span>
+
+        <span class="n">shutil</span><span class="o">.</span><span class="n">copyfile</span><span class="p">(</span><span class="n">model_data_bin_fp</span><span class="p">,</span> <span class="n">bin_fp</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">_calc_selected</span><span class="p">(</span><span class="n">analysis_settings</span><span class="p">,</span> <span class="n">calc_type</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return True, if &quot;calc_type&quot; is set in the anaylysis settings file</span>
+
+<span class="sd">    :param calc_type: one of `eltcalc`, `lec_output`, `aalcalc` or `pltcalc`</span>
+<span class="sd">    :type calc_type: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">is_in_gul</span> <span class="o">=</span> <span class="n">analysis_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gul_summaries&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">calc_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="k">if</span> <span class="n">analysis_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;gul_summaries&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">is_in_il</span>  <span class="o">=</span> <span class="n">analysis_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;il_summaries&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">calc_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="k">if</span> <span class="n">analysis_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;il_summaries&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="n">is_in_ri</span>  <span class="o">=</span> <span class="n">analysis_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ri_summaries&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">calc_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="k">if</span> <span class="n">analysis_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ri_summaries&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+    <span class="k">return</span> <span class="nb">any</span><span class="p">([</span><span class="n">is_in_gul</span><span class="p">,</span> <span class="n">is_in_il</span><span class="p">,</span> <span class="n">is_in_ri</span><span class="p">])</span>
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="prepare_run_inputs"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.prepare_run_inputs">[docs]</a><span class="k">def</span> <span class="nf">prepare_run_inputs</span><span class="p">(</span><span class="n">analysis_settings</span><span class="p">,</span> <span class="n">run_dir</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Sets up binary files in the model inputs directory.</span>
+
+<span class="sd">    :param analysis_settings: model analysis settings dict</span>
+<span class="sd">    :type analysis_settings: dict</span>
+
+<span class="sd">    :param run_dir: model run directory</span>
+<span class="sd">    :type run_dir: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">model_settings</span> <span class="o">=</span> <span class="n">analysis_settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_settings&#39;</span><span class="p">,</span> <span class="p">{})</span>
+        <span class="n">_prepare_input_bin</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;events&#39;</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">setting_key</span><span class="o">=</span><span class="s1">&#39;event_set&#39;</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">)</span>
+
+        <span class="c1"># Prepare occurrence / returnperiod depending on output calcs selected</span>
+        <span class="k">if</span> <span class="n">_calc_selected</span><span class="p">(</span><span class="n">analysis_settings</span><span class="p">,</span> <span class="s1">&#39;lec_output&#39;</span><span class="p">):</span>
+            <span class="n">_prepare_input_bin</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;returnperiods&#39;</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">)</span>
+            <span class="n">_prepare_input_bin</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;occurrence&#39;</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">setting_key</span><span class="o">=</span><span class="s1">&#39;event_occurrence_id&#39;</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">_calc_selected</span><span class="p">(</span><span class="n">analysis_settings</span><span class="p">,</span> <span class="s1">&#39;pltcalc&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">_calc_selected</span><span class="p">(</span><span class="n">analysis_settings</span><span class="p">,</span> <span class="s1">&#39;aalcalc&#39;</span><span class="p">):</span>
+            <span class="n">_prepare_input_bin</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;occurrence&#39;</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">setting_key</span><span class="o">=</span><span class="s1">&#39;event_occurrence_id&#39;</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">,</span> <span class="s1">&#39;periods.bin&#39;</span><span class="p">)):</span>
+            <span class="n">_prepare_input_bin</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;periods&#39;</span><span class="p">,</span> <span class="n">model_settings</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="n">ri</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">OSError</span><span class="p">,</span> <span class="ne">IOError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">OasisException</span> <span class="kn">from</span> <span class="nn">e</span></div>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="check_inputs_directory"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.check_inputs_directory">[docs]</a><span class="k">def</span> <span class="nf">check_inputs_directory</span><span class="p">(</span><span class="n">directory_to_check</span><span class="p">,</span> <span class="n">il</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">check_binaries</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check that all the required files are present in the directory.</span>
+
+<span class="sd">    :param directory_to_check: directory containing the CSV files</span>
+<span class="sd">    :type directory_to_check: string</span>
+
+<span class="sd">    :param il: check insuured loss files</span>
+<span class="sd">    :type il: bool</span>
+
+<span class="sd">    :param il: check resinsurance sub-folders</span>
+<span class="sd">    :type il: bool</span>
+
+<span class="sd">    :param check_binaries: check binary files are not present</span>
+<span class="sd">    :type check_binaries: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Check the top level directory, that containes the core files and any direct FM files</span>
+    <span class="n">_check_each_inputs_directory</span><span class="p">(</span><span class="n">directory_to_check</span><span class="p">,</span> <span class="n">il</span><span class="o">=</span><span class="n">il</span><span class="p">,</span> <span class="n">check_binaries</span><span class="o">=</span><span class="n">check_binaries</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ri</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ri_directory_to_check</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">RI_\d+$&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">directory_to_check</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">sep</span><span class="p">)):</span>
+            <span class="n">_check_each_inputs_directory</span><span class="p">(</span><span class="n">ri_directory_to_check</span><span class="p">,</span> <span class="n">il</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">check_binaries</span><span class="o">=</span><span class="n">check_binaries</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_check_each_inputs_directory</span><span class="p">(</span><span class="n">directory_to_check</span><span class="p">,</span> <span class="n">il</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">check_binaries</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Detailed check of a specific directory</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="k">if</span> <span class="n">il</span><span class="p">:</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;optional&#39;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;optional&#39;</span><span class="p">,</span> <span class="s1">&#39;il&#39;</span><span class="p">])</span>
+
+    <span class="k">for</span> <span class="n">input_file</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory_to_check</span><span class="p">,</span> <span class="n">input_file</span> <span class="o">+</span> <span class="s2">&quot;.csv&quot;</span><span class="p">)</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s2">&quot;Failed to find </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span>
+
+        <span class="k">if</span> <span class="n">check_binaries</span><span class="p">:</span>
+            <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory_to_check</span><span class="p">,</span> <span class="n">input_file</span> <span class="o">+</span> <span class="s2">&quot;.bin&quot;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+                <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s2">&quot;Binary file already exists: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="csv_to_bin"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.csv_to_bin">[docs]</a><span class="k">def</span> <span class="nf">csv_to_bin</span><span class="p">(</span><span class="n">csv_directory</span><span class="p">,</span> <span class="n">bin_directory</span><span class="p">,</span> <span class="n">il</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create the binary files.</span>
+
+<span class="sd">    :param csv_directory: the directory containing the CSV files</span>
+<span class="sd">    :type csv_directory: str</span>
+
+<span class="sd">    :param bin_directory: the directory to write the binary files</span>
+<span class="sd">    :type bin_directory: str</span>
+
+<span class="sd">    :param il: whether to create the binaries required for insured loss calculations</span>
+<span class="sd">    :type il: bool</span>
+
+<span class="sd">    :param ri: whether to create the binaries required for reinsurance calculations</span>
+<span class="sd">    :type ri: bool</span>
+
+<span class="sd">    :raises OasisException: If one of the conversions fails</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">csvdir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">csv_directory</span><span class="p">)</span>
+    <span class="n">bindir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">bin_directory</span><span class="p">)</span>
+
+    <span class="n">il</span> <span class="o">=</span> <span class="n">il</span> <span class="ow">or</span> <span class="n">ri</span>
+
+    <span class="n">_csv_to_bin</span><span class="p">(</span><span class="n">csvdir</span><span class="p">,</span> <span class="n">bindir</span><span class="p">,</span> <span class="n">il</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ri</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">ri_csvdir</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}{}</span><span class="s1">RI_[0-9]*&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">csvdir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)):</span>
+            <span class="n">_csv_to_bin</span><span class="p">(</span>
+                <span class="n">ri_csvdir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bindir</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">ri_csvdir</span><span class="p">)),</span> <span class="n">il</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+
+<span class="k">def</span> <span class="nf">_csv_to_bin</span><span class="p">(</span><span class="n">csv_directory</span><span class="p">,</span> <span class="n">bin_directory</span><span class="p">,</span> <span class="n">il</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a set of binary files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">bin_directory</span><span class="p">):</span>
+        <span class="n">os</span><span class="o">.</span><span class="n">mkdir</span><span class="p">(</span><span class="n">bin_directory</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">il</span><span class="p">:</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="n">INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;il&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">input_file</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
+        <span class="n">conversion_tool</span> <span class="o">=</span> <span class="n">input_file</span><span class="p">[</span><span class="s1">&#39;conversion_tool&#39;</span><span class="p">]</span>
+        <span class="n">input_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">csv_directory</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.csv&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">input_file</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">input_file_path</span><span class="p">):</span>
+            <span class="k">continue</span>
+
+        <span class="n">output_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">bin_directory</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">input_file</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">]))</span>
+        <span class="n">cmd_str</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">{}</span><span class="s2"> &lt; </span><span class="si">{}</span><span class="s2"> &gt; </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">conversion_tool</span><span class="p">,</span> <span class="n">input_file_path</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">subprocess</span><span class="o">.</span><span class="n">check_call</span><span class="p">(</span><span class="n">cmd_str</span><span class="p">,</span> <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">STDOUT</span><span class="p">,</span> <span class="n">shell</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">CalledProcessError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span> <span class="kn">from</span> <span class="nn">e</span>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="check_binary_tar_file"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.check_binary_tar_file">[docs]</a><span class="k">def</span> <span class="nf">check_binary_tar_file</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">,</span> <span class="n">check_il</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Checks that all required files are present</span>
+
+<span class="sd">    :param tar_file_path: Path to the tar file to check</span>
+<span class="sd">    :type tar_file_path: str</span>
+
+<span class="sd">    :param check_il: Flag whether to check insured loss files</span>
+<span class="sd">    :type check_il: bool</span>
+
+<span class="sd">    :raises OasisException: If a required file is missing</span>
+
+<span class="sd">    :return: True if all required files are present, False otherwise</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">expected_members</span> <span class="o">=</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">GUL_INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">())</span>
+
+    <span class="k">if</span> <span class="n">check_il</span><span class="p">:</span>
+        <span class="n">expected_members</span> <span class="o">=</span> <span class="n">chain</span><span class="p">(</span><span class="n">expected_members</span><span class="p">,</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">])</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">IL_INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">()))</span>
+
+    <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">tar_file_path</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">member</span> <span class="ow">in</span> <span class="n">expected_members</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">tar</span><span class="o">.</span><span class="n">getmember</span><span class="p">(</span><span class="n">member</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> is missing from the tar file </span><span class="si">{}</span><span class="s1">.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">member</span><span class="p">,</span> <span class="n">tar_file_path</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="create_binary_tar_file"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.create_binary_tar_file">[docs]</a><span class="k">def</span> <span class="nf">create_binary_tar_file</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Package the binaries in a gzipped tar.</span>
+
+<span class="sd">    :param directory: Path containing the binaries</span>
+<span class="sd">    :type tar_file_path: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">with</span> <span class="n">tarfile</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">TAR_FILE</span><span class="p">),</span> <span class="s2">&quot;w:gz&quot;</span><span class="p">)</span> <span class="k">as</span> <span class="n">tar</span><span class="p">:</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">*</span><span class="si">{}</span><span class="s1">*.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)):</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Adding </span><span class="si">{}</span><span class="s2"> </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">directory</span><span class="p">)))</span>
+            <span class="n">relpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+            <span class="n">tar</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">arcname</span><span class="o">=</span><span class="n">relpath</span><span class="p">)</span>
+
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">glob</span><span class="o">.</span><span class="n">glob</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">*</span><span class="si">{}</span><span class="s1">*</span><span class="si">{}</span><span class="s1">*.bin&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)):</span>
+            <span class="n">relpath</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">relpath</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">directory</span><span class="p">)</span>
+            <span class="n">tar</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">arcname</span><span class="o">=</span><span class="n">relpath</span><span class="p">)</span></div>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="check_conversion_tools"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.check_conversion_tools">[docs]</a><span class="k">def</span> <span class="nf">check_conversion_tools</span><span class="p">(</span><span class="n">il</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check that the conversion tools are available</span>
+
+<span class="sd">    :param il: Flag whether to check insured loss tools</span>
+<span class="sd">    :type il: bool</span>
+
+<span class="sd">    :return: True if all required tools are present, False otherwise</span>
+<span class="sd">    :rtype: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">il</span><span class="p">:</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="n">INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">input_files</span> <span class="o">=</span> <span class="p">(</span><span class="n">f</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">INPUT_FILES</span><span class="o">.</span><span class="n">values</span><span class="p">()</span> <span class="k">if</span> <span class="n">f</span><span class="p">[</span><span class="s1">&#39;type&#39;</span><span class="p">]</span> <span class="o">!=</span> <span class="s1">&#39;il&#39;</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">input_file</span> <span class="ow">in</span> <span class="n">input_files</span><span class="p">:</span>
+        <span class="n">tool</span> <span class="o">=</span> <span class="n">input_file</span><span class="p">[</span><span class="s1">&#39;conversion_tool&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">shutilwhich</span><span class="o">.</span><span class="n">which</span><span class="p">(</span><span class="n">tool</span><span class="p">)</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">error_message</span> <span class="o">=</span> <span class="s2">&quot;Failed to find conversion tool: </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">tool</span><span class="p">)</span>
+            <span class="n">logging</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="n">error_message</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="n">error_message</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="kc">True</span></div>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="cleanup_bin_directory"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_execution/bin/index.html#oasislmf.model_execution.bin.cleanup_bin_directory">[docs]</a><span class="k">def</span> <span class="nf">cleanup_bin_directory</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Clean the tar and binary files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">chain</span><span class="p">([</span><span class="n">TAR_FILE</span><span class="p">],</span> <span class="p">(</span><span class="n">f</span> <span class="o">+</span> <span class="s1">&#39;.bin&#39;</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">INPUT_FILES</span><span class="o">.</span><span class="n">keys</span><span class="p">())):</span>
+        <span class="n">file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">directory</span><span class="p">,</span> <span class="n">file</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">file_path</span><span class="p">):</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">remove</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

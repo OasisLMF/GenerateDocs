@@ -1,0 +1,15 @@
+:mod:`src.model_execution_worker`
+=================================
+
+.. py:module:: src.model_execution_worker
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   tasks/index.rst
+
+

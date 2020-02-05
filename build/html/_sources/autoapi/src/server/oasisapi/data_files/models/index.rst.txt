@@ -1,0 +1,49 @@
+:mod:`src.server.oasisapi.data_files.models`
+============================================
+
+.. py:module:: src.server.oasisapi.data_files.models
+
+
+Module Contents
+---------------
+
+.. py:class:: DataFile
+
+   Bases: :class:`model_utils.models.TimeStampedModel`
+
+   .. attribute:: file_description
+      
+
+      
+
+   .. attribute:: creator
+      
+
+      
+
+   .. attribute:: file
+      
+
+      
+
+   .. method:: __str__(self)
+
+
+
+   .. method:: get_filename(self)
+
+
+
+   .. method:: get_filestore(self)
+
+
+
+   .. method:: get_content_type(self)
+
+
+
+   .. method:: get_absolute_data_file_url(self, request=None)
+
+
+
+

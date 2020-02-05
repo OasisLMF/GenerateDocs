@@ -1,0 +1,580 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.utils.data &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.utils.data</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/autoapi/oasislmf/utils/data/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-oasislmf.utils.data">
+<span id="oasislmf-utils-data"></span><h1><a class="reference internal" href="#module-oasislmf.utils.data" title="oasislmf.utils.data"><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.utils.data</span></code></a><a class="headerlink" href="#module-oasislmf.utils.data" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="oasislmf.utils.data.PANDAS_BASIC_DTYPES">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">PANDAS_BASIC_DTYPES</code><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#PANDAS_BASIC_DTYPES"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.PANDAS_BASIC_DTYPES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="oasislmf.utils.data.PANDAS_DEFAULT_NULL_VALUES">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">PANDAS_DEFAULT_NULL_VALUES</code><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#PANDAS_DEFAULT_NULL_VALUES"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.PANDAS_DEFAULT_NULL_VALUES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.factorize_array">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">factorize_array</code><span class="sig-paren">(</span><em class="sig-param">arr</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#factorize_array"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.factorize_array" title="Permalink to this definition">¶</a></dt>
+<dd><p>Groups a 1D Numpy array by item value, and optionally enumerates the
+groups, starting from 1. The default or assumed type is a Nunpy
+array, although a Python list, tuple or Pandas series will work too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arr</strong> (<em>numpy.ndarray</em>) – 1D Numpy array (or list, tuple, or Pandas series)</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 2-tuple consisting of the enumeration and the value groups</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.factorize_ndarray">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">factorize_ndarray</code><span class="sig-paren">(</span><em class="sig-param">ndarr</em>, <em class="sig-param">row_idxs=[]</em>, <em class="sig-param">col_idxs=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#factorize_ndarray"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.factorize_ndarray" title="Permalink to this definition">¶</a></dt>
+<dd><p>Groups an n-D Numpy array by item value, and optionally enumerates the
+groups, starting from 1. The default or assumed type is a Nunpy
+array, although a Python list, tuple or Pandas series will work too.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>ndarr</strong> (<em>numpy.ndarray</em>) – n-D Numpy array (or appropriate Python structure or Pandas dataframe)</p></li>
+<li><p><strong>row_idxs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – A list of row indices to use for factorization (optional)</p></li>
+<li><p><strong>col_idxs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – A list of column indices to use for factorization (optional)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A 2-tuple consisting of the enumeration and the value groups</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.factorize_dataframe">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">factorize_dataframe</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">by_row_labels=None</em>, <em class="sig-param">by_row_indices=None</em>, <em class="sig-param">by_col_labels=None</em>, <em class="sig-param">by_col_indices=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#factorize_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.factorize_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Groups a selection of rows or columns of a Pandas DataFrame array by value,
+and optionally enumerates the groups, starting from 1.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> – Pandas DataFrame</p></li>
+<li><p><strong>by_row_labels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a>) – A list or tuple of row labels</p></li>
+<li><p><strong>by_row_indices</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a>) – A list or tuple of row indices</p></li>
+<li><p><strong>by_col_labels</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a>) – A list or tuple of column labels</p></li>
+<li><p><strong>by_col_indices</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a>) – A list or tuple of column indices</p></li>
+</ul>
+</dd>
+<dt class="field-even">Type</dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>A 2-tuple consisting of the enumeration and the value groups</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)">tuple</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.fast_zip_arrays">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">fast_zip_arrays</code><span class="sig-paren">(</span><em class="sig-param">*arrays</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#fast_zip_arrays"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.fast_zip_arrays" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speedy zip of a sequence or ordered iterable of Numpy arrays (Python
+iterables with ordered elements such as lists and tuples, or iterators
+or generators of these, will also work).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>arrays</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a><em>, </em><em>collections.Iterator</em><em>, </em><em>types.GeneratorType</em>) – An iterable or iterator or generator of Numpy arrays</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Numpy 1D array of n-tuples of the zipped sequences</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.fast_zip_dataframe_columns">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">fast_zip_dataframe_columns</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">cols</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#fast_zip_dataframe_columns"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.fast_zip_dataframe_columns" title="Permalink to this definition">¶</a></dt>
+<dd><p>Speedy zip of a sequence or ordered iterable of Pandas DataFrame columns
+(Python iterables with ordered elements such as lists and tuples, or
+iterators or generators of these, will also work).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – Pandas DataFrame</p></li>
+<li><p><strong>cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a><em>, </em><em>collections.Iterator</em><em>, </em><em>types.GeneratorType</em>) – An iterable or iterator or generator of Pandas DataFrame columns</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Numpy 1D array of n-tuples of the dataframe columns to be zipped</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>np.array</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.get_dataframe">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">get_dataframe</code><span class="sig-paren">(</span><em class="sig-param">src_fp=None</em>, <em class="sig-param">src_type='csv'</em>, <em class="sig-param">src_buf=None</em>, <em class="sig-param">src_data=None</em>, <em class="sig-param">float_precision='high'</em>, <em class="sig-param">empty_data_error_msg=None</em>, <em class="sig-param">lowercase_cols=True</em>, <em class="sig-param">required_cols=()</em>, <em class="sig-param">col_defaults={}</em>, <em class="sig-param">non_na_cols=()</em>, <em class="sig-param">col_dtypes={}</em>, <em class="sig-param">sort_cols=None</em>, <em class="sig-param">sort_ascending=None</em>, <em class="sig-param">memory_map=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#get_dataframe"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.get_dataframe" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads a Pandas dataframe from a source CSV or JSON file, or a text buffer
+of such a file (<code class="docutils literal notranslate"><span class="pre">io.StringIO</span></code>), or another Pandas dataframe.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>src_fp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Source CSV or JSON file path (optional)</p></li>
+<li><p><strong>src_type</strong> – Type of source file -CSV or JSON (optional; default is csv)</p></li>
+<li><p><strong>src_type</strong> – str</p></li>
+<li><p><strong>src_buf</strong> (<a class="reference external" href="https://docs.python.org/3/library/io.html#io.StringIO" title="(in Python v3.8)"><em>io.StringIO</em></a>) – Text buffer of a source CSV or JSON file (optional)</p></li>
+<li><p><strong>float_precision</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Indicates whether to support high-precision numbers
+present in the data (optional; default is high)</p></li>
+<li><p><strong>empty_data_error_msg</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The message of the exception that is thrown
+there is no data content, i.e no rows
+(optional)</p></li>
+<li><p><strong>lowercase_cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to convert the dataframe columns to lowercase
+(optional; default is True)</p></li>
+<li><p><strong>required_cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a><em>, </em><em>collections.Iterable</em>) – An iterable of columns required to be present in the
+source data (optional)</p></li>
+<li><p><strong>col_defaults</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dict of column names and their default values. This
+can include both existing columns and new columns -
+defaults for existing columns are set row-wise using
+pd.DataFrame.fillna, while defaults for non-existent
+columns are set column-wise using assignment (optional)</p></li>
+<li><p><strong>non_na_cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a><em>, </em><em>collections.Iterable</em>) – An iterable of names of columns which must be dropped
+if they contain any null values (optional)</p></li>
+<li><p><strong>col_dtypes</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dict of column names and corresponding data types -
+Python built-in datatypes are accepted but are mapped
+to the corresponding Numpy datatypes (optional)</p></li>
+<li><p><strong>sort_cols</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a><em>, </em><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#tuple" title="(in Python v3.8)"><em>tuple</em></a><em>, </em><em>collections.Iterable</em>) – An iterable of column names by which to sort the frame
+rows (optional)</p></li>
+<li><p><strong>sort_ascending</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Whether to perform an ascending or descending sort -
+is used only in conjunction with the sort_cols
+option (optional)</p></li>
+<li><p><strong>memory_map</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Memory-efficient option used when loading a frame from
+a file or text buffer - is a direct optional argument
+for the pd.read_csv method</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A Pandas dataframe</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.get_dtypes_and_required_cols">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">get_dtypes_and_required_cols</code><span class="sig-paren">(</span><em class="sig-param">get_dtypes</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#get_dtypes_and_required_cols"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.get_dtypes_and_required_cols" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get OED column data types and required column names from JSON.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>get_dtypes</strong> (<em>function</em>) – method to get dict from JSON</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.get_ids">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">get_ids</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">usecols</em>, <em class="sig-param">group_by=[]</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#get_ids"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.get_ids" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enumerates (counts) the rows of a given dataframe in a given subset
+of dataframe columns, and optionally does the enumeration with
+respect to subgroups of the column subset.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pandas.DataFrame</em>) – Input dataframe</p></li>
+<li><p><strong>usecols</strong> – The column subset</p></li>
+<li><p><strong>usecols</strong> – list</p></li>
+<li><p><strong>group_by</strong> – A subset of the column subset to use a subgroup key</p></li>
+<li><p><strong>group_by</strong> – list</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The enumeration</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>numpy.ndarray</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.get_json">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">get_json</code><span class="sig-paren">(</span><em class="sig-param">src_fp</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#get_json"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.get_json" title="Permalink to this definition">¶</a></dt>
+<dd><p>Loads JSON from file.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>src_fp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Source JSON file path</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>dict</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.get_timestamp">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">get_timestamp</code><span class="sig-paren">(</span><em class="sig-param">thedate=datetime.now()</em>, <em class="sig-param">fmt='%Y%m%d%H%M%S'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#get_timestamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.get_timestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a timestamp string from a <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thedate</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime.datetime</em></a>) – <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object</p></li>
+<li><p><strong>fmt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Timestamp format string</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Timestamp string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.get_utctimestamp">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">get_utctimestamp</code><span class="sig-paren">(</span><em class="sig-param">thedate=datetime.utcnow()</em>, <em class="sig-param">fmt='%Y-%b-%d %H:%M:%S'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#get_utctimestamp"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.get_utctimestamp" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get a UTC timestamp string from a <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>thedate</strong> (<a class="reference external" href="https://docs.python.org/3/library/datetime.html#datetime.datetime" title="(in Python v3.8)"><em>datetime.datetime</em></a>) – <code class="docutils literal notranslate"><span class="pre">datetime.datetime</span></code> object</p></li>
+<li><p><strong>fmt</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Timestamp format string, default is “%Y-%b-%d %H:%M:%S”</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>UTC timestamp string</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.merge_check">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">merge_check</code><span class="sig-paren">(</span><em class="sig-param">left</em>, <em class="sig-param">right</em>, <em class="sig-param">on=[]</em>, <em class="sig-param">raise_error=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#merge_check"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.merge_check" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check two dataframes for keys intersection, use before performing a merge</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left</strong> (<em>pd.DataFrame</em>) – The first of two dataframes to be merged</p></li>
+<li><p><strong>right</strong> – The second of two dataframes to be merged</p></li>
+<li><p><strong>on</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#list" title="(in Python v3.8)"><em>list</em></a>) – column keys to test</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A dict of booleans, True for an intersection between left/right</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)">dict</a></p>
+</dd>
+</dl>
+<p>{‘portnumber’: False, ‘accnumber’: True, ‘layer_id’: True, ‘condnumber’: True}</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.merge_dataframes">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">merge_dataframes</code><span class="sig-paren">(</span><em class="sig-param">left</em>, <em class="sig-param">right</em>, <em class="sig-param">join_on=None</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#merge_dataframes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.merge_dataframes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Merges two dataframes by ensuring there is no duplication of columns.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>left</strong> (<em>pd.DataFrame</em>) – The first of two dataframes to be merged</p></li>
+<li><p><strong>right</strong> – The second of two dataframes to be merged</p></li>
+<li><p><strong>kwargs</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Optional keyword arguments passed directly to the underlying
+pd.merge method that is called, including options for the
+join keys, join type, etc. - please see the pd.merge
+documentation for details of these optional arguments</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>A merged dataframe</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pd.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.data.set_dataframe_column_dtypes">
+<code class="sig-prename descclassname">oasislmf.utils.data.</code><code class="sig-name descname">set_dataframe_column_dtypes</code><span class="sig-paren">(</span><em class="sig-param">df</em>, <em class="sig-param">dtypes</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/data.html#set_dataframe_column_dtypes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.data.set_dataframe_column_dtypes" title="Permalink to this definition">¶</a></dt>
+<dd><p>A method to set column datatypes for a Pandas dataframe</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>df</strong> (<em>pd.DataFrame</em>) – The dataframe to process</p></li>
+<li><p><strong>dtypes</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – A dict of column names and corresponding Numpy datatypes -
+Python built-in datatypes can be passed in but they will be
+mapped to the corresponding Numpy datatypes</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The processed dataframe with column datatypes set</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

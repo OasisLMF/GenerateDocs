@@ -1,0 +1,15 @@
+:mod:`src.server`
+=================
+
+.. py:module:: src.server
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   oasisapi/index.rst
+
+

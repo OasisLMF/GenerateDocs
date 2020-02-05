@@ -1,0 +1,22 @@
+:mod:`oasislmf.utils.log`
+=========================
+
+.. py:module:: oasislmf.utils.log
+
+
+Module Contents
+---------------
+
+.. function:: set_rotating_logger(log_file_path=inspect.stack()[1][1], log_level=logging.INFO, max_file_size=10**7, max_backups=5)
+
+
+.. function:: read_log_config(config_parser)
+
+   Read an Oasis standard logging config
+
+
+.. function:: oasis_log(*args, **kwargs)
+
+   Decorator that logs the entry, exit and execution time.
+
+

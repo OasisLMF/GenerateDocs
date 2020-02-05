@@ -1,0 +1,90 @@
+:mod:`src.server.oasisapi.portfolios.serializers`
+=================================================
+
+.. py:module:: src.server.oasisapi.portfolios.serializers
+
+
+Module Contents
+---------------
+
+.. py:class:: PortfolioSerializer
+
+   Bases: :class:`rest_framework.serializers.ModelSerializer`
+
+   .. py:class:: Meta
+
+      .. attribute:: model
+         
+
+         
+
+      .. attribute:: fields
+         :annotation: = ['id', 'name', 'created', 'modified', 'location_file', 'accounts_file', 'reinsurance_info_file', 'reinsurance_scope_file']
+
+         
+
+
+   .. attribute:: accounts_file
+      
+
+      
+
+   .. attribute:: location_file
+      
+
+      
+
+   .. attribute:: reinsurance_info_file
+      
+
+      
+
+   .. attribute:: reinsurance_scope_file
+      
+
+      
+
+   .. method:: create(self, validated_data)
+
+
+
+   .. method:: get_location_file(self, instance)
+
+
+
+   .. method:: get_accounts_file(self, instance)
+
+
+
+   .. method:: get_reinsurance_info_file(self, instance)
+
+
+
+   .. method:: get_reinsurance_scope_file(self, instance)
+
+
+
+
+.. py:class:: CreateAnalysisSerializer(portfolio=None, *args, **kwargs)
+
+   Bases: :class:`src.server.oasisapi.analyses.serializers.AnalysisSerializer`
+
+   .. py:class:: Meta
+
+      Bases: :class:`src.server.oasisapi.analyses.serializers.AnalysisSerializer.Meta`
+
+      .. attribute:: fields
+         :annotation: = ['name', 'model']
+
+         
+
+
+   .. method:: validate(self, attrs)
+
+
+
+   .. method:: create(self, validated_data)
+
+
+
+

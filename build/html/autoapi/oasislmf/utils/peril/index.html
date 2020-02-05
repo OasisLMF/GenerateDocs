@@ -1,0 +1,371 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.utils.peril &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.utils.peril</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/autoapi/oasislmf/utils/peril/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-oasislmf.utils.peril">
+<span id="oasislmf-utils-peril"></span><h1><a class="reference internal" href="#module-oasislmf.utils.peril" title="oasislmf.utils.peril"><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.utils.peril</span></code></a><a class="headerlink" href="#module-oasislmf.utils.peril" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="oasislmf.utils.peril.PERIL_GROUPS">
+<code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">PERIL_GROUPS</code><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PERIL_GROUPS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PERIL_GROUPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="oasislmf.utils.peril.PERILS">
+<code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">PERILS</code><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PERILS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PERILS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="oasislmf.utils.peril.DEFAULT_RTREE_INDEX_PROPS">
+<code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">DEFAULT_RTREE_INDEX_PROPS</code><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#DEFAULT_RTREE_INDEX_PROPS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.DEFAULT_RTREE_INDEX_PROPS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.peril.generate_index_entries">
+<code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">generate_index_entries</code><span class="sig-paren">(</span><em class="sig-param">items</em>, <em class="sig-param">objects=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#generate_index_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.generate_index_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.peril.get_peril_areas">
+<code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">get_peril_areas</code><span class="sig-paren">(</span><em class="sig-param">areas</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#get_peril_areas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.get_peril_areas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.peril.get_peril_areas_index">
+<code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">get_peril_areas_index</code><span class="sig-paren">(</span><em class="sig-param">areas=None</em>, <em class="sig-param">peril_areas=None</em>, <em class="sig-param">properties=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#get_peril_areas_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.get_peril_areas_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.utils.peril.get_rtree_index">
+<code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">get_rtree_index</code><span class="sig-paren">(</span><em class="sig-param">items</em>, <em class="sig-param">objects=None</em>, <em class="sig-param">properties=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#get_rtree_index"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.get_rtree_index" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.utils.peril.PerilArea">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">PerilArea</code><span class="sig-paren">(</span><em class="sig-param">coords</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilArea"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilArea" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">shapely.geometry.Polygon</span></code></p>
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilArea.multipoint">
+<em class="property">property </em><code class="sig-name descname">multipoint</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilArea.multipoint"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilArea.multipoint" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilArea.coordinates">
+<em class="property">property </em><code class="sig-name descname">coordinates</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilArea.coordinates"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilArea.coordinates" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilArea.centre">
+<em class="property">property </em><code class="sig-name descname">centre</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilArea.centre"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilArea.centre" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilArea.coverage_type">
+<em class="property">property </em><code class="sig-name descname">coverage_type</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilArea.coverage_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilArea.coverage_type" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilArea.peril_id">
+<em class="property">property </em><code class="sig-name descname">peril_id</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilArea.peril_id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilArea.peril_id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilArea.id">
+<em class="property">property </em><code class="sig-name descname">id</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilArea.id"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilArea.id" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.utils.peril.PerilAreasIndex">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.utils.peril.</code><code class="sig-name descname">PerilAreasIndex</code><span class="sig-paren">(</span><em class="sig-param">*args</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">rtree.index.Index</span></code></p>
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex.dumps">
+<code class="sig-name descname">dumps</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">obj</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex.dumps"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex.dumps" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex.loads">
+<code class="sig-name descname">loads</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">data</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex.loads"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex.loads" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex._get_peril_areas">
+<code class="sig-name descname">_get_peril_areas</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">areas</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex._get_peril_areas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex._get_peril_areas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex._generate_index_entries">
+<code class="sig-name descname">_generate_index_entries</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">items</em>, <em class="sig-param">objects=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex._generate_index_entries"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex._generate_index_entries" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex.protocol">
+<em class="property">property </em><code class="sig-name descname">protocol</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex.protocol"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex.protocol" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex.peril_areas">
+<em class="property">property </em><code class="sig-name descname">peril_areas</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex.peril_areas"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex.peril_areas" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex.stream">
+<em class="property">property </em><code class="sig-name descname">stream</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex.stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex.stream" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex.create_from_peril_areas_file">
+<em class="property">classmethod </em><code class="sig-name descname">create_from_peril_areas_file</code><span class="sig-paren">(</span><em class="sig-param">cls, src_fp=None, src_type='csv', peril_id_col='peril_id', coverage_type_col='coverage_type', peril_area_id_col='area_peril_id', non_na_cols=('peril_id', 'coverage_type', 'area_peril_id'), col_dtypes={'peril_id': int, 'coverage_type': int, 'area_peril_id': int}, sort_cols=['area_peril_id'], area_poly_coords_cols={}, area_poly_coords_seq_start_idx=1, area_reg_poly_radius=0.00166, static_props={}, index_fp=None, index_props=copy.deepcopy(DEFAULT_RTREE_INDEX_PROPS)</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex.create_from_peril_areas_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex.create_from_peril_areas_file" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.utils.peril.PerilAreasIndex.save">
+<code class="sig-name descname">save</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">index_fp</em>, <em class="sig-param">peril_areas=None</em>, <em class="sig-param">index_props=DEFAULT_RTREE_INDEX_PROPS</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/utils/peril.html#PerilAreasIndex.save"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.utils.peril.PerilAreasIndex.save" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

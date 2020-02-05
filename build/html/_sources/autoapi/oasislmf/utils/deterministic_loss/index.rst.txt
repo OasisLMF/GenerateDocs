@@ -1,0 +1,12 @@
+:mod:`oasislmf.utils.deterministic_loss`
+========================================
+
+.. py:module:: oasislmf.utils.deterministic_loss
+
+
+Module Contents
+---------------
+
+.. function:: generate_deterministic_losses(input_dir, output_dir=None, loss_percentage_of_tiv=1.0, net_ri=False, il_alloc_rule=KTOOLS_ALLOC_IL_DEFAULT, ri_alloc_rule=KTOOLS_ALLOC_RI_DEFAULT)
+
+

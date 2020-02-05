@@ -1,0 +1,45 @@
+:mod:`src.server.oasisapi.analyses.tests.test_analysis_tasks`
+=============================================================
+
+.. py:module:: src.server.oasisapi.analyses.tests.test_analysis_tasks
+
+
+Module Contents
+---------------
+
+.. py:class:: RunAnalysisSuccess
+
+   Bases: :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_output_file_and_status_are_updated(self, output_location, log_location, traceback_location, return_code)
+
+
+
+
+.. py:class:: RunAnalysisFailure
+
+   Bases: :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_output_tracebackfile__and_status_are_updated(self, traceback)
+
+
+
+
+.. py:class:: GenerateInputsSuccess
+
+   Bases: :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_input_file_lookup_files_and_status_are_updated(self, input_location, lookup_error_fp, lookup_success_fp, lookup_validation_fp, summary_levels_fp, traceback_fp)
+
+
+
+
+.. py:class:: GenerateInputsFailure
+
+   Bases: :class:`hypothesis.extra.django.TestCase`
+
+   .. method:: test_input_generation_traceback_file_and_status_are_updated(self, traceback)
+
+
+
+

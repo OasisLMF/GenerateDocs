@@ -1,0 +1,15 @@
+:mod:`src.utils`
+================
+
+.. py:module:: src.utils
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   set_default_user/index.rst
+
+

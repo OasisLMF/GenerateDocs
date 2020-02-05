@@ -1,0 +1,257 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server.oasisapi.auth.views &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.server.oasisapi.auth.views</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.server.oasisapi.auth.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">drf_yasg.utils</span> <span class="kn">import</span> <span class="n">swagger_auto_schema</span>
+<span class="kn">from</span> <span class="nn">rest_framework.parsers</span> <span class="kn">import</span> <span class="n">FormParser</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">status</span>
+<span class="kn">from</span> <span class="nn">rest_framework_simplejwt.views</span> <span class="kn">import</span> <span class="n">TokenRefreshView</span> <span class="k">as</span> <span class="n">BaseTokenRefreshView</span><span class="p">,</span> \
+    <span class="n">TokenObtainPairView</span> <span class="k">as</span> <span class="n">BaseTokenObtainPairView</span>
+<span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">TokenRefreshSerializer</span><span class="p">,</span> <span class="n">TokenObtainPairSerializer</span>
+
+<span class="kn">from</span> <span class="nn">..schemas.serializers</span> <span class="kn">import</span> <span class="n">TokenObtainPairResponseSerializer</span><span class="p">,</span> <span class="n">TokenRefreshResponseSerializer</span>
+<span class="kn">from</span> <span class="nn">..schemas.custom_swagger</span> <span class="kn">import</span> <span class="n">TOKEN_REFRESH_HEADER</span>
+
+
+<div class="viewcode-block" id="TokenRefreshView"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/auth/views/index.html#src.server.oasisapi.auth.views.TokenRefreshView">[docs]</a><span class="k">class</span> <span class="nc">TokenRefreshView</span><span class="p">(</span><span class="n">BaseTokenRefreshView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetches a new authentication token from your refresh token.</span>
+
+<span class="sd">    Requires the authorization header to be set using the refresh token</span>
+<span class="sd">    from [`/refresh_token/`](#refresh_token) e.g.</span>
+
+<span class="sd">        Authorization: Bearer &lt;refresh_token&gt;</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TokenRefreshView.serializer_class"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/auth/views/index.html#src.server.oasisapi.auth.views.TokenRefreshView.serializer_class">[docs]</a>    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">TokenRefreshSerializer</span></div>
+<div class="viewcode-block" id="TokenRefreshView.parser_classes"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/auth/views/index.html#src.server.oasisapi.auth.views.TokenRefreshView.parser_classes">[docs]</a>    <span class="n">parser_classes</span> <span class="o">=</span> <span class="p">[</span><span class="n">FormParser</span><span class="p">]</span></div>
+
+    <span class="nd">@swagger_auto_schema</span><span class="p">(</span>
+        <span class="n">manual_parameters</span><span class="o">=</span><span class="p">[</span><span class="n">TOKEN_REFRESH_HEADER</span><span class="p">],</span>
+        <span class="n">responses</span><span class="o">=</span><span class="p">{</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">:</span> <span class="n">TokenRefreshResponseSerializer</span><span class="p">})</span>
+<div class="viewcode-block" id="TokenRefreshView.post"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/auth/views/index.html#src.server.oasisapi.auth.views.TokenRefreshView.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="TokenObtainPairView"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/auth/views/index.html#src.server.oasisapi.auth.views.TokenObtainPairView">[docs]</a><span class="k">class</span> <span class="nc">TokenObtainPairView</span><span class="p">(</span><span class="n">BaseTokenObtainPairView</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Fetches a new refresh token from your username and password.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="TokenObtainPairView.serializer_class"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/auth/views/index.html#src.server.oasisapi.auth.views.TokenObtainPairView.serializer_class">[docs]</a>    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">TokenObtainPairSerializer</span></div>
+
+    <span class="nd">@swagger_auto_schema</span><span class="p">(</span><span class="n">responses</span><span class="o">=</span><span class="p">{</span><span class="n">status</span><span class="o">.</span><span class="n">HTTP_200_OK</span><span class="p">:</span> <span class="n">TokenObtainPairResponseSerializer</span><span class="p">})</span>
+<div class="viewcode-block" id="TokenObtainPairView.post"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/auth/views/index.html#src.server.oasisapi.auth.views.TokenObtainPairView.post">[docs]</a>    <span class="k">def</span> <span class="nf">post</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="k">return</span> <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">post</span><span class="p">(</span><span class="n">request</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

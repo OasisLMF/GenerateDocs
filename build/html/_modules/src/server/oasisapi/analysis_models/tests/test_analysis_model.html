@@ -1,0 +1,482 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server.oasisapi.analysis_models.tests.test_analysis_model &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../" src="../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.server.oasisapi.analysis_models.tests.test_analysis_model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.server.oasisapi.analysis_models.tests.test_analysis_model</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">string</span>
+
+<span class="kn">from</span> <span class="nn">backports.tempfile</span> <span class="kn">import</span> <span class="n">TemporaryDirectory</span>
+<span class="kn">from</span> <span class="nn">django.test</span> <span class="kn">import</span> <span class="n">override_settings</span>
+<span class="kn">from</span> <span class="nn">django.urls</span> <span class="kn">import</span> <span class="n">reverse</span>
+<span class="kn">from</span> <span class="nn">django_webtest</span> <span class="kn">import</span> <span class="n">WebTest</span><span class="p">,</span> <span class="n">WebTestMixin</span>
+<span class="kn">from</span> <span class="nn">hypothesis</span> <span class="kn">import</span> <span class="n">given</span><span class="p">,</span> <span class="n">settings</span>
+<span class="kn">from</span> <span class="nn">hypothesis.extra.django</span> <span class="kn">import</span> <span class="n">TestCase</span>
+<span class="kn">from</span> <span class="nn">hypothesis.strategies</span> <span class="kn">import</span> <span class="n">text</span>
+<span class="kn">from</span> <span class="nn">rest_framework_simplejwt.tokens</span> <span class="kn">import</span> <span class="n">AccessToken</span>
+
+<span class="kn">from</span> <span class="nn">...auth.tests.fakes</span> <span class="kn">import</span> <span class="n">fake_user</span>
+<span class="kn">from</span> <span class="nn">..models</span> <span class="kn">import</span> <span class="n">AnalysisModel</span>
+
+<span class="kn">from</span> <span class="nn">.fakes</span> <span class="kn">import</span> <span class="n">fake_analysis_model</span>
+
+<span class="c1"># Override default deadline for all tests to 8s</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">register_profile</span><span class="p">(</span><span class="s2">&quot;ci&quot;</span><span class="p">,</span> <span class="n">deadline</span><span class="o">=</span><span class="mf">800.0</span><span class="p">)</span>
+<span class="n">settings</span><span class="o">.</span><span class="n">load_profile</span><span class="p">(</span><span class="s2">&quot;ci&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="AnalysisModelApi"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.AnalysisModelApi">[docs]</a><span class="k">class</span> <span class="nc">AnalysisModelApi</span><span class="p">(</span><span class="n">WebTest</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+    <span class="nd">@given</span><span class="p">(</span>
+        <span class="n">supplier_id</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="n">version_id</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">whitespace</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+<div class="viewcode-block" id="AnalysisModelApi.test_version_id_is_missing___response_is_400"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.AnalysisModelApi.test_version_id_is_missing___response_is_400">[docs]</a>    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_version_id_is_missing___response_is_400</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supplier_id</span><span class="p">,</span> <span class="n">version_id</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">fake_user</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;analysis-model-list&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">}),</span>
+            <span class="n">expect_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+            <span class="p">},</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;supplier_id&#39;</span><span class="p">:</span> <span class="n">supplier_id</span><span class="p">,</span>
+                <span class="s1">&#39;version_id&#39;</span><span class="p">:</span> <span class="n">version_id</span><span class="p">,</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">AnalysisModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span></div>
+
+    <span class="nd">@given</span><span class="p">(</span>
+        <span class="n">supplier_id</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">whitespace</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="n">version_id</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+<div class="viewcode-block" id="AnalysisModelApi.test_supplier_id_is_missing___response_is_400"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.AnalysisModelApi.test_supplier_id_is_missing___response_is_400">[docs]</a>    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_supplier_id_is_missing___response_is_400</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supplier_id</span><span class="p">,</span> <span class="n">version_id</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">fake_user</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;analysis-model-list&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">}),</span>
+            <span class="n">expect_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+            <span class="p">},</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;supplier_id&#39;</span><span class="p">:</span> <span class="n">supplier_id</span><span class="p">,</span>
+                <span class="s1">&#39;version_id&#39;</span><span class="p">:</span> <span class="n">version_id</span><span class="p">,</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertFalse</span><span class="p">(</span><span class="n">AnalysisModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">exists</span><span class="p">())</span></div>
+
+    <span class="nd">@given</span><span class="p">(</span>
+        <span class="n">supplier_id</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="n">model_id</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+        <span class="n">version_id</span><span class="o">=</span><span class="n">text</span><span class="p">(</span><span class="n">alphabet</span><span class="o">=</span><span class="n">string</span><span class="o">.</span><span class="n">ascii_letters</span><span class="p">,</span> <span class="n">min_size</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">max_size</span><span class="o">=</span><span class="mi">10</span><span class="p">),</span>
+<div class="viewcode-block" id="AnalysisModelApi.test_data_is_valid___object_is_created"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.AnalysisModelApi.test_data_is_valid___object_is_created">[docs]</a>    <span class="p">)</span>
+    <span class="k">def</span> <span class="nf">test_data_is_valid___object_is_created</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">supplier_id</span><span class="p">,</span> <span class="n">model_id</span><span class="p">,</span> <span class="n">version_id</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">fake_user</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+            <span class="n">reverse</span><span class="p">(</span><span class="s1">&#39;analysis-model-list&#39;</span><span class="p">,</span> <span class="n">kwargs</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">}),</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+            <span class="p">},</span>
+            <span class="n">params</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span>
+                <span class="s1">&#39;supplier_id&#39;</span><span class="p">:</span> <span class="n">supplier_id</span><span class="p">,</span>
+                <span class="s1">&#39;model_id&#39;</span><span class="p">:</span> <span class="n">model_id</span><span class="p">,</span>
+                <span class="s1">&#39;version_id&#39;</span><span class="p">:</span> <span class="n">version_id</span><span class="p">,</span>
+            <span class="p">}),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="n">model</span> <span class="o">=</span> <span class="n">AnalysisModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">first</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">201</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">supplier_id</span><span class="p">,</span> <span class="n">supplier_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">version_id</span><span class="p">,</span> <span class="n">version_id</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">model</span><span class="o">.</span><span class="n">model_id</span><span class="p">,</span> <span class="n">model_id</span><span class="p">)</span></div></div>
+
+
+
+<div class="viewcode-block" id="ModelSettingsJson"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.ModelSettingsJson">[docs]</a><span class="k">class</span> <span class="nc">ModelSettingsJson</span><span class="p">(</span><span class="n">WebTestMixin</span><span class="p">,</span> <span class="n">TestCase</span><span class="p">):</span>
+<div class="viewcode-block" id="ModelSettingsJson.test_user_is_not_authenticated___response_is_forbidden"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.ModelSettingsJson.test_user_is_not_authenticated___response_is_forbidden">[docs]</a>    <span class="k">def</span> <span class="nf">test_user_is_not_authenticated___response_is_forbidden</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">models</span> <span class="o">=</span> <span class="n">fake_analysis_model</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">models</span><span class="o">.</span><span class="n">get_absolute_settings_url</span><span class="p">(),</span> <span class="n">expect_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertIn</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">,</span> <span class="p">[</span><span class="mi">401</span><span class="p">,</span><span class="mi">403</span><span class="p">])</span></div>
+
+
+    <span class="sd">&quot;&quot;&quot; Add these check back in once models auto-update their settings fields</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ModelSettingsJson.test_settings_json_is_not_present___get_response_is_404"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.ModelSettingsJson.test_settings_json_is_not_present___get_response_is_404">[docs]</a>    <span class="k">def</span> <span class="nf">test_settings_json_is_not_present___get_response_is_404</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">fake_user</span><span class="p">()</span>
+        <span class="n">models</span> <span class="o">=</span> <span class="n">fake_analysis_model</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">get_absolute_settings_url</span><span class="p">(),</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+            <span class="p">},</span>
+            <span class="n">expect_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelSettingsJson.test_settings_json_is_not_present___delete_response_is_404"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.ModelSettingsJson.test_settings_json_is_not_present___delete_response_is_404">[docs]</a>    <span class="k">def</span> <span class="nf">test_settings_json_is_not_present___delete_response_is_404</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">user</span> <span class="o">=</span> <span class="n">fake_user</span><span class="p">()</span>
+        <span class="n">models</span> <span class="o">=</span> <span class="n">fake_analysis_model</span><span class="p">()</span>
+
+        <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">delete</span><span class="p">(</span>
+            <span class="n">models</span><span class="o">.</span><span class="n">get_absolute_settings_url</span><span class="p">(),</span>
+            <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+            <span class="p">},</span>
+            <span class="n">expect_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">404</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="ModelSettingsJson.test_settings_json_is_not_valid___response_is_400"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.ModelSettingsJson.test_settings_json_is_not_valid___response_is_400">[docs]</a>    <span class="k">def</span> <span class="nf">test_settings_json_is_not_valid___response_is_400</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">override_settings</span><span class="p">(</span><span class="n">MEDIA_ROOT</span><span class="o">=</span><span class="n">d</span><span class="p">):</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="n">fake_user</span><span class="p">()</span>
+                <span class="n">models</span> <span class="o">=</span> <span class="n">fake_analysis_model</span><span class="p">()</span>
+                <span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;model_settings&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;event_set&quot;</span><span class="p">:{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Event Set&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;options&quot;</span><span class="p">:[</span>
+                                <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Proabilistic&quot;</span><span class="p">},</span>
+                                <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Historic&quot;</span><span class="p">}</span>
+                            <span class="p">]</span>
+                         <span class="p">},</span>
+                        <span class="s2">&quot;event_occurrence_id&quot;</span><span class="p">:{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Occurrence Set&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;PiWind Occurrence selection&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+                            <span class="s2">&quot;options&quot;</span><span class="p">:[</span>
+                                <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Long Term&quot;</span><span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;boolean_parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;peril_wind&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Boolean option&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">1.1</span><span class="p">},</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;peril_surge&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Boolean option&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+                        <span class="p">],</span>
+                        <span class="s2">&quot;float_parameter&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;float_1&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Some float value&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">},</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;float_2&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Some float value&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">}</span>
+                        <span class="p">]</span>
+                     <span class="p">},</span>
+                    <span class="s2">&quot;lookup_settings&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;supported_perils&quot;</span><span class="p">:[</span>
+                           <span class="p">{</span><span class="s2">&quot;i&quot;</span><span class="p">:</span> <span class="s2">&quot;WSS&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Single Peril: Storm Surge&quot;</span><span class="p">},</span>
+                           <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WTC&quot;</span><span class="p">,</span> <span class="s2">&quot;des&quot;</span><span class="p">:</span> <span class="s2">&quot;Single Peril: Tropical Cyclone&quot;</span><span class="p">},</span>
+                           <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WW11&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Group Peril: Windstorm with storm surge&quot;</span><span class="p">},</span>
+                           <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WW2&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Group Peril: Windstorm w/o storm surge&quot;</span><span class="p">}</span>
+                        <span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                    <span class="n">models</span><span class="o">.</span><span class="n">get_absolute_settings_url</span><span class="p">(),</span>
+                    <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+                    <span class="p">},</span>
+                    <span class="n">params</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_data</span><span class="p">),</span>
+                    <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+                    <span class="n">expect_errors</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+                <span class="p">)</span>
+
+                <span class="n">validation_error</span> <span class="o">=</span>  <span class="p">{</span>
+                    <span class="s1">&#39;model_settings&#39;</span><span class="p">:</span> <span class="s2">&quot;Additional properties are not allowed (&#39;float_parameter&#39; was unexpected)&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;model_settings-event_set&#39;</span><span class="p">:</span> <span class="s2">&quot;&#39;desc&#39; is a required property&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;model_settings-event_occurrence_id-default&#39;</span><span class="p">:</span> <span class="s2">&quot;1 is not of type &#39;string&#39;&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;model_settings-boolean_parameters-0-default&#39;</span><span class="p">:</span> <span class="s2">&quot;1.1 is not of type &#39;boolean&#39;&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;lookup_settings-supported_perils-0&#39;</span><span class="p">:</span> <span class="s2">&quot;&#39;id&#39; is a required property&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;lookup_settings-supported_perils-1&#39;</span><span class="p">:</span> <span class="s2">&quot;&#39;desc&#39; is a required property&quot;</span><span class="p">,</span>
+                    <span class="s1">&#39;lookup_settings-supported_perils-2-id&#39;</span><span class="p">:</span> <span class="s2">&quot;&#39;WW11&#39; is too long&quot;</span>
+                <span class="p">}</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="mi">400</span><span class="p">,</span> <span class="n">response</span><span class="o">.</span><span class="n">status_code</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertDictEqual</span><span class="o">.</span><span class="vm">__self__</span><span class="o">.</span><span class="n">maxDiff</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertDictEqual</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">),</span> <span class="n">validation_error</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="ModelSettingsJson.test_settings_json_is_uploaded___can_be_retrieved"><a class="viewcode-back" href="../../../../../../autoapi/src/server/oasisapi/analysis_models/tests/test_analysis_model/index.html#src.server.oasisapi.analysis_models.tests.test_analysis_model.ModelSettingsJson.test_settings_json_is_uploaded___can_be_retrieved">[docs]</a>    <span class="k">def</span> <span class="nf">test_settings_json_is_uploaded___can_be_retrieved</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">with</span> <span class="n">TemporaryDirectory</span><span class="p">()</span> <span class="k">as</span> <span class="n">d</span><span class="p">:</span>
+            <span class="k">with</span> <span class="n">override_settings</span><span class="p">(</span><span class="n">MEDIA_ROOT</span><span class="o">=</span><span class="n">d</span><span class="p">):</span>
+                <span class="n">user</span> <span class="o">=</span> <span class="n">fake_user</span><span class="p">()</span>
+                <span class="n">models</span> <span class="o">=</span> <span class="n">fake_analysis_model</span><span class="p">()</span>
+                <span class="n">json_data</span> <span class="o">=</span> <span class="p">{</span>
+                    <span class="s2">&quot;model_settings&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;event_set&quot;</span><span class="p">:{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Event Set&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Either Probablistic or Historic&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;P&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;options&quot;</span><span class="p">:[</span>
+                                <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;P&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Proabilistic&quot;</span><span class="p">},</span>
+                                <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;H&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Historic&quot;</span><span class="p">}</span>
+                            <span class="p">]</span>
+                         <span class="p">},</span>
+                        <span class="s2">&quot;event_occurrence_id&quot;</span><span class="p">:{</span>
+                            <span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;Occurrence Set&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;PiWind Occurrence selection&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span>
+                            <span class="s2">&quot;options&quot;</span><span class="p">:[</span>
+                                <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Long Term&quot;</span><span class="p">}</span>
+                            <span class="p">]</span>
+                        <span class="p">},</span>
+                        <span class="s2">&quot;boolean_parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;peril_wind&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Boolean option&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">False</span><span class="p">},</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;peril_surge&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Boolean option&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+                        <span class="p">],</span>
+                        <span class="s2">&quot;float_parameters&quot;</span><span class="p">:</span> <span class="p">[</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;float_1&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Some float value&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">0.5</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">},</span>
+                            <span class="p">{</span><span class="s2">&quot;name&quot;</span><span class="p">:</span> <span class="s2">&quot;float_2&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span><span class="s2">&quot;Some float value&quot;</span><span class="p">,</span> <span class="s2">&quot;default&quot;</span><span class="p">:</span> <span class="mf">0.3</span><span class="p">,</span> <span class="s2">&quot;max&quot;</span><span class="p">:</span><span class="mf">1.0</span><span class="p">,</span> <span class="s2">&quot;min&quot;</span><span class="p">:</span><span class="mf">0.0</span><span class="p">}</span>
+                        <span class="p">]</span>
+                     <span class="p">},</span>
+                    <span class="s2">&quot;lookup_settings&quot;</span><span class="p">:{</span>
+                        <span class="s2">&quot;supported_perils&quot;</span><span class="p">:[</span>
+                           <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WSS&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Single Peril: Storm Surge&quot;</span><span class="p">},</span>
+                           <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WTC&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Single Peril: Tropical Cyclone&quot;</span><span class="p">},</span>
+                           <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WW1&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Group Peril: Windstorm with storm surge&quot;</span><span class="p">},</span>
+                           <span class="p">{</span><span class="s2">&quot;id&quot;</span><span class="p">:</span> <span class="s2">&quot;WW2&quot;</span><span class="p">,</span> <span class="s2">&quot;desc&quot;</span><span class="p">:</span> <span class="s2">&quot;Group Peril: Windstorm w/o storm surge&quot;</span><span class="p">}</span>
+                        <span class="p">]</span>
+                    <span class="p">}</span>
+                <span class="p">}</span>
+
+                <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">post</span><span class="p">(</span>
+                    <span class="n">models</span><span class="o">.</span><span class="n">get_absolute_settings_url</span><span class="p">(),</span>
+                    <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+                    <span class="p">},</span>
+                    <span class="n">params</span><span class="o">=</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">json_data</span><span class="p">),</span>
+                    <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span>
+                <span class="p">)</span>
+
+                <span class="n">response</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">app</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                    <span class="n">models</span><span class="o">.</span><span class="n">get_absolute_settings_url</span><span class="p">(),</span>
+                    <span class="n">headers</span><span class="o">=</span><span class="p">{</span>
+                        <span class="s1">&#39;Authorization&#39;</span><span class="p">:</span> <span class="s1">&#39;Bearer </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">AccessToken</span><span class="o">.</span><span class="n">for_user</span><span class="p">(</span><span class="n">user</span><span class="p">))</span>
+                    <span class="p">},</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertDictEqual</span><span class="o">.</span><span class="vm">__self__</span><span class="o">.</span><span class="n">maxDiff</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertDictEqual</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">body</span><span class="p">),</span> <span class="n">json_data</span><span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">assertEqual</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">content_type</span><span class="p">,</span> <span class="s1">&#39;application/json&#39;</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

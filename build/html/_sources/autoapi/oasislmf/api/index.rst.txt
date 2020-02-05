@@ -1,0 +1,16 @@
+:mod:`oasislmf.api`
+===================
+
+.. py:module:: oasislmf.api
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   client/index.rst
+   session/index.rst
+
+

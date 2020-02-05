@@ -1,0 +1,398 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.model_preparation.summaries &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.model_preparation.summaries</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/autoapi/oasislmf/model_preparation/summaries/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-oasislmf.model_preparation.summaries">
+<span id="oasislmf-model-preparation-summaries"></span><h1><a class="reference internal" href="#module-oasislmf.model_preparation.summaries" title="oasislmf.model_preparation.summaries"><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.model_preparation.summaries</span></code></a><a class="headerlink" href="#module-oasislmf.model_preparation.summaries" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="function">
+<dt id="oasislmf.model_preparation.summaries.get_summary_mapping">
+<code class="sig-prename descclassname">oasislmf.model_preparation.summaries.</code><code class="sig-name descname">get_summary_mapping</code><span class="sig-paren">(</span><em class="sig-param">inputs_df</em>, <em class="sig-param">oed_hierarchy</em>, <em class="sig-param">is_fm_summary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/summaries.html#get_summary_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.summaries.get_summary_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a DataFrame with linking information between Ktools <cite>OasisFiles</cite>
+And the Exposure data</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>inputs_df</strong> (<em>pandas.DataFrame</em>) – datafame from gul_inputs.get_gul_input_items(..)  / il_inputs.get_il_input_items(..)</p></li>
+<li><p><strong>is_fm_summary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Indicates whether an FM summary mapping is required</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Subset of columns from gul_inputs_df / il_inputs_df</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_preparation.summaries.merge_oed_to_mapping">
+<code class="sig-prename descclassname">oasislmf.model_preparation.summaries.</code><code class="sig-name descname">merge_oed_to_mapping</code><span class="sig-paren">(</span><em class="sig-param">summary_map_df</em>, <em class="sig-param">exposure_df</em>, <em class="sig-param">oed_column_set</em>, <em class="sig-param">defaults=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/summaries.html#merge_oed_to_mapping"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.summaries.merge_oed_to_mapping" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create a factorized col (summary ids) based on a list of oed column names</p>
+<p>:param :summary_map_df dataframe return from get_summary_mapping
+:type summary_map_df: pandas.DataFrame</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>exposure_df</strong> (<em>pandas.DataFrame</em>) – Summary map file path</p></li>
+<li><p><strong>defaults</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Dictionary of vaules to fill NaN columns with</p></li>
+</ul>
+</dd>
+</dl>
+<p>{‘Col_A’: 0, ‘Col_B’: 1, ‘Col_C’: 2}</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><p>New DataFrame of summary_map_df + exposure_df merged on exposure index</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>pandas.DataFrame</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_preparation.summaries.write_summary_levels">
+<code class="sig-prename descclassname">oasislmf.model_preparation.summaries.</code><code class="sig-name descname">write_summary_levels</code><span class="sig-paren">(</span><em class="sig-param">exposure_df</em>, <em class="sig-param">accounts_fp</em>, <em class="sig-param">target_dir</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/summaries.html#write_summary_levels"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.summaries.write_summary_levels" title="Permalink to this definition">¶</a></dt>
+<dd><p>Json file with list Available / Recommended columns for use in the summary reporting</p>
+<p>Available: Columns which exists in input files and has at least one non-zero / NaN value
+Recommended: Columns which are available + also in the list of <cite>useful</cite> groupings SUMMARY_LEVEL_LOC</p>
+<dl>
+<dt>{</dt><dd><dl class="simple">
+<dt>‘GUL’: {</dt><dd><dl class="simple">
+<dt>‘available’: [‘accnumber’,</dt><dd><p>‘locnumber’,
+‘istenant’,
+‘buildingid’,
+‘countrycode’,
+‘latitude’,
+‘longitude’,
+‘streetaddress’,
+‘postalcode’,
+‘occupancycode’,
+‘constructioncode’,
+‘locperilscovered’,
+‘buildingtiv’,
+‘contentstiv’,
+‘bitiv’,
+‘portnumber’],</p>
+</dd>
+</dl>
+</dd>
+<dt>‘IL’: {</dt><dd><p>… etc …</p>
+</dd>
+</dl>
+<p>}</p>
+</dd>
+</dl>
+<p>}</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_preparation.summaries.write_mapping_file">
+<code class="sig-prename descclassname">oasislmf.model_preparation.summaries.</code><code class="sig-name descname">write_mapping_file</code><span class="sig-paren">(</span><em class="sig-param">sum_inputs_df</em>, <em class="sig-param">target_dir</em>, <em class="sig-param">is_fm_summary=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/summaries.html#write_mapping_file"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.summaries.write_mapping_file" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes a summary map file, used to build summarycalc xref files.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>summary_mapping</strong> (<em>pandas.DataFrame</em>) – dataframe return from get_summary_mapping</p></li>
+<li><p><strong>sum_mapping_fp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Summary map file path</p></li>
+<li><p><strong>is_fm_summary</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Indicates whether an FM summary mapping is required</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Summary xref file path</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_preparation.summaries.generate_summaryxref_files">
+<code class="sig-prename descclassname">oasislmf.model_preparation.summaries.</code><code class="sig-name descname">generate_summaryxref_files</code><span class="sig-paren">(</span><em class="sig-param">model_run_fp</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">il=False</em>, <em class="sig-param">ri=False</em>, <em class="sig-param">gul_item_stream=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/summaries.html#generate_summaryxref_files"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.summaries.generate_summaryxref_files" title="Permalink to this definition">¶</a></dt>
+<dd><p>Top level function for creating the summaryxref files from the manager.py</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>model_run_fp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Model run directory file path</p></li>
+<li><p><strong>analysis_settings</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – Model analysis settings file</p></li>
+<li><p><strong>il</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Boolean to indicate the insured loss level mode - false if the
+source accounts file path not provided to Oasis files gen.</p></li>
+<li><p><strong>ri</strong> – Boolean to indicate the RI loss level mode - false if the
+source accounts file path not provided to Oasis files gen.</p></li>
+<li><p><strong>gul_items</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.8)"><em>bool</em></a>) – Boolean to gul to use item_id instead of coverage_id</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_preparation.summaries.write_exposure_summary">
+<code class="sig-prename descclassname">oasislmf.model_preparation.summaries.</code><code class="sig-name descname">write_exposure_summary</code><span class="sig-paren">(</span><em class="sig-param">target_dir</em>, <em class="sig-param">gul_inputs_df</em>, <em class="sig-param">exposure_df</em>, <em class="sig-param">exposure_fp</em>, <em class="sig-param">keys_errors_fp</em>, <em class="sig-param">exposure_profile</em>, <em class="sig-param">oed_hierarchy</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_preparation/summaries.html#write_exposure_summary"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_preparation.summaries.write_exposure_summary" title="Permalink to this definition">¶</a></dt>
+<dd><p>Create exposure summary as dictionary of TIVs and number of locations
+grouped by peril and validity respectively. Writes dictionary as json file
+to disk.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>target_dir</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – directory on disk to write exposure summary file</p></li>
+<li><p><strong>gul_inputs_df</strong> (<em>pandas.DataFrame</em>) – dataframe from gul_inputs.get_gul_input_items(..)</p></li>
+<li><p><strong>exposure_df</strong> – source exposure dataframe</p></li>
+<li><p><strong>exposure_fp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – file path to input exposure file</p></li>
+<li><p><strong>keys_errors_fp</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – file path to keys erors file</p></li>
+<li><p><strong>exposure_profile</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – profile defining exposure file</p></li>
+<li><p><strong>oed_hierarchy</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – exposure dataframe column names</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Exposure summary file path</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)">str</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

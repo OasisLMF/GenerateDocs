@@ -1,0 +1,336 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server.oasisapi.files.views &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.server.oasisapi.files.views</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.server.oasisapi.files.views</h1><div class="highlight"><pre>
+<span></span><span class="kn">import</span> <span class="nn">json</span>
+
+<span class="kn">from</span> <span class="nn">django.core.files.uploadedfile</span> <span class="kn">import</span> <span class="n">InMemoryUploadedFile</span><span class="p">,</span> <span class="n">UploadedFile</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">StreamingHttpResponse</span><span class="p">,</span> <span class="n">Http404</span><span class="p">,</span> <span class="n">QueryDict</span>
+<span class="kn">from</span> <span class="nn">rest_framework.response</span> <span class="kn">import</span> <span class="n">Response</span>
+
+<span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">RelatedFileSerializer</span>
+
+
+<div class="viewcode-block" id="_get_chunked_content"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views._get_chunked_content">[docs]</a><span class="k">def</span> <span class="nf">_get_chunked_content</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">chunk_size</span><span class="o">=</span><span class="mi">1024</span><span class="p">):</span>
+    <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span>
+    <span class="k">while</span> <span class="n">content</span><span class="p">:</span>
+        <span class="k">yield</span> <span class="n">content</span>
+        <span class="n">content</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">(</span><span class="n">chunk_size</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_handle_get_related_file"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views._handle_get_related_file">[docs]</a><span class="k">def</span> <span class="nf">_handle_get_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">()</span>
+
+    <span class="n">response</span> <span class="o">=</span> <span class="n">StreamingHttpResponse</span><span class="p">(</span><span class="n">_get_chunked_content</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">file</span><span class="p">),</span> <span class="n">content_type</span><span class="o">=</span><span class="n">f</span><span class="o">.</span><span class="n">content_type</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">:</span>
+        <span class="n">response</span><span class="p">[</span><span class="s1">&#39;Content-Disposition&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;attachment; filename=&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">filename</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">response</span><span class="p">[</span><span class="s1">&#39;Content-Disposition&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="s1">&#39;attachment; filename=&quot;</span><span class="si">{}</span><span class="s1">&quot;&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f</span><span class="o">.</span><span class="n">file</span><span class="o">.</span><span class="n">name</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">response</span></div>
+
+
+<div class="viewcode-block" id="_handle_post_related_file"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views._handle_post_related_file">[docs]</a><span class="k">def</span> <span class="nf">_handle_post_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">content_types</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">TypeError</span><span class="p">:</span>
+        <span class="c1"># Work around for: https://code.djangoproject.com/ticket/29510</span>
+        <span class="kn">import</span> <span class="nn">logging</span>
+        <span class="n">logger</span> <span class="o">=</span> <span class="n">logging</span><span class="o">.</span><span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Fallback copy method&quot;</span><span class="p">)</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="o">.</span><span class="n">keys</span><span class="p">()}</span>
+
+    <span class="n">serializer</span> <span class="o">=</span> <span class="n">RelatedFileSerializer</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">data</span><span class="p">,</span> <span class="n">content_types</span><span class="o">=</span><span class="n">content_types</span><span class="p">,</span> <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;request&#39;</span><span class="p">:</span> <span class="n">request</span><span class="p">})</span>
+    <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">instance</span> <span class="o">=</span> <span class="n">serializer</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span><span class="p">)</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">RelatedFileSerializer</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">instance</span><span class="p">,</span> <span class="n">content_types</span><span class="o">=</span><span class="n">content_types</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="_handle_delete_related_file"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views._handle_delete_related_file">[docs]</a><span class="k">def</span> <span class="nf">_handle_delete_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">()</span>
+
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">()</span></div>
+
+
+<div class="viewcode-block" id="_json_write_to_file"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views._json_write_to_file">[docs]</a><span class="k">def</span> <span class="nf">_json_write_to_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">serializer</span><span class="p">):</span>
+    <span class="n">json_serializer</span> <span class="o">=</span> <span class="n">serializer</span><span class="p">()</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="n">json_serializer</span><span class="o">.</span><span class="n">validate</span><span class="p">(</span><span class="n">request</span><span class="o">.</span><span class="n">data</span><span class="p">)</span>
+
+    <span class="c1"># create file object</span>
+    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">json_serializer</span><span class="o">.</span><span class="n">filenmame</span><span class="p">,</span> <span class="s1">&#39;w+&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">in_memory_file</span> <span class="o">=</span> <span class="n">UploadedFile</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="n">f</span><span class="p">,</span> 
+            <span class="n">name</span><span class="o">=</span><span class="n">json_serializer</span><span class="o">.</span><span class="n">filenmame</span><span class="p">,</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+            <span class="n">size</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)),</span>
+            <span class="n">charset</span><span class="o">=</span><span class="kc">None</span>
+        <span class="p">)</span>
+
+    <span class="c1"># wrap and re-open file</span>
+    <span class="n">file_obj</span> <span class="o">=</span> <span class="n">QueryDict</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">mutable</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">file_obj</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;file&#39;</span><span class="p">:</span> <span class="n">in_memory_file</span><span class="p">})</span>
+    <span class="n">file_obj</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">open</span><span class="p">()</span>
+    <span class="n">file_obj</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">seek</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">file_obj</span><span class="p">[</span><span class="s1">&#39;file&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+    <span class="n">serializer</span> <span class="o">=</span> <span class="n">RelatedFileSerializer</span><span class="p">(</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">file_obj</span><span class="p">,</span> 
+        <span class="n">content_types</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span> 
+        <span class="n">context</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;request&#39;</span><span class="p">:</span> <span class="n">request</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">serializer</span><span class="o">.</span><span class="n">is_valid</span><span class="p">(</span><span class="n">raise_exception</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">instance</span> <span class="o">=</span> <span class="n">serializer</span><span class="o">.</span><span class="n">create</span><span class="p">(</span><span class="n">serializer</span><span class="o">.</span><span class="n">validated_data</span><span class="p">)</span>
+    <span class="nb">setattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">instance</span><span class="p">)</span>
+    <span class="n">parent</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">RelatedFileSerializer</span><span class="p">(</span><span class="n">instance</span><span class="o">=</span><span class="n">instance</span><span class="p">,</span> <span class="n">content_types</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">data</span><span class="p">)</span></div>
+    
+
+<div class="viewcode-block" id="_json_read_from_file"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views._json_read_from_file">[docs]</a><span class="k">def</span> <span class="nf">_json_read_from_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">):</span>
+    <span class="n">f</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">Http404</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">Response</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">))</span></div>
+
+<div class="viewcode-block" id="handle_related_file"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views.handle_related_file">[docs]</a><span class="k">def</span> <span class="nf">handle_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">content_types</span><span class="p">):</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;get&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_handle_get_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;post&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_handle_post_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">content_types</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;delete&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_handle_delete_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="handle_json_data"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/files/views/index.html#src.server.oasisapi.files.views.handle_json_data">[docs]</a><span class="k">def</span> <span class="nf">handle_json_data</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">serializer</span><span class="p">):</span>
+    <span class="n">method</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;get&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_json_read_from_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;post&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_json_write_to_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">serializer</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;delete&#39;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">_handle_delete_related_file</span><span class="p">(</span><span class="n">parent</span><span class="p">,</span> <span class="n">field</span><span class="p">)</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

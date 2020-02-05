@@ -1,0 +1,636 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>OasisLMF Changelog &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+      <li>OasisLMF Changelog</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/releases/oasislmf.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="oasislmf-changelog">
+<h1>OasisLMF Changelog<a class="headerlink" href="#oasislmf-changelog" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="id1">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.4.5...1.4.6">1.4.6</a><a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Update to model_settings schema</p></li>
+<li><p>Fixes #452 - Check columns before grouping output</p></li>
+<li><p>Fixes #451 - Error checking ktools runs for complex models</p></li>
+</ul>
+</div>
+<div class="section" id="id2">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.4.4...1.4.5">1.4.5</a><a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix for fm_programme mapping</p></li>
+<li><p>Fix for IL files generation</p></li>
+<li><p>Fix issue #439 - il summary groups</p></li>
+<li><p>Reduce memory use in GUL inputs generation (#440)</p></li>
+<li><p>Fix for api client - handle rotating refresh token</p></li>
+<li><p>Feature/setting schemas (#438)</p></li>
+<li><p>Update API client - add settings JSON endpoints (#444)</p></li>
+<li><p>Add fully correlated option to MDK (#446)</p></li>
+<li><p>Add dtype conversion and check for valid OED peril codes (#448)</p></li>
+</ul>
+</div>
+<div class="section" id="id3">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.4.3...1.4.4">1.4.4</a><a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix - Added the run flag <cite>–ktools-disable-guard</cite> option for complex models &amp; custom binaries</p></li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.4.2...1.4.3">1.4.3</a><a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added support for compressed file extensions</p></li>
+<li><p>Fix docker kill error</p></li>
+<li><p>Fix in IL inputs</p></li>
+<li><p>Fix for multiprocessing lookup</p></li>
+<li><p>Fix for summary info data types</p></li>
+<li><p>Set IL alloc rule default to 3</p></li>
+<li><p>Various fixes for CLI</p></li>
+<li><p>Various fixes for ktools scripts</p></li>
+</ul>
+</div>
+<div class="section" id="id5">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.4.1...1.4.2">1.4.2</a><a class="headerlink" href="#id5" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added Multi-process keys lookup</p></li>
+<li><p>Updated API client</p></li>
+<li><p>Added Verifying model files command</p></li>
+<li><p>Updated command line flags with backwards compatibility</p></li>
+</ul>
+</div>
+<div class="section" id="id6">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.4.0...1.4.1">1.4.1</a><a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added bash autocomplete #386</p></li>
+<li><p>Fix for exposure data types on lookup #387</p></li>
+<li><p>Fix for non-OED fields in summary levels #377</p></li>
+<li><p>Fix in Reinsurance Layer Logic #381</p></li>
+<li><p>Refactor deterministic loss generation #371</p></li>
+<li><p>Added bdist package for OSX #372</p></li>
+<li><p>Added Allocation rule for Ground up loss #376</p></li>
+</ul>
+</div>
+<div class="section" id="id7">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.10...1.4.0">1.4.0</a><a class="headerlink" href="#id7" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Cookiecutter CLI integration - commands for creating simple and complex Oasis model projects/repositories from project templates</p></li>
+<li><p>Extend calc. rules and FM test coverage</p></li>
+<li><p>Various fixes in FM and data utils</p></li>
+<li><p>Various fixes and updates for the API client module</p></li>
+<li><p>Add ktools static binary bdist_wheel to published package</p></li>
+<li><p>Fix for Layer_id in file generation</p></li>
+<li><p>Performance improvment and fixes for the exposure summary reporting</p></li>
+<li><p>Added optional <cite>–summarise-exposure</cite> flag for exposure report output</p></li>
+<li><p>Added <cite>exposure_summary_levels.json</cite> file to inputs directory, lists valid OED columns to build summary groups</p></li>
+<li><p>Added summary info files to output directory <cite>gul_S1_summary-info.csv</cite> which lists data for grouping summary_ids</p></li>
+<li><p>Ktools updated to v3.1.0</p></li>
+</ul>
+</div>
+<div class="section" id="id8">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.9...1.3.10">1.3.10</a><a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix release - fix for models using custom lookups</p></li>
+</ul>
+</div>
+<div class="section" id="id9">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.8...1.3.9">1.3.9</a><a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Updated validation and fixes for FM file generation</p></li>
+<li><p>Fixes for exposure-summary reporting</p></li>
+<li><p>Fixes for FM calc rule selection</p></li>
+</ul>
+</div>
+<div class="section" id="id10">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.7...1.3.8">1.3.8</a><a class="headerlink" href="#id10" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add FM support for processing types and codes for deductibles and limits</p></li>
+<li><p>Improvements for complex model support and logging</p></li>
+<li><p>Update to summary sets for grouping results</p></li>
+<li><p>Exposure reporting added</p></li>
+<li><p>Fixes for Oasis files generation</p></li>
+<li><p>Updates to RI and Acceptance testing</p></li>
+<li><p>new sub-command <cite>oasislmf exposure ..</cite> for running and validating deterministic models</p></li>
+</ul>
+</div>
+<div class="section" id="id11">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.6...1.3.7">1.3.7</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix - ktools-num-processes not read as int from CLI</p></li>
+</ul>
+</div>
+<div class="section" id="id12">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.5...1.3.6">1.3.6</a><a class="headerlink" href="#id12" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix - Custom lookup issue in manager</p></li>
+</ul>
+</div>
+<div class="section" id="id13">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.4...1.3.5">1.3.5</a><a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Issue found in ktools <cite>3.0.7</cite> hotfix downgrade to <cite>3.0.6</cite></p></li>
+</ul>
+</div>
+<div class="section" id="id14">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.3...1.3.4">1.3.4</a><a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Optimise FM/IL component (IL input items + input files generation)</p></li>
+<li><p>Optimise Oasis files generation (GUL + IL input items + input files generation)</p></li>
+<li><p>Upgrade data-related utilities</p></li>
+<li><p>Update API client</p></li>
+<li><p>Fixes for windows compatibility</p></li>
+<li><p>Support for Python 2.7 Ends</p></li>
+</ul>
+</div>
+<div class="section" id="id15">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.2...1.3.3">1.3.3</a><a class="headerlink" href="#id15" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix for GUL files generation</p></li>
+<li><p>Hotfix for lookup index generation</p></li>
+<li><p>Hotfix for ktools bash script</p></li>
+</ul>
+</div>
+<div class="section" id="id16">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.1...1.3.2">1.3.2</a><a class="headerlink" href="#id16" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix fix for analysis_settings custom model worker</p></li>
+<li><p>Hotfix tweak for deterministic RI loss calculation</p></li>
+</ul>
+</div>
+<div class="section" id="id17">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.3.0...1.3.1">1.3.1</a><a class="headerlink" href="#id17" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix for path issue with the analysis_setttings file</p></li>
+<li><p>Downgraded ktools from <cite>3.0.6</cite> to <cite>3.0.5</cite> fix pending in fmcalc</p></li>
+</ul>
+</div>
+<div class="section" id="id18">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.2.8...1.3.0">1.3.0</a><a class="headerlink" href="#id18" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Remove CSV file transformations from Oasis files generation - use OED source exposure directly</p></li>
+<li><p>Integrate backend RI functionality with the CLI model subcommands - full RI losses can now be generated</p></li>
+<li><p>Add new CLI subcommand for deterministic loss generation including direct and RI losses</p></li>
+<li><p>Optimise FM component (13x speedup achieved)</p></li>
+<li><p>Add support for custom complex models, python version of ground up losses <cite>gulcalc.py</cite></p></li>
+</ul>
+</div>
+<div class="section" id="id19">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.2.7...1.2.8">1.2.8</a><a class="headerlink" href="#id19" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix for Ktools, version is now 3.0.5</p></li>
+<li><p>Hotfix for API Client Upload timeout issue</p></li>
+</ul>
+</div>
+<div class="section" id="id20">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.2.6...1.2.7">1.2.7</a><a class="headerlink" href="#id20" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix in Generate-Losses command</p></li>
+</ul>
+</div>
+<div class="section" id="id21">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.2.5...1.2.6">1.2.6</a><a class="headerlink" href="#id21" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added Reinsurance to CLI</p></li>
+<li><p>Added Ktools run options to CLI</p></li>
+<li><p>Fix for Ktools Memory limits in Genbash</p></li>
+</ul>
+</div>
+<div class="section" id="id22">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.2.4...1.2.5">1.2.5</a><a class="headerlink" href="#id22" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix for setting Alloc Rule in genbash</p></li>
+</ul>
+</div>
+<div class="section" id="id23">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.2.3...1.2.4">1.2.4</a><a class="headerlink" href="#id23" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix for Windows 10 (Linux Sub-system), FIFO queues moved into <cite>/tmp/&lt;random&gt;</cite></p></li>
+<li><p>Fix for Reinsurance, Set RiskLevel = <cite>SEL</cite> as default when value is not set</p></li>
+<li><p>Fix, calc rule for all positivedeductibles</p></li>
+<li><p>Fixes for new API Client</p></li>
+<li><p>Added Deterministic loss generation</p></li>
+<li><p>Added FM acceptance tests</p></li>
+<li><p>Added Automated testing</p></li>
+</ul>
+</div>
+<div class="section" id="id24">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/1.2.2...1.2.3">1.2.3</a><a class="headerlink" href="#id24" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix for Reinsurance required fields</p></li>
+<li><p>Dockerfile and run script for unittests</p></li>
+</ul>
+</div>
+<div class="section" id="id25">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/d6dbf25...master">1.2.2</a><a class="headerlink" href="#id25" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Added API client for OED API update</p></li>
+<li><p>New MDK commands to run the updated API client</p></li>
+<li><p>Improved FM file generation testing</p></li>
+<li><p>Fixes to scope filters to correctly handle account, policy and location combinations.</p></li>
+<li><p>Added portfolio and location group scope filters.</p></li>
+<li><p>Fixes to required fields and default values to match OED</p></li>
+<li><p>Fixed binary file writing bug, corrupted tar output files</p></li>
+</ul>
+</div>
+<div class="section" id="id26">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/f4d7390...master">1.2.1</a><a class="headerlink" href="#id26" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Compatibility fix for new API worker</p></li>
+<li><p>Fix for Parsing config.json on MDK command line</p></li>
+<li><p>Fix for Reinsurance</p></li>
+<li><p>Add Reinsurance tests</p></li>
+<li><p>Fix GUL item group IDs to index item loc. IDs</p></li>
+</ul>
+</div>
+<div class="section" id="id27">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/ad91e2a...master">1.2.0</a><a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Update concurrency utils - replace multiprocessing.Pool by billiard.Pool in multiprocessing wrapper (oasislmf.utils.concurrency.multiprocess) to fix a problem with Celery tasks unable to run applications which use processes or process pools created using the built-in multiprocessing package (<a class="reference external" href="https://github.com/celery/celery/issues/1709">https://github.com/celery/celery/issues/1709</a>)</p></li>
+<li><p>Add IL/FM support</p></li>
+<li><p>Various optimisations, including to GUL items generation</p></li>
+</ul>
+</div>
+<div class="section" id="beta">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/ac4375e...master">1.1.27</a> (beta)<a class="headerlink" href="#beta" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix for installing ktools on mac OSX (3.0.1)</p></li>
+<li><p>Fix for Reinsurance input file validation</p></li>
+<li><p>Update Subcommand <cite>oasislmf model generate-oasis-file</cite> to use optional xml validation</p></li>
+<li><p>Update for unittest stability on CI/CD</p></li>
+</ul>
+</div>
+<div class="section" id="id28">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/dac703e...master">1.1.26</a> (beta)<a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Merge in reinsurance update from feature/reinsurance</p></li>
+<li><p>Fix ktools install using pip instal editable mode <cite>pip install -e ..</cite></p></li>
+</ul>
+</div>
+<div class="section" id="id29">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/3a4b983...master">1.1.25</a> (beta)<a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix install issue with utils/keys_data.py - file removed as its no longer used.</p></li>
+</ul>
+</div>
+<div class="section" id="id30">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/8f94cab...master">1.1.24</a> (beta)<a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix ordering of bulk lookup generation in base generic lookup - records should be generated as (loc. ID, peril ID, coverage type ID) combinations.</p></li>
+</ul>
+</div>
+<div class="section" id="id31">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/0577497...master">1.1.23</a> (beta)<a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Performace update for exposure transforms <cite>transform-source-to-canonical</cite> and <cite>transform-canonical-to-model</cite>.</p></li>
+<li><p>Validation of transform is now optional <cite>–xsd-validation-file-path</cite>, if no value is given this step is skipped.</p></li>
+</ul>
+</div>
+<div class="section" id="id32">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/bfeee86...master">1.1.22</a> (beta)<a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix bug in coverage type matching of canonical items and keys items in the GUL items generator</p></li>
+</ul>
+<p>in the exposure manager</p>
+</div>
+<div class="section" id="id33">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/c04dc73...master">1.1.21</a> (beta)<a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enable lookup framework and exposure manager to support multi-peril and multi-coverage type models</p></li>
+</ul>
+</div>
+<div class="section" id="id34">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/fd31879...master">1.1.20</a> (beta)<a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Refactor lookup factory to be compatible with new lookup framework</p></li>
+<li><p>Various enhancements to the peril areas index class, file index generation command and peril utils</p></li>
+<li><p>Fix for installing pip package without building ktools if binaries exist in system path.</p></li>
+</ul>
+</div>
+<div class="section" id="id35">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/5421b91...master">1.1.19</a> (beta)<a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix string lowercasing of lookup config values in new lookup classes</p></li>
+<li><p>Fix object pickling to account for Python major version when creating Rtree file index from areas file</p></li>
+<li><p>Various fixes to arg parsing and logging in Rtree file index model subcommand class</p></li>
+</ul>
+</div>
+<div class="section" id="id36">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/da8fcba...master">1.1.18</a> (beta)<a class="headerlink" href="#id36" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Upgrade peril utils, including a custom Rtree index class for peril areas</p></li>
+<li><p>Implement MDK model subcommand for writing Rtree file indexes for peril areas from peril area (area peril) files</p></li>
+<li><p>Various fixes to the new lookup class framework</p></li>
+</ul>
+</div>
+<div class="section" id="id37">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/de90f11...master">1.1.17</a> (beta)<a class="headerlink" href="#id37" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Fix list sorting in exposure manager to use explicit sort key</p></li>
+</ul>
+</div>
+<div class="section" id="id38">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/18b34b9...master">1.1.15</a> (beta)<a class="headerlink" href="#id38" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add new lookup class framework in <cite>keys</cite> subpackage</p></li>
+</ul>
+</div>
+<div class="section" id="id39">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/f3e0ee8...master">1.1.14</a> (beta)<a class="headerlink" href="#id39" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add MDK model subcommands for performing source -&gt; canonical and canonical -&gt; model file transformations</p></li>
+<li><p>Python 3 compatibility fixes to replace map and filter statements everywhere by list comprehensions</p></li>
+</ul>
+</div>
+<div class="section" id="id40">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/33f96fd...master">1.1.13</a> (beta)<a class="headerlink" href="#id40" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add performance improvement for exposure transforms</p></li>
+<li><p>Limit exposure validation messages to log level <cite>DEBUG</cite></p></li>
+</ul>
+</div>
+<div class="section" id="id41">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/5045ca2...master">1.1.12</a> (beta)<a class="headerlink" href="#id41" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add concurrency utils (threading + multiprocessing) to <cite>utils</cite> sub. pkg.</p></li>
+</ul>
+</div>
+<div class="section" id="id42">
+<h2><a href="#id97"><span class="problematic" id="id98">`1.1.11`_</span></a> (beta)<a class="headerlink" href="#id42" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix for get_analysis_status - fixes issue in client api</p></li>
+</ul>
+</div>
+<div class="section" id="id43">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/a969192...master">1.1.10</a> (beta)<a class="headerlink" href="#id43" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix for utils INI file loading method - fix parsing of IP
+strings</p></li>
+</ul>
+</div>
+<div class="section" id="id44">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/17c691b...master">1.0.9</a> (beta)<a class="headerlink" href="#id44" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Hotfix for JSON keys file writer in keys lookup factory - convert
+JSON string to Unicode literal before writing to file</p></li>
+</ul>
+</div>
+<div class="section" id="id45">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/8eeaeaf...master">1.0.8</a> (beta)<a class="headerlink" href="#id45" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Enable custom model execution parameters when running models</p></li>
+</ul>
+</div>
+<div class="section" id="id46">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/9578398...master">1.0.6</a> (beta)<a class="headerlink" href="#id46" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Remove timestamped Oasis files from Oasis files generation pipeline</p></li>
+</ul>
+</div>
+<div class="section" id="id47">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/c87c782...master">1.0.5</a> (beta)<a class="headerlink" href="#id47" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add keys error file generation method to keys lookup factory and make
+exposures manager generate keys error files by default</p></li>
+</ul>
+</div>
+<div class="section" id="id48">
+<h2><a class="reference external" href="https://github.com/OasisLMF/OasisLMF/compare/7de227d...master">1.0.1</a> (beta)<a class="headerlink" href="#id48" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><p>Add console logging</p></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

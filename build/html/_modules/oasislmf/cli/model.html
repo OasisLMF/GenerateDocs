@@ -1,0 +1,730 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.cli.model &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../oasislmf.html">oasislmf</a> &raquo;</li>
+        
+          <li><a href="../cli.html">oasislmf.cli</a> &raquo;</li>
+        
+      <li>oasislmf.cli.model</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for oasislmf.cli.model</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;GenerateKeysCmd&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GenerateLossesCmd&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GenerateOasisFilesCmd&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;GeneratePerilAreasRtreeFileIndexCmd&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;ModelCmd&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;RunCmd&#39;</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+
+<span class="kn">from</span> <span class="nn">argparse</span> <span class="kn">import</span> <span class="n">RawDescriptionHelpFormatter</span>
+
+<span class="kn">from</span> <span class="nn">tqdm</span> <span class="kn">import</span> <span class="n">tqdm</span>
+
+<span class="kn">from</span> <span class="nn">..manager</span> <span class="kn">import</span> <span class="n">OasisManager</span> <span class="k">as</span> <span class="n">om</span>
+
+<span class="kn">from</span> <span class="nn">..utils.exceptions</span> <span class="kn">import</span> <span class="n">OasisException</span>
+<span class="kn">from</span> <span class="nn">..utils.path</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">as_path</span><span class="p">,</span>
+    <span class="n">empty_dir</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..utils.data</span> <span class="kn">import</span> <span class="n">get_utctimestamp</span>
+<span class="kn">from</span> <span class="nn">..utils.defaults</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_default_exposure_profile</span><span class="p">,</span>
+    <span class="n">get_default_accounts_profile</span><span class="p">,</span>
+    <span class="n">get_default_fm_aggregation_profile</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">.base</span> <span class="kn">import</span> <span class="n">OasisBaseCommand</span>
+<span class="kn">from</span> <span class="nn">.inputs</span> <span class="kn">import</span> <span class="n">InputValues</span>
+
+
+<div class="viewcode-block" id="GeneratePerilAreasRtreeFileIndexCmd"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GeneratePerilAreasRtreeFileIndexCmd">[docs]</a><span class="k">class</span> <span class="nc">GeneratePerilAreasRtreeFileIndexCmd</span><span class="p">(</span><span class="n">OasisBaseCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates and writes an Rtree file index of peril area IDs (area peril IDs)</span>
+<span class="sd">    and area polygon bounds from a peril areas (area peril) file.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="GeneratePerilAreasRtreeFileIndexCmd.formatter_class"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GeneratePerilAreasRtreeFileIndexCmd.formatter_class">[docs]</a>    <span class="n">formatter_class</span> <span class="o">=</span> <span class="n">RawDescriptionHelpFormatter</span></div>
+
+<div class="viewcode-block" id="GeneratePerilAreasRtreeFileIndexCmd.add_args"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GeneratePerilAreasRtreeFileIndexCmd.add_args">[docs]</a>    <span class="k">def</span> <span class="nf">add_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds arguments to the argument parser.</span>
+
+<span class="sd">        :param parser: The argument parser object</span>
+<span class="sd">        :type parser: ArgumentParser</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">add_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-config-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Lookup config JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keys data directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--index-output-file&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Index file path (no file extension required)&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GeneratePerilAreasRtreeFileIndexCmd.action"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GeneratePerilAreasRtreeFileIndexCmd.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates and writes an Rtree file index of peril area IDs (area peril IDs)</span>
+<span class="sd">        and area polygon bounds from a peril areas (area peril) file.</span>
+
+<span class="sd">        :param args: The arguments from the command line</span>
+<span class="sd">        :type args: Namespace</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputValues</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="n">keys_data_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_data_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">rtree_index_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;index_output_file&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+        <span class="n">lookup_config_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_config_json&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">_index_fp</span> <span class="o">=</span> <span class="n">om</span><span class="p">()</span><span class="o">.</span><span class="n">generate_peril_areas_rtree_file_index</span><span class="p">(</span>
+            <span class="n">keys_data_fp</span><span class="o">=</span><span class="n">keys_data_fp</span><span class="p">,</span>
+            <span class="n">areas_rtree_index_fp</span><span class="o">=</span><span class="n">rtree_index_fp</span><span class="p">,</span>
+            <span class="n">lookup_config_fp</span><span class="o">=</span><span class="n">lookup_config_fp</span>
+        <span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Generated peril areas Rtree file index </span><span class="si">{}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">_index_fp</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="GenerateKeysCmd"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateKeysCmd">[docs]</a><span class="k">class</span> <span class="nc">GenerateKeysCmd</span><span class="p">(</span><span class="n">OasisBaseCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates keys from a model lookup, and write Oasis keys and keys error files.</span>
+
+<span class="sd">    The model lookup, which is normally independently implemented by the model</span>
+<span class="sd">    supplier, should generate keys as dicts with the following format</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        {</span>
+<span class="sd">            &quot;id&quot;: &lt;loc. ID&gt;,</span>
+<span class="sd">            &quot;peril_id&quot;: &lt;OED sub-peril ID&gt;,</span>
+<span class="sd">            &quot;coverage_type&quot;: &lt;OED coverage type ID&gt;,</span>
+<span class="sd">            &quot;area_peril_id&quot;: &lt;area peril ID&gt;,</span>
+<span class="sd">            &quot;vulnerability_id&quot;: &lt;vulnerability ID&gt;,</span>
+<span class="sd">            &quot;message&quot;: &lt;loc. lookup status message&gt;,</span>
+<span class="sd">            &quot;status&quot;: &lt;loc. lookup status flag indicating success, failure or no-match&gt;</span>
+<span class="sd">        }</span>
+
+<span class="sd">    The keys generation command can generate these dicts, and write them to</span>
+<span class="sd">    file. It can also be used to write these to an Oasis keys file (which is a</span>
+<span class="sd">    requirement for model execution), which has the following format.::</span>
+
+<span class="sd">        LocID,PerilID,CoverageTypeID,AreaPerilID,VulnerabilityID</span>
+<span class="sd">        ..</span>
+<span class="sd">        ..</span>
+<span class="sd">    This file only lists the locations for which there has been a successful</span>
+<span class="sd">    lookup. The keys errors file lists all the locations with failing or</span>
+<span class="sd">    non-matching lookups and has the following format::</span>
+
+<span class="sd">        LocID,PerilID,CoverageTypeID,Message</span>
+<span class="sd">        ..</span>
+<span class="sd">        ..</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="GenerateKeysCmd.formatter_class"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateKeysCmd.formatter_class">[docs]</a>    <span class="n">formatter_class</span> <span class="o">=</span> <span class="n">RawDescriptionHelpFormatter</span></div>
+
+<div class="viewcode-block" id="GenerateKeysCmd.add_args"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateKeysCmd.add_args">[docs]</a>    <span class="k">def</span> <span class="nf">add_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds arguments to the argument parser.</span>
+
+<span class="sd">        :param parser: The argument parser object</span>
+<span class="sd">        :type parser: ArgumentParser</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">add_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-location-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source location CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="s1">&#39;--keys-data-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keys CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="s1">&#39;--keys-errors-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keys errors CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--keys-format&#39;</span><span class="p">,</span> <span class="n">choices</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;oasis&#39;</span><span class="p">,</span> <span class="s1">&#39;json&#39;</span><span class="p">],</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Keys files output format&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-config-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Lookup config JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model lookup data path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-package-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model lookup package directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-L&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-complex-config-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Complex lookup config JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-version-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model version CSV file path&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GenerateKeysCmd.action"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateKeysCmd.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates keys from a model lookup, and write Oasis keys and keys error files.</span>
+
+<span class="sd">        :param args: The arguments from the command line</span>
+<span class="sd">        :type args: Namespace</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputValues</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="n">config_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_config_json&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">keys_data_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_data_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">model_version_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_version_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">lookup_package_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_package_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">complex_lookup_config_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_complex_config_json&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">exposure_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_location_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">keys_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;keys_data_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">keys_errors_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;keys_errors_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">keys_format</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;keys_format&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="s1">&#39;oasis&#39;</span><span class="p">)</span>
+
+        <span class="n">f1</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">f2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="n">om</span><span class="p">()</span><span class="o">.</span><span class="n">generate_keys</span><span class="p">(</span>
+            <span class="n">exposure_fp</span><span class="p">,</span>
+            <span class="n">lookup_config_fp</span><span class="o">=</span><span class="n">config_fp</span><span class="p">,</span>
+            <span class="n">keys_data_fp</span><span class="o">=</span><span class="n">keys_data_fp</span><span class="p">,</span>
+            <span class="n">model_version_fp</span><span class="o">=</span><span class="n">model_version_fp</span><span class="p">,</span>
+            <span class="n">lookup_package_fp</span><span class="o">=</span><span class="n">lookup_package_fp</span><span class="p">,</span>
+            <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="n">complex_lookup_config_fp</span><span class="p">,</span>
+            <span class="n">keys_fp</span><span class="o">=</span><span class="n">keys_fp</span><span class="p">,</span>
+            <span class="n">keys_errors_fp</span><span class="o">=</span><span class="n">keys_errors_fp</span><span class="p">,</span>
+            <span class="n">keys_format</span><span class="o">=</span><span class="n">keys_format</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Keys file </span><span class="si">{}</span><span class="s1"> generated with </span><span class="si">{}</span><span class="s1"> items&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f1</span><span class="p">,</span> <span class="n">n1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Keys errors file </span><span class="si">{}</span><span class="s1"> generated with </span><span class="si">{}</span><span class="s1"> items&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">f2</span><span class="p">,</span> <span class="n">n2</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="GenerateOasisFilesCmd"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateOasisFilesCmd">[docs]</a><span class="k">class</span> <span class="nc">GenerateOasisFilesCmd</span><span class="p">(</span><span class="n">OasisBaseCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates the standard Oasis GUL input files + optionally the IL/FM input</span>
+<span class="sd">    files and the RI input files.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="GenerateOasisFilesCmd.formatter_class"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateOasisFilesCmd.formatter_class">[docs]</a>    <span class="n">formatter_class</span> <span class="o">=</span> <span class="n">RawDescriptionHelpFormatter</span></div>
+
+<div class="viewcode-block" id="GenerateOasisFilesCmd.add_args"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateOasisFilesCmd.add_args">[docs]</a>    <span class="k">def</span> <span class="nf">add_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds arguments to the argument parser.</span>
+
+<span class="sd">        :param parser: The argument parser object</span>
+<span class="sd">        :type parser: ArgumentParser</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">add_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--oasis-files-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path to the directory in which to generate the Oasis files&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-z&#39;</span><span class="p">,</span> <span class="s1">&#39;--keys-data-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Pre-generated keys CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-config-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Lookup config JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model lookup/keys data directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-package-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Lookup package path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-L&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-complex-config-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Complex lookup config JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-version-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model version CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-D&#39;</span><span class="p">,</span> <span class="s1">&#39;--user-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Directory containing additional model data files which varies between analysis runs&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile-loc-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source (OED) exposure profile JSON path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile-acc-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source (OED) accounts profile JSON path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile-fm-agg-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;FM (OED) aggregation profile path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-location-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source location CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-accounts-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source accounts CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-info-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Reinsurance info. CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-scope-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Reinsurance scope CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-S&#39;</span><span class="p">,</span> <span class="s1">&#39;--disable-summarise-exposure&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Create exposure summary report&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_false&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-W&#39;</span><span class="p">,</span> <span class="s1">&#39;--write-chunksize&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Chunk size to use when writing input files from the inputs dataframes&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-G&#39;</span><span class="p">,</span> <span class="s1">&#39;--group-id-cols&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Columns from loc file to set group_id&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GenerateOasisFilesCmd.action"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateOasisFilesCmd.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates the standard Oasis GUL input files + optionally the IL/FM input</span>
+<span class="sd">        files and the RI input files.</span>
+
+<span class="sd">        :param args: The arguments from the command line</span>
+<span class="sd">        :type args: Namespace</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Processing arguments - Creating Oasis Files&#39;</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputValues</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="n">utcnow</span> <span class="o">=</span> <span class="n">get_utctimestamp</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H%M%S&#39;</span><span class="p">)</span>
+        <span class="n">default_oasis_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;runs&#39;</span><span class="p">,</span> <span class="s1">&#39;OasisFiles-</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">utcnow</span><span class="p">))</span>
+
+        <span class="n">oasis_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oasis_files_dir&#39;</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default_oasis_fp</span><span class="p">)</span>
+        <span class="n">keys_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;keys_data_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">lookup_config_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_config_json&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">keys_data_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_data_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">model_version_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_version_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">lookup_package_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_package_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">complex_lookup_config_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;lookup_complex_config_json&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">user_data_dir</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_data_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">summarise_exposure</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;disable_summarise_exposure&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">write_chunksize</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;write_chunksize&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">exposure_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_location_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+        <span class="n">exposure_profile_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;profile_loc_json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">get_default_exposure_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">accounts_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_accounts_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">accounts_profile_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;profile_acc_json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">get_default_accounts_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">aggregation_profile_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;profile_fm_agg_json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">get_default_fm_aggregation_profile</span><span class="p">(</span><span class="n">path</span><span class="o">=</span><span class="kc">True</span><span class="p">))</span>
+        <span class="n">ri_info_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_info_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ri_scope_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_scope_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">group_id_cols</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;group_id_cols&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">])</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">keys_fp</span> <span class="ow">or</span> <span class="n">lookup_config_fp</span> <span class="ow">or</span> <span class="p">(</span><span class="n">keys_data_fp</span> <span class="ow">and</span> <span class="n">model_version_fp</span> <span class="ow">and</span> <span class="n">lookup_package_fp</span><span class="p">)):</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                <span class="s1">&#39;No pre-generated keys file provided, and no lookup assets &#39;</span>
+                <span class="s1">&#39;provided to generate a keys file - if you do not have a &#39;</span>
+                <span class="s1">&#39;pre-generated keys file then lookup assets must be provided - &#39;</span>
+                <span class="s1">&#39;for a built-in lookup the lookup config. JSON file path must &#39;</span>
+                <span class="s1">&#39;be provided, or for custom lookups the keys data path + model &#39;</span>
+                <span class="s1">&#39;version file path + lookup package path must be provided&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">il</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">accounts_fp</span> <span class="k">else</span> <span class="kc">False</span>
+        <span class="n">required_ri_paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">ri_info_fp</span><span class="p">,</span> <span class="n">ri_scope_fp</span><span class="p">]</span>
+        <span class="n">ri</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">required_ri_paths</span><span class="p">)</span> <span class="ow">and</span> <span class="n">il</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Generating Oasis files (GUL=True, IL=</span><span class="si">{}</span><span class="s1">, RIL=</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">il</span><span class="p">,</span> <span class="n">ri</span><span class="p">))</span>
+        <span class="n">oasis_files</span> <span class="o">=</span> <span class="n">om</span><span class="p">()</span><span class="o">.</span><span class="n">generate_oasis_files</span><span class="p">(</span>
+            <span class="n">oasis_fp</span><span class="p">,</span>
+            <span class="n">exposure_fp</span><span class="p">,</span>
+            <span class="n">exposure_profile_fp</span><span class="o">=</span><span class="n">exposure_profile_fp</span><span class="p">,</span>
+            <span class="n">keys_fp</span><span class="o">=</span><span class="n">keys_fp</span><span class="p">,</span>
+            <span class="n">lookup_config_fp</span><span class="o">=</span><span class="n">lookup_config_fp</span><span class="p">,</span>
+            <span class="n">keys_data_fp</span><span class="o">=</span><span class="n">keys_data_fp</span><span class="p">,</span>
+            <span class="n">model_version_fp</span><span class="o">=</span><span class="n">model_version_fp</span><span class="p">,</span>
+            <span class="n">lookup_package_fp</span><span class="o">=</span><span class="n">lookup_package_fp</span><span class="p">,</span>
+            <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="n">complex_lookup_config_fp</span><span class="p">,</span>
+            <span class="n">accounts_fp</span><span class="o">=</span><span class="n">accounts_fp</span><span class="p">,</span>
+            <span class="n">accounts_profile_fp</span><span class="o">=</span><span class="n">accounts_profile_fp</span><span class="p">,</span>
+            <span class="n">fm_aggregation_profile_fp</span><span class="o">=</span><span class="n">aggregation_profile_fp</span><span class="p">,</span>
+            <span class="n">ri_info_fp</span><span class="o">=</span><span class="n">ri_info_fp</span><span class="p">,</span>
+            <span class="n">ri_scope_fp</span><span class="o">=</span><span class="n">ri_scope_fp</span><span class="p">,</span>
+            <span class="n">user_data_dir</span><span class="o">=</span><span class="n">user_data_dir</span><span class="p">,</span>
+            <span class="n">summarise_exposure</span><span class="o">=</span><span class="n">summarise_exposure</span><span class="p">,</span>
+            <span class="n">write_chunksize</span><span class="o">=</span><span class="n">write_chunksize</span><span class="p">,</span>
+            <span class="n">group_id_cols</span><span class="o">=</span><span class="n">group_id_cols</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Oasis files generated: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">oasis_files</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="GenerateLossesCmd"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateLossesCmd">[docs]</a><span class="k">class</span> <span class="nc">GenerateLossesCmd</span><span class="p">(</span><span class="n">OasisBaseCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Generates losses using the installed ktools framework given Oasis files,</span>
+<span class="sd">    model analysis settings JSON file, model data and model package data.</span>
+
+<span class="sd">    The command line arguments can be supplied in the configuration file</span>
+<span class="sd">    (``oasislmf.json`` by default or specified with the ``--config`` flag).</span>
+<span class="sd">    Run ``oasislmf config --help`` for more information.</span>
+
+<span class="sd">    The script creates a time-stamped folder in the model run directory and</span>
+<span class="sd">    sets that as the new model run directory, copies the analysis settings</span>
+<span class="sd">    JSON file into the run directory and creates the following folder</span>
+<span class="sd">    structure</span>
+<span class="sd">    ::</span>
+
+<span class="sd">        |-- analysis_settings.json</span>
+<span class="sd">        |-- fifo</span>
+<span class="sd">        |-- input</span>
+<span class="sd">        |-- output</span>
+<span class="sd">        |-- RI_1</span>
+<span class="sd">        |-- ri_layers.json</span>
+<span class="sd">        |-- run_ktools.sh</span>
+<span class="sd">        |-- static</span>
+<span class="sd">        `-- work</span>
+
+<span class="sd">    Depending on the OS type the model data is symlinked (Linux, Darwin) or</span>
+<span class="sd">    copied (Cygwin, Windows) into the ``static`` subfolder. The input files</span>
+<span class="sd">    are kept in the ``input`` subfolder and the losses are generated as CSV</span>
+<span class="sd">    files in the ``output`` subfolder.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="GenerateLossesCmd.formatter_class"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateLossesCmd.formatter_class">[docs]</a>    <span class="n">formatter_class</span> <span class="o">=</span> <span class="n">RawDescriptionHelpFormatter</span></div>
+
+<div class="viewcode-block" id="GenerateLossesCmd.add_args"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateLossesCmd.add_args">[docs]</a>    <span class="k">def</span> <span class="nf">add_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Adds arguments to the argument parser.</span>
+
+<span class="sd">        :param parser: The argument parser object</span>
+<span class="sd">        :type parser: ArgumentParser</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">add_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-o&#39;</span><span class="p">,</span> <span class="s1">&#39;--oasis-files-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path to pre-existing direct Oasis files (GUL + FM input files)&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="s1">&#39;--analysis-settings-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Analysis settings JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-D&#39;</span><span class="p">,</span> <span class="s1">&#39;--user-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Directory containing additional model data files which varies between analysis runs&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model data directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-run-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model run directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-package-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path containing model specific package&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-B&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-custom-gulcalc&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Callable custom gulcalc component to use as a drop-in replacement&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-num-processes&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Number of ktools calculation processes to use&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-fifo-relative&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Create ktools fifo queues under the ./fifo dir&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-E&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-disable-guard&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disables error handling in the ktools run script (abort on non-zero exitcode or output on stderr)&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-alloc-rule-gul&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Override the allocation used in gulcalc&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-u&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-alloc-rule-il&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Override the fmcalc allocation rule used in direct insured loss&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-U&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-alloc-rule-ri&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Override the fmcalc allocation rule used in reinsurance&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="GenerateLossesCmd.action"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.GenerateLossesCmd.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates losses using the installed ktools framework given Oasis files,</span>
+<span class="sd">        model analysis settings JSON file, model data and model package data.</span>
+
+<span class="sd">        :param args: The arguments from the command line</span>
+<span class="sd">        :type args: Namespace</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Processing arguments - generating model losses&#39;</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputValues</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+
+        <span class="n">utcnow</span> <span class="o">=</span> <span class="n">get_utctimestamp</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H%M%S&#39;</span><span class="p">)</span>
+        <span class="n">default_model_run_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;runs&#39;</span><span class="p">,</span> <span class="s1">&#39;ProgOasis-</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">utcnow</span><span class="p">))</span>
+
+        <span class="n">oasis_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oasis_files_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">model_run_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_run_dir&#39;</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default_model_run_fp</span><span class="p">)</span>
+        <span class="n">analysis_settings_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;analysis_settings_json&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">model_data_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_data_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">model_package_fp</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_package_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span> <span class="s1">&#39;Model package path&#39;</span><span class="p">,</span> <span class="n">is_dir</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">model_custom_gulcalc</span>  <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_custom_gulcalc&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">user_data_dir</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;user_data_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">ktools_num_processes</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ktools_num_processes&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ktools_fifo_relative</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ktools_fifo_relative&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ktools_error_guard</span> <span class="o">=</span> <span class="ow">not</span><span class="p">(</span><span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ktools_disable_guard&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">bool</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">))</span>
+        <span class="n">ktools_alloc_rule_gul</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ktools_alloc_rule_gul&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ktools_alloc_rule_il</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ktools_alloc_rule_il&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">ktools_alloc_rule_ri</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;ktools_alloc_rule_ri&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">verbose_output</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;verbose&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">il</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">p</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">oasis_fp</span><span class="p">))</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;fm_policytc.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;fm_profile.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;fm_programme.csv&#39;</span><span class="p">,</span> <span class="s1">&#39;fm_xref.csv&#39;</span><span class="p">])</span>
+        <span class="n">ri</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="n">ri</span> <span class="o">=</span> <span class="nb">any</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;RI_\d+$&#39;</span><span class="p">,</span> <span class="n">fn</span><span class="p">)</span> <span class="k">for</span> <span class="n">fn</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">oasis_fp</span><span class="p">)))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Generating losses (GUL=True, IL=</span><span class="si">{}</span><span class="s1">, RIL=</span><span class="si">{}</span><span class="s1">)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">il</span><span class="p">,</span> <span class="n">ri</span><span class="p">))</span>
+
+        <span class="n">om</span><span class="p">()</span><span class="o">.</span><span class="n">generate_model_losses</span><span class="p">(</span>
+            <span class="n">model_run_fp</span><span class="p">,</span>
+            <span class="n">oasis_fp</span><span class="p">,</span>
+            <span class="n">analysis_settings_fp</span><span class="p">,</span>
+            <span class="n">model_data_fp</span><span class="p">,</span>
+            <span class="n">model_package_fp</span><span class="o">=</span><span class="n">model_package_fp</span><span class="p">,</span>
+            <span class="n">model_custom_gulcalc</span><span class="o">=</span><span class="n">model_custom_gulcalc</span><span class="p">,</span>
+            <span class="n">ktools_num_processes</span><span class="o">=</span><span class="n">ktools_num_processes</span><span class="p">,</span>
+            <span class="n">ktools_fifo_relative</span><span class="o">=</span><span class="n">ktools_fifo_relative</span><span class="p">,</span>
+            <span class="n">ktools_error_guard</span><span class="o">=</span><span class="n">ktools_error_guard</span><span class="p">,</span>
+            <span class="n">ktools_alloc_rule_gul</span><span class="o">=</span><span class="n">ktools_alloc_rule_gul</span><span class="p">,</span>
+            <span class="n">ktools_alloc_rule_il</span><span class="o">=</span><span class="n">ktools_alloc_rule_il</span><span class="p">,</span>
+            <span class="n">ktools_alloc_rule_ri</span><span class="o">=</span><span class="n">ktools_alloc_rule_ri</span><span class="p">,</span>
+            <span class="n">ktools_debug</span><span class="o">=</span><span class="n">verbose_output</span><span class="p">,</span>
+            <span class="n">user_data_dir</span><span class="o">=</span><span class="n">user_data_dir</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Losses generated in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="RunCmd"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.RunCmd">[docs]</a><span class="k">class</span> <span class="nc">RunCmd</span><span class="p">(</span><span class="n">OasisBaseCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Run models end to end.</span>
+
+<span class="sd">    The command line arguments can be supplied in the configuration file</span>
+<span class="sd">    (``oasislmf.json`` by default or specified with the ``--config`` flag).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="RunCmd.formatter_class"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.RunCmd.formatter_class">[docs]</a>    <span class="n">formatter_class</span> <span class="o">=</span> <span class="n">RawDescriptionHelpFormatter</span></div>
+
+<div class="viewcode-block" id="RunCmd.add_args"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.RunCmd.add_args">[docs]</a>    <span class="k">def</span> <span class="nf">add_args</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">parser</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Run models end to end.</span>
+
+<span class="sd">        :param parser: The argument parser object</span>
+<span class="sd">        :type parser: ArgumentParser</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">add_args</span><span class="p">(</span><span class="n">parser</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-z&#39;</span><span class="p">,</span> <span class="s1">&#39;--keys-data-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Pre-generated keys CSV file path&#39;</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-k&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model lookup/keys data directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-package-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model lookup package path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-L&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-complex-config-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Complex lookup config JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-c&#39;</span><span class="p">,</span> <span class="s1">&#39;--lookup-config-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Built-in lookup config JSON file path&#39;</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-e&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile-loc-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source OED location profile JSON path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-b&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile-acc-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source OED accounts profile JSON path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-g&#39;</span><span class="p">,</span> <span class="s1">&#39;--profile-fm-agg-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;FM OED aggregation profile JSON path&#39;</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-x&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-location-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source location CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-y&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-accounts-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Source accounts CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-i&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-info-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Reinsurance info. CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-s&#39;</span><span class="p">,</span> <span class="s1">&#39;--oed-scope-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Reinsurance scope CSV file path&#39;</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-a&#39;</span><span class="p">,</span> <span class="s1">&#39;--analysis-settings-json&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model analysis settings JSON file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-D&#39;</span><span class="p">,</span> <span class="s1">&#39;--user-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Directory containing additional model data files which varies between analysis runs&#39;</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-v&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-version-csv&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model version CSV file path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-d&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-data-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model data directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-r&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-run-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Model run directory path&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-p&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-package-dir&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Path containing model specific package&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-B&#39;</span><span class="p">,</span> <span class="s1">&#39;--model-custom-gulcalc&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Callable custom gulcalc component to use as a drop-in replacement&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-n&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-num-processes&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Number of ktools calculation processes to use&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-f&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-fifo-relative&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Create ktools fifo queues under the ./fifo dir&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-E&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-disable-guard&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Disables error handling in the ktools run script (abort on non-zero exitcode or output on stderr)&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_true&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-q&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-alloc-rule-gul&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Override the allocation used in gulcalc&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-u&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-alloc-rule-il&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Override the fmcalc allocation rule used in direct insured loss&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-U&#39;</span><span class="p">,</span> <span class="s1">&#39;--ktools-alloc-rule-ri&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Override the fmcalc allocation rule used in reinsurance&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">)</span>
+
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-S&#39;</span><span class="p">,</span> <span class="s1">&#39;--disable-summarise-exposure&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Create exposure summary report&#39;</span><span class="p">,</span> <span class="n">action</span><span class="o">=</span><span class="s1">&#39;store_false&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-W&#39;</span><span class="p">,</span> <span class="s1">&#39;--write-chunksize&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Chunk size to use when writing input files from the inputs dataframes&#39;</span><span class="p">)</span>
+        <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;-G&#39;</span><span class="p">,</span> <span class="s1">&#39;--group-id-cols&#39;</span><span class="p">,</span> <span class="n">nargs</span><span class="o">=</span><span class="s1">&#39;+&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">help</span><span class="o">=</span><span class="s1">&#39;Columns from loc file to set group_id&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="RunCmd.action"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.RunCmd.action">[docs]</a>    <span class="k">def</span> <span class="nf">action</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">args</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generate Oasis files (items, coverages, GUL summary) for a model</span>
+
+<span class="sd">        :param args: The arguments from the command line</span>
+<span class="sd">        :type args: Namespace</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Processing arguments - model run&#39;</span><span class="p">)</span>
+        <span class="n">inputs</span> <span class="o">=</span> <span class="n">InputValues</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+
+        <span class="n">utcnow</span> <span class="o">=</span> <span class="n">get_utctimestamp</span><span class="p">(</span><span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H%M%S&#39;</span><span class="p">)</span>
+        <span class="n">default_model_run_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">getcwd</span><span class="p">(),</span> <span class="s1">&#39;runs&#39;</span><span class="p">,</span> <span class="s1">&#39;ProgOasis-</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">utcnow</span><span class="p">))</span>
+
+        <span class="n">model_run_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_run_dir&#39;</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">default</span><span class="o">=</span><span class="n">default_model_run_fp</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">):</span>
+            <span class="n">empty_dir</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">)</span>
+
+        <span class="n">args</span><span class="o">.</span><span class="n">model_run_dir</span> <span class="o">=</span> <span class="n">model_run_fp</span>
+
+        <span class="n">model_package_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model_package_dir&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">args</span><span class="o">.</span><span class="n">model_package_path</span> <span class="o">=</span> <span class="n">model_package_fp</span>
+
+        <span class="n">accounts_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_accounts_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ri_info_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_info_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+        <span class="n">ri_scope_fp</span> <span class="o">=</span> <span class="n">inputs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;oed_scope_csv&#39;</span><span class="p">,</span> <span class="n">required</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">is_path</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">il</span> <span class="o">=</span> <span class="kc">True</span> <span class="k">if</span> <span class="n">accounts_fp</span> <span class="k">else</span> <span class="kc">False</span>
+
+        <span class="n">required_ri_paths</span> <span class="o">=</span> <span class="p">[</span><span class="n">ri_info_fp</span><span class="p">,</span> <span class="n">ri_scope_fp</span><span class="p">]</span>
+
+        <span class="n">ri</span> <span class="o">=</span> <span class="nb">all</span><span class="p">(</span><span class="n">required_ri_paths</span><span class="p">)</span> <span class="ow">and</span> <span class="n">il</span>
+
+        <span class="k">if</span> <span class="nb">any</span><span class="p">(</span><span class="n">required_ri_paths</span><span class="p">)</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">ri</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                <span class="s1">&#39;RI option indicated by provision of some RI related assets, but other assets are missing. &#39;</span>
+                <span class="s1">&#39;To generate RI inputs you need to provide all of the assets required to generate direct &#39;</span>
+                <span class="s1">&#39;Oasis files (GUL + FM input files) plus all of the following assets: &#39;</span>
+                <span class="s1">&#39;    reinsurance info. file path, &#39;</span>
+                <span class="s1">&#39;    reinsurance scope file path.&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">args</span><span class="o">.</span><span class="n">oasis_files_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span>
+
+        <span class="n">cmds</span> <span class="o">=</span> <span class="p">[</span><span class="n">GenerateOasisFilesCmd</span><span class="p">(</span><span class="n">args</span><span class="p">),</span> <span class="n">GenerateLossesCmd</span><span class="p">(</span><span class="n">args</span><span class="p">)]</span>
+        <span class="k">with</span> <span class="n">tqdm</span><span class="p">(</span><span class="n">total</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">cmds</span><span class="p">))</span> <span class="k">as</span> <span class="n">pbar</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">cmd</span> <span class="ow">in</span> <span class="n">cmds</span><span class="p">:</span>
+                <span class="n">cmd</span><span class="o">.</span><span class="n">action</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
+                <span class="n">pbar</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">Model run completed successfully in </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">))</span></div></div>
+
+
+<div class="viewcode-block" id="ModelCmd"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.ModelCmd">[docs]</a><span class="k">class</span> <span class="nc">ModelCmd</span><span class="p">(</span><span class="n">OasisBaseCommand</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Model subcommands::</span>
+
+<span class="sd">        * generating an Rtree spatial index for the area peril lookup component of the built-in lookup framework</span>
+<span class="sd">        * generating keys files from model lookups</span>
+<span class="sd">        * generating Oasis input CSV files (GUL [+ IL, RI])</span>
+<span class="sd">        * generating losses from a preexisting set of Oasis input CSV files</span>
+<span class="sd">        * generating deterministic losses (no model)</span>
+<span class="sd">        * running a model end-to-end</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+<div class="viewcode-block" id="ModelCmd.sub_commands"><a class="viewcode-back" href="../../../autoapi/oasislmf/cli/model/index.html#oasislmf.cli.model.ModelCmd.sub_commands">[docs]</a>    <span class="n">sub_commands</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;generate-peril-areas-rtree-file-index&#39;</span><span class="p">:</span> <span class="n">GeneratePerilAreasRtreeFileIndexCmd</span><span class="p">,</span>
+        <span class="s1">&#39;generate-keys&#39;</span><span class="p">:</span> <span class="n">GenerateKeysCmd</span><span class="p">,</span>
+        <span class="s1">&#39;generate-oasis-files&#39;</span><span class="p">:</span> <span class="n">GenerateOasisFilesCmd</span><span class="p">,</span>
+        <span class="s1">&#39;generate-losses&#39;</span><span class="p">:</span> <span class="n">GenerateLossesCmd</span><span class="p">,</span>
+        <span class="s1">&#39;run&#39;</span><span class="p">:</span> <span class="n">RunCmd</span></div></div>
+    <span class="p">}</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

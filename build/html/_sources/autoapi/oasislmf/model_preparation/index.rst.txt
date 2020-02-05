@@ -1,0 +1,21 @@
+:mod:`oasislmf.model_preparation`
+=================================
+
+.. py:module:: oasislmf.model_preparation
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   gul_inputs/index.rst
+   il_inputs/index.rst
+   lookup/index.rst
+   oed/index.rst
+   reinsurance_layer/index.rst
+   summaries/index.rst
+   utils/index.rst
+
+

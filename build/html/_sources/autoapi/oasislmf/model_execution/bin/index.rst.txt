@@ -1,0 +1,180 @@
+:mod:`oasislmf.model_execution.bin`
+===================================
+
+.. py:module:: oasislmf.model_execution.bin
+
+.. autoapi-nested-parse::
+
+   Python utilities used for setting up the structure of the run directory
+   in which to prepare the inputs to run a model or generate deterministic
+   losses, and store the outputs.
+
+
+
+Module Contents
+---------------
+
+.. function:: prepare_run_directory(run_dir, oasis_src_fp, model_data_fp, analysis_settings_fp, inputs_archive=None, user_data_dir=None, ri=False)
+
+   Ensures that the model run directory has the correct folder structure in
+   order for the model run script (ktools) to be executed. Without the RI
+   flag the model run directory will have the following structure
+
+   ::
+
+       <run_directory>
+       |-- fifo/
+       |-- input/
+       |   `-- csv/
+       |-- output/
+       |-- static/
+       |-- work/
+       |-- analysis_settings.json
+       `-- run_ktools.sh
+
+
+   where the direct GUL and/or FM input files exist in the ``input/csv``
+   subfolder and the corresponding binaries exist in the ``input`` subfolder.
+
+   With the RI flag the model run directory has the following structure
+
+   ::
+       <run_directory>
+       |-- fifo
+       |-- input
+       |-- RI_1
+       |-- RI_2
+       |-- ...
+       |-- output
+       |-- static
+       |-- work
+       |-- ri_layers.json
+       |-- analysis_settings.json
+       `-- run_ktools.sh
+
+   where the direct GUL and/or FM input files, and the corresponding binaries
+   exist in the ``input`` subfolder, and the RI layer input files and binaries
+   exist in the ``RI`` prefixed subfolders.
+
+   If any subfolders are missing they are created.
+
+   Optionally, if the path to a set of Oasis files is provided then they
+   are copied into the ``input/csv`` subfolder.
+
+   Optionally, if the path to the analysis settings JSON file is provided
+   then it is copied to the base of the run directory.
+
+   Optionally, if the path to model data is provided then the files are
+   symlinked into the ``static`` subfolder provided the OS is of type
+   Darwin or Linux, otherwise the source folder tree is recursively
+   copied into the ``static`` subfolder.
+
+   :param run_dir: the model run directory
+   :type run_dir: str
+
+   :param oasis_src_fp: path to a set of Oasis files
+   :type oasis_src_fp: str
+
+   :param ri: Boolean flag for RI mode
+   :type ri: bool
+
+   :param analysis_settings_fp: analysis settings JSON file path
+   :type analysis_settings_fp: str
+
+   :param model_data_fp: model data source path
+   :type model_data_fp: str
+
+   :param inputs_archive: path to a tar file containing input files
+   :type inputs_archive: str
+
+   :param: user_data_dir: path to a directory containing additional user-supplied model data
+   :type user_data_dir: str
+
+
+.. function:: prepare_run_inputs(analysis_settings, run_dir, ri=False)
+
+   Sets up binary files in the model inputs directory.
+
+   :param analysis_settings: model analysis settings dict
+   :type analysis_settings: dict
+
+   :param run_dir: model run directory
+   :type run_dir: str
+
+
+.. function:: check_inputs_directory(directory_to_check, il=False, ri=False, check_binaries=True)
+
+   Check that all the required files are present in the directory.
+
+   :param directory_to_check: directory containing the CSV files
+   :type directory_to_check: string
+
+   :param il: check insuured loss files
+   :type il: bool
+
+   :param il: check resinsurance sub-folders
+   :type il: bool
+
+   :param check_binaries: check binary files are not present
+   :type check_binaries: bool
+
+
+.. function:: csv_to_bin(csv_directory, bin_directory, il=False, ri=False)
+
+   Create the binary files.
+
+   :param csv_directory: the directory containing the CSV files
+   :type csv_directory: str
+
+   :param bin_directory: the directory to write the binary files
+   :type bin_directory: str
+
+   :param il: whether to create the binaries required for insured loss calculations
+   :type il: bool
+
+   :param ri: whether to create the binaries required for reinsurance calculations
+   :type ri: bool
+
+   :raises OasisException: If one of the conversions fails
+
+
+.. function:: check_binary_tar_file(tar_file_path, check_il=False)
+
+   Checks that all required files are present
+
+   :param tar_file_path: Path to the tar file to check
+   :type tar_file_path: str
+
+   :param check_il: Flag whether to check insured loss files
+   :type check_il: bool
+
+   :raises OasisException: If a required file is missing
+
+   :return: True if all required files are present, False otherwise
+   :rtype: bool
+
+
+.. function:: create_binary_tar_file(directory)
+
+   Package the binaries in a gzipped tar.
+
+   :param directory: Path containing the binaries
+   :type tar_file_path: str
+
+
+.. function:: check_conversion_tools(il=False)
+
+   Check that the conversion tools are available
+
+   :param il: Flag whether to check insured loss tools
+   :type il: bool
+
+   :return: True if all required tools are present, False otherwise
+   :rtype: bool
+
+
+.. function:: cleanup_bin_directory(directory)
+
+   Clean the tar and binary files.
+
+

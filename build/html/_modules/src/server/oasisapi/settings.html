@@ -1,0 +1,433 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server.oasisapi.settings &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.server.oasisapi.settings</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.server.oasisapi.settings</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Django settings for oasisapi project.</span>
+
+<span class="sd">Generated by &#39;django-admin startproject&#39; using Django 2.0.5.</span>
+
+<span class="sd">For more information on this file, see</span>
+<span class="sd">https://docs.djangoproject.com/en/2.0/topics/settings/</span>
+
+<span class="sd">For the full list of settings and their values, see</span>
+<span class="sd">https://docs.djangoproject.com/en/2.0/ref/settings/</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+
+<span class="kn">from</span> <span class="nn">rest_framework.reverse</span> <span class="kn">import</span> <span class="n">reverse_lazy</span>
+
+<span class="kn">from</span> <span class="nn">...conf</span> <span class="kn">import</span> <span class="n">iniconf</span>  <span class="c1"># noqa</span>
+<span class="kn">from</span> <span class="nn">...conf.celeryconf</span> <span class="kn">import</span> <span class="o">*</span>  <span class="c1"># noqa</span>
+
+<div class="viewcode-block" id="IN_TEST"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.IN_TEST">[docs]</a><span class="n">IN_TEST</span> <span class="o">=</span> <span class="s1">&#39;test&#39;</span> <span class="ow">in</span> <span class="n">sys</span><span class="o">.</span><span class="n">argv</span></div>
+
+<span class="c1"># Build paths inside the project like this: os.path.join(BASE_DIR, ...)</span>
+<div class="viewcode-block" id="BASE_DIR"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.BASE_DIR">[docs]</a><span class="n">BASE_DIR</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">)))</span></div>
+
+
+<span class="c1"># Quick-start development settings - unsuitable for production</span>
+<span class="c1"># See https://docs.djangoproject.com/en/2.0/howto/deployment/checklist/</span>
+
+<span class="c1"># SECURITY WARNING: don&#39;t run with debug turned on in production!</span>
+<div class="viewcode-block" id="DEBUG"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.DEBUG">[docs]</a><span class="n">DEBUG</span> <span class="o">=</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;debug&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span></div>
+
+<span class="c1"># SECURITY WARNING: keep the secret key used in production secret!</span>
+<div class="viewcode-block" id="SECRET_KEY"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.SECRET_KEY">[docs]</a><span class="n">SECRET_KEY</span> <span class="o">=</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;secret_key&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="s1">&#39;&#39;</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">DEBUG</span> <span class="k">else</span> <span class="s1">&#39;supersecret&#39;</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="_allowed_hosts"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings._allowed_hosts">[docs]</a><span class="n">_allowed_hosts</span> <span class="o">=</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;allowed_hosts&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span></div>
+<span class="k">if</span> <span class="n">_allowed_hosts</span><span class="p">:</span>
+<div class="viewcode-block" id="ALLOWED_HOSTS"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.ALLOWED_HOSTS">[docs]</a>    <span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="n">_allowed_hosts</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span></div>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">ALLOWED_HOSTS</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># Application definition</span>
+
+<div class="viewcode-block" id="INSTALLED_APPS"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.INSTALLED_APPS">[docs]</a><span class="n">INSTALLED_APPS</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.contrib.admin&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.contenttypes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.staticfiles&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;django_filters&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rest_framework&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;drf_yasg&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;rest_framework_simplejwt.token_blacklist&#39;</span><span class="p">,</span>
+
+    <span class="s1">&#39;src.server.oasisapi.files&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;src.server.oasisapi.portfolios&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;src.server.oasisapi.analyses&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;src.server.oasisapi.analysis_models&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;src.server.oasisapi.data_files&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;src.server.oasisapi.healthcheck&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;src.server.oasisapi.oed_info&#39;</span><span class="p">,</span></div>
+<span class="p">]</span>
+
+<div class="viewcode-block" id="MIDDLEWARE"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.MIDDLEWARE">[docs]</a><span class="n">MIDDLEWARE</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;django.middleware.security.SecurityMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.sessions.middleware.SessionMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.common.CommonMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.csrf.CsrfViewMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.auth.middleware.AuthenticationMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.contrib.messages.middleware.MessageMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;django.middleware.clickjacking.XFrameOptionsMiddleware&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;whitenoise.middleware.WhiteNoiseMiddleware&#39;</span><span class="p">,</span></div>
+<span class="p">]</span>
+
+<div class="viewcode-block" id="ROOT_URLCONF"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.ROOT_URLCONF">[docs]</a><span class="n">ROOT_URLCONF</span> <span class="o">=</span> <span class="s1">&#39;src.server.oasisapi.urls&#39;</span></div>
+
+<div class="viewcode-block" id="TEMPLATES"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.TEMPLATES">[docs]</a><span class="n">TEMPLATES</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span>
+        <span class="s1">&#39;BACKEND&#39;</span><span class="p">:</span> <span class="s1">&#39;django.template.backends.django.DjangoTemplates&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;DIRS&#39;</span><span class="p">:</span> <span class="p">[</span>
+            <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;templates&#39;</span><span class="p">),</span>
+        <span class="p">],</span>
+        <span class="s1">&#39;APP_DIRS&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+        <span class="s1">&#39;OPTIONS&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;context_processors&#39;</span><span class="p">:</span> <span class="p">[</span>
+                <span class="s1">&#39;django.template.context_processors.debug&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.template.context_processors.request&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.contrib.auth.context_processors.auth&#39;</span><span class="p">,</span>
+                <span class="s1">&#39;django.contrib.messages.context_processors.messages&#39;</span><span class="p">,</span></div>
+            <span class="p">],</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+<span class="p">]</span>
+
+<div class="viewcode-block" id="WSGI_APPLICATION"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.WSGI_APPLICATION">[docs]</a><span class="n">WSGI_APPLICATION</span> <span class="o">=</span> <span class="s1">&#39;src.server.oasisapi.wsgi.application&#39;</span></div>
+
+
+<span class="c1"># Database</span>
+<span class="c1"># https://docs.djangoproject.com/en/2.0/ref/settings/#databases</span>
+
+<div class="viewcode-block" id="DB_ENGINE"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.DB_ENGINE">[docs]</a><span class="n">DB_ENGINE</span> <span class="o">=</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;db_engine&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="s1">&#39;django.db.backends.sqlite3&#39;</span><span class="p">)</span></div>
+
+<span class="k">if</span> <span class="n">DB_ENGINE</span> <span class="o">==</span> <span class="s1">&#39;django.db.backends.sqlite3&#39;</span><span class="p">:</span>
+<div class="viewcode-block" id="DATABASES"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.DATABASES">[docs]</a>    <span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="n">DB_ENGINE</span><span class="p">,</span>
+            <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;db_name&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="s1">&#39;db.sqlite3&#39;</span><span class="p">)),</span></div>
+        <span class="p">}</span>
+    <span class="p">}</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="n">DATABASES</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;default&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;ENGINE&#39;</span><span class="p">:</span> <span class="n">DB_ENGINE</span><span class="p">,</span>
+            <span class="s1">&#39;NAME&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;db_name&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;HOST&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;db_host&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;PORT&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;db_port&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;USER&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;db_user&#39;</span><span class="p">),</span>
+            <span class="s1">&#39;PASSWORD&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;db_pass&#39;</span><span class="p">),</span>
+        <span class="p">}</span>
+    <span class="p">}</span>
+
+<span class="c1"># Password validation</span>
+<span class="c1"># https://docs.djangoproject.com/en/2.0/ref/settings/#auth-password-validators</span>
+
+<div class="viewcode-block" id="AUTH_PASSWORD_VALIDATORS"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.AUTH_PASSWORD_VALIDATORS">[docs]</a><span class="n">AUTH_PASSWORD_VALIDATORS</span> <span class="o">=</span> <span class="p">[]</span></div>
+<div class="viewcode-block" id="AUTHENTICATION_BACKENDS"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.AUTHENTICATION_BACKENDS">[docs]</a><span class="n">AUTHENTICATION_BACKENDS</span> <span class="o">=</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;auth_backends&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="s1">&#39;django.contrib.auth.backends.ModelBackend&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;,&#39;</span><span class="p">)</span></div>
+
+
+<span class="c1"># Internationalization</span>
+<span class="c1"># https://docs.djangoproject.com/en/2.0/topics/i18n/</span>
+
+<div class="viewcode-block" id="LANGUAGE_CODE"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.LANGUAGE_CODE">[docs]</a><span class="n">LANGUAGE_CODE</span> <span class="o">=</span> <span class="s1">&#39;en-us&#39;</span></div>
+
+<div class="viewcode-block" id="TIME_ZONE"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.TIME_ZONE">[docs]</a><span class="n">TIME_ZONE</span> <span class="o">=</span> <span class="s1">&#39;UTC&#39;</span></div>
+
+<div class="viewcode-block" id="USE_I18N"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.USE_I18N">[docs]</a><span class="n">USE_I18N</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="USE_L10N"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.USE_L10N">[docs]</a><span class="n">USE_L10N</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+<div class="viewcode-block" id="USE_TZ"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.USE_TZ">[docs]</a><span class="n">USE_TZ</span> <span class="o">=</span> <span class="kc">True</span></div>
+
+
+<span class="c1"># Static files (CSS, JavaScript, Images)</span>
+<span class="c1"># https://docs.djangoproject.com/en/2.0/howto/static-files/</span>
+
+<div class="viewcode-block" id="STATIC_URL"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.STATIC_URL">[docs]</a><span class="n">STATIC_URL</span> <span class="o">=</span> <span class="s1">&#39;/static/&#39;</span></div>
+<div class="viewcode-block" id="STATIC_ROOT"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.STATIC_ROOT">[docs]</a><span class="n">STATIC_ROOT</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;static&#39;</span><span class="p">)</span></div>
+<div class="viewcode-block" id="STATICFILES_STORAGE"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.STATICFILES_STORAGE">[docs]</a><span class="n">STATICFILES_STORAGE</span> <span class="o">=</span> <span class="s1">&#39;whitenoise.storage.CompressedManifestStaticFilesStorage&#39;</span></div>
+
+<div class="viewcode-block" id="MEDIA_URL"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.MEDIA_URL">[docs]</a><span class="n">MEDIA_URL</span> <span class="o">=</span> <span class="s1">&#39;/media/&#39;</span></div>
+<div class="viewcode-block" id="MEDIA_ROOT"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.MEDIA_ROOT">[docs]</a><span class="n">MEDIA_ROOT</span> <span class="o">=</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;media_root&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">BASE_DIR</span><span class="p">,</span> <span class="s1">&#39;media&#39;</span><span class="p">))</span></div>
+
+<span class="c1"># https://github.com/davesque/django-rest-framework-simplejwt</span>
+<div class="viewcode-block" id="SIMPLE_JWT"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.SIMPLE_JWT">[docs]</a><span class="n">SIMPLE_JWT</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;ACCESS_TOKEN_LIFETIME&#39;</span><span class="p">:</span>  <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get_timedelta</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;TOKEN_ACCESS_LIFETIME&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="s1">&#39;hours=1&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;REFRESH_TOKEN_LIFETIME&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get_timedelta</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;TOKEN_REFRESH_LIFETIME&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="s1">&#39;days=2&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;ROTATE_REFRESH_TOKENS&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;TOKEN_REFRESH_ROTATE&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="s1">&#39;BLACKLIST_AFTER_ROTATION&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">getboolean</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;TOKEN_REFRESH_ROTATE&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="kc">True</span><span class="p">),</span>
+    <span class="s1">&#39;SIGNING_KEY&#39;</span><span class="p">:</span> <span class="n">iniconf</span><span class="o">.</span><span class="n">settings</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;server&#39;</span><span class="p">,</span> <span class="s1">&#39;token_sigining_key&#39;</span><span class="p">,</span> <span class="n">fallback</span><span class="o">=</span><span class="n">SECRET_KEY</span><span class="p">),</span></div>
+<span class="p">}</span>
+
+<div class="viewcode-block" id="REST_FRAMEWORK"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.REST_FRAMEWORK">[docs]</a><span class="n">REST_FRAMEWORK</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;DEFAULT_RENDERER_CLASSES&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">&#39;rest_framework.renderers.JSONRenderer&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;DEFAULT_PERMISSION_CLASSES&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">&#39;rest_framework.permissions.IsAuthenticated&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;DEFAULT_AUTHENTICATION_CLASSES&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">&#39;rest_framework_simplejwt.authentication.JWTAuthentication&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;rest_framework.authentication.SessionAuthentication&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;DEFAULT_FILTER_BACKENDS&#39;</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s1">&#39;src.server.oasisapi.filters.Backend&#39;</span><span class="p">,</span>
+    <span class="p">),</span>
+    <span class="s1">&#39;DATETIME_FORMAT&#39;</span><span class="p">:</span> <span class="s1">&#39;%Y-%m-</span><span class="si">%d</span><span class="s1">T%H:%M:%S.</span><span class="si">%f</span><span class="s1">Z&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DEFAULT_VERSIONING_CLASS&#39;</span><span class="p">:</span> <span class="s1">&#39;rest_framework.versioning.URLPathVersioning&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;DEFAULT_VERSION&#39;</span><span class="p">:</span> <span class="s1">&#39;v1&#39;</span><span class="p">,</span></div>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="LOGGING"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.LOGGING">[docs]</a><span class="n">LOGGING</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;version&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="s1">&#39;disable_existing_loggers&#39;</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+    <span class="s1">&#39;root&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">[</span><span class="s1">&#39;console&#39;</span><span class="p">],</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;formatters&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;verbose&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;format&#39;</span><span class="p">:</span> <span class="s1">&#39;</span><span class="si">%(levelname)s</span><span class="s1"> </span><span class="si">%(asctime)s</span><span class="s1"> </span><span class="si">%(module)s</span><span class="s1"> </span><span class="si">%(process)d</span><span class="s1"> </span><span class="si">%(thread)d</span><span class="s1"> </span><span class="si">%(message)s</span><span class="s1">&#39;</span>
+        <span class="p">},</span>
+    <span class="p">},</span>
+    <span class="s1">&#39;handlers&#39;</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s1">&#39;console&#39;</span><span class="p">:</span> <span class="p">{</span>
+            <span class="s1">&#39;level&#39;</span><span class="p">:</span> <span class="s1">&#39;DEBUG&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;class&#39;</span><span class="p">:</span> <span class="s1">&#39;logging.StreamHandler&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;formatter&#39;</span><span class="p">:</span> <span class="s1">&#39;verbose&#39;</span></div>
+        <span class="p">}</span>
+    <span class="p">},</span>
+<span class="p">}</span>
+
+
+<span class="k">if</span> <span class="n">IN_TEST</span><span class="p">:</span>
+    <span class="n">BROKER_URL</span> <span class="o">=</span> <span class="s1">&#39;memory://&#39;</span>
+    <span class="n">LOGGING</span><span class="p">[</span><span class="s1">&#39;root&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+
+
+<div class="viewcode-block" id="SWAGGER_SETTINGS"><a class="viewcode-back" href="../../../../autoapi/src/server/oasisapi/settings/index.html#src.server.oasisapi.settings.SWAGGER_SETTINGS">[docs]</a><span class="n">SWAGGER_SETTINGS</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;DEFAULT_INFO&#39;</span><span class="p">:</span> <span class="s1">&#39;src.server.oasisapi.urls.api_info&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;LOGIN_URL&#39;</span><span class="p">:</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;rest_framework:login&#39;</span><span class="p">),</span>
+    <span class="s1">&#39;LOGOUT_URL&#39;</span><span class="p">:</span> <span class="n">reverse_lazy</span><span class="p">(</span><span class="s1">&#39;rest_framework:logout&#39;</span><span class="p">),</span></div>
+<span class="p">}</span>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

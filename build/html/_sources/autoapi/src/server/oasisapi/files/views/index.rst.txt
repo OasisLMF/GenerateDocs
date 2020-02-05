@@ -1,0 +1,33 @@
+:mod:`src.server.oasisapi.files.views`
+======================================
+
+.. py:module:: src.server.oasisapi.files.views
+
+
+Module Contents
+---------------
+
+.. function:: _get_chunked_content(f, chunk_size=1024)
+
+
+.. function:: _handle_get_related_file(parent, field)
+
+
+.. function:: _handle_post_related_file(parent, field, request, content_types)
+
+
+.. function:: _handle_delete_related_file(parent, field)
+
+
+.. function:: _json_write_to_file(parent, field, request, serializer)
+
+
+.. function:: _json_read_from_file(parent, field)
+
+
+.. function:: handle_related_file(parent, field, request, content_types)
+
+
+.. function:: handle_json_data(parent, field, request, serializer)
+
+

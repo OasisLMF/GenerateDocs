@@ -1,0 +1,1045 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.model_preparation.summaries &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../oasislmf.html">oasislmf</a> &raquo;</li>
+        
+      <li>oasislmf.model_preparation.summaries</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for oasislmf.model_preparation.summaries</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;get_summary_mapping&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;generate_summaryxref_files&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;merge_oed_to_mapping&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;write_exposure_summary&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;write_summary_levels&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;write_mapping_file&#39;</span><span class="p">,</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">..utils.coverages</span> <span class="kn">import</span> <span class="n">SUPPORTED_COVERAGE_TYPES</span>
+<span class="kn">from</span> <span class="nn">..utils.data</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">factorize_dataframe</span><span class="p">,</span>
+    <span class="n">factorize_ndarray</span><span class="p">,</span>
+    <span class="n">get_dataframe</span><span class="p">,</span>
+    <span class="n">get_json</span><span class="p">,</span>
+    <span class="n">merge_dataframes</span><span class="p">,</span>
+    <span class="n">set_dataframe_column_dtypes</span><span class="p">,</span>
+    <span class="n">get_dtypes_and_required_cols</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..utils.defaults</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">find_exposure_fp</span><span class="p">,</span>
+    <span class="n">SOURCE_IDX</span><span class="p">,</span>
+    <span class="n">SUMMARY_MAPPING</span><span class="p">,</span>
+    <span class="n">SUMMARY_OUTPUT</span><span class="p">,</span>
+    <span class="n">get_loc_dtypes</span><span class="p">,</span>
+    <span class="n">get_acc_dtypes</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">..utils.exceptions</span> <span class="kn">import</span> <span class="n">OasisException</span>
+<span class="kn">from</span> <span class="nn">..utils.log</span> <span class="kn">import</span> <span class="n">oasis_log</span>
+<span class="kn">from</span> <span class="nn">..utils.path</span> <span class="kn">import</span> <span class="n">as_path</span>
+<span class="kn">from</span> <span class="nn">..utils.peril</span> <span class="kn">import</span> <span class="n">PERILS</span><span class="p">,</span> <span class="n">PERIL_GROUPS</span>
+<span class="kn">from</span> <span class="nn">..utils.status</span> <span class="kn">import</span> <span class="n">OASIS_KEYS_STATUS</span>
+<span class="kn">from</span> <span class="nn">.gul_inputs</span> <span class="kn">import</span> <span class="n">get_gul_input_items</span>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="get_summary_mapping"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/summaries/index.html#oasislmf.model_preparation.summaries.get_summary_mapping">[docs]</a><span class="k">def</span> <span class="nf">get_summary_mapping</span><span class="p">(</span><span class="n">inputs_df</span><span class="p">,</span> <span class="n">oed_hierarchy</span><span class="p">,</span> <span class="n">is_fm_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a DataFrame with linking information between Ktools `OasisFiles`</span>
+<span class="sd">    And the Exposure data</span>
+
+<span class="sd">    :param inputs_df: datafame from gul_inputs.get_gul_input_items(..)  / il_inputs.get_il_input_items(..)</span>
+<span class="sd">    :type inputs_df: pandas.DataFrame</span>
+
+<span class="sd">    :param is_fm_summary: Indicates whether an FM summary mapping is required</span>
+<span class="sd">    :type is_fm_summary: bool</span>
+
+<span class="sd">    :return: Subset of columns from gul_inputs_df / il_inputs_df</span>
+<span class="sd">    :rtype: pandas.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">acc_num</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;accnum&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">loc_num</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;locnum&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">policy_num</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;polnum&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">portfolio_num</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;portnum&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="c1"># Case GUL+FM (based on il_inputs_df)</span>
+    <span class="k">if</span> <span class="n">is_fm_summary</span><span class="p">:</span>
+        <span class="n">summary_mapping</span> <span class="o">=</span> <span class="n">inputs_df</span><span class="p">[</span><span class="n">inputs_df</span><span class="p">[</span><span class="s1">&#39;level_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">inputs_df</span><span class="p">[</span><span class="s1">&#39;level_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">max</span><span class="p">()]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;gul_input_id&#39;</span><span class="p">,</span> <span class="s1">&#39;layer_id&#39;</span><span class="p">],</span> <span class="n">keep</span><span class="o">=</span><span class="s1">&#39;first&#39;</span><span class="p">)</span>
+        <span class="n">summary_mapping</span><span class="p">[</span><span class="s1">&#39;agg_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary_mapping</span><span class="p">[</span><span class="s1">&#39;gul_input_id&#39;</span><span class="p">]</span>
+        <span class="n">summary_mapping</span><span class="p">[</span><span class="s1">&#39;output_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">factorize_ndarray</span><span class="p">(</span>
+            <span class="n">summary_mapping</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="s1">&#39;gul_input_id&#39;</span><span class="p">,</span> <span class="s1">&#39;layer_id&#39;</span><span class="p">]]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+            <span class="n">col_idxs</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+        <span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">summary_mapping</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="c1"># GUL Only</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">summary_mapping</span> <span class="o">=</span> <span class="n">inputs_df</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">usecols</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">acc_num</span><span class="p">,</span>
+        <span class="n">loc_num</span><span class="p">,</span>
+        <span class="s1">&#39;loc_id&#39;</span><span class="p">,</span>
+        <span class="n">policy_num</span><span class="p">,</span>
+        <span class="n">portfolio_num</span><span class="p">,</span>
+        <span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">],</span>
+        <span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span>
+        <span class="s1">&#39;item_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;layer_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coverage_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;peril_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;agg_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;output_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coverage_type_id&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;tiv&#39;</span>
+    <span class="p">]</span>
+
+    <span class="n">summary_mapping</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span>
+        <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">summary_mapping</span><span class="o">.</span><span class="n">columns</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">usecols</span><span class="p">],</span>
+        <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span>
+        <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span>
+    <span class="p">)</span>
+    <span class="n">dtypes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="o">**</span><span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="s1">&#39;str&#39;</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="n">portfolio_num</span><span class="p">,</span> <span class="n">policy_num</span><span class="p">,</span> <span class="n">acc_num</span><span class="p">,</span> <span class="n">loc_num</span><span class="p">,</span> <span class="s1">&#39;peril_id&#39;</span><span class="p">]},</span>
+        <span class="o">**</span><span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="s1">&#39;uint8&#39;</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;coverage_type_id&#39;</span><span class="p">]},</span>
+        <span class="o">**</span><span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="s1">&#39;uint32&#39;</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">],</span> <span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;item_id&#39;</span><span class="p">,</span> <span class="s1">&#39;layer_id&#39;</span><span class="p">,</span> <span class="s1">&#39;coverage_id&#39;</span><span class="p">,</span> <span class="s1">&#39;agg_id&#39;</span><span class="p">,</span> <span class="s1">&#39;output_id&#39;</span><span class="p">]},</span>
+        <span class="o">**</span><span class="p">{</span><span class="n">t</span><span class="p">:</span> <span class="s1">&#39;float64&#39;</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;tiv&#39;</span><span class="p">]}</span>
+    <span class="p">}</span>
+    <span class="n">summary_mapping</span> <span class="o">=</span> <span class="n">set_dataframe_column_dtypes</span><span class="p">(</span><span class="n">summary_mapping</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">summary_mapping</span></div>
+
+
+<div class="viewcode-block" id="merge_oed_to_mapping"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/summaries/index.html#oasislmf.model_preparation.summaries.merge_oed_to_mapping">[docs]</a><span class="k">def</span> <span class="nf">merge_oed_to_mapping</span><span class="p">(</span><span class="n">summary_map_df</span><span class="p">,</span> <span class="n">exposure_df</span><span class="p">,</span> <span class="n">oed_column_set</span><span class="p">,</span> <span class="n">defaults</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a factorized col (summary ids) based on a list of oed column names</span>
+
+<span class="sd">    :param :summary_map_df dataframe return from get_summary_mapping</span>
+<span class="sd">    :type summary_map_df: pandas.DataFrame</span>
+
+<span class="sd">    :param exposure_df: Summary map file path</span>
+<span class="sd">    :type exposure_df: pandas.DataFrame</span>
+
+<span class="sd">    :param defaults: Dictionary of vaules to fill NaN columns with</span>
+<span class="sd">    :type defaults: dict</span>
+
+<span class="sd">    {&#39;Col_A&#39;: 0, &#39;Col_B&#39;: 1, &#39;Col_C&#39;: 2}</span>
+
+<span class="sd">    :return: New DataFrame of summary_map_df + exposure_df merged on exposure index</span>
+<span class="sd">    :rtype: pandas.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">column_set</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">oed_column_set</span><span class="p">]</span>
+    <span class="n">columns_found</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">column_set</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()]</span>
+    <span class="n">columns_missing</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">column_set</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">columns_found</span><span class="p">))</span>
+
+    <span class="c1"># Select DF with matching cols</span>
+    <span class="n">exposure_col_df</span> <span class="o">=</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">columns_found</span><span class="p">]</span>
+    <span class="c1"># Add default value if optional column is missing</span>
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">columns_missing</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">defaults</span><span class="p">:</span>
+            <span class="n">exposure_col_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">defaults</span><span class="p">[</span><span class="n">col</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;Column to merge &quot;</span><span class="si">{}</span><span class="s1">&quot; not in locations dataframe or defined with a default value&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">col</span><span class="p">))</span>
+
+    <span class="n">exposure_col_df</span><span class="p">[</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">index</span>
+    <span class="n">new_summary_map_df</span> <span class="o">=</span> <span class="n">merge_dataframes</span><span class="p">(</span><span class="n">summary_map_df</span><span class="p">,</span> <span class="n">exposure_col_df</span><span class="p">,</span> <span class="n">join_on</span><span class="o">=</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">defaults</span><span class="p">:</span>
+        <span class="n">new_summary_map_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">defaults</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">new_summary_map_df</span></div>
+
+
+<span class="k">def</span> <span class="nf">group_by_oed</span><span class="p">(</span><span class="n">oed_col_group</span><span class="p">,</span> <span class="n">summary_map_df</span><span class="p">,</span> <span class="n">exposure_df</span><span class="p">,</span> <span class="n">sort_by</span><span class="p">,</span> <span class="n">accounts_df</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Adds list of OED fields from `column_set` to summary map file</span>
+
+<span class="sd">    :param :summary_map_df dataframe return from get_summary_mapping</span>
+<span class="sd">    :type summary_map_df: pandas.DataFrame</span>
+
+<span class="sd">    :param exposure_df: DataFrame loaded from location.csv</span>
+<span class="sd">    :type exposure_df: pandas.DataFrame</span>
+
+<span class="sd">    :param accounts_df: DataFrame loaded from accounts.csv</span>
+<span class="sd">    :type accounts_df: pandas.DataFrame</span>
+
+<span class="sd">    :return: subset of columns from exposure_df to merge</span>
+<span class="sd">    :rtype: list</span>
+
+<span class="sd">        summary_ids[0] is an int list 1..n  array([1, 2, 1, 2, 1, 2, 1, 2, 1, 2, ... ])</span>
+<span class="sd">        summary_ids[1] is an array of values used to factorize  `array([&#39;Layer1&#39;, &#39;Layer2&#39;], dtype=object)`</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">oed_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">oed_col_group</span><span class="p">]</span>                                               <span class="c1"># All requred columns</span>
+    <span class="n">unmapped_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">oed_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">summary_map_df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>                    <span class="c1"># columns which in locations / Accounts file</span>
+    <span class="n">mapped_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">oed_cols</span> <span class="o">+</span> <span class="p">[</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">],</span> <span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="n">sort_by</span><span class="p">]</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">summary_map_df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>    <span class="c1"># Columns already in summary_map_df</span>
+
+    <span class="c1"># Extract mapped_cols from summary_map_df</span>
+    <span class="n">summary_group_df</span> <span class="o">=</span> <span class="n">summary_map_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">mapped_cols</span><span class="p">]</span>
+
+    <span class="c1"># Search Loc / Acc files and merge in remaing</span>
+    <span class="k">if</span> <span class="n">unmapped_cols</span> <span class="ow">is</span> <span class="ow">not</span> <span class="p">[]:</span>
+        <span class="c1"># Location file columns</span>
+        <span class="n">exposure_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">unmapped_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">columns</span><span class="p">]</span>
+        <span class="n">exposure_col_df</span> <span class="o">=</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">exposure_cols</span> <span class="o">+</span> <span class="p">[</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]]]</span>
+        <span class="n">summary_group_df</span> <span class="o">=</span> <span class="n">merge_dataframes</span><span class="p">(</span><span class="n">summary_group_df</span><span class="p">,</span> <span class="n">exposure_col_df</span><span class="p">,</span> <span class="n">join_on</span><span class="o">=</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Account file columns</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">accounts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">accounts_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">unmapped_cols</span> <span class="k">if</span> <span class="n">c</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">accounts_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span> <span class="o">-</span> <span class="nb">set</span><span class="p">(</span><span class="n">exposure_df</span><span class="o">.</span><span class="n">columns</span><span class="p">)]</span>
+            <span class="k">if</span> <span class="n">accounts_cols</span><span class="p">:</span>
+                <span class="n">accounts_col_df</span> <span class="o">=</span> <span class="n">accounts_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">accounts_cols</span> <span class="o">+</span> <span class="p">[</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]]]</span>
+                <span class="n">summary_group_df</span> <span class="o">=</span> <span class="n">merge_dataframes</span><span class="p">(</span><span class="n">summary_group_df</span><span class="p">,</span> <span class="n">accounts_col_df</span><span class="p">,</span> <span class="n">join_on</span><span class="o">=</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">],</span> <span class="n">how</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">)</span>
+
+    <span class="n">summary_group_df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">summary_group_df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">by</span><span class="o">=</span><span class="p">[</span><span class="n">sort_by</span><span class="p">],</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">summary_ids</span> <span class="o">=</span> <span class="n">factorize_dataframe</span><span class="p">(</span><span class="n">summary_group_df</span><span class="p">,</span> <span class="n">by_col_labels</span><span class="o">=</span><span class="n">oed_cols</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">summary_ids</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">summary_ids</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+
+<div class="viewcode-block" id="write_summary_levels"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/summaries/index.html#oasislmf.model_preparation.summaries.write_summary_levels">[docs]</a><span class="k">def</span> <span class="nf">write_summary_levels</span><span class="p">(</span><span class="n">exposure_df</span><span class="p">,</span> <span class="n">accounts_fp</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    Json file with list Available / Recommended columns for use in the summary reporting</span>
+
+<span class="sd">    Available: Columns which exists in input files and has at least one non-zero / NaN value</span>
+<span class="sd">    Recommended: Columns which are available + also in the list of `useful` groupings SUMMARY_LEVEL_LOC</span>
+
+<span class="sd">    {</span>
+<span class="sd">        &#39;GUL&#39;: {</span>
+<span class="sd">            &#39;available&#39;: [&#39;accnumber&#39;,</span>
+<span class="sd">                         &#39;locnumber&#39;,</span>
+<span class="sd">                         &#39;istenant&#39;,</span>
+<span class="sd">                         &#39;buildingid&#39;,</span>
+<span class="sd">                         &#39;countrycode&#39;,</span>
+<span class="sd">                         &#39;latitude&#39;,</span>
+<span class="sd">                         &#39;longitude&#39;,</span>
+<span class="sd">                         &#39;streetaddress&#39;,</span>
+<span class="sd">                         &#39;postalcode&#39;,</span>
+<span class="sd">                         &#39;occupancycode&#39;,</span>
+<span class="sd">                         &#39;constructioncode&#39;,</span>
+<span class="sd">                         &#39;locperilscovered&#39;,</span>
+<span class="sd">                         &#39;buildingtiv&#39;,</span>
+<span class="sd">                         &#39;contentstiv&#39;,</span>
+<span class="sd">                         &#39;bitiv&#39;,</span>
+<span class="sd">                         &#39;portnumber&#39;],</span>
+
+<span class="sd">        &#39;IL&#39;: {</span>
+<span class="sd">                ... etc ...</span>
+<span class="sd">        }</span>
+<span class="sd">    }</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+    <span class="c1"># Manage internal columns, (Non-OED exposure input)</span>
+    <span class="n">int_excluded_cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]]</span>
+    <span class="n">desc_non_oed</span> <span class="o">=</span> <span class="s1">&#39;Not an OED field&#39;</span>
+    <span class="n">int_oasis_cols</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s1">&#39;coverage_type_id&#39;</span><span class="p">:</span> <span class="s1">&#39;Oasis coverage type&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;peril_id&#39;</span><span class="p">:</span> <span class="s1">&#39;OED peril code&#39;</span><span class="p">,</span>
+        <span class="s1">&#39;coverage_id&#39;</span><span class="p">:</span> <span class="s1">&#39;Oasis coverage identifier&#39;</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="c1"># GUL perspective (loc columns only)</span>
+    <span class="n">l_col_list</span> <span class="o">=</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+    <span class="n">l_col_info</span> <span class="o">=</span> <span class="n">get_loc_dtypes</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">l_col_info</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+        <span class="n">l_col_info</span><span class="p">[</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">()]</span> <span class="o">=</span> <span class="n">l_col_info</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">del</span> <span class="n">l_col_info</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+
+    <span class="n">gul_avail</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">l_col_info</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">l_col_info</span> <span class="k">else</span> <span class="n">desc_non_oed</span>
+                 <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">l_col_list</span><span class="p">])</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">int_excluded_cols</span><span class="p">)}</span>
+    <span class="n">gul_summary_lvl</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;GUL&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;available&#39;</span><span class="p">:</span> <span class="p">{</span><span class="o">**</span><span class="n">gul_avail</span><span class="p">,</span> <span class="o">**</span><span class="n">int_oasis_cols</span><span class="p">}}}</span>
+
+    <span class="c1"># IL perspective (join of acc + loc col with no dups)</span>
+    <span class="n">il_summary_lvl</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">if</span> <span class="n">accounts_fp</span><span class="p">:</span>
+        <span class="n">accounts_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">accounts_fp</span><span class="p">)</span>
+        <span class="n">a_col_list</span> <span class="o">=</span> <span class="n">accounts_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">accounts_df</span><span class="o">.</span><span class="n">any</span><span class="p">()]</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span>
+        <span class="n">a_col_info</span> <span class="o">=</span> <span class="n">get_acc_dtypes</span><span class="p">()</span>
+        <span class="n">a_avail</span> <span class="o">=</span> <span class="nb">set</span><span class="p">([</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">a_col_list</span><span class="p">])</span>
+
+        <span class="n">il_avail</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">a_col_info</span><span class="p">[</span><span class="n">k</span><span class="p">][</span><span class="s1">&#39;desc&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">a_col_info</span> <span class="k">else</span> <span class="n">desc_non_oed</span>
+                    <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">a_avail</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">gul_avail</span><span class="o">.</span><span class="n">keys</span><span class="p">())}</span>
+        <span class="n">il_summary_lvl</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;IL&#39;</span><span class="p">:</span> <span class="p">{</span><span class="s1">&#39;available&#39;</span><span class="p">:</span> <span class="p">{</span><span class="o">**</span><span class="n">gul_avail</span><span class="p">,</span> <span class="o">**</span><span class="n">il_avail</span><span class="p">,</span> <span class="o">**</span><span class="n">int_oasis_cols</span><span class="p">}}}</span>
+
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="s1">&#39;exposure_summary_levels.json&#39;</span><span class="p">),</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">({</span><span class="o">**</span><span class="n">gul_summary_lvl</span><span class="p">,</span> <span class="o">**</span><span class="n">il_summary_lvl</span><span class="p">},</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span></div>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="write_mapping_file"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/summaries/index.html#oasislmf.model_preparation.summaries.write_mapping_file">[docs]</a><span class="k">def</span> <span class="nf">write_mapping_file</span><span class="p">(</span><span class="n">sum_inputs_df</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">,</span> <span class="n">is_fm_summary</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Writes a summary map file, used to build summarycalc xref files.</span>
+
+<span class="sd">    :param summary_mapping: dataframe return from get_summary_mapping</span>
+<span class="sd">    :type summary_mapping: pandas.DataFrame</span>
+
+<span class="sd">    :param sum_mapping_fp: Summary map file path</span>
+<span class="sd">    :type sum_mapping_fp: str</span>
+
+<span class="sd">    :param is_fm_summary: Indicates whether an FM summary mapping is required</span>
+<span class="sd">    :type is_fm_summary: bool</span>
+
+<span class="sd">    :return: Summary xref file path</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">target_dir</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span>
+        <span class="n">target_dir</span><span class="p">,</span>
+        <span class="s1">&#39;Target IL input files directory&#39;</span><span class="p">,</span>
+        <span class="n">is_dir</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="n">preexists</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Set chunk size for writing the CSV files - default is max 20K, min 1K</span>
+    <span class="n">chunksize</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">sum_inputs_df</span><span class="p">),</span> <span class="mi">1000</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">is_fm_summary</span><span class="p">:</span>
+        <span class="n">sum_mapping_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="n">SUMMARY_MAPPING</span><span class="p">[</span><span class="s1">&#39;fm_map_fn&#39;</span><span class="p">])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">sum_mapping_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="n">SUMMARY_MAPPING</span><span class="p">[</span><span class="s1">&#39;gul_map_fn&#39;</span><span class="p">])</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">sum_inputs_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+            <span class="n">path_or_buf</span><span class="o">=</span><span class="n">sum_mapping_fp</span><span class="p">,</span>
+            <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;w&#39;</span> <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">sum_mapping_fp</span><span class="p">)</span> <span class="k">else</span> <span class="s1">&#39;a&#39;</span><span class="p">),</span>
+            <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
+            <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">OasisException</span> <span class="kn">from</span> <span class="nn">e</span>
+
+    <span class="k">return</span> <span class="n">sum_mapping_fp</span></div>
+
+
+<span class="k">def</span> <span class="nf">get_column_selection</span><span class="p">(</span><span class="n">summary_set</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Given a analysis_settings summary definition, return either</span>
+<span class="sd">        1. the set of OED columns requested to group by</span>
+<span class="sd">        2. If no information key &#39;oed_fields&#39;, then group all outputs into a single summary_set</span>
+
+<span class="sd">    :param summary_set: summary group dictionary from the `analysis_settings.json`</span>
+<span class="sd">    :type summary_set: dict</span>
+
+<span class="sd">    :return: List of selected OED columns to create summary groups from</span>
+<span class="sd">    :rtype: list</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="s2">&quot;oed_fields&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">summary_set</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">summary_set</span><span class="p">[</span><span class="s2">&quot;oed_fields&quot;</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+
+    <span class="c1"># Use OED column list set in analysis_settings file</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">summary_set</span><span class="p">[</span><span class="s1">&#39;oed_fields&#39;</span><span class="p">],</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="nb">len</span><span class="p">(</span><span class="n">summary_set</span><span class="p">[</span><span class="s1">&#39;oed_fields&#39;</span><span class="p">])</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">summary_set</span><span class="p">[</span><span class="s1">&#39;oed_fields&#39;</span><span class="p">]]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;Unable to process settings file&#39;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">get_ri_settings</span><span class="p">(</span><span class="n">run_dir</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Return the contents of ri_layers.json</span>
+
+<span class="sd">    Example:</span>
+<span class="sd">    {</span>
+<span class="sd">        &quot;1&quot;: {</span>
+<span class="sd">            &quot;inuring_priority&quot;: 1,</span>
+<span class="sd">            &quot;risk_level&quot;: &quot;LOC&quot;,</span>
+<span class="sd">            &quot;directory&quot;: &quot;  ... /runs/ProgOasis-20190501145127/RI_1&quot;</span>
+<span class="sd">        }</span>
+<span class="sd">    }</span>
+
+<span class="sd">    :param run_dir: The file path of the model run directory</span>
+<span class="sd">    :type run_dir: str</span>
+
+<span class="sd">    :return: metadata for the Reinsurance layers</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">run_dir</span><span class="p">,</span> <span class="s1">&#39;ri_layers.json&#39;</span><span class="p">))</span>
+
+
+<span class="nd">@oasis_log</span>
+<span class="k">def</span> <span class="nf">write_df_to_file</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">target_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Write a generated summary xref dataframe to disk</span>
+
+<span class="sd">    :param df: The dataframe output of get_df( .. )</span>
+<span class="sd">    :type df:  pandas.DataFrame</span>
+
+<span class="sd">    :param target_dir: Abs directory to write a summary_xref file to</span>
+<span class="sd">    :type target_dir:  str</span>
+
+<span class="sd">    :param filename: Name of file to store as</span>
+<span class="sd">    :type filename:  str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">target_dir</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="s1">&#39;Input files directory&#39;</span><span class="p">,</span> <span class="n">is_dir</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    <span class="n">chunksize</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="mi">2</span> <span class="o">*</span> <span class="mi">10</span><span class="o">**</span><span class="mi">5</span><span class="p">,</span> <span class="nb">max</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">),</span> <span class="mi">1000</span><span class="p">))</span>
+    <span class="n">csv_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+            <span class="n">path_or_buf</span><span class="o">=</span><span class="n">csv_fp</span><span class="p">,</span>
+            <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+            <span class="n">mode</span><span class="o">=</span><span class="p">(</span><span class="s1">&#39;w&#39;</span><span class="p">),</span>
+            <span class="n">chunksize</span><span class="o">=</span><span class="n">chunksize</span><span class="p">,</span>
+            <span class="n">index</span><span class="o">=</span><span class="kc">False</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">OasisException</span> <span class="kn">from</span> <span class="nn">e</span>
+
+    <span class="k">return</span> <span class="n">csv_fp</span>
+
+
+<span class="nd">@oasis_log</span>
+<span class="k">def</span> <span class="nf">get_summary_xref_df</span><span class="p">(</span><span class="n">map_df</span><span class="p">,</span> <span class="n">exposure_df</span><span class="p">,</span> <span class="n">accounts_df</span><span class="p">,</span> <span class="n">summaries_info_dict</span><span class="p">,</span> <span class="n">summaries_type</span><span class="p">,</span> <span class="n">gul_items</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create a Dataframe for either gul / il / ri  based on a section</span>
+<span class="sd">    from the analysis settings</span>
+
+
+<span class="sd">    :param map_df: Summary Map dataframe (GUL / IL)</span>
+<span class="sd">    :type map_df:  pandas.DataFrame</span>
+
+<span class="sd">    :param exposure_df: Location OED data</span>
+<span class="sd">    :type exposure_df:  pandas.DataFrame</span>
+
+<span class="sd">    :param accounts_df: Accounts OED data</span>
+<span class="sd">    :type accounts_df:  pandas.DataFrame</span>
+
+<span class="sd">    :param summaries_info_dict: list of dictionary definitionfor a summary group from the analysis_settings file</span>
+<span class="sd">    :type summaries_info_dict:  list</span>
+
+<span class="sd">    [{</span>
+<span class="sd">        &quot;summarycalc&quot;: true,</span>
+<span class="sd">        &quot;eltcalc&quot;: true,</span>
+<span class="sd">        &quot;aalcalc&quot;: true,</span>
+<span class="sd">        &quot;pltcalc&quot;: true,</span>
+<span class="sd">        &quot;id&quot;: 1,</span>
+<span class="sd">        &quot;oed_fields&quot;: &quot;prog&quot;,</span>
+<span class="sd">        &quot;lec_output&quot;: true,</span>
+<span class="sd">        &quot;leccalc&quot;: {</span>
+<span class="sd">          &quot;return_period_file&quot;: true,</span>
+<span class="sd">          &quot;outputs&quot;: {</span>
+<span class="sd">            &quot;full_uncertainty_aep&quot;: true,</span>
+<span class="sd">            &quot;full_uncertainty_oep&quot;: true,</span>
+<span class="sd">            &quot;wheatsheaf_aep&quot;: true,</span>
+<span class="sd">            &quot;wheatsheaf_oep&quot;: true</span>
+<span class="sd">          }</span>
+<span class="sd">        }</span>
+<span class="sd">      },</span>
+
+<span class="sd">      ...</span>
+<span class="sd">     ]</span>
+
+<span class="sd">    :param summaries_type: Text label to use as key in summary description either [&#39;gul&#39;, &#39;il&#39;, &#39;ri&#39;]</span>
+<span class="sd">    :type summaries_type: String</span>
+
+<span class="sd">    :return summaryxref_df: Dataframe containing abstracted summary data for ktools</span>
+<span class="sd">    :rtypwrite_xref_filee: pandas.DataFrame</span>
+
+<span class="sd">    :return summary_desc: dictionary of dataFrames listing what summary_ids map to</span>
+<span class="sd">    :rtype: dictionary</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="n">summaryxref_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+    <span class="n">summary_desc</span> <span class="o">=</span> <span class="p">{}</span>
+
+    <span class="n">all_cols</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">map_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">()</span> <span class="o">+</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">accounts_df</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">all_cols</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">accounts_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">to_list</span><span class="p">())</span>
+
+    <span class="c1"># Extract the summary id index column depending on summary grouping type</span>
+    <span class="k">if</span> <span class="s1">&#39;output_id&#39;</span> <span class="ow">in</span> <span class="n">map_df</span><span class="p">:</span>
+        <span class="n">id_set_index</span> <span class="o">=</span> <span class="s1">&#39;output_id&#39;</span>
+        <span class="n">ids_set_df</span> <span class="o">=</span> <span class="n">map_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="n">id_set_index</span><span class="p">]]</span><span class="o">.</span><span class="n">rename</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="p">{</span><span class="n">id_set_index</span><span class="p">:</span> <span class="s2">&quot;output&quot;</span><span class="p">})</span>
+    <span class="k">elif</span> <span class="n">gul_items</span><span class="p">:</span>
+        <span class="n">id_set_index</span> <span class="o">=</span> <span class="s1">&#39;item_id&#39;</span>
+        <span class="n">ids_set_df</span> <span class="o">=</span> <span class="n">map_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="n">id_set_index</span><span class="p">]]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">id_set_index</span> <span class="o">=</span> <span class="s1">&#39;coverage_id&#39;</span>
+        <span class="n">ids_set_df</span> <span class="o">=</span> <span class="n">map_df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="p">[</span><span class="n">id_set_index</span><span class="p">]]</span>
+
+
+    <span class="c1"># For each granularity build a set grouping</span>
+    <span class="k">for</span> <span class="n">summary_set</span> <span class="ow">in</span> <span class="n">summaries_info_dict</span><span class="p">:</span>
+        <span class="n">summary_set_df</span> <span class="o">=</span> <span class="n">ids_set_df</span>
+        <span class="n">cols_group_by</span> <span class="o">=</span> <span class="n">get_column_selection</span><span class="p">(</span><span class="n">summary_set</span><span class="p">)</span>
+        <span class="n">desc_key</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">_S</span><span class="si">{}</span><span class="s1">_summary-info.csv&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">summaries_type</span><span class="p">,</span> <span class="n">summary_set</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+
+        <span class="c1"># an empty intersection means no selected columns from the input data</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="nb">set</span><span class="p">(</span><span class="n">cols_group_by</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">all_cols</span><span class="p">):</span>
+
+            <span class="c1"># is the intersection empty because the columns don&#39;t exist?</span>
+            <span class="k">if</span> <span class="nb">set</span><span class="p">(</span><span class="n">cols_group_by</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">all_cols</span><span class="p">):</span>
+                <span class="n">err_msg</span> <span class="o">=</span> <span class="s1">&#39;Input error: Summary set columns missing from the input files: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+                           <span class="nb">set</span><span class="p">(</span><span class="n">cols_group_by</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">all_cols</span><span class="p">))</span>
+                <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span>
+
+            <span class="c1"># Fall back to setting all in single group</span>
+            <span class="n">summary_set_df</span><span class="p">[</span><span class="s1">&#39;summary_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span>
+            <span class="n">summary_desc</span><span class="p">[</span><span class="n">desc_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;All-Risks&#39;</span><span class="p">],</span> <span class="n">columns</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;_not_set_&#39;</span><span class="p">])</span>
+            <span class="n">summary_desc</span><span class="p">[</span><span class="n">desc_key</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;summary_id&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+
+        <span class="k">else</span><span class="p">:</span>
+            <span class="p">(</span>
+                <span class="n">summary_set_df</span><span class="p">[</span><span class="s1">&#39;summary_id&#39;</span><span class="p">],</span>
+                <span class="n">set_values</span>
+            <span class="p">)</span> <span class="o">=</span> <span class="n">group_by_oed</span><span class="p">(</span><span class="n">cols_group_by</span><span class="p">,</span> <span class="n">map_df</span><span class="p">,</span> <span class="n">exposure_df</span><span class="p">,</span> <span class="n">id_set_index</span><span class="p">,</span> <span class="n">accounts_df</span><span class="p">)</span>
+
+            <span class="c1"># Build description file</span>
+            <span class="n">summary_desc</span><span class="p">[</span><span class="n">desc_key</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="nb">list</span><span class="p">(</span><span class="n">set_values</span><span class="p">),</span> <span class="n">columns</span><span class="o">=</span><span class="n">cols_group_by</span><span class="p">)</span>
+            <span class="n">summary_desc</span><span class="p">[</span><span class="n">desc_key</span><span class="p">]</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">column</span><span class="o">=</span><span class="s1">&#39;summary_id&#39;</span><span class="p">,</span> <span class="n">value</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">set_values</span><span class="p">)</span> <span class="o">+</span> <span class="mi">1</span><span class="p">))</span>
+
+        <span class="c1"># Appends summary set to &#39;__summaryxref.csv&#39;</span>
+        <span class="n">summary_set_df</span><span class="p">[</span><span class="s1">&#39;summaryset_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">summary_set</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">summaryxref_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">summaryxref_df</span><span class="p">,</span> <span class="n">summary_set_df</span><span class="p">],</span> <span class="n">sort</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">ignore_index</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">dtypes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">t</span><span class="p">:</span> <span class="s1">&#39;uint32&#39;</span> <span class="k">for</span> <span class="n">t</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;coverage_id&#39;</span><span class="p">,</span> <span class="s1">&#39;summary_id&#39;</span><span class="p">,</span> <span class="s1">&#39;summaryset_id&#39;</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="n">summaryxref_df</span> <span class="o">=</span> <span class="n">set_dataframe_column_dtypes</span><span class="p">(</span><span class="n">summaryxref_df</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">summaryxref_df</span><span class="p">,</span> <span class="n">summary_desc</span>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="generate_summaryxref_files"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/summaries/index.html#oasislmf.model_preparation.summaries.generate_summaryxref_files">[docs]</a><span class="k">def</span> <span class="nf">generate_summaryxref_files</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="n">analysis_settings</span><span class="p">,</span> <span class="n">il</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">ri</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">gul_item_stream</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Top level function for creating the summaryxref files from the manager.py</span>
+
+<span class="sd">    :param model_run_fp: Model run directory file path</span>
+<span class="sd">    :type model_run_fp:  str</span>
+
+<span class="sd">    :param analysis_settings: Model analysis settings file</span>
+<span class="sd">    :type analysis_settings:  dict</span>
+
+<span class="sd">    :param il: Boolean to indicate the insured loss level mode - false if the</span>
+<span class="sd">               source accounts file path not provided to Oasis files gen.</span>
+<span class="sd">    :type il: bool</span>
+
+<span class="sd">    :param ri: Boolean to indicate the RI loss level mode - false if the</span>
+<span class="sd">               source accounts file path not provided to Oasis files gen.</span>
+<span class="sd">    :type il: bool</span>
+
+<span class="sd">    :param gul_items: Boolean to gul to use item_id instead of coverage_id</span>
+<span class="sd">    :type gul_items: bool</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Boolean checks for summary generation types (gul / il / ri)</span>
+    <span class="n">gul_summaries</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span>
+        <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;gul_output&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;gul_output&#39;</span> <span class="ow">in</span> <span class="n">analysis_settings</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;gul_summaries&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;gul_summaries&#39;</span> <span class="ow">in</span> <span class="n">analysis_settings</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+    <span class="p">])</span>
+    <span class="n">il_summaries</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span>
+        <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;il_output&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;il_output&#39;</span> <span class="ow">in</span> <span class="n">analysis_settings</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;il_summaries&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;il_summaries&#39;</span> <span class="ow">in</span> <span class="n">analysis_settings</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">il</span><span class="p">,</span>
+    <span class="p">])</span>
+    <span class="n">ri_summaries</span> <span class="o">=</span> <span class="nb">all</span><span class="p">([</span>
+        <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;ri_output&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;ri_output&#39;</span> <span class="ow">in</span> <span class="n">analysis_settings</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;ri_summaries&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="s1">&#39;ri_summaries&#39;</span> <span class="ow">in</span> <span class="n">analysis_settings</span> <span class="k">else</span> <span class="kc">False</span><span class="p">,</span>
+        <span class="n">ri</span><span class="p">,</span>
+    <span class="p">])</span>
+
+    <span class="c1"># Load locations file for GUL OED fields</span>
+    <span class="n">input_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">)</span>
+    <span class="n">exposure_fp</span> <span class="o">=</span> <span class="n">find_exposure_fp</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="s1">&#39;loc&#39;</span><span class="p">)</span>
+    <span class="n">loc_dtypes</span><span class="p">,</span> <span class="n">loc_required_cols</span> <span class="o">=</span> <span class="n">get_dtypes_and_required_cols</span><span class="p">(</span><span class="n">get_loc_dtypes</span><span class="p">)</span>
+    <span class="n">exposure_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+        <span class="n">src_fp</span><span class="o">=</span><span class="n">exposure_fp</span><span class="p">,</span>
+        <span class="n">empty_data_error_msg</span><span class="o">=</span><span class="s1">&#39;No source exposure file found.&#39;</span><span class="p">,</span>
+        <span class="n">col_dtypes</span><span class="o">=</span><span class="n">loc_dtypes</span><span class="p">,</span>
+        <span class="n">required_cols</span><span class="o">=</span><span class="n">loc_required_cols</span><span class="p">)</span>
+    <span class="n">exposure_df</span><span class="p">[</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;loc&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">exposure_df</span><span class="o">.</span><span class="n">index</span>
+
+    <span class="c1"># Load accounts file for IL OED fields</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">il_summaries</span> <span class="ow">or</span> <span class="n">ri_summaries</span><span class="p">):</span>
+        <span class="n">accounts_fp</span> <span class="o">=</span> <span class="n">find_exposure_fp</span><span class="p">(</span><span class="n">input_dir</span><span class="p">,</span> <span class="s1">&#39;acc&#39;</span><span class="p">)</span>
+        <span class="n">acc_dtypes</span><span class="p">,</span> <span class="n">acc_required_cols</span> <span class="o">=</span> <span class="n">get_dtypes_and_required_cols</span><span class="p">(</span><span class="n">get_acc_dtypes</span><span class="p">)</span>
+        <span class="n">accounts_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+            <span class="n">src_fp</span><span class="o">=</span><span class="n">accounts_fp</span><span class="p">,</span>
+            <span class="n">empty_data_error_msg</span><span class="o">=</span><span class="s1">&#39;No source accounts file found.&#39;</span><span class="p">,</span>
+            <span class="n">col_dtypes</span><span class="o">=</span><span class="n">acc_dtypes</span><span class="p">,</span>
+            <span class="n">required_cols</span><span class="o">=</span><span class="n">acc_required_cols</span><span class="p">)</span>
+        <span class="n">accounts_df</span><span class="p">[</span><span class="n">SOURCE_IDX</span><span class="p">[</span><span class="s1">&#39;acc&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="n">accounts_df</span><span class="o">.</span><span class="n">index</span>
+
+    <span class="k">if</span> <span class="n">gul_summaries</span><span class="p">:</span>
+        <span class="c1"># Load GUL summary map</span>
+        <span class="n">gul_map_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">SUMMARY_MAPPING</span><span class="p">[</span><span class="s1">&#39;gul_map_fn&#39;</span><span class="p">])</span>
+        <span class="n">gul_map_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+            <span class="n">src_fp</span><span class="o">=</span><span class="n">gul_map_fp</span><span class="p">,</span>
+            <span class="n">empty_data_error_msg</span><span class="o">=</span><span class="s1">&#39;No summary map file found.&#39;</span><span class="p">)</span>
+
+        <span class="n">gul_summaryxref_df</span><span class="p">,</span> <span class="n">gul_summary_desc</span> <span class="o">=</span> <span class="n">get_summary_xref_df</span><span class="p">(</span>
+            <span class="n">gul_map_df</span><span class="p">,</span>
+            <span class="n">exposure_df</span><span class="p">,</span>
+            <span class="kc">None</span><span class="p">,</span>
+            <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;gul_summaries&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;gul&#39;</span><span class="p">,</span>
+            <span class="n">gul_item_stream</span>
+        <span class="p">)</span>
+        <span class="c1"># Write Xref file</span>
+        <span class="n">write_df_to_file</span><span class="p">(</span><span class="n">gul_summaryxref_df</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">),</span> <span class="n">SUMMARY_OUTPUT</span><span class="p">[</span><span class="s1">&#39;gul&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Write summary_id description files</span>
+        <span class="k">for</span> <span class="n">desc_key</span> <span class="ow">in</span> <span class="n">gul_summary_desc</span><span class="p">:</span>
+            <span class="n">write_df_to_file</span><span class="p">(</span><span class="n">gul_summary_desc</span><span class="p">[</span><span class="n">desc_key</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">),</span> <span class="n">desc_key</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">il_summaries</span><span class="p">:</span>
+        <span class="c1"># Load FM summary map</span>
+        <span class="n">il_map_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">SUMMARY_MAPPING</span><span class="p">[</span><span class="s1">&#39;fm_map_fn&#39;</span><span class="p">])</span>
+        <span class="n">il_map_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+            <span class="n">src_fp</span><span class="o">=</span><span class="n">il_map_fp</span><span class="p">,</span>
+            <span class="n">empty_data_error_msg</span><span class="o">=</span><span class="s1">&#39;No summary map file found.&#39;</span>
+        <span class="p">)</span>
+
+        <span class="n">il_summaryxref_df</span><span class="p">,</span> <span class="n">il_summary_desc</span> <span class="o">=</span> <span class="n">get_summary_xref_df</span><span class="p">(</span>
+            <span class="n">il_map_df</span><span class="p">,</span>
+            <span class="n">exposure_df</span><span class="p">,</span>
+            <span class="n">accounts_df</span><span class="p">,</span>
+            <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;il_summaries&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;il&#39;</span>
+        <span class="p">)</span>
+        <span class="c1"># Write Xref file</span>
+        <span class="n">write_df_to_file</span><span class="p">(</span><span class="n">il_summaryxref_df</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">),</span> <span class="n">SUMMARY_OUTPUT</span><span class="p">[</span><span class="s1">&#39;il&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Write summary_id description files</span>
+        <span class="k">for</span> <span class="n">desc_key</span> <span class="ow">in</span> <span class="n">il_summary_desc</span><span class="p">:</span>
+            <span class="n">write_df_to_file</span><span class="p">(</span><span class="n">il_summary_desc</span><span class="p">[</span><span class="n">desc_key</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">),</span> <span class="n">desc_key</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">ri_summaries</span><span class="p">:</span>
+        <span class="n">ri_layers</span> <span class="o">=</span> <span class="n">get_ri_settings</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">)</span>
+        <span class="n">max_layer</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">ri_layers</span><span class="p">)</span>
+        <span class="n">summary_ri_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span>
+            <span class="n">model_run_fp</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">ri_layers</span><span class="p">[</span><span class="n">max_layer</span><span class="p">][</span><span class="s1">&#39;directory&#39;</span><span class="p">]))</span>
+
+        <span class="n">ri_summaryxref_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+        <span class="k">if</span> <span class="p">(</span><span class="s1">&#39;il_summaries&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">analysis_settings</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span><span class="ow">not</span> <span class="n">il_summaries</span><span class="p">):</span>
+            <span class="n">il_map_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;input&#39;</span><span class="p">,</span> <span class="n">SUMMARY_MAPPING</span><span class="p">[</span><span class="s1">&#39;fm_map_fn&#39;</span><span class="p">])</span>
+            <span class="n">il_map_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+                <span class="n">src_fp</span><span class="o">=</span><span class="n">il_map_fp</span><span class="p">,</span>
+                <span class="n">empty_data_error_msg</span><span class="o">=</span><span class="s1">&#39;No summary map file found.&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">ri_summaryxref_df</span><span class="p">,</span> <span class="n">ri_summary_desc</span> <span class="o">=</span> <span class="n">get_summary_xref_df</span><span class="p">(</span>
+            <span class="n">il_map_df</span><span class="p">,</span>
+            <span class="n">exposure_df</span><span class="p">,</span>
+            <span class="n">accounts_df</span><span class="p">,</span>
+            <span class="n">analysis_settings</span><span class="p">[</span><span class="s1">&#39;ri_summaries&#39;</span><span class="p">],</span>
+            <span class="s1">&#39;ri&#39;</span>
+        <span class="p">)</span>
+        <span class="c1"># Write Xref file</span>
+        <span class="n">write_df_to_file</span><span class="p">(</span><span class="n">ri_summaryxref_df</span><span class="p">,</span> <span class="n">summary_ri_fp</span><span class="p">,</span> <span class="n">SUMMARY_OUTPUT</span><span class="p">[</span><span class="s1">&#39;il&#39;</span><span class="p">])</span>
+
+        <span class="c1"># Write summary_id description files</span>
+        <span class="k">for</span> <span class="n">desc_key</span> <span class="ow">in</span> <span class="n">ri_summary_desc</span><span class="p">:</span>
+            <span class="n">write_df_to_file</span><span class="p">(</span><span class="n">ri_summary_desc</span><span class="p">[</span><span class="n">desc_key</span><span class="p">],</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">model_run_fp</span><span class="p">,</span> <span class="s1">&#39;output&#39;</span><span class="p">),</span> <span class="n">desc_key</span><span class="p">)</span></div>
+
+
+<span class="nd">@oasis_log</span>
+<span class="k">def</span> <span class="nf">get_exposure_summary</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">exposure_summary</span><span class="p">,</span> <span class="n">peril_key</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">status</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Populate dictionary with TIVs and number of locations, grouped by peril and</span>
+<span class="sd">    validity respectively</span>
+
+<span class="sd">    :param df: dataframe from gul_inputs.get_gul_input_items(..)</span>
+<span class="sd">    :type df: pandas.DataFrame</span>
+
+<span class="sd">    :param exposure_summary: dictionary to populate created in write_exposure_summary(..)</span>
+<span class="sd">    :type exposure_summary: dict</span>
+
+<span class="sd">    :param peril: descriptive name of peril</span>
+<span class="sd">    :type peril: str</span>
+
+<span class="sd">    :param peril_key: Descriptive OED peril key, e.g. &quot;river flood&quot;, &quot;tropical cyclone&quot;</span>
+<span class="sd">    :type peril_key: str</span>
+
+<span class="sd">    :param status: status returned by lookup (&#39;success&#39;, &#39;fail&#39; or &#39;nomatch&#39;)</span>
+<span class="sd">    :type status: str</span>
+
+<span class="sd">    :return: populated exposure_summary dictionary</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Separate TIVs by coverage type and acquire sum</span>
+    <span class="k">for</span> <span class="n">coverage_type</span> <span class="ow">in</span> <span class="n">SUPPORTED_COVERAGE_TYPES</span><span class="p">:</span>
+        <span class="n">tiv_sum</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span>
+            <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;peril_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">peril_id</span><span class="p">)</span> <span class="o">&amp;</span>
+            <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;coverage_type_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">SUPPORTED_COVERAGE_TYPES</span><span class="p">[</span><span class="n">coverage_type</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]),</span>
+            <span class="s1">&#39;tiv&#39;</span>
+        <span class="p">]</span><span class="o">.</span><span class="n">sum</span><span class="p">()</span>
+        <span class="n">tiv_sum</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">tiv_sum</span><span class="p">)</span>
+        <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="n">status</span><span class="p">][</span><span class="s1">&#39;tiv_by_coverage&#39;</span><span class="p">][</span><span class="n">coverage_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">tiv_sum</span>
+        <span class="k">if</span> <span class="n">coverage_type</span> <span class="ow">in</span> <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;tiv_by_coverage&#39;</span><span class="p">]:</span>
+            <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;tiv_by_coverage&#39;</span><span class="p">][</span><span class="n">coverage_type</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tiv_sum</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;tiv_by_coverage&#39;</span><span class="p">][</span><span class="n">coverage_type</span><span class="p">]</span> <span class="o">=</span> <span class="n">tiv_sum</span>
+        <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="n">status</span><span class="p">][</span><span class="s1">&#39;tiv&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tiv_sum</span>
+        <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;tiv&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">tiv_sum</span>
+
+    <span class="c1"># Find number of locations</span>
+    <span class="n">loc_count</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="n">df</span><span class="p">[</span><span class="s1">&#39;peril_id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">peril_id</span><span class="p">,</span> <span class="s1">&#39;loc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span><span class="o">.</span><span class="n">count</span><span class="p">()</span>
+    <span class="n">loc_count</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">loc_count</span><span class="p">)</span>
+    <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="n">status</span><span class="p">][</span><span class="s1">&#39;number_of_locations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">loc_count</span>
+    <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="s1">&#39;all&#39;</span><span class="p">][</span><span class="s1">&#39;number_of_locations&#39;</span><span class="p">]</span> <span class="o">+=</span> <span class="n">loc_count</span>
+
+    <span class="k">return</span> <span class="n">exposure_summary</span>
+
+
+<span class="nd">@oasis_log</span>
+<div class="viewcode-block" id="write_exposure_summary"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/summaries/index.html#oasislmf.model_preparation.summaries.write_exposure_summary">[docs]</a><span class="k">def</span> <span class="nf">write_exposure_summary</span><span class="p">(</span>
+    <span class="n">target_dir</span><span class="p">,</span>
+    <span class="n">gul_inputs_df</span><span class="p">,</span>
+    <span class="n">exposure_df</span><span class="p">,</span>
+    <span class="n">exposure_fp</span><span class="p">,</span>
+    <span class="n">keys_errors_fp</span><span class="p">,</span>
+    <span class="n">exposure_profile</span><span class="p">,</span>
+    <span class="n">oed_hierarchy</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Create exposure summary as dictionary of TIVs and number of locations</span>
+<span class="sd">    grouped by peril and validity respectively. Writes dictionary as json file</span>
+<span class="sd">    to disk.</span>
+
+<span class="sd">    :param target_dir: directory on disk to write exposure summary file</span>
+<span class="sd">    :type target_dir: str</span>
+
+<span class="sd">    :param gul_inputs_df: dataframe from gul_inputs.get_gul_input_items(..)</span>
+<span class="sd">    :type gul_inputs_df: pandas.DataFrame</span>
+
+<span class="sd">    :param exposure_df: source exposure dataframe</span>
+<span class="sd">    :type exposure df: pandas.DataFrame</span>
+
+<span class="sd">    :param exposure_fp: file path to input exposure file</span>
+<span class="sd">    :type exposure_fp: str</span>
+
+<span class="sd">    :param keys_errors_fp: file path to keys erors file</span>
+<span class="sd">    :type keys_errors_fp: str</span>
+
+<span class="sd">    :param exposure_profile: profile defining exposure file</span>
+<span class="sd">    :type exposure_profile: dict</span>
+
+<span class="sd">    :param oed_hierarchy: exposure dataframe column names</span>
+<span class="sd">    :type oed_hierarchy: dict</span>
+
+<span class="sd">    :return: Exposure summary file path</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="c1"># Get GUL input items dataframe to process keys errors</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">gul_inputs_errors_df</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">get_gul_input_items</span><span class="p">(</span>
+            <span class="n">exposure_fp</span><span class="p">,</span> <span class="n">keys_errors_fp</span><span class="p">,</span> <span class="n">exposure_profile</span><span class="o">=</span><span class="n">exposure_profile</span>
+        <span class="p">)</span>
+    <span class="k">except</span> <span class="n">OasisException</span><span class="p">:</span>   <span class="c1"># Empty dataframe (due to empty keys errors file)</span>
+        <span class="n">gul_inputs_errors_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">columns</span><span class="o">=</span><span class="n">gul_inputs_df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">Index</span><span class="p">([</span><span class="s1">&#39;status&#39;</span><span class="p">])))</span>
+
+    <span class="c1"># Dictionary to map perils with peril groups</span>
+    <span class="n">peril_groups</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;peril_ids&#39;</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">PERIL_GROUPS</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">peril_ids</span> <span class="o">=</span> <span class="p">{</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span> <span class="p">[</span><span class="n">v</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]]</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">PERILS</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span>
+    <span class="n">peril_groups</span><span class="o">.</span><span class="n">update</span><span class="p">(</span><span class="n">peril_ids</span><span class="p">)</span>
+
+    <span class="c1"># Merge GUL input items and source exposure dataframes to leave covered</span>
+    <span class="c1"># perils</span>
+    <span class="n">loc_per_cov</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;locperilid&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+    <span class="n">model_peril_ids</span> <span class="o">=</span> <span class="n">gul_inputs_df</span><span class="p">[</span><span class="s1">&#39;peril_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">()</span>
+
+    <span class="c1"># Split rows with multiple peril codes</span>
+    <span class="n">exp_perils_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">exposure_df</span><span class="p">[</span><span class="n">loc_per_cov</span><span class="p">]</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;;&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">exposure_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+
+    <span class="c1"># Display warnings for invalid peril codes</span>
+    <span class="k">for</span> <span class="n">peril_id</span> <span class="ow">in</span> <span class="n">exp_perils_df</span><span class="p">[</span><span class="o">~</span><span class="n">exp_perils_df</span><span class="o">.</span><span class="n">isin</span><span class="p">(</span><span class="n">peril_groups</span><span class="o">.</span><span class="n">keys</span><span class="p">())]:</span>
+        <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; is not a valid OED peril ID/code. Please check the source exposure file.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">peril_id</span><span class="p">))</span>
+
+    <span class="c1"># Split rows with peril codes corresponding to peril groups</span>
+    <span class="n">exp_perils_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+        <span class="n">exp_perils_df</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">peril_groups</span><span class="p">)</span><span class="o">.</span><span class="n">to_list</span><span class="p">(),</span>
+        <span class="n">index</span><span class="o">=</span><span class="n">exp_perils_df</span><span class="o">.</span><span class="n">index</span>
+    <span class="p">)</span><span class="o">.</span><span class="n">stack</span><span class="p">()</span>
+
+    <span class="n">exp_perils_df</span> <span class="o">=</span> <span class="n">exp_perils_df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="s1">&#39;loc_id&#39;</span><span class="p">])</span>
+
+    <span class="n">exp_perils_df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_id&#39;</span><span class="p">]</span>
+    <span class="n">exp_perils_df</span> <span class="o">=</span> <span class="n">exp_perils_df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span>
+        <span class="p">{</span><span class="s1">&#39;loc_id&#39;</span><span class="p">:</span> <span class="s1">&#39;int64&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_id&#39;</span><span class="p">:</span> <span class="s1">&#39;object&#39;</span><span class="p">}</span>
+    <span class="p">)</span>
+
+    <span class="n">exposure_df</span> <span class="o">=</span> <span class="n">merge_dataframes</span><span class="p">(</span>
+        <span class="n">exposure_df</span><span class="p">,</span>
+        <span class="n">exp_perils_df</span><span class="p">,</span>
+        <span class="n">on</span><span class="o">=</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span>
+        <span class="n">how</span><span class="o">=</span><span class="s1">&#39;right&#39;</span>
+    <span class="p">)</span>
+    <span class="n">gul_inputs_df</span> <span class="o">=</span> <span class="n">merge_dataframes</span><span class="p">(</span>
+        <span class="n">gul_inputs_df</span><span class="p">,</span>
+        <span class="n">exposure_df</span><span class="p">,</span>
+        <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_id&#39;</span><span class="p">],</span>
+        <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span>
+    <span class="p">)</span>
+    <span class="n">gul_inputs_errors_df</span> <span class="o">=</span> <span class="n">merge_dataframes</span><span class="p">(</span>
+        <span class="n">gul_inputs_errors_df</span><span class="p">,</span>
+        <span class="n">exposure_df</span><span class="p">,</span>
+        <span class="n">on</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;peril_id&#39;</span><span class="p">],</span>
+        <span class="n">how</span><span class="o">=</span><span class="s1">&#39;inner&#39;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Convert loc_id to uint32 in case column has been converted to type float</span>
+    <span class="n">exposure_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">exposure_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint32&#39;</span><span class="p">)</span>
+    <span class="n">gul_inputs_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gul_inputs_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint32&#39;</span><span class="p">)</span>
+    <span class="n">gul_inputs_errors_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">gul_inputs_errors_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint32&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Compile summary of exposure data</span>
+    <span class="n">exposure_summary</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">peril_id</span> <span class="ow">in</span> <span class="n">model_peril_ids</span><span class="p">:</span>
+        <span class="c1"># Use descriptive names of perils as keys</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">peril_key</span> <span class="o">=</span> <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">PERILS</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">peril_id</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="n">warnings</span><span class="o">.</span><span class="n">warn</span><span class="p">(</span><span class="s1">&#39;&quot;</span><span class="si">{}</span><span class="s1">&quot; is not a valid OED peril ID/code. Please check the source exposure file.&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">peril_id</span><span class="p">))</span>
+            <span class="k">return</span> <span class="kc">None</span>
+        <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="c1"># Create dictionary structure for all and each validity status</span>
+        <span class="k">for</span> <span class="n">status</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;all&#39;</span><span class="p">]</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="n">OASIS_KEYS_STATUS</span><span class="o">.</span><span class="n">keys</span><span class="p">()):</span>
+            <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="n">status</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="n">status</span><span class="p">][</span><span class="s1">&#39;tiv&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mf">0.0</span>
+            <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="n">status</span><span class="p">][</span><span class="s1">&#39;tiv_by_coverage&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">{}</span>
+            <span class="n">exposure_summary</span><span class="p">[</span><span class="n">peril_key</span><span class="p">][</span><span class="n">status</span><span class="p">][</span><span class="s1">&#39;number_of_locations&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+            <span class="c1"># Fill exposure summary dictionary</span>
+            <span class="k">if</span> <span class="n">status</span> <span class="o">==</span> <span class="s1">&#39;success&#39;</span><span class="p">:</span>
+                <span class="n">exposure_summary</span> <span class="o">=</span> <span class="n">get_exposure_summary</span><span class="p">(</span>
+                    <span class="n">gul_inputs_df</span><span class="p">,</span>
+                    <span class="n">exposure_summary</span><span class="p">,</span>
+                    <span class="n">peril_key</span><span class="p">,</span>
+                    <span class="n">peril_id</span><span class="p">,</span>
+                    <span class="n">status</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">status</span> <span class="o">!=</span> <span class="s1">&#39;all&#39;</span><span class="p">:</span>
+                <span class="n">exposure_summary</span> <span class="o">=</span> <span class="n">get_exposure_summary</span><span class="p">(</span>
+                    <span class="n">gul_inputs_errors_df</span><span class="p">[</span><span class="n">gul_inputs_errors_df</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">status</span><span class="p">],</span>
+                    <span class="n">exposure_summary</span><span class="p">,</span>
+                    <span class="n">peril_key</span><span class="p">,</span>
+                    <span class="n">peril_id</span><span class="p">,</span>
+                    <span class="n">status</span>
+                <span class="p">)</span>
+
+    <span class="c1"># Write exposure summary as json file</span>
+    <span class="n">fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">target_dir</span><span class="p">,</span> <span class="s1">&#39;exposure_summary_report.json&#39;</span><span class="p">)</span>
+    <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">fp</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">exposure_summary</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">fp</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

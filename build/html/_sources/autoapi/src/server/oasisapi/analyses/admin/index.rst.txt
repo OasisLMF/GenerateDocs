@@ -1,0 +1,19 @@
+:mod:`src.server.oasisapi.analyses.admin`
+=========================================
+
+.. py:module:: src.server.oasisapi.analyses.admin
+
+
+Module Contents
+---------------
+
+.. py:class:: AnalysisAdmin
+
+   Bases: :class:`django.contrib.admin.ModelAdmin`
+
+   .. attribute:: list_display
+      :annotation: = ['name', 'model']
+
+      
+
+

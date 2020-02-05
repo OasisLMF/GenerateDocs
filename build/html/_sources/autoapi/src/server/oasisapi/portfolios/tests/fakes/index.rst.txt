@@ -1,0 +1,12 @@
+:mod:`src.server.oasisapi.portfolios.tests.fakes`
+=================================================
+
+.. py:module:: src.server.oasisapi.portfolios.tests.fakes
+
+
+Module Contents
+---------------
+
+.. function:: fake_portfolio(**kwargs)
+
+

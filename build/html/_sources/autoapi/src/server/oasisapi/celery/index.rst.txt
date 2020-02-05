@@ -1,0 +1,14 @@
+:mod:`src.server.oasisapi.celery`
+=================================
+
+.. py:module:: src.server.oasisapi.celery
+
+
+Module Contents
+---------------
+
+.. data:: celery_app
+   
+
+   
+

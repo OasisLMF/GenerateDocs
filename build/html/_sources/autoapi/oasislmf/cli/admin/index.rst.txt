@@ -1,0 +1,132 @@
+:mod:`oasislmf.cli.admin`
+=========================
+
+.. py:module:: oasislmf.cli.admin
+
+
+Module Contents
+---------------
+
+.. py:class:: EnableBashCompleteCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Adds required command to `.bashrc` Linux or .bash_profile for mac
+   so that Command autocomplete works for oasislmf CLI
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+
+   .. method:: install_autocomplete(self, target_file=None)
+
+
+
+
+.. py:class:: CreateSimpleModelCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Creates a local Git repository for a "simple model" (using the
+   ``cookiecutter`` package) on a "simple model" repository template
+   on GitHub)
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. attribute:: cookiecutter_template_uri
+      :annotation: = git+ssh://git@github.com/OasisLMF/CookiecutterOasisSimpleModel
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Command action
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: CreateComplexModelCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Creates a local Git repository for a "complex model" (using the
+   ``cookiecutter`` package) on a "simple model" repository template
+   on GitHub)
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. attribute:: cookiecutter_template_uri
+      :annotation: = git+ssh://git@github.com/OasisLMF/CookiecutterOasisComplexModel
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+      Adds arguments to the argument parser.
+
+      :param parser: The argument parser object
+      :type parser: ArgumentParser
+
+
+   .. method:: action(self, args)
+
+
+      Command action
+
+      :param args: The arguments from the command line
+      :type args: Namespace
+
+
+
+.. py:class:: AdminCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Admin subcommands::
+
+   * creates a local Git repository for a "simple model" (using the
+     ``cookiecutter`` package) on a "simple model" repository template
+     on GitHub)
+   * creates a local Git repository for a "complex model" (using the
+     ``cookiecutter`` package) on a "complex model" repository template
+     on GitHub)
+
+   .. attribute:: sub_commands
+      
+
+      
+
+

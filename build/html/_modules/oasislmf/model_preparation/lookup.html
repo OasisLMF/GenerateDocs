@@ -1,0 +1,1459 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.model_preparation.lookup &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../oasislmf.html">oasislmf</a> &raquo;</li>
+        
+      <li>oasislmf.model_preparation.lookup</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for oasislmf.model_preparation.lookup</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;OasisBuiltinBaseLookup&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OasisBaseKeysLookup&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OasisLookup&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OasisPerilLookup&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OasisVulnerabilityLookup&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;OasisLookupFactory&#39;</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">builtins</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+<span class="kn">import</span> <span class="nn">importlib</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">itertools</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">sys</span>
+<span class="kn">import</span> <span class="nn">types</span>
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+
+<span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="kn">from</span> <span class="nn">multiprocessing</span> <span class="kn">import</span> <span class="n">cpu_count</span>
+<span class="kn">from</span> <span class="nn">billiard</span> <span class="kn">import</span> <span class="n">Pool</span>
+
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+
+<span class="kn">from</span> <span class="nn">shapely.geometry</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">box</span><span class="p">,</span>
+    <span class="n">Point</span><span class="p">,</span>
+<span class="p">)</span>
+
+<span class="kn">from</span> <span class="nn">shapely</span> <span class="kn">import</span> <span class="n">speedups</span> <span class="k">as</span> <span class="n">shapely_speedups</span>
+
+<span class="kn">from</span> <span class="nn">rtree.core</span> <span class="kn">import</span> <span class="n">RTreeError</span>
+
+<span class="kn">from</span> <span class="nn">..utils.data</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">get_dataframe</span><span class="p">,</span>
+    <span class="n">get_dtypes_and_required_cols</span><span class="p">,</span>
+    <span class="n">get_ids</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..utils.defaults</span> <span class="kn">import</span> <span class="n">get_loc_dtypes</span>
+<span class="kn">from</span> <span class="nn">..utils.exceptions</span> <span class="kn">import</span> <span class="n">OasisException</span>
+<span class="kn">from</span> <span class="nn">..utils.log</span> <span class="kn">import</span> <span class="n">oasis_log</span>
+<span class="kn">from</span> <span class="nn">..utils.peril</span> <span class="kn">import</span> <span class="p">(</span>
+    <span class="n">DEFAULT_RTREE_INDEX_PROPS</span><span class="p">,</span>
+    <span class="n">PerilAreasIndex</span><span class="p">,</span>
+<span class="p">)</span>
+<span class="kn">from</span> <span class="nn">..utils.profiles</span> <span class="kn">import</span> <span class="n">get_oed_hierarchy</span>
+<span class="kn">from</span> <span class="nn">..utils.status</span> <span class="kn">import</span> <span class="n">OASIS_KEYS_STATUS</span>
+
+<span class="k">if</span> <span class="n">shapely_speedups</span><span class="o">.</span><span class="n">available</span><span class="p">:</span>
+    <span class="n">shapely_speedups</span><span class="o">.</span><span class="n">enable</span><span class="p">()</span>
+<span class="n">UNKNOWN_ID</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+
+
+<span class="k">def</span> <span class="nf">as_path</span><span class="p">(</span><span class="n">value</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Processes the path and returns the absolute path.</span>
+
+<span class="sd">    If the path does not exist and ``preexists`` is true</span>
+<span class="sd">    an ``OasisException`` is raised.</span>
+
+<span class="sd">    :param value: The path to process</span>
+<span class="sd">    :type value: str</span>
+
+<span class="sd">    :param name: The name of the path (used for error reporting)</span>
+<span class="sd">    :type name: str</span>
+
+<span class="sd">    :param preexists: Flag whether to raise an error if the path</span>
+<span class="sd">        does not exist.</span>
+<span class="sd">    :type preexists: bool</span>
+
+<span class="sd">    :return: The absolute path of the input path</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">value</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">None</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">preexists</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">value</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1"> does not exist: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+
+    <span class="k">return</span> <span class="n">value</span>
+
+
+<div class="viewcode-block" id="OasisBuiltinBaseLookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup">[docs]</a><span class="k">class</span> <span class="nc">OasisBuiltinBaseLookup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config_json</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">config_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">config</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">config</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span> <span class="o">=</span> <span class="n">config_dir</span> <span class="ow">or</span> <span class="s1">&#39;.&#39;</span>
+        <span class="k">elif</span> <span class="n">config_json</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">loads</span><span class="p">(</span><span class="n">config_json</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span> <span class="o">=</span> <span class="n">config_dir</span> <span class="ow">or</span> <span class="s1">&#39;.&#39;</span>
+        <span class="k">elif</span> <span class="n">config_fp</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span> <span class="o">=</span> <span class="n">config_dir</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">config_fp</span><span class="p">)</span>
+            <span class="n">_config_fp</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">config_fp</span><span class="p">,</span> <span class="s1">&#39;config_fp&#39;</span><span class="p">)</span>
+            <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">_config_fp</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+
+        <span class="n">keys_data_path</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;keys_data_path&#39;</span><span class="p">)</span>
+        <span class="n">keys_data_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span><span class="p">,</span> <span class="n">keys_data_path</span><span class="p">)</span> <span class="k">if</span> <span class="n">keys_data_path</span> <span class="k">else</span> <span class="s1">&#39;&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s1">&#39;keys_data_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">keys_data_path</span><span class="p">,</span> <span class="s1">&#39;keys_data_path&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="n">keys_data_path</span> <span class="k">else</span> <span class="kc">False</span><span class="p">))</span>
+
+        <span class="n">peril_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_peril_ids</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">peril_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril_ids&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">())</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_peril_id_col</span> <span class="o">=</span> <span class="n">peril_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril_id_col&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;peril_id&#39;</span>
+
+        <span class="n">coverage_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coverage&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coverage_types</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">coverage_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coverage_types&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">())</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_coverage_type_col</span> <span class="o">=</span> <span class="n">peril_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coverage_type_col&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;coverage_type&#39;</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">setdefault</span><span class="p">(</span><span class="s1">&#39;exposure&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;exposure&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;locations&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{})</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">__tweak_config_data__</span><span class="p">()</span>
+
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.__tweak_config_data__"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.__tweak_config_data__">[docs]</a>    <span class="k">def</span> <span class="nf">__tweak_config_data__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">section</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;exposure&#39;</span><span class="p">,</span> <span class="s1">&#39;peril&#39;</span><span class="p">,</span> <span class="s1">&#39;vulnerability&#39;</span><span class="p">,):</span>
+            <span class="n">section_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">section</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
+            <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">section_config</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;</span><span class="si">%%</span><span class="s1">KEYS_DATA_PATH</span><span class="si">%%</span><span class="s1">&#39;</span> <span class="ow">in</span> <span class="n">v</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">section</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="n">v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%%</span><span class="s1">KEYS_DATA_PATH</span><span class="si">%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s1">&#39;keys_data_path&#39;</span><span class="p">])</span>
+                <span class="k">elif</span> <span class="nb">type</span><span class="p">(</span><span class="n">v</span><span class="p">)</span> <span class="o">==</span> <span class="nb">list</span><span class="p">:</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">section</span><span class="p">][</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+                <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">v</span><span class="p">,</span> <span class="nb">dict</span><span class="p">):</span>
+                    <span class="k">for</span> <span class="n">_k</span><span class="p">,</span> <span class="n">_v</span> <span class="ow">in</span> <span class="n">v</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+                        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">_v</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="ow">and</span> <span class="s1">&#39;</span><span class="si">%%</span><span class="s1">KEYS_DATA_PATH</span><span class="si">%%</span><span class="s1">&#39;</span> <span class="ow">in</span> <span class="n">_v</span><span class="p">:</span>
+                            <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="n">section</span><span class="p">][</span><span class="n">k</span><span class="p">][</span><span class="n">_k</span><span class="p">]</span> <span class="o">=</span> <span class="n">_v</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%%</span><span class="s1">KEYS_DATA_PATH</span><span class="si">%%</span><span class="s1">&#39;</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span><span class="p">[</span><span class="s1">&#39;keys_data_path&#39;</span><span class="p">])</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.config"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.config">[docs]</a>    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_config</span></div>
+
+    <span class="nd">@config</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span> <span class="nf">config</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">c</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_config</span> <span class="o">=</span> <span class="n">c</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">__tweak_config_data__</span><span class="p">()</span>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.peril_ids"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.peril_ids">[docs]</a>    <span class="k">def</span> <span class="nf">peril_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_ids</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.peril_id_col"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.peril_id_col">[docs]</a>    <span class="k">def</span> <span class="nf">peril_id_col</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_peril_id_col</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.coverage_types"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.coverage_types">[docs]</a>    <span class="k">def</span> <span class="nf">coverage_types</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coverage_types</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.coverage_type_col"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.coverage_type_col">[docs]</a>    <span class="k">def</span> <span class="nf">coverage_type_col</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_coverage_type_col</span></div>
+
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.lookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Lookup for an individual location item, which could be a dict or a</span>
+<span class="sd">        Pandas series object.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.process_locations_multiproc"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.process_locations_multiproc">[docs]</a>    <span class="k">def</span> <span class="nf">process_locations_multiproc</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc_df</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process and return the lookup results a location row</span>
+<span class="sd">        Used in multiprocessing based query</span>
+
+<span class="sd">        location_row is of type &lt;class &#39;pandas.core.series.Series&#39;&gt;</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">locs_seq</span> <span class="o">=</span> <span class="p">(</span><span class="n">loc</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">loc_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">())</span>
+        <span class="k">return</span> <span class="p">[</span><span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">)</span> <span class="k">for</span>
+                <span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span> <span class="ow">in</span>
+                <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">locs_seq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coverage_types</span><span class="p">)]</span></div>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+<div class="viewcode-block" id="OasisBuiltinBaseLookup.bulk_lookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBuiltinBaseLookup.bulk_lookup">[docs]</a>    <span class="k">def</span> <span class="nf">bulk_lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">locs</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Bulk vulnerability lookup for a list, tuple, generator, pandas data</span>
+<span class="sd">        frame or dict of location items, which can be dicts or Pandas series</span>
+<span class="sd">        objects or any object which has as a dict-like interface.</span>
+
+<span class="sd">        Generates results using ``yield``.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">locs_seq</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)):</span>
+            <span class="n">locs_seq</span> <span class="o">=</span> <span class="p">(</span><span class="n">loc</span> <span class="k">for</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">locs</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">types</span><span class="o">.</span><span class="n">GeneratorType</span><span class="p">):</span>
+            <span class="n">locs_seq</span> <span class="o">=</span> <span class="n">locs</span>
+        <span class="k">elif</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="nb">dict</span><span class="p">)):</span>
+            <span class="n">locs_seq</span> <span class="o">=</span> <span class="n">locs</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+        <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">locs</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+            <span class="n">locs_seq</span> <span class="o">=</span> <span class="p">(</span><span class="n">loc</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">locs</span><span class="o">.</span><span class="n">iterrows</span><span class="p">())</span>
+
+        <span class="k">for</span> <span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">product</span><span class="p">(</span><span class="n">locs_seq</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_ids</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">coverage_types</span><span class="p">):</span>
+            <span class="k">yield</span> <span class="bp">self</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="OasisBaseKeysLookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBaseKeysLookup">[docs]</a><span class="k">class</span> <span class="nc">OasisBaseKeysLookup</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>  <span class="c1"># pragma: no cover</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Old Oasis base class -deprecated</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">keys_data_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">supplier</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">model_name</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">model_version</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Class constructor</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">keys_data_directory</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">keys_data_directory</span> <span class="o">=</span> <span class="n">keys_data_directory</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">keys_data_directory</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">,</span> <span class="s1">&#39;var&#39;</span><span class="p">,</span> <span class="s1">&#39;oasis&#39;</span><span class="p">,</span> <span class="s1">&#39;keys_data&#39;</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">supplier</span> <span class="o">=</span> <span class="n">supplier</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_name</span> <span class="o">=</span> <span class="n">model_name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">model_version</span> <span class="o">=</span> <span class="n">model_version</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">complex_lookup_config_fp</span> <span class="o">=</span> <span class="n">complex_lookup_config_fp</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">output_directory</span> <span class="o">=</span> <span class="n">output_directory</span>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+<div class="viewcode-block" id="OasisBaseKeysLookup.process_locations"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBaseKeysLookup.process_locations">[docs]</a>    <span class="k">def</span> <span class="nf">process_locations</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc_df</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Process location rows - passed in as a pandas dataframe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="OasisBaseKeysLookup._get_area_peril_id"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_area_peril_id">[docs]</a>    <span class="k">def</span> <span class="nf">_get_area_peril_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the area peril ID for a particular location record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">UNKNOWN_ID</span><span class="p">,</span> <span class="s2">&quot;Not implemented&quot;</span></div>
+
+<div class="viewcode-block" id="OasisBaseKeysLookup._get_vulnerability_id"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_vulnerability_id">[docs]</a>    <span class="k">def</span> <span class="nf">_get_vulnerability_id</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">record</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the vulnerability ID for a particular location record.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">return</span> <span class="n">UNKNOWN_ID</span><span class="p">,</span> <span class="s2">&quot;Not implemented&quot;</span></div>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+<div class="viewcode-block" id="OasisBaseKeysLookup._get_area_peril_ids"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_area_peril_ids">[docs]</a>    <span class="k">def</span> <span class="nf">_get_area_peril_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc_data</span><span class="p">,</span> <span class="n">include_context</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates area peril IDs in two modes - if include_context is</span>
+<span class="sd">        True (default) it will generate location records/rows including</span>
+<span class="sd">        the area peril IDs, otherwise it will generate pairs of location</span>
+<span class="sd">        IDs and the corresponding area peril IDs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+<div class="viewcode-block" id="OasisBaseKeysLookup._get_vulnerability_ids"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_vulnerability_ids">[docs]</a>    <span class="k">def</span> <span class="nf">_get_vulnerability_ids</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc_data</span><span class="p">,</span> <span class="n">include_context</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Generates vulnerability IDs in two modes - if include_context is</span>
+<span class="sd">        True (default) it will generate location records/rows including</span>
+<span class="sd">        the area peril IDs, otherwise it will generate pairs of location</span>
+<span class="sd">        IDs and the corresponding vulnerability IDs.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">pass</span></div>
+
+<div class="viewcode-block" id="OasisBaseKeysLookup._get_custom_lookup_success"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisBaseKeysLookup._get_custom_lookup_success">[docs]</a>    <span class="k">def</span> <span class="nf">_get_custom_lookup_success</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">ap_id</span><span class="p">,</span> <span class="n">vul_id</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Determine the status of the keys lookup.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="n">ap_id</span> <span class="o">==</span> <span class="n">UNKNOWN_ID</span> <span class="ow">or</span> <span class="n">vul_id</span> <span class="o">==</span> <span class="n">UNKNOWN_ID</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;nomatch&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span></div></div>
+
+
+<div class="viewcode-block" id="OasisLookupFactory"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory">[docs]</a><span class="k">class</span> <span class="nc">OasisLookupFactory</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A factory class to load and run keys lookup services for different</span>
+<span class="sd">    models/suppliers.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.get_model_info"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.get_model_info">[docs]</a>    <span class="k">def</span> <span class="nf">get_model_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">model_version_file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get model information from the model version file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">model_version_file_path</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s2">&quot;Unable to get model version data without model_version_file_path&quot;</span><span class="p">)</span>
+
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">model_version_file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">next</span><span class="p">(</span><span class="n">csv</span><span class="o">.</span><span class="n">DictReader</span><span class="p">(</span>
+                <span class="n">f</span><span class="p">,</span> <span class="n">fieldnames</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;supplier_id&#39;</span><span class="p">,</span> <span class="s1">&#39;model_id&#39;</span><span class="p">,</span> <span class="s1">&#39;model_version&#39;</span><span class="p">]</span></div>
+            <span class="p">))</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.get_custom_lookup_package"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.get_custom_lookup_package">[docs]</a>    <span class="k">def</span> <span class="nf">get_custom_lookup_package</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lookup_package_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Returns the lookup service parent package (called `keys_server` and</span>
+<span class="sd">        located in `src` in the model keys server Git repository or in</span>
+<span class="sd">        `var/www/oasis` in the keys server Docker container) from the given</span>
+<span class="sd">        path.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">lookup_package_path</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s2">&quot;Unable to import lookup package without lookup_package_path&quot;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">lookup_package_path</span> <span class="ow">and</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">lookup_package_path</span><span class="p">):</span>
+            <span class="n">lookup_package_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">lookup_package_path</span><span class="p">)</span>
+
+        <span class="n">parent_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">lookup_package_path</span><span class="p">))</span>
+        <span class="n">package_name</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">sub</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\.py$&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">lookup_package_path</span><span class="p">))</span>
+
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">parent_dir</span><span class="p">)</span>
+        <span class="n">lookup_package</span> <span class="o">=</span> <span class="n">importlib</span><span class="o">.</span><span class="n">import_module</span><span class="p">(</span><span class="n">package_name</span><span class="p">)</span>
+        <span class="n">importlib</span><span class="o">.</span><span class="n">reload</span><span class="p">(</span><span class="n">lookup_package</span><span class="p">)</span>
+        <span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">lookup_package</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.get_custom_lookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.get_custom_lookup">[docs]</a>    <span class="k">def</span> <span class="nf">get_custom_lookup</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">lookup_package</span><span class="p">,</span>
+        <span class="n">keys_data_path</span><span class="p">,</span>
+        <span class="n">model_info</span><span class="p">,</span>
+        <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">user_data_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the keys lookup class instance.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">klc</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">lookup_package</span><span class="p">,</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">KeysLookup&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">]))</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">complex_lookup_config_fp</span> <span class="ow">and</span> <span class="n">output_directory</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">klc</span><span class="p">(</span>
+                <span class="n">keys_data_directory</span><span class="o">=</span><span class="n">keys_data_path</span><span class="p">,</span>
+                <span class="n">supplier</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;supplier_id&#39;</span><span class="p">],</span>
+                <span class="n">model_name</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span>
+                <span class="n">model_version</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model_version&#39;</span><span class="p">]</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="ow">not</span> <span class="n">user_data_dir</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">klc</span><span class="p">(</span>
+                <span class="n">keys_data_directory</span><span class="o">=</span><span class="n">keys_data_path</span><span class="p">,</span>
+                <span class="n">supplier</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;supplier_id&#39;</span><span class="p">],</span>
+                <span class="n">model_name</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span>
+                <span class="n">model_version</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model_version&#39;</span><span class="p">],</span>
+                <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="n">complex_lookup_config_fp</span><span class="p">,</span>
+                <span class="n">output_directory</span><span class="o">=</span><span class="n">output_directory</span>
+            <span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">klc</span><span class="p">(</span>
+                <span class="n">keys_data_directory</span><span class="o">=</span><span class="n">keys_data_path</span><span class="p">,</span>
+                <span class="n">supplier</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;supplier_id&#39;</span><span class="p">],</span>
+                <span class="n">model_name</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model_id&#39;</span><span class="p">],</span>
+                <span class="n">model_version</span><span class="o">=</span><span class="n">model_info</span><span class="p">[</span><span class="s1">&#39;model_version&#39;</span><span class="p">],</span>
+                <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="n">complex_lookup_config_fp</span><span class="p">,</span>
+                <span class="n">user_data_dir</span><span class="o">=</span><span class="n">user_data_dir</span><span class="p">,</span>
+                <span class="n">output_directory</span><span class="o">=</span><span class="n">output_directory</span></div>
+            <span class="p">)</span>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.get_exposure"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.get_exposure">[docs]</a>    <span class="k">def</span> <span class="nf">get_exposure</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">lookup</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_exposure</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">source_exposure_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Get the source OED exposure/location data as a Pandas dataframe.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">source_exposure</span> <span class="ow">or</span> <span class="n">source_exposure_fp</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;No source exposures data or file path provided&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Check which lookup class</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">lookup_config</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">config</span>
+        <span class="k">except</span> <span class="ne">AttributeError</span><span class="p">:</span>
+            <span class="n">lookup_config</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># load dtypes based on lookup config</span>
+        <span class="k">if</span> <span class="n">lookup_config</span><span class="p">:</span>
+            <span class="n">peril_config</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">peril_config</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;No peril config defined in the lookup config&#39;</span><span class="p">)</span>
+
+            <span class="n">_source_exposure_fp</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">source_exposure_fp</span><span class="p">,</span> <span class="s1">&#39;Source exposure file path&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">source_exposure</span> <span class="k">else</span> <span class="kc">False</span><span class="p">))</span>
+            <span class="n">loc_config</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;exposure&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">lookup</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;locations&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
+            <span class="n">src_type</span> <span class="o">=</span> <span class="s1">&#39;csv&#39;</span>
+
+            <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
+                <span class="s1">&#39;src_data&#39;</span><span class="p">:</span> <span class="n">source_exposure</span><span class="p">,</span>
+                <span class="s1">&#39;src_fp&#39;</span><span class="p">:</span> <span class="n">_source_exposure_fp</span><span class="p">,</span>
+                <span class="s1">&#39;src_type&#39;</span><span class="p">:</span> <span class="n">src_type</span><span class="p">,</span>
+                <span class="s1">&#39;non_na_cols&#39;</span><span class="p">:</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">loc_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;non_na_cols&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">()),</span>
+                <span class="s1">&#39;col_dtypes&#39;</span><span class="p">:</span> <span class="n">loc_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;col_dtypes&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{},</span>
+                <span class="s1">&#39;sort_cols&#39;</span><span class="p">:</span> <span class="n">loc_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sort_cols&#39;</span><span class="p">),</span>
+                <span class="s1">&#39;sort_ascending&#39;</span><span class="p">:</span> <span class="n">loc_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sort_ascending&#39;</span><span class="p">)</span>
+            <span class="p">}</span>
+            <span class="n">loc_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+
+        <span class="c1"># Load default dtypes from JSON definition</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">col_dtypes</span><span class="p">,</span> <span class="n">required_cols</span> <span class="o">=</span> <span class="n">get_dtypes_and_required_cols</span><span class="p">(</span><span class="n">get_loc_dtypes</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">source_exposure_fp</span><span class="p">:</span>
+                <span class="n">loc_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+                    <span class="n">src_fp</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">source_exposure_fp</span><span class="p">),</span>
+                    <span class="n">col_dtypes</span><span class="o">=</span><span class="n">col_dtypes</span><span class="p">,</span>
+                    <span class="n">required_cols</span><span class="o">=</span><span class="n">required_cols</span>
+                <span class="p">)</span>
+            <span class="k">elif</span> <span class="n">source_exposure</span><span class="p">:</span>
+                <span class="n">loc_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+                    <span class="n">src_buf</span><span class="o">=</span><span class="n">source_exposure</span><span class="p">,</span>
+                    <span class="n">col_dtypes</span><span class="o">=</span><span class="n">col_dtypes</span><span class="p">,</span>
+                    <span class="n">required_cols</span><span class="o">=</span><span class="n">required_cols</span>
+                <span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;Either the source exposure or exposure file path must be specified&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Set Loc_id</span>
+        <span class="n">oed_hierarchy</span> <span class="o">=</span> <span class="n">get_oed_hierarchy</span><span class="p">()</span>
+        <span class="n">loc_num</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;locnum&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">acc_num</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;accnum&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="n">portfolio_num</span> <span class="o">=</span> <span class="n">oed_hierarchy</span><span class="p">[</span><span class="s1">&#39;portnum&#39;</span><span class="p">][</span><span class="s1">&#39;ProfileElementName&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+        <span class="k">if</span> <span class="s1">&#39;loc_id&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">loc_df</span><span class="p">:</span>
+            <span class="n">loc_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">get_ids</span><span class="p">(</span><span class="n">loc_df</span><span class="p">,</span> <span class="p">[</span><span class="n">portfolio_num</span><span class="p">,</span> <span class="n">acc_num</span><span class="p">,</span> <span class="n">loc_num</span><span class="p">])</span>
+            <span class="n">loc_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">loc_df</span><span class="p">[</span><span class="s1">&#39;loc_id&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="s1">&#39;uint32&#39;</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">loc_df</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.write_oasis_keys_file"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.write_oasis_keys_file">[docs]</a>    <span class="k">def</span> <span class="nf">write_oasis_keys_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">records</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">,</span> <span class="n">output_success_msg</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes an Oasis keys file from an iterable of keys records.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="s1">&#39;model_data&#39;</span> <span class="ow">in</span> <span class="n">records</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+            <span class="n">heading_row</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([</span>
+                <span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;LocID&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;peril_id&#39;</span><span class="p">,</span> <span class="s1">&#39;PerilID&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">,</span> <span class="s1">&#39;CoverageTypeID&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;model_data&#39;</span><span class="p">,</span> <span class="s1">&#39;ModelData&#39;</span><span class="p">),</span>
+            <span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">heading_row</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([</span>
+                <span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;LocID&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;peril_id&#39;</span><span class="p">,</span> <span class="s1">&#39;PerilID&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">,</span> <span class="s1">&#39;CoverageTypeID&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;area_peril_id&#39;</span><span class="p">,</span> <span class="s1">&#39;AreaPerilID&#39;</span><span class="p">),</span>
+                <span class="p">(</span><span class="s1">&#39;vulnerability_id&#39;</span><span class="p">,</span> <span class="s1">&#39;VulnerabilityID&#39;</span><span class="p">),</span>
+            <span class="p">])</span>
+            <span class="k">if</span> <span class="n">output_success_msg</span><span class="p">:</span>
+                <span class="n">heading_row</span><span class="o">.</span><span class="n">update</span><span class="p">({</span><span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="s1">&#39;Message&#39;</span><span class="p">})</span>
+
+        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">heading_row</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">heading_row</span><span class="p">]</span> <span class="o">+</span> <span class="n">records</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+            <span class="n">output_file_path</span><span class="p">,</span>
+            <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+            <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">output_file_path</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.write_oasis_keys_errors_file"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.write_oasis_keys_errors_file">[docs]</a>    <span class="k">def</span> <span class="nf">write_oasis_keys_errors_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">records</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes an Oasis keys errors file from an iterable of keys records.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">heading_row</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">([</span>
+            <span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="s1">&#39;LocID&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;peril_id&#39;</span><span class="p">,</span> <span class="s1">&#39;PerilID&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">,</span> <span class="s1">&#39;CoverageTypeID&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="s1">&#39;Status&#39;</span><span class="p">),</span>
+            <span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="s1">&#39;Message&#39;</span><span class="p">),</span>
+        <span class="p">])</span>
+
+        <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+            <span class="n">columns</span><span class="o">=</span><span class="n">heading_row</span><span class="o">.</span><span class="n">keys</span><span class="p">(),</span>
+            <span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">heading_row</span><span class="p">]</span> <span class="o">+</span> <span class="n">records</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span>
+            <span class="n">output_file_path</span><span class="p">,</span>
+            <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+            <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">,</span>
+            <span class="n">header</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">output_file_path</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.write_json_keys_file"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.write_json_keys_file">[docs]</a>    <span class="k">def</span> <span class="nf">write_json_keys_file</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">records</span><span class="p">,</span> <span class="n">output_file_path</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes the keys records as a simple list to file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">f</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">u</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">json</span><span class="o">.</span><span class="n">dumps</span><span class="p">(</span><span class="n">records</span><span class="p">,</span> <span class="n">sort_keys</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">indent</span><span class="o">=</span><span class="mi">4</span><span class="p">,</span> <span class="n">ensure_ascii</span><span class="o">=</span><span class="kc">False</span><span class="p">)))</span>
+
+            <span class="k">return</span> <span class="n">output_file_path</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">records</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.create"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.create">[docs]</a>    <span class="k">def</span> <span class="nf">create</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">model_keys_data_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">model_version_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lookup_package_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lookup_config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lookup_config_json</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">lookup_config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">user_data_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">output_directory</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">builtin_lookup_type</span><span class="o">=</span><span class="s1">&#39;combined&#39;</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Creates a keys lookup class instance for the given model and supplier -</span>
+<span class="sd">        local file paths are required for the model keys data folder, the model</span>
+<span class="sd">        version file and the Git repository for the model keys server. Returns a</span>
+<span class="sd">        pair ``(model_info, klc)``, where ``model_info`` is a dictionary holding</span>
+<span class="sd">        model information from the model version file and `klc` is the lookup</span>
+<span class="sd">        service class instance for the model.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">is_builtin</span> <span class="o">=</span> <span class="n">lookup_config</span> <span class="ow">or</span> <span class="n">lookup_config_json</span> <span class="ow">or</span> <span class="n">lookup_config_fp</span>
+        <span class="n">is_complex</span> <span class="o">=</span> <span class="n">complex_lookup_config_fp</span> <span class="ow">and</span> <span class="n">output_directory</span>
+
+        <span class="k">if</span> <span class="n">is_builtin</span><span class="p">:</span>
+            <span class="n">lookup</span> <span class="o">=</span> <span class="n">OasisLookup</span><span class="p">(</span>
+                <span class="n">config</span><span class="o">=</span><span class="n">lookup_config</span><span class="p">,</span>
+                <span class="n">config_json</span><span class="o">=</span><span class="n">lookup_config_json</span><span class="p">,</span>
+                <span class="n">config_fp</span><span class="o">=</span><span class="n">lookup_config_fp</span>
+            <span class="p">)</span>
+            <span class="n">model_info</span> <span class="o">=</span> <span class="n">lookup</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">builtin_lookup_type</span> <span class="o">==</span> <span class="s1">&#39;base&#39;</span><span class="p">:</span>
+                <span class="n">lookup</span> <span class="o">=</span> <span class="n">OasisBuiltinBaseLookup</span><span class="p">(</span>
+                    <span class="n">config</span><span class="o">=</span><span class="n">lookup_config</span><span class="p">,</span>
+                    <span class="n">config_json</span><span class="o">=</span><span class="n">lookup_config_json</span><span class="p">,</span>
+                    <span class="n">config_fp</span><span class="o">=</span><span class="n">lookup_config_fp</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="n">lookup</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;model&#39;</span><span class="p">),</span> <span class="n">lookup</span>
+            <span class="k">elif</span> <span class="n">builtin_lookup_type</span> <span class="o">==</span> <span class="s1">&#39;combined&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">model_info</span><span class="p">,</span> <span class="n">lookup</span>
+            <span class="k">elif</span> <span class="n">builtin_lookup_type</span> <span class="o">==</span> <span class="s1">&#39;peril&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">model_info</span><span class="p">,</span> <span class="n">lookup</span><span class="o">.</span><span class="n">peril_lookup</span>
+            <span class="k">elif</span> <span class="n">builtin_lookup_type</span> <span class="o">==</span> <span class="s1">&#39;vulnerability&#39;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">model_info</span><span class="p">,</span> <span class="n">lookup</span><span class="o">.</span><span class="n">vulnerability_lookup</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">_model_keys_data_path</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">model_keys_data_path</span><span class="p">,</span> <span class="s1">&#39;model_keys_data_path&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">_model_version_file_path</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">model_version_file_path</span><span class="p">,</span> <span class="s1">&#39;model_version_file_path&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">_lookup_package_path</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">lookup_package_path</span><span class="p">,</span> <span class="s1">&#39;lookup_package_path&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">model_info</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_model_info</span><span class="p">(</span><span class="n">_model_version_file_path</span><span class="p">)</span>
+            <span class="n">lookup_package</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_custom_lookup_package</span><span class="p">(</span><span class="n">_lookup_package_path</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">is_complex</span><span class="p">:</span>
+                <span class="n">lookup</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_custom_lookup</span><span class="p">(</span>
+                    <span class="n">lookup_package</span><span class="o">=</span><span class="n">lookup_package</span><span class="p">,</span>
+                    <span class="n">keys_data_path</span><span class="o">=</span><span class="n">_model_keys_data_path</span><span class="p">,</span>
+                    <span class="n">model_info</span><span class="o">=</span><span class="n">model_info</span>
+                <span class="p">)</span>
+                <span class="k">return</span> <span class="n">model_info</span><span class="p">,</span> <span class="n">lookup</span>
+
+            <span class="n">_complex_lookup_config_fp</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">complex_lookup_config_fp</span><span class="p">,</span> <span class="s1">&#39;complex_lookup_config_fp&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+            <span class="n">_output_directory</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">output_directory</span><span class="p">,</span> <span class="s1">&#39;output_directory&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+            <span class="n">lookup</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_custom_lookup</span><span class="p">(</span>
+                <span class="n">lookup_package</span><span class="o">=</span><span class="n">lookup_package</span><span class="p">,</span>
+                <span class="n">keys_data_path</span><span class="o">=</span><span class="n">_model_keys_data_path</span><span class="p">,</span>
+                <span class="n">model_info</span><span class="o">=</span><span class="n">model_info</span><span class="p">,</span>
+                <span class="n">complex_lookup_config_fp</span><span class="o">=</span><span class="n">_complex_lookup_config_fp</span><span class="p">,</span>
+                <span class="n">user_data_dir</span><span class="o">=</span><span class="n">user_data_dir</span><span class="p">,</span>
+                <span class="n">output_directory</span><span class="o">=</span><span class="n">_output_directory</span>
+            <span class="p">)</span>
+
+            <span class="k">return</span> <span class="n">model_info</span><span class="p">,</span> <span class="n">lookup</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.get_keys_base"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_base">[docs]</a>    <span class="k">def</span> <span class="nf">get_keys_base</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">lookup</span><span class="p">,</span>
+        <span class="n">loc_df</span><span class="p">,</span>
+        <span class="n">success_only</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Used when lookup is an instances of `OasisBaseKeysLookup(object)`</span>
+
+<span class="sd">        Generates keys records (JSON) for the given model and supplier -</span>
+<span class="sd">        requires an instance of the lookup service (which can be created using</span>
+<span class="sd">        the `create` method in this factory class), and either the model</span>
+<span class="sd">        location file path or the string contents of such a file.</span>
+
+<span class="sd">        The optional keyword argument ``success_only`` indicates whether only</span>
+<span class="sd">        records with successful lookups should be returned (default), or all</span>
+<span class="sd">        records.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">for</span> <span class="n">record</span> <span class="ow">in</span> <span class="n">lookup</span><span class="o">.</span><span class="n">process_locations</span><span class="p">(</span><span class="n">loc_df</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">success_only</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">record</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span>
+                    <span class="k">yield</span> <span class="n">record</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">record</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.get_keys_builtin"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_builtin">[docs]</a>    <span class="k">def</span> <span class="nf">get_keys_builtin</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">lookup</span><span class="p">,</span>
+        <span class="n">loc_df</span><span class="p">,</span>
+        <span class="n">success_only</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Used when lookup is an instances of `OasisBuiltinBaseLookup(object)`</span>
+
+<span class="sd">        Generates lookup results (dicts) for the given model and supplier -</span>
+<span class="sd">        requires a lookup instance (which can be created using the `create2`</span>
+<span class="sd">        method in this factory class), and the source exposures/locations</span>
+<span class="sd">        dataframe.</span>
+
+<span class="sd">        The optional keyword argument ``success_only`` indicates whether only</span>
+<span class="sd">        results with successful lookup status should be returned (default),</span>
+<span class="sd">        or all results.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="p">(</span><span class="n">loc</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">loc</span> <span class="ow">in</span> <span class="n">loc_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">())</span>
+        <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">lookup</span><span class="o">.</span><span class="n">bulk_lookup</span><span class="p">(</span><span class="n">locations</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">success_only</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">result</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">==</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]:</span>
+                    <span class="k">yield</span> <span class="n">result</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">yield</span> <span class="n">result</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.get_keys_multiproc"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.get_keys_multiproc">[docs]</a>    <span class="k">def</span> <span class="nf">get_keys_multiproc</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">lookup</span><span class="p">,</span>
+        <span class="n">loc_df</span><span class="p">,</span>
+        <span class="n">success_only</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+        <span class="n">num_cores</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">num_partitions</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Used for CPU bound lookup operations, Depends on a method</span>
+
+<span class="sd">        `process_locations_multiproc(dataframe)`</span>
+
+<span class="sd">        where single_row is a pandas series from a location Pandas DataFrame</span>
+<span class="sd">        and returns a list of dicts holding the lookup results for that single row</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">pool_count</span> <span class="o">=</span> <span class="n">num_cores</span> <span class="k">if</span> <span class="n">num_cores</span> <span class="k">else</span> <span class="n">cpu_count</span><span class="p">()</span>
+        <span class="n">part_count</span> <span class="o">=</span> <span class="n">num_partitions</span> <span class="k">if</span> <span class="n">num_partitions</span> <span class="k">else</span> <span class="nb">min</span><span class="p">(</span><span class="n">pool_count</span> <span class="o">*</span> <span class="mi">2</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">loc_df</span><span class="p">))</span>
+        <span class="n">locations</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">np</span><span class="o">.</span><span class="n">array_split</span><span class="p">(</span><span class="n">loc_df</span><span class="p">,</span> <span class="n">part_count</span><span class="p">)</span>
+
+        <span class="n">pool</span> <span class="o">=</span> <span class="n">Pool</span><span class="p">(</span><span class="n">pool_count</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="n">pool</span><span class="o">.</span><span class="n">map</span><span class="p">(</span><span class="n">lookup</span><span class="o">.</span><span class="n">process_locations_multiproc</span><span class="p">,</span> <span class="n">locations</span><span class="p">)</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">pool</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+        <span class="k">return</span> <span class="nb">sum</span><span class="p">([</span><span class="n">r</span> <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span> <span class="k">if</span> <span class="n">r</span><span class="p">],</span> <span class="p">[])</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.save_keys"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.save_keys">[docs]</a>    <span class="k">def</span> <span class="nf">save_keys</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">keys_data</span><span class="p">,</span>
+        <span class="n">keys_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">keys_errors_file_path</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">keys_format</span><span class="o">=</span><span class="s1">&#39;oasis&#39;</span><span class="p">,</span>
+        <span class="n">keys_success_msg</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes a keys file, and optionally a keys error file, for the keys</span>
+<span class="sd">        generated by the lookup service for the given model, supplier and</span>
+<span class="sd">        exposure sfile - requires a lookup service instance (which can be</span>
+<span class="sd">        created using the `create` method in this factory class), the path of</span>
+<span class="sd">        the model location file, the path of the keys file, and the format of</span>
+<span class="sd">        the output file which can be an Oasis keys file (``oasis``) or a</span>
+<span class="sd">        simple listing of the records to file (``json``).</span>
+
+<span class="sd">        The optional keyword argument ``keys_error_file_path`` if present</span>
+<span class="sd">        indicates that all keys records, whether for locations with successful</span>
+<span class="sd">        or unsuccessful lookups, will be generated and written to separate</span>
+<span class="sd">        files. A keys record with a successful lookup will have a `status`</span>
+<span class="sd">        field whose value will be `success`, otherwise the record will have</span>
+<span class="sd">        a `status` field value of `failure` or `nomatch`.</span>
+
+<span class="sd">        If ``keys_errors_file_path`` is not present then the method returns a</span>
+<span class="sd">        pair ``(p, n)`` where ``p`` is the keys file path and ``n`` is the</span>
+<span class="sd">        number of &quot;successful&quot; keys records written to the keys file, otherwise</span>
+<span class="sd">        it returns a quadruple ``(p1, n1, p2, n2)`` where ``p1`` is the keys</span>
+<span class="sd">        file path, ``n1`` is the number of &quot;successful&quot; keys records written to</span>
+<span class="sd">        the keys file, ``p2`` is the keys errors file path and ``n2`` is the</span>
+<span class="sd">        number of &quot;unsuccessful&quot; keys records written to keys errors file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">_keys_file_path</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">keys_file_path</span><span class="p">,</span> <span class="s1">&#39;keys_file_path&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">_keys_errors_file_path</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">keys_errors_file_path</span><span class="p">,</span> <span class="s1">&#39;keys_errors_file_path&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="n">successes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nonsuccesses</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys_data</span><span class="p">:</span>
+            <span class="n">successes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span> <span class="k">if</span> <span class="n">k</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="n">nonsuccesses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">k</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">keys_format</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_keys_errors_file_path</span><span class="p">:</span>
+                <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_json_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">_keys_file_path</span><span class="p">)</span>
+                <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_json_keys_file</span><span class="p">(</span><span class="n">nonsuccesses</span><span class="p">,</span> <span class="n">_keys_errors_file_path</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_json_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">_keys_file_path</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">keys_format</span> <span class="o">==</span> <span class="s1">&#39;oasis&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">_keys_errors_file_path</span><span class="p">:</span>
+                <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_oasis_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">_keys_file_path</span><span class="p">,</span> <span class="n">keys_success_msg</span><span class="p">)</span>
+                <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_oasis_keys_errors_file</span><span class="p">(</span><span class="n">nonsuccesses</span><span class="p">,</span> <span class="n">_keys_errors_file_path</span><span class="p">)</span>
+
+                <span class="k">return</span> <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_oasis_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">_keys_file_path</span><span class="p">,</span> <span class="n">keys_success_msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s2">&quot;Unrecognised keys file output format - valid formats are &#39;oasis&#39; or &#39;json&#39;&quot;</span><span class="p">)</span></div>
+
+    <span class="nd">@classmethod</span>
+<div class="viewcode-block" id="OasisLookupFactory.save_results"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookupFactory.save_results">[docs]</a>    <span class="k">def</span> <span class="nf">save_results</span><span class="p">(</span>
+        <span class="bp">cls</span><span class="p">,</span>
+        <span class="n">lookup</span><span class="p">,</span>
+        <span class="n">location_df</span><span class="p">,</span>
+        <span class="n">successes_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">errors_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">multiprocessing</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="nb">format</span><span class="o">=</span><span class="s1">&#39;oasis&#39;</span><span class="p">,</span>
+        <span class="n">keys_success_msg</span><span class="o">=</span><span class="kc">False</span>
+    <span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Writes a keys file, and optionally a keys error file, for the keys</span>
+<span class="sd">        generated by the lookup service for the given model, supplier and</span>
+<span class="sd">        exposure sfile - requires a lookup service instance (which can be</span>
+<span class="sd">        created using the `create` method in this factory class), the path of</span>
+<span class="sd">        the model location file, the path of the keys file, and the format of</span>
+<span class="sd">        the output file which can be an Oasis keys file (``oasis``) or a</span>
+<span class="sd">        simple listing of the records to file (``json``).</span>
+
+<span class="sd">        The optional keyword argument ``keys_error_file_path`` if present</span>
+<span class="sd">        indicates that all keys records, whether for locations with successful</span>
+<span class="sd">        or unsuccessful lookups, will be generated and written to separate</span>
+<span class="sd">        files. A keys record with a successful lookup will have a `status`</span>
+<span class="sd">        field whose value will be `success`, otherwise the record will have</span>
+<span class="sd">        a `status` field value of `failure` or `nomatch`.</span>
+
+<span class="sd">        If ``keys_errors_file_path`` is not present then the method returns a</span>
+<span class="sd">        pair ``(p, n)`` where ``p`` is the keys file path and ``n`` is the</span>
+<span class="sd">        number of &quot;successful&quot; keys records written to the keys file, otherwise</span>
+<span class="sd">        it returns a quadruple ``(p1, n1, p2, n2)`` where ``p1`` is the keys</span>
+<span class="sd">        file path, ``n1`` is the number of &quot;successful&quot; keys records written to</span>
+<span class="sd">        the keys file, ``p2`` is the keys errors file path and ``n2`` is the</span>
+<span class="sd">        number of &quot;unsuccessful&quot; keys records written to keys errors file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">sfp</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">successes_fp</span><span class="p">,</span> <span class="s1">&#39;successes_fp&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+        <span class="n">efp</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">errors_fp</span><span class="p">,</span> <span class="s1">&#39;errors_fp&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="p">(</span><span class="n">multiprocessing</span> <span class="ow">and</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">lookup</span><span class="p">,</span> <span class="s1">&#39;process_locations_multiproc&#39;</span><span class="p">)):</span>
+            <span class="c1"># Multi-Process</span>
+            <span class="n">keys_generator</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_keys_multiproc</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="c1"># Fall back to Single process</span>
+            <span class="n">keys_generator</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">get_keys_builtin</span> <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">lookup</span><span class="p">,</span> <span class="s1">&#39;config&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="p">(</span>
+                             <span class="bp">cls</span><span class="o">.</span><span class="n">get_keys_base</span><span class="p">)</span>
+        <span class="n">kwargs</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="s2">&quot;lookup&quot;</span><span class="p">:</span> <span class="n">lookup</span><span class="p">,</span>
+            <span class="s2">&quot;loc_df&quot;</span><span class="p">:</span> <span class="n">location_df</span><span class="p">,</span>
+            <span class="s2">&quot;success_only&quot;</span><span class="p">:</span> <span class="p">(</span><span class="kc">False</span> <span class="k">if</span> <span class="n">efp</span> <span class="k">else</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="p">}</span>
+
+        <span class="n">results</span> <span class="o">=</span> <span class="n">keys_generator</span><span class="p">(</span><span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+        <span class="n">successes</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">nonsuccesses</span> <span class="o">=</span> <span class="p">[]</span>
+
+        <span class="c1"># ToDO: Move the inside the keys_generators?  and return a tuple of (successes, nonsuccesses)</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="n">successes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span> <span class="k">if</span> <span class="n">r</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">else</span> <span class="n">nonsuccesses</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">r</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">efp</span><span class="p">:</span>
+                <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_json_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">sfp</span><span class="p">)</span>
+                <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_json_keys_file</span><span class="p">(</span><span class="n">nonsuccesses</span><span class="p">,</span> <span class="n">efp</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_json_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">sfp</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="nb">format</span> <span class="o">==</span> <span class="s1">&#39;oasis&#39;</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">efp</span><span class="p">:</span>
+                <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_oasis_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">sfp</span><span class="p">,</span> <span class="n">keys_success_msg</span><span class="p">)</span>
+                <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span> <span class="o">=</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_oasis_keys_errors_file</span><span class="p">(</span><span class="n">nonsuccesses</span><span class="p">,</span> <span class="n">efp</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">fp1</span><span class="p">,</span> <span class="n">n1</span><span class="p">,</span> <span class="n">fp2</span><span class="p">,</span> <span class="n">n2</span>
+            <span class="k">return</span> <span class="bp">cls</span><span class="o">.</span><span class="n">write_oasis_keys_file</span><span class="p">(</span><span class="n">successes</span><span class="p">,</span> <span class="n">sfp</span><span class="p">,</span> <span class="n">keys_success_msg</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s2">&quot;Unrecognised lookup file output format - valid formats are &#39;oasis&#39; or &#39;json&#39;&quot;</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="OasisLookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookup">[docs]</a><span class="k">class</span> <span class="nc">OasisLookup</span><span class="p">(</span><span class="n">OasisBuiltinBaseLookup</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Combined peril and vulnerability lookup</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_json</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">areas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">peril_areas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">peril_areas_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">peril_areas_index_props</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">loc_to_global_areas_boundary_min_distance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">vulnerabilities</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span>
+            <span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span>
+            <span class="n">config_json</span><span class="o">=</span><span class="n">config_json</span><span class="p">,</span>
+            <span class="n">config_fp</span><span class="o">=</span><span class="n">config_fp</span><span class="p">,</span>
+            <span class="n">config_dir</span><span class="o">=</span><span class="n">config_dir</span><span class="p">,</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">peril_lookup</span> <span class="o">=</span> <span class="n">OasisPerilLookup</span><span class="p">(</span>
+            <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
+            <span class="n">config_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span><span class="p">,</span>
+            <span class="n">areas</span><span class="o">=</span><span class="n">areas</span><span class="p">,</span>
+            <span class="n">peril_areas</span><span class="o">=</span><span class="n">peril_areas</span><span class="p">,</span>
+            <span class="n">peril_areas_index</span><span class="o">=</span><span class="n">peril_areas_index</span><span class="p">,</span>
+            <span class="n">peril_areas_index_props</span><span class="o">=</span><span class="n">peril_areas_index_props</span><span class="p">,</span>
+            <span class="n">loc_to_global_areas_boundary_min_distance</span><span class="o">=</span><span class="n">loc_to_global_areas_boundary_min_distance</span>
+        <span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">peril_area_id_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;peril&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril_area_id_col&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;peril_area_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vulnerability_id_key</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;vulnerability&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vulnerability_id_col&#39;</span><span class="p">))</span> <span class="ow">or</span> <span class="s1">&#39;vulnerability_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">vulnerability_lookup</span> <span class="o">=</span> <span class="n">OasisVulnerabilityLookup</span><span class="p">(</span>
+            <span class="n">config</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">,</span>
+            <span class="n">config_dir</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span><span class="p">,</span>
+            <span class="n">vulnerabilities</span><span class="o">=</span><span class="n">vulnerabilities</span>
+        <span class="p">)</span>
+
+<div class="viewcode-block" id="OasisLookup.lookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisLookup.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+
+        <span class="n">loc_id</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">16</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+
+        <span class="n">plookup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_lookup</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">)</span>
+
+        <span class="n">past</span> <span class="o">=</span> <span class="n">plookup</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+        <span class="n">pamsg</span> <span class="o">=</span> <span class="n">plookup</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+        <span class="n">paid</span> <span class="o">=</span> <span class="n">plookup</span><span class="p">[</span><span class="s1">&#39;peril_area_id&#39;</span><span class="p">]</span>
+
+        <span class="n">vlookup</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">vulnerability_lookup</span><span class="o">.</span><span class="n">lookup</span><span class="p">(</span><span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">)</span>
+
+        <span class="n">vlnst</span> <span class="o">=</span> <span class="n">vlookup</span><span class="p">[</span><span class="s1">&#39;status&#39;</span><span class="p">]</span>
+        <span class="n">vlnmsg</span> <span class="o">=</span> <span class="n">vlookup</span><span class="p">[</span><span class="s1">&#39;message&#39;</span><span class="p">]</span>
+        <span class="n">vlnid</span> <span class="o">=</span> <span class="n">vlookup</span><span class="p">[</span><span class="s1">&#39;vulnerability_id&#39;</span><span class="p">]</span>
+
+        <span class="n">vlookup</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">)</span>
+        <span class="n">vlookup</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">)</span>
+        <span class="n">vlookup</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;vulnerability_id&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Could optionally call the status lookup method, but faster</span>
+        <span class="c1"># to avoid or minimise outside function calls in a `for` loop</span>
+        <span class="n">status</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="n">past</span> <span class="o">==</span> <span class="n">vlnst</span> <span class="o">==</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="k">else</span> <span class="p">(</span><span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="k">if</span> <span class="p">(</span><span class="n">past</span> <span class="o">==</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span> <span class="ow">or</span> <span class="n">vlnst</span> <span class="o">==</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span> <span class="k">else</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;nomatch&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">])</span>
+        <span class="p">)</span>
+
+        <span class="n">message</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">; </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">pamsg</span><span class="p">,</span> <span class="n">vlnmsg</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="p">{</span>
+            <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span>
+                <span class="p">(</span>
+                    <span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="n">loc_id</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s1">&#39;peril_id&#39;</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">),</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">peril_area_id_key</span><span class="p">,</span> <span class="n">paid</span><span class="p">),</span>
+                    <span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">vulnerability_id_key</span><span class="p">,</span> <span class="n">vlnid</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">status</span><span class="p">),</span>
+                    <span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="n">message</span><span class="p">),</span>
+                <span class="p">),</span>
+                <span class="n">vlookup</span><span class="o">.</span><span class="n">items</span><span class="p">()</span></div></div>
+            <span class="p">)</span>
+        <span class="p">}</span>
+
+
+<div class="viewcode-block" id="OasisPerilLookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisPerilLookup">[docs]</a><span class="k">class</span> <span class="nc">OasisPerilLookup</span><span class="p">(</span><span class="n">OasisBuiltinBaseLookup</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Single peril, single coverage type, lon/lat point-area poly lookup using</span>
+<span class="sd">    an Rtree index to store peril areas - index entries are</span>
+<span class="sd">    #</span>
+<span class="sd">    #    (peril area ID, peril area bounds)</span>
+<span class="sd">    #</span>
+<span class="sd">    # pairs. Areas must be represented as polygons with vertices which are</span>
+<span class="sd">    # lon/lat coordinates, and be passed in to the constructor as a list,</span>
+<span class="sd">    # tuple, or generator of triples of the form</span>
+<span class="sd">    #</span>
+<span class="sd">    #    (peril area ID, polygon lon/lat vertices, dict with optional properties)</span>
+<span class="sd">    #</span>
+<span class="sd">    # An optional distance measure ``loc_to_global_areas_boundary_min_distance`` can be passed</span>
+<span class="sd">    # that defines how far, in an abstract unit, a given lon/lat location can be</span>
+<span class="sd">    # from the boundary of the polygon containing all the individual peril area</span>
+<span class="sd">    # polygons in order to be assigned an peril area ID. By default this distance</span>
+<span class="sd">    # is 0, which means any lon/lat location outside the polygon containing all</span>
+<span class="sd">    # peril area polygons will not be assigned a peril area ID.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">areas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_json</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">loc_to_global_areas_boundary_min_distance</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span>
+        <span class="n">peril_areas</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">peril_areas_index</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">peril_areas_index_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">peril_areas_index_props</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">config_json</span><span class="o">=</span><span class="n">config_json</span><span class="p">,</span> <span class="n">config_fp</span><span class="o">=</span><span class="n">config_fp</span><span class="p">,</span> <span class="n">config_dir</span><span class="o">=</span><span class="n">config_dir</span><span class="p">)</span>
+
+        <span class="n">peril_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;peril&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
+
+        <span class="k">if</span> <span class="n">areas</span> <span class="ow">or</span> <span class="n">peril_areas</span> <span class="ow">or</span> <span class="n">peril_config</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">peril_areas_index</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index</span> <span class="o">=</span> <span class="n">peril_areas_index</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index_props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index_props</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span>
+            <span class="k">elif</span> <span class="p">(</span><span class="n">areas</span> <span class="ow">or</span> <span class="n">peril_areas</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">index_props</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="n">peril_areas_index_props</span> <span class="ow">or</span>
+                    <span class="n">peril_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rtree_index&#39;</span><span class="p">)</span> <span class="ow">or</span>
+                    <span class="n">DEFAULT_RTREE_INDEX_PROPS</span>
+                <span class="p">)</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index</span> <span class="o">=</span> <span class="n">PerilAreasIndex</span><span class="p">(</span><span class="n">areas</span><span class="o">=</span><span class="n">areas</span><span class="p">,</span> <span class="n">peril_areas</span><span class="o">=</span><span class="n">peril_areas</span><span class="p">,</span> <span class="n">properties</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">index_props</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">areas_rtree_index_config</span> <span class="o">=</span> <span class="n">peril_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;rtree_index&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">{}</span>
+                <span class="n">index_fp</span> <span class="o">=</span> <span class="n">peril_areas_index_fp</span> <span class="ow">or</span> <span class="n">areas_rtree_index_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;filename&#39;</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">index_fp</span><span class="p">):</span>
+                    <span class="n">index_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span><span class="p">,</span> <span class="n">index_fp</span><span class="p">)</span>
+                    <span class="n">index_fp</span> <span class="o">=</span> <span class="n">as_path</span><span class="p">(</span><span class="n">index_fp</span><span class="p">,</span> <span class="s1">&#39;index_fp&#39;</span><span class="p">,</span> <span class="n">preexists</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+                <span class="k">if</span> <span class="n">index_fp</span><span class="p">:</span>
+                    <span class="n">idx_ext</span> <span class="o">=</span> <span class="n">areas_rtree_index_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;idx_extension&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;idx&#39;</span>
+                    <span class="n">dat_ext</span> <span class="o">=</span> <span class="n">areas_rtree_index_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;dat_extension&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;dat&#39;</span>
+                    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index_fp</span><span class="p">,</span> <span class="n">idx_ext</span><span class="p">))</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index_fp</span><span class="p">,</span> <span class="n">dat_ext</span><span class="p">))):</span>
+                        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;No Rtree file index </span><span class="si">{}</span><span class="s1">.{{</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">}} found&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">index_fp</span><span class="p">,</span> <span class="n">idx_ext</span><span class="p">,</span> <span class="n">dat_ext</span><span class="p">))</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index</span> <span class="o">=</span> <span class="n">PerilAreasIndex</span><span class="p">(</span><span class="n">fp</span><span class="o">=</span><span class="n">index_fp</span><span class="p">)</span>
+                    <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index_props</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index</span><span class="o">.</span><span class="n">properties</span><span class="o">.</span><span class="n">as_dict</span><span class="p">()</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_boundary</span> <span class="o">=</span> <span class="n">box</span><span class="p">(</span><span class="o">*</span><span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index</span><span class="o">.</span><span class="n">bounds</span><span class="p">,</span> <span class="n">ccw</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+            <span class="n">_centroid</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_boundary</span><span class="o">.</span><span class="n">centroid</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_centre</span> <span class="o">=</span> <span class="n">_centroid</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">_centroid</span><span class="o">.</span><span class="n">y</span>
+
+            <span class="bp">self</span><span class="o">.</span><span class="n">loc_to_global_areas_boundary_min_distance</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="n">loc_to_global_areas_boundary_min_distance</span> <span class="ow">or</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;peril&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc_to_global_areas_boundary_min_distance&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="mi">0</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;exposure&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;locations&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_x_col</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;exposure&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coords_x_col&#39;</span><span class="p">))</span> <span class="ow">or</span> <span class="s1">&#39;lon&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_y_col</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">lower</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;exposure&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coords_y_col&#39;</span><span class="p">))</span> <span class="ow">or</span> <span class="s1">&#39;lat&#39;</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_x_bounds</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;exposure&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coords_x_bounds&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="o">-</span><span class="mi">180</span><span class="p">,</span> <span class="mi">180</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_y_bounds</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;exposure&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coords_y_bounds&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">())</span> <span class="ow">or</span> <span class="p">(</span><span class="o">-</span><span class="mi">90</span><span class="p">,</span> <span class="mi">90</span><span class="p">)</span>
+
+<div class="viewcode-block" id="OasisPerilLookup.lookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisPerilLookup.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Area peril lookup for an individual lon/lat location item, which can be</span>
+<span class="sd">        provided as a dict or a Pandas series. The data structure should contain</span>
+<span class="sd">        the keys `lon` or `longitude` for longitude and `lat` or `latitude` for</span>
+<span class="sd">        latitude.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">idx</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_index</span>
+        <span class="n">boundary</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">peril_areas_boundary</span>
+        <span class="n">loc_to_areas_min_dist</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc_to_global_areas_boundary_min_distance</span>
+
+        <span class="n">loc_id</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">16</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+
+        <span class="n">loc_x_col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_x_col</span>
+        <span class="n">loc_y_col</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_y_col</span>
+        <span class="n">loc_x_bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_x_bounds</span>
+        <span class="n">loc_y_bounds</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">loc_coords_y_bounds</span>
+
+        <span class="n">x</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">loc_x_col</span><span class="p">)</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">loc_y_col</span><span class="p">)</span>
+
+        <span class="k">def</span> <span class="nf">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">perid</span><span class="p">,</span> <span class="n">covtype</span><span class="p">,</span> <span class="n">paid</span><span class="p">,</span> <span class="n">pabnds</span><span class="p">,</span> <span class="n">pacoords</span><span class="p">,</span> <span class="n">msg</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="s1">&#39;loc_id&#39;</span><span class="p">:</span> <span class="n">loc_id</span><span class="p">,</span>
+                <span class="n">loc_x_col</span><span class="p">:</span> <span class="n">x</span><span class="p">,</span>
+                <span class="n">loc_y_col</span><span class="p">:</span> <span class="n">y</span><span class="p">,</span>
+                <span class="s1">&#39;peril_id&#39;</span><span class="p">:</span> <span class="n">perid</span><span class="p">,</span>
+                <span class="s1">&#39;coverage_type&#39;</span><span class="p">:</span> <span class="n">covtype</span><span class="p">,</span>
+                <span class="s1">&#39;status&#39;</span><span class="p">:</span> <span class="n">st</span><span class="p">,</span>
+                <span class="s1">&#39;peril_area_id&#39;</span><span class="p">:</span> <span class="n">paid</span><span class="p">,</span>
+                <span class="s1">&#39;area_peril_id&#39;</span><span class="p">:</span> <span class="n">paid</span><span class="p">,</span>
+                <span class="s1">&#39;area_bounds&#39;</span><span class="p">:</span> <span class="n">pabnds</span><span class="p">,</span>
+                <span class="s1">&#39;area_coordinates&#39;</span><span class="p">:</span> <span class="n">pacoords</span><span class="p">,</span>
+                <span class="s1">&#39;message&#39;</span><span class="p">:</span> <span class="n">msg</span>
+            <span class="p">}</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+            <span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+            <span class="k">if</span> <span class="ow">not</span> <span class="p">((</span><span class="n">loc_x_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">x</span> <span class="o">&lt;=</span> <span class="n">loc_x_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span> <span class="ow">and</span> <span class="p">(</span><span class="n">loc_y_bounds</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">&lt;=</span> <span class="n">y</span> <span class="o">&lt;=</span> <span class="n">loc_y_bounds</span><span class="p">[</span><span class="mi">1</span><span class="p">])):</span>
+                <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1"> out of bounds&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loc_x_col</span><span class="p">,</span> <span class="n">loc_y_col</span><span class="p">))</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">ValueError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">)</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="s1">&#39;Peril area lookup: invalid </span><span class="si">{}</span><span class="s1">/</span><span class="si">{}</span><span class="s1"> (</span><span class="si">{}</span><span class="s1">, </span><span class="si">{}</span><span class="s1">) - </span><span class="si">{}</span><span class="s1">&#39;</span>
+                <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">loc_x_col</span><span class="p">,</span> <span class="n">loc_y_col</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+            <span class="p">)</span>
+            <span class="k">return</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+
+        <span class="n">st</span> <span class="o">=</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;nomatch&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;No peril area match&#39;</span>
+        <span class="n">paid</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">pabnds</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">pacoords</span> <span class="o">=</span> <span class="kc">None</span>
+        <span class="n">point</span> <span class="o">=</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">idx</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="s1">&#39;raw&#39;</span><span class="p">))</span>
+
+            <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span>
+
+            <span class="k">for</span> <span class="n">_perid</span><span class="p">,</span> <span class="n">_covtype</span><span class="p">,</span> <span class="n">_paid</span><span class="p">,</span> <span class="n">_pabnds</span><span class="p">,</span> <span class="n">_pacoords</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+                <span class="k">if</span> <span class="p">(</span><span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">_perid</span><span class="p">,</span> <span class="n">_covtype</span><span class="p">):</span>
+                    <span class="n">paid</span><span class="p">,</span> <span class="n">pabnds</span><span class="p">,</span> <span class="n">pacoords</span> <span class="o">=</span> <span class="n">_paid</span><span class="p">,</span> <span class="n">_pabnds</span><span class="p">,</span> <span class="n">_pacoords</span>
+                    <span class="k">break</span>
+
+            <span class="k">if</span> <span class="n">paid</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">raise</span> <span class="ne">IndexError</span>
+        <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">idx</span><span class="o">.</span><span class="n">nearest</span><span class="p">(</span><span class="n">point</span><span class="p">,</span> <span class="n">objects</span><span class="o">=</span><span class="s1">&#39;raw&#39;</span><span class="p">))</span>
+
+                <span class="k">if</span> <span class="ow">not</span> <span class="n">results</span><span class="p">:</span>
+                    <span class="k">raise</span> <span class="ne">IndexError</span>
+
+                <span class="k">for</span> <span class="n">_perid</span><span class="p">,</span> <span class="n">_covtype</span><span class="p">,</span> <span class="n">_paid</span><span class="p">,</span> <span class="n">_pabnds</span><span class="p">,</span> <span class="n">_pacoords</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">)</span> <span class="o">==</span> <span class="p">(</span><span class="n">_perid</span><span class="p">,</span> <span class="n">_covtype</span><span class="p">):</span>
+                        <span class="n">paid</span><span class="p">,</span> <span class="n">pabnds</span><span class="p">,</span> <span class="n">pacoords</span> <span class="o">=</span> <span class="n">_paid</span><span class="p">,</span> <span class="n">_pabnds</span><span class="p">,</span> <span class="n">_pacoords</span>
+                        <span class="k">break</span>
+
+                <span class="k">if</span> <span class="n">paid</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;No intersecting or nearest peril area found for peril ID </span><span class="si">{}</span><span class="s1"> and coverage type </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;nomatch&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">IndexError</span><span class="p">:</span>
+                <span class="k">pass</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">p</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+                <span class="n">min_dist</span> <span class="o">=</span> <span class="n">p</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">boundary</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">min_dist</span> <span class="o">&gt;</span> <span class="n">loc_to_areas_min_dist</span><span class="p">:</span>
+                    <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                        <span class="s1">&#39;Peril area lookup: location is </span><span class="si">{}</span><span class="s1"> units from the &#39;</span>
+                        <span class="s1">&#39;peril areas global boundary -  the required minimum &#39;</span>
+                        <span class="s1">&#39;distance is </span><span class="si">{}</span><span class="s1"> units&#39;</span>
+                        <span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">min_dist</span><span class="p">,</span> <span class="n">loc_to_areas_min_dist</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="k">return</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span>
+                <span class="n">st</span> <span class="o">=</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+                <span class="n">msg</span> <span class="o">=</span> <span class="p">(</span>
+                    <span class="s1">&#39;Successful peril area lookup: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">paid</span><span class="p">)</span>
+                <span class="p">)</span>
+        <span class="k">except</span> <span class="n">RTreeError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="kc">None</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">st</span> <span class="o">=</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="n">msg</span> <span class="o">=</span> <span class="s1">&#39;Successful peril area lookup: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">paid</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">st</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="n">paid</span><span class="p">,</span> <span class="n">pabnds</span><span class="p">,</span> <span class="n">pacoords</span><span class="p">,</span> <span class="n">msg</span><span class="p">)</span></div></div>
+
+
+<div class="viewcode-block" id="OasisVulnerabilityLookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisVulnerabilityLookup">[docs]</a><span class="k">class</span> <span class="nc">OasisVulnerabilityLookup</span><span class="p">(</span><span class="n">OasisBuiltinBaseLookup</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Simple key-value based vulnerability lookup</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="n">config</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_json</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">config_dir</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+        <span class="n">vulnerabilities</span><span class="o">=</span><span class="kc">None</span>
+    <span class="p">):</span>
+        <span class="nb">super</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="vm">__class__</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">config</span><span class="o">=</span><span class="n">config</span><span class="p">,</span> <span class="n">config_json</span><span class="o">=</span><span class="n">config_json</span><span class="p">,</span> <span class="n">config_fp</span><span class="o">=</span><span class="n">config_fp</span><span class="p">,</span> <span class="n">config_dir</span><span class="o">=</span><span class="n">config_dir</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">vulnerabilities</span> <span class="ow">or</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vulnerability&#39;</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">col_dtypes</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_cols</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vuln_id_col</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">vulnerabilities</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">get_vulnerabilities</span><span class="p">(</span><span class="n">vulnerabilities</span><span class="o">=</span><span class="n">vulnerabilities</span><span class="p">)</span>
+
+    <span class="nd">@oasis_log</span><span class="p">()</span>
+<div class="viewcode-block" id="OasisVulnerabilityLookup.get_vulnerabilities"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisVulnerabilityLookup.get_vulnerabilities">[docs]</a>    <span class="k">def</span> <span class="nf">get_vulnerabilities</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vulnerabilities</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                <span class="s1">&#39;No lookup configuration provided or set - use `get_config` &#39;</span>
+                <span class="s1">&#39;on this instance to set it and provide either an actual &#39;</span>
+                <span class="s1">&#39;model config dict (use `model_config` argument), or a model &#39;</span>
+                <span class="s1">&#39;config JSON string (use `model_config_json` argument, or a &#39;</span>
+                <span class="s1">&#39;model config JSON file path (use `model_config_fp` argument)&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">vuln_config</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vulnerability&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">vuln_config</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;No vulnerability config set in the lookup config&#39;</span><span class="p">)</span>
+
+        <span class="n">col_dtypes</span> <span class="o">=</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;col_dtypes&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">col_dtypes</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                <span class="s1">&#39;Vulnerability file column data types must be defined as a &#39;</span>
+                <span class="s1">&#39;(col, data type) dict in the vulnerability section of the &#39;</span>
+                <span class="s1">&#39;lookup config&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">col_dtypes</span> <span class="o">=</span> <span class="p">{</span>
+            <span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">builtins</span><span class="p">,</span> <span class="n">v</span><span class="p">)</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">col_dtypes</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">}</span>
+
+        <span class="n">key_cols</span> <span class="o">=</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;key_cols&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;key_cols&#39;</span><span class="p">):</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                <span class="s1">&#39;The vulnerability file key column names must be listed in the &#39;</span>
+                <span class="s1">&#39;vulnerability section of the lookup config&#39;</span>
+            <span class="p">)</span>
+
+        <span class="n">key_cols</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">key_cols</span><span class="p">)</span>
+
+        <span class="n">vuln_id_col</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;vulnerability&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vulnerability_id_col&#39;</span><span class="p">))</span> <span class="ow">or</span> <span class="s1">&#39;vulnerability_id&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="k">def</span> <span class="nf">_vuln_dict</span><span class="p">(</span><span class="n">vulns_seq</span><span class="p">,</span> <span class="n">key_cols</span><span class="p">,</span> <span class="n">vuln_id_col</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">(</span>
+                <span class="p">{</span><span class="n">v</span><span class="p">[</span><span class="n">key_cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]:</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">vuln_id_col</span><span class="p">)</span> <span class="ow">or</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vulnerability_id&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vulns_seq</span><span class="p">}</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_cols</span><span class="p">)</span> <span class="o">==</span> <span class="mi">1</span>
+                <span class="k">else</span> <span class="n">OrderedDict</span><span class="p">(</span>
+                    <span class="p">{</span><span class="nb">tuple</span><span class="p">(</span><span class="n">v</span><span class="p">[</span><span class="n">key_cols</span><span class="p">[</span><span class="n">i</span><span class="p">]]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">key_cols</span><span class="p">))):</span> <span class="p">(</span><span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">vuln_id_col</span><span class="p">)</span> <span class="ow">or</span> <span class="n">v</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;vulnerability_id&#39;</span><span class="p">))</span> <span class="k">for</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vulns_seq</span><span class="p">}</span>
+                <span class="p">)</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">vulnerabilities</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">col_dtypes</span><span class="p">,</span> <span class="n">key_cols</span><span class="p">,</span> <span class="n">vuln_id_col</span><span class="p">,</span> <span class="n">_vuln_dict</span><span class="p">(</span><span class="nb">enumerate</span><span class="p">(</span><span class="n">vulnerabilities</span><span class="p">),</span> <span class="n">key_cols</span><span class="p">)</span>
+
+        <span class="n">src_fp</span> <span class="o">=</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;file_path&#39;</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">src_fp</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+                <span class="s1">&#39;No vulnerabilities file path provided in the lookup config&#39;</span>
+            <span class="p">)</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isabs</span><span class="p">(</span><span class="n">src_fp</span><span class="p">):</span>
+            <span class="n">src_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config_dir</span><span class="p">,</span> <span class="n">src_fp</span><span class="p">)</span>
+            <span class="n">src_fp</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">src_fp</span><span class="p">)</span>
+
+        <span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">[</span><span class="s1">&#39;vulnerability&#39;</span><span class="p">][</span><span class="s1">&#39;file_path&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">src_fp</span>
+
+        <span class="n">src_type</span> <span class="o">=</span> <span class="nb">str</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;file_type&#39;</span><span class="p">))</span> <span class="ow">or</span> <span class="s1">&#39;csv&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+        <span class="n">float_precision</span> <span class="o">=</span> <span class="s1">&#39;high&#39;</span> <span class="k">if</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;float_precision_high&#39;</span><span class="p">)</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="n">non_na_cols</span> <span class="o">=</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;non_na_cols&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">list</span><span class="p">(</span><span class="n">key_cols</span><span class="p">)</span> <span class="o">+</span> <span class="p">[</span><span class="n">vuln_id_col</span><span class="p">])</span>
+
+        <span class="n">sort_cols</span> <span class="o">=</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sort_cols&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">vuln_id_col</span>
+        <span class="n">sort_ascending</span> <span class="o">=</span> <span class="n">vuln_config</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sort_ascending&#39;</span><span class="p">)</span>
+
+        <span class="n">vuln_df</span> <span class="o">=</span> <span class="n">get_dataframe</span><span class="p">(</span>
+            <span class="n">src_fp</span><span class="o">=</span><span class="n">src_fp</span><span class="p">,</span>
+            <span class="n">src_type</span><span class="o">=</span><span class="n">src_type</span><span class="p">,</span>
+            <span class="n">float_precision</span><span class="o">=</span><span class="n">float_precision</span><span class="p">,</span>
+            <span class="n">lowercase_cols</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+            <span class="n">non_na_cols</span><span class="o">=</span><span class="n">non_na_cols</span><span class="p">,</span>
+            <span class="n">col_dtypes</span><span class="o">=</span><span class="n">col_dtypes</span><span class="p">,</span>
+            <span class="n">sort_cols</span><span class="o">=</span><span class="n">sort_cols</span><span class="p">,</span>
+            <span class="n">sort_ascending</span><span class="o">=</span><span class="n">sort_ascending</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">col_dtypes</span><span class="p">,</span> <span class="n">key_cols</span><span class="p">,</span> <span class="n">vuln_id_col</span><span class="p">,</span> <span class="n">_vuln_dict</span><span class="p">((</span><span class="n">v</span> <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">vuln_df</span><span class="o">.</span><span class="n">iterrows</span><span class="p">()),</span> <span class="n">key_cols</span><span class="p">,</span> <span class="n">vuln_id_col</span><span class="p">)</span></div>
+
+<div class="viewcode-block" id="OasisVulnerabilityLookup.lookup"><a class="viewcode-back" href="../../../autoapi/oasislmf/model_preparation/lookup/index.html#oasislmf.model_preparation.lookup.OasisVulnerabilityLookup.lookup">[docs]</a>    <span class="k">def</span> <span class="nf">lookup</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">loc</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Vulnerability lookup for an individual location item, which could be a dict or a</span>
+<span class="sd">        Pandas series.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">loc_id</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">int</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">UUID</span><span class="p">(</span><span class="nb">bytes</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">urandom</span><span class="p">(</span><span class="mi">16</span><span class="p">))</span><span class="o">.</span><span class="n">hex</span><span class="p">[:</span><span class="mi">16</span><span class="p">],</span> <span class="mi">16</span><span class="p">)</span>
+
+        <span class="n">key_cols</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">key_cols</span>
+        <span class="n">col_dtypes</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">col_dtypes</span>
+
+        <span class="n">loc_key_col_values</span> <span class="o">=</span> <span class="n">OrderedDict</span><span class="p">({</span>
+            <span class="n">key_col</span><span class="p">:</span> <span class="n">loc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">key_col</span><span class="p">)</span> <span class="k">for</span> <span class="n">key_col</span> <span class="ow">in</span> <span class="n">key_cols</span>
+        <span class="p">})</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">loc_key_col_values</span><span class="p">[</span><span class="s1">&#39;peril_id&#39;</span><span class="p">]:</span>
+            <span class="n">loc_key_col_values</span><span class="p">[</span><span class="s1">&#39;peril_id&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">peril_id</span>
+
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">loc_key_col_values</span><span class="p">[</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">]:</span>
+            <span class="n">loc_key_col_values</span><span class="p">[</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">loc</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coverage&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">coverage_type</span>
+
+        <span class="k">def</span> <span class="nf">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">vlnperid</span><span class="p">,</span> <span class="n">vlncovtype</span><span class="p">,</span> <span class="n">vlnst</span><span class="p">,</span> <span class="n">vlnid</span><span class="p">,</span> <span class="n">vlnmsg</span><span class="p">):</span>
+            <span class="k">return</span> <span class="p">{</span>
+                <span class="n">k</span><span class="p">:</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">itertools</span><span class="o">.</span><span class="n">chain</span><span class="p">(</span>
+                    <span class="p">(</span>
+                        <span class="p">(</span><span class="s1">&#39;loc_id&#39;</span><span class="p">,</span> <span class="n">loc_id</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;peril_id&#39;</span><span class="p">,</span> <span class="n">vlnperid</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;coverage_type&#39;</span><span class="p">,</span> <span class="n">vlncovtype</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;status&#39;</span><span class="p">,</span> <span class="n">vlnst</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;vulnerability_id&#39;</span><span class="p">,</span> <span class="n">vlnid</span><span class="p">),</span>
+                        <span class="p">(</span><span class="s1">&#39;message&#39;</span><span class="p">,</span> <span class="n">vlnmsg</span><span class="p">)</span>
+                    <span class="p">),</span>
+                    <span class="n">loc_key_col_values</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+                <span class="p">)</span>
+            <span class="p">}</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">key_col</span> <span class="ow">in</span> <span class="n">key_cols</span><span class="p">:</span>
+                <span class="n">key_col_dtype</span> <span class="o">=</span> <span class="n">col_dtypes</span><span class="p">[</span><span class="n">key_col</span><span class="p">]</span>
+                <span class="n">key_col_dtype</span><span class="p">(</span><span class="n">loc_key_col_values</span><span class="p">[</span><span class="n">key_col</span><span class="p">])</span>
+        <span class="k">except</span> <span class="p">(</span><span class="ne">TypeError</span><span class="p">,</span> <span class="ne">ValueError</span><span class="p">):</span>
+            <span class="k">return</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">peril_id</span><span class="p">,</span> <span class="n">coverage_type</span><span class="p">,</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;fail&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">],</span> <span class="kc">None</span><span class="p">,</span> <span class="s1">&#39;Vulnerability lookup: invalid key column value(s) for location&#39;</span><span class="p">)</span>
+
+        <span class="n">vlnperid</span> <span class="o">=</span> <span class="n">peril_id</span>
+        <span class="n">vlncovtype</span> <span class="o">=</span> <span class="n">coverage_type</span>
+        <span class="n">vlnst</span> <span class="o">=</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;nomatch&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+        <span class="n">vlnmsg</span> <span class="o">=</span> <span class="s1">&#39;No vulnerability match&#39;</span>
+        <span class="n">vlnid</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">vlnid</span> <span class="o">=</span> <span class="p">(</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">vulnerabilities</span><span class="p">[</span><span class="nb">tuple</span><span class="p">(</span><span class="n">loc_key_col_values</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">key_cols</span><span class="p">)]</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">key_cols</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span>
+                <span class="k">else</span> <span class="bp">self</span><span class="o">.</span><span class="n">vulnerabilities</span><span class="p">[</span><span class="n">loc</span><span class="p">[</span><span class="n">key_cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]]</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="ne">KeyError</span><span class="p">:</span>
+            <span class="k">pass</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">vlnperid</span> <span class="o">=</span> <span class="n">peril_id</span>
+            <span class="n">vlncovtype</span> <span class="o">=</span> <span class="n">coverage_type</span>
+            <span class="n">vlnst</span> <span class="o">=</span> <span class="n">OASIS_KEYS_STATUS</span><span class="p">[</span><span class="s1">&#39;success&#39;</span><span class="p">][</span><span class="s1">&#39;id&#39;</span><span class="p">]</span>
+            <span class="n">vlnmsg</span> <span class="o">=</span> <span class="s1">&#39;Successful vulnerability lookup: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">vlnid</span><span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">_lookup</span><span class="p">(</span><span class="n">loc_id</span><span class="p">,</span> <span class="n">vlnperid</span><span class="p">,</span> <span class="n">vlncovtype</span><span class="p">,</span> <span class="n">vlnst</span><span class="p">,</span> <span class="n">vlnid</span><span class="p">,</span> <span class="n">vlnmsg</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

@@ -1,0 +1,19 @@
+:mod:`src.server.oasisapi.files.admin`
+======================================
+
+.. py:module:: src.server.oasisapi.files.admin
+
+
+Module Contents
+---------------
+
+.. py:class:: RelatedFileAdmin
+
+   Bases: :class:`django.contrib.admin.ModelAdmin`
+
+   .. attribute:: list_display
+      :annotation: = ['file', 'filename', 'content_type', 'creator']
+
+      
+
+

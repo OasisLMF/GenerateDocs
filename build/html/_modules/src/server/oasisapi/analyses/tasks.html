@@ -1,0 +1,608 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server.oasisapi.analyses.tasks &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.server.oasisapi.analyses.tasks</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.server.oasisapi.analyses.tasks</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">__future__</span> <span class="kn">import</span> <span class="n">absolute_import</span>
+
+<span class="kn">import</span> <span class="nn">uuid</span>
+
+<span class="kn">from</span> <span class="nn">celery.utils.log</span> <span class="kn">import</span> <span class="n">get_task_logger</span>
+<span class="kn">from</span> <span class="nn">django.contrib.auth</span> <span class="kn">import</span> <span class="n">get_user_model</span>
+<span class="kn">from</span> <span class="nn">django.core.exceptions</span> <span class="kn">import</span> <span class="n">ObjectDoesNotExist</span>
+<span class="kn">from</span> <span class="nn">django.core.files</span> <span class="kn">import</span> <span class="n">File</span>
+<span class="kn">from</span> <span class="nn">django.http</span> <span class="kn">import</span> <span class="n">HttpRequest</span>
+<span class="kn">from</span> <span class="nn">django.utils</span> <span class="kn">import</span> <span class="n">timezone</span>
+<span class="kn">from</span> <span class="nn">six</span> <span class="kn">import</span> <span class="n">StringIO</span>
+
+<span class="kn">from</span> <span class="nn">src.server.oasisapi.files.models</span> <span class="kn">import</span> <span class="n">RelatedFile</span>
+<span class="kn">from</span> <span class="nn">src.server.oasisapi.files.views</span> <span class="kn">import</span> <span class="n">handle_json_data</span>
+<span class="kn">from</span> <span class="nn">src.server.oasisapi.schemas.serializers</span> <span class="kn">import</span> <span class="n">ModelParametersSerializer</span>
+
+<span class="kn">from</span> <span class="nn">..celery</span> <span class="kn">import</span> <span class="n">celery_app</span>
+<div class="viewcode-block" id="logger"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.logger">[docs]</a><span class="n">logger</span> <span class="o">=</span> <span class="n">get_task_logger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span></div>
+
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;run_register_worker&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="run_register_worker"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.run_register_worker">[docs]</a><span class="k">def</span> <span class="nf">run_register_worker</span><span class="p">(</span><span class="n">m_supplier</span><span class="p">,</span> <span class="n">m_name</span><span class="p">,</span> <span class="n">m_id</span><span class="p">,</span> <span class="n">m_settings</span><span class="p">,</span> <span class="n">m_version</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;model_supplier: </span><span class="si">{}</span><span class="s1">, model_name: </span><span class="si">{}</span><span class="s1">, model_id: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">m_supplier</span><span class="p">,</span> <span class="n">m_name</span><span class="p">,</span> <span class="n">m_id</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">django.contrib.auth.models</span> <span class="kn">import</span> <span class="n">User</span>
+        <span class="kn">from</span> <span class="nn">src.server.oasisapi.analysis_models.models</span> <span class="kn">import</span> <span class="n">AnalysisModel</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">AnalysisModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+                <span class="n">model_id</span><span class="o">=</span><span class="n">m_name</span><span class="p">,</span>
+                <span class="n">supplier_id</span><span class="o">=</span><span class="n">m_supplier</span><span class="p">,</span>
+                <span class="n">version_id</span><span class="o">=</span><span class="n">m_id</span>
+            <span class="p">)</span>
+        <span class="k">except</span> <span class="n">ObjectDoesNotExist</span><span class="p">:</span>
+            <span class="n">user</span> <span class="o">=</span> <span class="n">User</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="s1">&#39;admin&#39;</span><span class="p">)</span>
+            <span class="n">model</span> <span class="o">=</span> <span class="n">AnalysisModel</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">model_id</span><span class="o">=</span><span class="n">m_name</span><span class="p">,</span>
+                <span class="n">supplier_id</span><span class="o">=</span><span class="n">m_supplier</span><span class="p">,</span>
+                <span class="n">version_id</span><span class="o">=</span><span class="n">m_id</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">user</span>
+            <span class="p">)</span>
+
+        <span class="c1"># Update model settings file</span>
+        <span class="k">if</span> <span class="n">m_settings</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">request</span> <span class="o">=</span> <span class="n">HttpRequest</span><span class="p">()</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">data</span> <span class="o">=</span> <span class="p">{</span><span class="o">**</span><span class="n">m_settings</span><span class="p">}</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">=</span> <span class="s1">&#39;post&#39;</span>
+                <span class="n">request</span><span class="o">.</span><span class="n">user</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">creator</span> 
+                <span class="n">handle_json_data</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="s1">&#39;resource_file&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">ModelParametersSerializer</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Updated model settings&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Failed to update model settings:&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+        <span class="c1"># Update model version info</span>
+        <span class="k">if</span> <span class="n">m_version</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">ver_ktools</span> <span class="o">=</span>  <span class="n">m_version</span><span class="p">[</span><span class="s1">&#39;ktools&#39;</span><span class="p">]</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">ver_oasislmf</span> <span class="o">=</span> <span class="n">m_version</span><span class="p">[</span><span class="s1">&#39;oasislmf&#39;</span><span class="p">]</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">ver_platform</span> <span class="o">=</span> <span class="n">m_version</span><span class="p">[</span><span class="s1">&#39;platform&#39;</span><span class="p">]</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Updated model versions&#39;</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Failed to set model veriosns:&#39;</span><span class="p">)</span>
+                <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+
+
+    <span class="c1"># Log unhandled execptions</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="n">model</span><span class="p">)</span></div>
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;set_task_status&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="set_task_status"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.set_task_status">[docs]</a><span class="k">def</span> <span class="nf">set_task_status</span><span class="p">(</span><span class="n">analysis_pk</span><span class="p">,</span> <span class="n">task_status</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Analysis</span>
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">analysis_pk</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">task_status</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">save</span><span class="p">(</span><span class="n">update_fields</span><span class="o">=</span><span class="p">[</span><span class="s2">&quot;status&quot;</span><span class="p">])</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;Task Status Update: analysis_pk: </span><span class="si">{}</span><span class="s1">, status: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">analysis_pk</span><span class="p">,</span> <span class="n">task_status</span><span class="p">))</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">&#39;Task Status Update: Failed&#39;</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;record_run_analysis_result&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="record_run_analysis_result"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.record_run_analysis_result">[docs]</a><span class="k">def</span> <span class="nf">record_run_analysis_result</span><span class="p">(</span><span class="n">res</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">):</span>
+    <span class="n">output_location</span><span class="p">,</span> <span class="n">traceback_location</span><span class="p">,</span> <span class="n">log_location</span><span class="p">,</span> <span class="n">return_code</span> <span class="o">=</span> <span class="n">res</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;output_location: </span><span class="si">{}</span><span class="s1">, log_location: </span><span class="si">{}</span><span class="s1">, traceback_location: </span><span class="si">{}</span><span class="s1">, status: </span><span class="si">{}</span><span class="s1">, analysis_pk: </span><span class="si">{}</span><span class="s1">, initiator_pk: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">output_location</span><span class="p">,</span> <span class="n">traceback_location</span><span class="p">,</span> <span class="n">log_location</span><span class="p">,</span> <span class="n">return_code</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Analysis</span>
+
+        <span class="n">initiator</span> <span class="o">=</span> <span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">)</span>
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">analysis_pk</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">RUN_COMPLETED</span> <span class="k">if</span> <span class="n">return_code</span> <span class="o">==</span> <span class="mi">0</span> <span class="k">else</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">RUN_ERROR</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">task_finished</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="c1"># Store results</span>
+        <span class="k">if</span> <span class="n">return_code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">output_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">output_location</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">output_location</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/gzip&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">initiator</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">analysis</span><span class="o">.</span><span class="n">output_file</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">output_file</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">output_file</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="c1"># Store Ktools logs</span>
+        <span class="k">if</span> <span class="n">log_location</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">run_log_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">log_location</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">log_location</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/gzip&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">initiator</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="k">elif</span> <span class="n">analysis</span><span class="o">.</span><span class="n">run_log_file</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">run_log_file</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">run_log_file</span> <span class="o">=</span> <span class="kc">None</span>
+
+
+        <span class="c1"># record the error file</span>
+        <span class="k">if</span> <span class="n">traceback_location</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">run_traceback_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">traceback_location</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">traceback_location</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/plain&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">initiator</span><span class="p">,</span>
+            <span class="p">)</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;record_generate_input_result&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="record_generate_input_result"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.record_generate_input_result">[docs]</a><span class="k">def</span> <span class="nf">record_generate_input_result</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;result: </span><span class="si">{}</span><span class="s1">, analysis_pk: </span><span class="si">{}</span><span class="s1">, initiator_pk: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Analysis</span>
+        <span class="p">(</span>
+            <span class="n">input_location</span><span class="p">,</span>
+            <span class="n">lookup_error_fp</span><span class="p">,</span>
+            <span class="n">lookup_success_fp</span><span class="p">,</span>
+            <span class="n">lookup_validation_fp</span><span class="p">,</span>
+            <span class="n">summary_levels_fp</span><span class="p">,</span>
+            <span class="n">traceback_fp</span><span class="p">,</span>
+            <span class="n">return_code</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">result</span>
+
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">analysis_pk</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">task_finished</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="c1"># SUCCESS </span>
+        <span class="k">if</span> <span class="n">return_code</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">READY</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">input_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">input_location</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">input_location</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/gzip&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_errors_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">lookup_error_fp</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;keys-errors.csv&#39;</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/csv&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_success_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">lookup_success_fp</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;gul_summary_map.csv&#39;</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/csv&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+            <span class="p">)</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_validation_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">lookup_validation_fp</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;exposure_summary_report.json&#39;</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+            <span class="p">)</span>
+
+            <span class="n">analysis</span><span class="o">.</span><span class="n">summary_levels_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">summary_levels_fp</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;exposure_summary_levels.json&#39;</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+            <span class="p">)</span>
+
+        <span class="c1"># FAILED</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">INPUTS_GENERATION_ERROR</span>
+            <span class="c1"># Delete previous output </span>
+            <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">input_file</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">input_file</span>
+                <span class="n">analysis</span><span class="o">.</span><span class="n">input_file</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">ref</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_errors_file</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_errors_file</span>
+                <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_errors_file</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">ref</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_success_file</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_success_file</span>
+                <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_success_file</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">ref</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_validation_file</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_validation_file</span>
+                <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_validation_file</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">ref</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">summary_levels_file</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">summary_levels_file</span>
+                <span class="n">analysis</span><span class="o">.</span><span class="n">summary_levels_file</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">ref</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span><span class="p">:</span>
+                <span class="n">ref</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span>
+                <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span> <span class="o">=</span> <span class="kc">None</span>
+                <span class="n">ref</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="c1"># always store traceback </span>
+        <span class="k">if</span> <span class="n">traceback_fp</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+                <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">traceback_fp</span><span class="p">),</span>
+                <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">traceback_fp</span><span class="p">),</span>
+                <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/plain&#39;</span><span class="p">,</span>
+                <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+            <span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;record_run_analysis_failure&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="record_run_analysis_failure"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.record_run_analysis_failure">[docs]</a><span class="k">def</span> <span class="nf">record_run_analysis_failure</span><span class="p">(</span><span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;&quot;run_analysis_success&quot; is deprecated and should only be used to process tasks already on the queue.&#39;</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;analysis_pk: </span><span class="si">{}</span><span class="s1">, initiator_pk: </span><span class="si">{}</span><span class="s1">, traceback: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">,</span> <span class="n">traceback</span><span class="p">))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Analysis</span>
+
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">analysis_pk</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">RUN_ERROR</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">task_finished</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">random_filename</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">run_traceback_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="n">File</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">traceback</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">random_filename</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="n">random_filename</span><span class="p">,</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/plain&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># remove the current command log file</span>
+        <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">run_log_file</span><span class="p">:</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">run_log_file</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">run_log_file</span> <span class="o">=</span> <span class="kc">None</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;record_generate_input_failure&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="record_generate_input_failure"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.record_generate_input_failure">[docs]</a><span class="k">def</span> <span class="nf">record_generate_input_failure</span><span class="p">(</span><span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">,</span> <span class="n">traceback</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;analysis_pk: </span><span class="si">{}</span><span class="s1">, initiator_pk: </span><span class="si">{}</span><span class="s1">, traceback: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">,</span> <span class="n">traceback</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Analysis</span>
+
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">analysis_pk</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">INPUTS_GENERATION_ERROR</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">task_finished</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">random_filename</span> <span class="o">=</span> <span class="s1">&#39;</span><span class="si">{}</span><span class="s1">.txt&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">uuid</span><span class="o">.</span><span class="n">uuid4</span><span class="p">()</span><span class="o">.</span><span class="n">hex</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="n">File</span><span class="p">(</span><span class="n">StringIO</span><span class="p">(</span><span class="n">traceback</span><span class="p">),</span> <span class="n">name</span><span class="o">=</span><span class="n">random_filename</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="n">random_filename</span><span class="p">,</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/plain&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+<span class="c1">## --- Deprecated tasks ---------------------------------------------------- ##</span>
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;run_analysis_success&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="run_analysis_success"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.run_analysis_success">[docs]</a><span class="k">def</span> <span class="nf">run_analysis_success</span><span class="p">(</span><span class="n">output_location</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;&quot;run_analysis_success&quot; is deprecated and should only be used to process tasks already on the queue.&#39;</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;output_location: </span><span class="si">{}</span><span class="s1">, analysis_pk: </span><span class="si">{}</span><span class="s1">, initiator_pk: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">output_location</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">))</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Analysis</span>
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">analysis_pk</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">RUN_COMPLETED</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">task_finished</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">output_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">output_location</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">output_location</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/gzip&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Delete previous error trace</span>
+        <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">run_traceback_file</span><span class="p">:</span>
+            <span class="n">traceback</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">run_traceback_file</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">run_traceback_file</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">traceback</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+
+
+
+<span class="nd">@celery_app</span><span class="o">.</span><span class="n">task</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="s1">&#39;generate_input_success&#39;</span><span class="p">)</span>
+<div class="viewcode-block" id="generate_input_success"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/analyses/tasks/index.html#src.server.oasisapi.analyses.tasks.generate_input_success">[docs]</a><span class="k">def</span> <span class="nf">generate_input_success</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">):</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">&#39;&quot;generate_input_success&quot; is deprecated and should only be used to process tasks already on the queue.&#39;</span><span class="p">)</span>
+
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;result: </span><span class="si">{}</span><span class="s1">, analysis_pk: </span><span class="si">{}</span><span class="s1">, initiator_pk: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+        <span class="n">result</span><span class="p">,</span> <span class="n">analysis_pk</span><span class="p">,</span> <span class="n">initiator_pk</span><span class="p">))</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">Analysis</span>
+        <span class="p">(</span>
+            <span class="n">input_location</span><span class="p">,</span>
+            <span class="n">lookup_error_fp</span><span class="p">,</span>
+            <span class="n">lookup_success_fp</span><span class="p">,</span>
+            <span class="n">lookup_validation_fp</span><span class="p">,</span>
+            <span class="n">summary_levels_fp</span><span class="p">,</span>
+        <span class="p">)</span> <span class="o">=</span> <span class="n">result</span>
+
+        <span class="n">analysis</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">analysis_pk</span><span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">Analysis</span><span class="o">.</span><span class="n">status_choices</span><span class="o">.</span><span class="n">READY</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">task_finished</span> <span class="o">=</span> <span class="n">timezone</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">input_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">input_location</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">input_location</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/gzip&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_errors_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">lookup_error_fp</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;keys-errors.csv&#39;</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/csv&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_success_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">lookup_success_fp</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;gul_summary_map.csv&#39;</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;text/csv&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+        <span class="n">analysis</span><span class="o">.</span><span class="n">lookup_validation_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">lookup_validation_fp</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;exposure_summary_report.json&#39;</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">summary_levels_file</span> <span class="o">=</span> <span class="n">RelatedFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">create</span><span class="p">(</span>
+            <span class="n">file</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="n">summary_levels_fp</span><span class="p">),</span>
+            <span class="n">filename</span><span class="o">=</span><span class="nb">str</span><span class="p">(</span><span class="s1">&#39;exposure_summary_levels.json&#39;</span><span class="p">),</span>
+            <span class="n">content_type</span><span class="o">=</span><span class="s1">&#39;application/json&#39;</span><span class="p">,</span>
+            <span class="n">creator</span><span class="o">=</span><span class="n">get_user_model</span><span class="p">()</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">pk</span><span class="o">=</span><span class="n">initiator_pk</span><span class="p">),</span>
+        <span class="p">)</span>
+
+        <span class="c1"># Delete previous error trace</span>
+        <span class="k">if</span> <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span><span class="p">:</span>
+            <span class="n">traceback</span> <span class="o">=</span> <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span>
+            <span class="n">analysis</span><span class="o">.</span><span class="n">input_generation_traceback_file</span> <span class="o">=</span> <span class="kc">None</span>
+            <span class="n">traceback</span><span class="o">.</span><span class="n">delete</span><span class="p">()</span>
+
+        <span class="n">analysis</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">exception</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

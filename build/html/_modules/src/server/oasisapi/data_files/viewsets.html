@@ -1,0 +1,322 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server.oasisapi.data_files.viewsets &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../" src="../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../../../index.html">Module code</a> &raquo;</li>
+        
+      <li>src.server.oasisapi.data_files.viewsets</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for src.server.oasisapi.data_files.viewsets</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span> <span class="nn">django.utils.translation</span> <span class="kn">import</span> <span class="n">ugettext_lazy</span> <span class="k">as</span> <span class="n">_</span>
+<span class="kn">from</span> <span class="nn">django_filters</span> <span class="kn">import</span> <span class="n">rest_framework</span> <span class="k">as</span> <span class="n">filters</span>
+<span class="kn">from</span> <span class="nn">drf_yasg.utils</span> <span class="kn">import</span> <span class="n">swagger_auto_schema</span>
+<span class="kn">from</span> <span class="nn">rest_framework</span> <span class="kn">import</span> <span class="n">viewsets</span>
+<span class="kn">from</span> <span class="nn">rest_framework.decorators</span> <span class="kn">import</span> <span class="n">action</span>
+<span class="kn">from</span> <span class="nn">rest_framework.parsers</span> <span class="kn">import</span> <span class="n">MultiPartParser</span>
+<span class="kn">from</span> <span class="nn">rest_framework.settings</span> <span class="kn">import</span> <span class="n">api_settings</span>
+
+<span class="kn">from</span> <span class="nn">..files.serializers</span> <span class="kn">import</span> <span class="n">RelatedFileSerializer</span>
+<span class="kn">from</span> <span class="nn">..files.views</span> <span class="kn">import</span> <span class="n">handle_related_file</span>
+<span class="kn">from</span> <span class="nn">..filters</span> <span class="kn">import</span> <span class="n">TimeStampedFilter</span>
+<span class="kn">from</span> <span class="nn">.models</span> <span class="kn">import</span> <span class="n">DataFile</span>
+<span class="kn">from</span> <span class="nn">..schemas.custom_swagger</span> <span class="kn">import</span> <span class="n">FILE_RESPONSE</span>
+<span class="kn">from</span> <span class="nn">.serializers</span> <span class="kn">import</span> <span class="n">DataFileSerializer</span>
+
+
+<div class="viewcode-block" id="DataFileFilter"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter">[docs]</a><span class="k">class</span> <span class="nc">DataFileFilter</span><span class="p">(</span><span class="n">TimeStampedFilter</span><span class="p">):</span>
+<div class="viewcode-block" id="DataFileFilter.filename"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.filename">[docs]</a>    <span class="n">filename</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Filter results by case insensitive `filename` equal to the given string&#39;</span><span class="p">),</span>
+        <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;iexact&#39;</span><span class="p">,</span>
+        <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;file__filename&#39;</span></div>
+    <span class="p">)</span>
+<div class="viewcode-block" id="DataFileFilter.filename__contains"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.filename__contains">[docs]</a>    <span class="n">filename__contains</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Filter results by case insensitive `filename` containing the given string&#39;</span><span class="p">),</span>
+        <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;icontains&#39;</span><span class="p">,</span>
+        <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;file__filename&#39;</span></div>
+    <span class="p">)</span>
+<div class="viewcode-block" id="DataFileFilter.content_type"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.content_type">[docs]</a>    <span class="n">content_type</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Filter results by case insensitive `content_type` equal to the given string&#39;</span><span class="p">),</span>
+        <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;iexact&#39;</span><span class="p">,</span>
+        <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;file__content_type&#39;</span></div>
+    <span class="p">)</span>
+<div class="viewcode-block" id="DataFileFilter.content_type__contains"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.content_type__contains">[docs]</a>    <span class="n">content_type__contains</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Filter results by case insensitive `content_type` containing the given string&#39;</span><span class="p">),</span>
+        <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;icontains&#39;</span><span class="p">,</span>
+        <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;file__content_type&#39;</span></div>
+    <span class="p">)</span>
+<div class="viewcode-block" id="DataFileFilter.file_description"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.file_description">[docs]</a>    <span class="n">file_description</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Filter results by case insensitive `file_description` equal to the given string&#39;</span><span class="p">),</span>
+        <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;iexact&#39;</span><span class="p">,</span>
+        <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;file_description&#39;</span></div>
+    <span class="p">)</span>
+<div class="viewcode-block" id="DataFileFilter.file_description__contains"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.file_description__contains">[docs]</a>    <span class="n">file_description__contains</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Filter results by case insensitive `file_description` containing the given string&#39;</span><span class="p">),</span>
+        <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;icontains&#39;</span><span class="p">,</span>
+        <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;file_description&#39;</span></div>
+    <span class="p">)</span>
+<div class="viewcode-block" id="DataFileFilter.user"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.user">[docs]</a>    <span class="n">user</span> <span class="o">=</span> <span class="n">filters</span><span class="o">.</span><span class="n">CharFilter</span><span class="p">(</span>
+        <span class="n">help_text</span><span class="o">=</span><span class="n">_</span><span class="p">(</span><span class="s1">&#39;Filter results by case insensitive `user` equal to the given string&#39;</span><span class="p">),</span>
+        <span class="n">lookup_expr</span><span class="o">=</span><span class="s1">&#39;iexact&#39;</span><span class="p">,</span>
+        <span class="n">field_name</span><span class="o">=</span><span class="s1">&#39;creator__username&#39;</span></div>
+    <span class="p">)</span>
+
+<div class="viewcode-block" id="DataFileFilter.Meta"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.Meta">[docs]</a>    <span class="k">class</span> <span class="nc">Meta</span><span class="p">:</span>
+<div class="viewcode-block" id="DataFileFilter.Meta.model"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.Meta.model">[docs]</a>        <span class="n">model</span> <span class="o">=</span> <span class="n">DataFile</span></div>
+<div class="viewcode-block" id="DataFileFilter.Meta.fields"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileFilter.Meta.fields">[docs]</a>        <span class="n">fields</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="s1">&#39;filename&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;filename__contains&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;file_description&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;file_description__contains&#39;</span><span class="p">,</span>
+            <span class="s1">&#39;user&#39;</span><span class="p">,</span></div></div></div>
+        <span class="p">]</span>
+
+
+<div class="viewcode-block" id="DataFileViewset"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset">[docs]</a><span class="k">class</span> <span class="nc">DataFileViewset</span><span class="p">(</span><span class="n">viewsets</span><span class="o">.</span><span class="n">ModelViewSet</span><span class="p">):</span>
+<div class="viewcode-block" id="DataFileViewset.queryset"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset.queryset">[docs]</a>    <span class="n">queryset</span> <span class="o">=</span> <span class="n">DataFile</span><span class="o">.</span><span class="n">objects</span><span class="o">.</span><span class="n">all</span><span class="p">()</span></div>
+<div class="viewcode-block" id="DataFileViewset.serializer_class"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset.serializer_class">[docs]</a>    <span class="n">serializer_class</span> <span class="o">=</span> <span class="n">DataFileSerializer</span></div>
+<div class="viewcode-block" id="DataFileViewset.filter_class"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset.filter_class">[docs]</a>    <span class="n">filter_class</span> <span class="o">=</span> <span class="n">DataFileFilter</span></div>
+
+<div class="viewcode-block" id="DataFileViewset.get_serializer_class"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset.get_serializer_class">[docs]</a>    <span class="k">def</span> <span class="nf">get_serializer_class</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">action</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;content&#39;</span><span class="p">,</span> <span class="s1">&#39;set_content&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="n">RelatedFileSerializer</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="nb">super</span><span class="p">(</span><span class="n">DataFileViewset</span><span class="p">,</span> <span class="bp">self</span><span class="p">)</span><span class="o">.</span><span class="n">get_serializer_class</span><span class="p">()</span></div>
+
+    <span class="nd">@property</span>
+<div class="viewcode-block" id="DataFileViewset.parser_classes"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset.parser_classes">[docs]</a>    <span class="k">def</span> <span class="nf">parser_classes</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">if</span> <span class="nb">getattr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="s1">&#39;action&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span> <span class="ow">in</span> <span class="p">[</span><span class="s1">&#39;set_content&#39;</span><span class="p">]:</span>
+            <span class="k">return</span> <span class="p">[</span><span class="n">MultiPartParser</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">api_settings</span><span class="o">.</span><span class="n">DEFAULT_PARSER_CLASSES</span></div>
+
+    <span class="nd">@swagger_auto_schema</span><span class="p">(</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;get&#39;</span><span class="p">],</span> <span class="n">responses</span><span class="o">=</span><span class="p">{</span><span class="mi">200</span><span class="p">:</span> <span class="n">FILE_RESPONSE</span><span class="p">})</span>
+    <span class="nd">@action</span><span class="p">(</span><span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;get&#39;</span><span class="p">,</span> <span class="s1">&#39;delete&#39;</span><span class="p">],</span> <span class="n">detail</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<div class="viewcode-block" id="DataFileViewset.content"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset.content">[docs]</a>    <span class="k">def</span> <span class="nf">content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        get:</span>
+<span class="sd">        Gets the data file&#39;s file contents</span>
+
+<span class="sd">        delete:</span>
+<span class="sd">        Deletes the data file.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="n">file_response</span> <span class="o">=</span> <span class="n">handle_related_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">(),</span> <span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">file_response</span></div>
+
+    <span class="nd">@content</span><span class="o">.</span><span class="n">mapping</span><span class="o">.</span><span class="n">post</span>
+<div class="viewcode-block" id="DataFileViewset.set_content"><a class="viewcode-back" href="../../../../../autoapi/src/server/oasisapi/data_files/viewsets/index.html#src.server.oasisapi.data_files.viewsets.DataFileViewset.set_content">[docs]</a>    <span class="k">def</span> <span class="nf">set_content</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="n">pk</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">version</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+        <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        post:</span>
+<span class="sd">        Sets the data file&#39;s `file` contents</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="k">return</span> <span class="n">handle_related_file</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">get_object</span><span class="p">(),</span> <span class="s1">&#39;file&#39;</span><span class="p">,</span> <span class="n">request</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span></div></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

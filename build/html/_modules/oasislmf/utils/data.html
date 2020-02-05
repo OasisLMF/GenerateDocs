@@ -1,0 +1,860 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.utils.data &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../" src="../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="../../index.html">Module code</a> &raquo;</li>
+        
+          <li><a href="../../oasislmf.html">oasislmf</a> &raquo;</li>
+        
+      <li>oasislmf.utils.data</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <h1>Source code for oasislmf.utils.data</h1><div class="highlight"><pre>
+<span></span><span class="n">__all__</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="s1">&#39;factorize_array&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;factorize_dataframe&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;factorize_ndarray&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fast_zip_arrays&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;fast_zip_dataframe_columns&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_dataframe&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_dtypes_and_required_cols&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_ids&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_json&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_timestamp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;get_utctimestamp&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;merge_check&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;merge_dataframes&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PANDAS_BASIC_DTYPES&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;PANDAS_DEFAULT_NULL_VALUES&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;set_dataframe_column_dtypes&#39;</span>
+<span class="p">]</span>
+
+<span class="kn">import</span> <span class="nn">builtins</span>
+<span class="kn">import</span> <span class="nn">io</span>
+<span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">warnings</span>
+
+<span class="kn">from</span> <span class="nn">datetime</span> <span class="kn">import</span> <span class="n">datetime</span>
+<span class="kn">from</span> <span class="nn">itertools</span> <span class="kn">import</span> <span class="n">groupby</span>
+
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">json</span> <span class="kn">import</span> <span class="n">JSONDecodeError</span>
+<span class="k">except</span> <span class="ne">ImportError</span><span class="p">:</span>
+    <span class="kn">from</span> <span class="nn">builtins</span> <span class="kn">import</span> <span class="ne">ValueError</span> <span class="k">as</span> <span class="n">JSONDecodeError</span>
+
+<span class="kn">from</span> <span class="nn">tabulate</span> <span class="kn">import</span> <span class="n">tabulate</span>
+
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">pytz</span>
+
+<span class="kn">from</span> <span class="nn">.exceptions</span> <span class="kn">import</span> <span class="n">OasisException</span>
+
+<span class="n">pd</span><span class="o">.</span><span class="n">options</span><span class="o">.</span><span class="n">mode</span><span class="o">.</span><span class="n">chained_assignment</span> <span class="o">=</span> <span class="kc">None</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">simplefilter</span><span class="p">(</span><span class="n">action</span><span class="o">=</span><span class="s1">&#39;ignore&#39;</span><span class="p">,</span> <span class="n">category</span><span class="o">=</span><span class="ne">FutureWarning</span><span class="p">)</span>
+
+<div class="viewcode-block" id="PANDAS_BASIC_DTYPES"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.PANDAS_BASIC_DTYPES">[docs]</a><span class="n">PANDAS_BASIC_DTYPES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;int8&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int8</span><span class="p">,</span>
+    <span class="s1">&#39;uint8&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint8</span><span class="p">,</span>
+    <span class="s1">&#39;int16&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int16</span><span class="p">,</span>
+    <span class="s1">&#39;uint16&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint16</span><span class="p">,</span>
+    <span class="s1">&#39;int32&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int32</span><span class="p">,</span>
+    <span class="s1">&#39;uint32&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint32</span><span class="p">,</span>
+    <span class="s1">&#39;int64&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+    <span class="s1">&#39;uint64&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">uint64</span><span class="p">,</span>
+    <span class="n">builtins</span><span class="o">.</span><span class="n">int</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">int64</span><span class="p">,</span>
+    <span class="s1">&#39;float32&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span>
+    <span class="s1">&#39;float64&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+    <span class="n">builtins</span><span class="o">.</span><span class="n">float</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">float64</span><span class="p">,</span>
+    <span class="s1">&#39;bool&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span>
+    <span class="n">builtins</span><span class="o">.</span><span class="n">bool</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">bool</span><span class="p">,</span>
+    <span class="s1">&#39;str&#39;</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">object</span><span class="p">,</span>
+    <span class="n">builtins</span><span class="o">.</span><span class="n">str</span><span class="p">:</span> <span class="n">np</span><span class="o">.</span><span class="n">object</span></div>
+<span class="p">}</span>
+
+<div class="viewcode-block" id="PANDAS_DEFAULT_NULL_VALUES"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.PANDAS_DEFAULT_NULL_VALUES">[docs]</a><span class="n">PANDAS_DEFAULT_NULL_VALUES</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s1">&#39;-1.#IND&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;1.#QNAN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;1.#IND&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;-1.#QNAN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;#N/A N/A&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;#N/A&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;N/A&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;n/a&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;#NA&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NULL&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;null&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;NaN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;-NaN&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;nan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;-nan&#39;</span><span class="p">,</span>
+    <span class="s1">&#39;&#39;</span></div>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="factorize_array"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.factorize_array">[docs]</a><span class="k">def</span> <span class="nf">factorize_array</span><span class="p">(</span><span class="n">arr</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Groups a 1D Numpy array by item value, and optionally enumerates the</span>
+<span class="sd">    groups, starting from 1. The default or assumed type is a Nunpy</span>
+<span class="sd">    array, although a Python list, tuple or Pandas series will work too.</span>
+
+<span class="sd">    :param arr: 1D Numpy array (or list, tuple, or Pandas series)</span>
+<span class="sd">    :type arr: numpy.ndarray</span>
+
+<span class="sd">    :return: A 2-tuple consisting of the enumeration and the value groups</span>
+<span class="sd">    :rtype: tuple</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">enum</span><span class="p">,</span> <span class="n">groups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">arr</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">enum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">groups</span></div>
+
+
+<div class="viewcode-block" id="factorize_ndarray"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.factorize_ndarray">[docs]</a><span class="k">def</span> <span class="nf">factorize_ndarray</span><span class="p">(</span><span class="n">ndarr</span><span class="p">,</span> <span class="n">row_idxs</span><span class="o">=</span><span class="p">[],</span> <span class="n">col_idxs</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Groups an n-D Numpy array by item value, and optionally enumerates the</span>
+<span class="sd">    groups, starting from 1. The default or assumed type is a Nunpy</span>
+<span class="sd">    array, although a Python list, tuple or Pandas series will work too.</span>
+
+<span class="sd">    :param ndarr: n-D Numpy array (or appropriate Python structure or Pandas dataframe)</span>
+<span class="sd">    :type ndarr: numpy.ndarray</span>
+
+<span class="sd">    :param row_idxs: A list of row indices to use for factorization (optional)</span>
+<span class="sd">    :type row_idxs: list</span>
+
+<span class="sd">    :param col_idxs: A list of column indices to use for factorization (optional)</span>
+<span class="sd">    :type col_idxs: list</span>
+
+<span class="sd">    :return: A 2-tuple consisting of the enumeration and the value groups</span>
+<span class="sd">    :rtype: tuple</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">row_idxs</span> <span class="ow">or</span> <span class="n">col_idxs</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;A list of row indices or column indices must be provided&#39;</span><span class="p">)</span>
+
+    <span class="n">_ndarr</span> <span class="o">=</span> <span class="n">ndarr</span><span class="p">[:,</span> <span class="n">col_idxs</span><span class="p">]</span><span class="o">.</span><span class="n">transpose</span><span class="p">()</span> <span class="k">if</span> <span class="n">col_idxs</span> <span class="k">else</span> <span class="n">ndarr</span><span class="p">[</span><span class="n">row_idxs</span><span class="p">,</span> <span class="p">:]</span>
+    <span class="n">rows</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">_ndarr</span><span class="o">.</span><span class="n">shape</span>
+
+    <span class="k">if</span> <span class="n">rows</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">factorize_array</span><span class="p">(</span><span class="n">_ndarr</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+    <span class="n">enum</span><span class="p">,</span> <span class="n">groups</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">factorize</span><span class="p">(</span><span class="n">fast_zip_arrays</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">arr</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">_ndarr</span><span class="p">)))</span>
+
+    <span class="k">return</span> <span class="n">enum</span> <span class="o">+</span> <span class="mi">1</span><span class="p">,</span> <span class="n">groups</span></div>
+
+
+<div class="viewcode-block" id="factorize_dataframe"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.factorize_dataframe">[docs]</a><span class="k">def</span> <span class="nf">factorize_dataframe</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">by_row_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_row_indices</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_col_labels</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">by_col_indices</span><span class="o">=</span><span class="kc">None</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Groups a selection of rows or columns of a Pandas DataFrame array by value,</span>
+<span class="sd">    and optionally enumerates the groups, starting from 1.</span>
+
+<span class="sd">    :param df: Pandas DataFrame</span>
+<span class="sd">    :type: pandas.DataFrame</span>
+
+<span class="sd">    :param by_row_labels: A list or tuple of row labels</span>
+<span class="sd">    :type by_row_labels: list, tuple</span>
+
+<span class="sd">    :param by_row_indices: A list or tuple of row indices</span>
+<span class="sd">    :type by_row_indices: list, tuple</span>
+
+<span class="sd">    :param by_col_labels: A list or tuple of column labels</span>
+<span class="sd">    :type by_col_labels: list, tuple</span>
+
+<span class="sd">    :param by_col_indices: A list or tuple of column indices</span>
+<span class="sd">    :type by_col_indices: list, tuple</span>
+
+<span class="sd">    :return: A 2-tuple consisting of the enumeration and the value groups</span>
+<span class="sd">    :rtype: tuple</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">by_row_indices</span> <span class="o">=</span> <span class="n">by_row_indices</span> <span class="ow">or</span> <span class="p">(</span><span class="kc">None</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">by_row_labels</span> <span class="k">else</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">by_row_labels</span><span class="p">])</span>
+    <span class="n">by_col_indices</span> <span class="o">=</span> <span class="n">by_col_indices</span> <span class="ow">or</span> <span class="p">(</span><span class="kc">None</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">by_col_labels</span> <span class="k">else</span> <span class="p">[</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">get_loc</span><span class="p">(</span><span class="n">label</span><span class="p">)</span> <span class="k">for</span> <span class="n">label</span> <span class="ow">in</span> <span class="n">by_col_labels</span><span class="p">])</span>
+
+    <span class="k">return</span> <span class="n">factorize_ndarray</span><span class="p">(</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+        <span class="n">row_idxs</span><span class="o">=</span><span class="n">by_row_indices</span><span class="p">,</span>
+        <span class="n">col_idxs</span><span class="o">=</span><span class="n">by_col_indices</span></div>
+    <span class="p">)</span>
+
+
+<div class="viewcode-block" id="fast_zip_arrays"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.fast_zip_arrays">[docs]</a><span class="k">def</span> <span class="nf">fast_zip_arrays</span><span class="p">(</span><span class="o">*</span><span class="n">arrays</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Speedy zip of a sequence or ordered iterable of Numpy arrays (Python</span>
+<span class="sd">    iterables with ordered elements such as lists and tuples, or iterators</span>
+<span class="sd">    or generators of these, will also work).</span>
+
+<span class="sd">    :param arrays: An iterable or iterator or generator of Numpy arrays</span>
+<span class="sd">    :type arrays: list, tuple, collections.Iterator, types.GeneratorType</span>
+
+<span class="sd">    :return: A Numpy 1D array of n-tuples of the zipped sequences</span>
+<span class="sd">    :rtype: np.array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">pd</span><span class="o">.</span><span class="n">_libs</span><span class="o">.</span><span class="n">lib</span><span class="o">.</span><span class="n">fast_zip</span><span class="p">([</span><span class="n">arr</span> <span class="k">for</span> <span class="n">arr</span> <span class="ow">in</span> <span class="n">arrays</span><span class="p">])</span></div>
+
+
+<div class="viewcode-block" id="fast_zip_dataframe_columns"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.fast_zip_dataframe_columns">[docs]</a><span class="k">def</span> <span class="nf">fast_zip_dataframe_columns</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">cols</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Speedy zip of a sequence or ordered iterable of Pandas DataFrame columns</span>
+<span class="sd">    (Python iterables with ordered elements such as lists and tuples, or</span>
+<span class="sd">    iterators or generators of these, will also work).</span>
+
+<span class="sd">    :param df: Pandas DataFrame</span>
+<span class="sd">    :type df: pandas.DataFrame</span>
+
+<span class="sd">    :param cols: An iterable or iterator or generator of Pandas DataFrame columns</span>
+<span class="sd">    :type cols: list, tuple, collections.Iterator, types.GeneratorType</span>
+
+<span class="sd">    :return: A Numpy 1D array of n-tuples of the dataframe columns to be zipped</span>
+<span class="sd">    :rtype: np.array</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">fast_zip_arrays</span><span class="p">(</span><span class="o">*</span><span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">values</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="get_dataframe"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.get_dataframe">[docs]</a><span class="k">def</span> <span class="nf">get_dataframe</span><span class="p">(</span>
+    <span class="n">src_fp</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">src_type</span><span class="o">=</span><span class="s1">&#39;csv&#39;</span><span class="p">,</span>
+    <span class="n">src_buf</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">src_data</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">float_precision</span><span class="o">=</span><span class="s1">&#39;high&#39;</span><span class="p">,</span>
+    <span class="n">empty_data_error_msg</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">lowercase_cols</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">required_cols</span><span class="o">=</span><span class="p">(),</span>
+    <span class="n">col_defaults</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">non_na_cols</span><span class="o">=</span><span class="p">(),</span>
+    <span class="n">col_dtypes</span><span class="o">=</span><span class="p">{},</span>
+    <span class="n">sort_cols</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">sort_ascending</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">memory_map</span><span class="o">=</span><span class="kc">False</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads a Pandas dataframe from a source CSV or JSON file, or a text buffer</span>
+<span class="sd">    of such a file (``io.StringIO``), or another Pandas dataframe.</span>
+
+<span class="sd">    :param src_fp: Source CSV or JSON file path (optional)</span>
+<span class="sd">    :type src_fp: str</span>
+
+<span class="sd">    :param src_type: Type of source file -CSV or JSON (optional; default is csv)</span>
+<span class="sd">    :param src_type: str</span>
+
+<span class="sd">    :param src_buf: Text buffer of a source CSV or JSON file (optional)</span>
+<span class="sd">    :type src_buf: io.StringIO</span>
+
+<span class="sd">    :param float_precision: Indicates whether to support high-precision numbers</span>
+<span class="sd">                            present in the data (optional; default is high)</span>
+<span class="sd">    :type float_precision: str</span>
+
+<span class="sd">    :param empty_data_error_msg: The message of the exception that is thrown</span>
+<span class="sd">                                there is no data content, i.e no rows</span>
+<span class="sd">                                (optional)</span>
+<span class="sd">    :type empty_data_error_msg: str</span>
+
+<span class="sd">    :param lowercase_cols: Whether to convert the dataframe columns to lowercase</span>
+<span class="sd">                           (optional; default is True)</span>
+<span class="sd">    :type lowercase_cols: bool</span>
+
+<span class="sd">    :param required_cols: An iterable of columns required to be present in the</span>
+<span class="sd">                          source data (optional)</span>
+<span class="sd">    :type required_cols: list, tuple, collections.Iterable</span>
+
+<span class="sd">    :param col_defaults: A dict of column names and their default values. This</span>
+<span class="sd">                         can include both existing columns and new columns -</span>
+<span class="sd">                         defaults for existing columns are set row-wise using</span>
+<span class="sd">                         pd.DataFrame.fillna, while defaults for non-existent</span>
+<span class="sd">                         columns are set column-wise using assignment (optional)</span>
+<span class="sd">    :type col_defaults: dict</span>
+
+<span class="sd">    :param non_na_cols: An iterable of names of columns which must be dropped</span>
+<span class="sd">                        if they contain any null values (optional)</span>
+<span class="sd">    :type non_na_cols: list, tuple, collections.Iterable</span>
+
+<span class="sd">    :param col_dtypes: A dict of column names and corresponding data types -</span>
+<span class="sd">                       Python built-in datatypes are accepted but are mapped</span>
+<span class="sd">                       to the corresponding Numpy datatypes (optional)</span>
+<span class="sd">    :type col_dtypes: dict</span>
+
+<span class="sd">    :param sort_cols: An iterable of column names by which to sort the frame</span>
+<span class="sd">                      rows (optional)</span>
+<span class="sd">    :type sort_cols: list, tuple, collections.Iterable</span>
+
+<span class="sd">    :param sort_ascending: Whether to perform an ascending or descending sort -</span>
+<span class="sd">                           is used only in conjunction with the sort_cols</span>
+<span class="sd">                           option (optional)</span>
+<span class="sd">    :type sort_ascending: bool</span>
+
+<span class="sd">    :param memory_map: Memory-efficient option used when loading a frame from</span>
+<span class="sd">                       a file or text buffer - is a direct optional argument</span>
+<span class="sd">                       for the pd.read_csv method</span>
+<span class="sd">    :type memory_map: bool</span>
+
+<span class="sd">    :return: A Pandas dataframe</span>
+<span class="sd">    :rtype: pd.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="p">(</span><span class="n">src_fp</span> <span class="ow">or</span> <span class="n">src_buf</span> <span class="ow">or</span> <span class="n">src_data</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span>
+            <span class="s1">&#39;A CSV or JSON file path or a string buffer of such a file or an &#39;</span>
+            <span class="s1">&#39;appropriate data structure or Pandas DataFrame must be provided&#39;</span>
+        <span class="p">)</span>
+
+    <span class="n">df</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="c1"># Use a custom list of null values without the string &quot;`NA`&quot; when using</span>
+    <span class="c1"># pandas.read_csv because the default list contains the string &quot;`NA`&quot;,</span>
+    <span class="c1"># which can appear in the `CountryCode` column in the loc. file</span>
+    <span class="n">na_values</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">PANDAS_DEFAULT_NULL_VALUES</span><span class="o">.</span><span class="n">difference</span><span class="p">([</span><span class="s1">&#39;NA&#39;</span><span class="p">]))</span>
+
+    <span class="k">if</span> <span class="n">src_fp</span> <span class="ow">and</span> <span class="n">src_type</span> <span class="o">==</span> <span class="s1">&#39;csv&#39;</span><span class="p">:</span>
+        <span class="c1"># Find flexible fields in loc file and set their data types to that of</span>
+        <span class="c1"># FlexiLocZZZ</span>
+        <span class="k">if</span> <span class="s1">&#39;FlexiLocZZZ&#39;</span> <span class="ow">in</span> <span class="n">col_dtypes</span><span class="o">.</span><span class="n">keys</span><span class="p">():</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">src_fp</span><span class="p">)</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">0</span><span class="p">))</span>
+            <span class="k">for</span> <span class="n">flexiloc_col</span> <span class="ow">in</span> <span class="nb">filter</span><span class="p">(</span><span class="n">re</span><span class="o">.</span><span class="n">compile</span><span class="p">(</span><span class="s1">&#39;^FlexiLoc&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">,</span> <span class="n">headers</span><span class="p">):</span>
+                <span class="n">col_dtypes</span><span class="p">[</span><span class="n">flexiloc_col</span><span class="p">]</span> <span class="o">=</span> <span class="n">col_dtypes</span><span class="p">[</span><span class="s1">&#39;FlexiLocZZZ&#39;</span><span class="p">]</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">src_fp</span><span class="p">,</span> <span class="n">float_precision</span><span class="o">=</span><span class="n">float_precision</span><span class="p">,</span> <span class="n">memory_map</span><span class="o">=</span><span class="n">memory_map</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">col_dtypes</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">src_buf</span> <span class="ow">and</span> <span class="n">src_type</span> <span class="o">==</span> <span class="s1">&#39;csv&#39;</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">src_buf</span><span class="p">),</span> <span class="n">float_precision</span><span class="o">=</span><span class="n">float_precision</span><span class="p">,</span> <span class="n">memory_map</span><span class="o">=</span><span class="n">memory_map</span><span class="p">,</span> <span class="n">keep_default_na</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">na_values</span><span class="o">=</span><span class="n">na_values</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="n">src_fp</span> <span class="ow">and</span> <span class="n">src_type</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">src_fp</span><span class="p">,</span> <span class="n">precise_float</span><span class="o">=</span><span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="n">float_precision</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span> <span class="k">else</span> <span class="kc">False</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="n">src_buf</span> <span class="ow">and</span> <span class="n">src_type</span> <span class="o">==</span> <span class="s1">&#39;json&#39;</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_json</span><span class="p">(</span><span class="n">io</span><span class="o">.</span><span class="n">StringIO</span><span class="p">(</span><span class="n">src_buf</span><span class="p">),</span> <span class="n">precise_float</span><span class="o">=</span><span class="p">(</span><span class="kc">True</span> <span class="k">if</span> <span class="n">float_precision</span> <span class="o">==</span> <span class="s1">&#39;high&#39;</span> <span class="k">else</span> <span class="kc">False</span><span class="p">))</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">and</span> <span class="n">src_data</span><span class="p">:</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">src_data</span><span class="p">)</span>
+    <span class="k">elif</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">src_data</span><span class="p">,</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">):</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">src_data</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">df</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="n">empty_data_error_msg</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">lowercase_cols</span><span class="p">:</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span>
+
+    <span class="k">if</span> <span class="n">required_cols</span><span class="p">:</span>
+        <span class="n">_required_cols</span> <span class="o">=</span> <span class="p">[</span><span class="n">c</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">required_cols</span><span class="p">]</span> <span class="k">if</span> <span class="n">lowercase_cols</span> <span class="k">else</span> <span class="n">required_cols</span>
+        <span class="n">missing</span> <span class="o">=</span> <span class="p">{</span><span class="n">col</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">_required_cols</span><span class="p">)}</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">missing</span><span class="p">:</span>
+            <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;Missing required columns: </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">missing</span><span class="p">))</span>
+
+    <span class="c1"># Defaulting of column values is best done via the source data and not the</span>
+    <span class="c1"># code, i.e. if a column &#39;X&#39; in a frame is supposed to have 0s everywhere</span>
+    <span class="c1"># the simplest way of achieving this is for the source data (whether it is</span>
+    <span class="c1"># CSV or JSON file, or a list of dicts or tuples) to have an &#39;X&#39; column</span>
+    <span class="c1"># with 0 values, so that when it is loaded into the frame the &#39;X&#39; will have</span>
+    <span class="c1"># 0 values, as expected.</span>
+    <span class="c1">#</span>
+    <span class="c1"># In this sense, defaulting of column values via the `col_defaults`</span>
+    <span class="c1"># optional argument is redundant - but there may be some cases where it is</span>
+    <span class="c1"># convenient to have this feature at the code level.</span>
+
+    <span class="k">if</span> <span class="n">col_defaults</span><span class="p">:</span>
+        <span class="c1"># Lowercase the keys in the defaults dict depending on whether the `lowercase_cols`</span>
+        <span class="c1"># option was passed</span>
+        <span class="n">_col_defaults</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">col_defaults</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="k">if</span> <span class="n">lowercase_cols</span> <span class="k">else</span> <span class="n">col_defaults</span>
+
+        <span class="c1"># Use the defaults dict to set defaults for existing columns</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">fillna</span><span class="p">(</span><span class="n">value</span><span class="o">=</span><span class="n">_col_defaults</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="c1"># A separate step to set as yet non-existent columns with default values</span>
+        <span class="c1"># in the frame</span>
+        <span class="n">new</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="p">:</span> <span class="n">_col_defaults</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">_col_defaults</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">)}</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="o">=</span><span class="n">new</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">non_na_cols</span><span class="p">:</span>
+        <span class="n">_non_na_cols</span> <span class="o">=</span> <span class="nb">tuple</span><span class="p">(</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">non_na_cols</span><span class="p">)</span> <span class="k">if</span> <span class="n">lowercase_cols</span> <span class="k">else</span> <span class="n">non_na_cols</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">dropna</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="n">_non_na_cols</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">col_dtypes</span><span class="p">:</span>
+        <span class="n">_col_dtypes</span> <span class="o">=</span> <span class="p">{</span><span class="n">k</span><span class="o">.</span><span class="n">lower</span><span class="p">():</span> <span class="n">v</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">col_dtypes</span><span class="o">.</span><span class="n">items</span><span class="p">()}</span> <span class="k">if</span> <span class="n">lowercase_cols</span> <span class="k">else</span> <span class="n">col_dtypes</span>
+        <span class="n">df</span> <span class="o">=</span> <span class="n">set_dataframe_column_dtypes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">_col_dtypes</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">sort_cols</span><span class="p">:</span>
+        <span class="n">_sort_cols</span> <span class="o">=</span> <span class="p">(</span>
+            <span class="p">[(</span><span class="n">col</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">lowercase_cols</span> <span class="k">else</span> <span class="n">col</span><span class="p">)</span> <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">sort_cols</span><span class="p">]</span> <span class="k">if</span> <span class="p">(</span><span class="nb">isinstance</span><span class="p">(</span><span class="n">sort_cols</span><span class="p">,</span> <span class="nb">list</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sort_cols</span><span class="p">,</span> <span class="nb">tuple</span><span class="p">)</span> <span class="ow">or</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">sort_cols</span><span class="p">,</span> <span class="nb">set</span><span class="p">))</span>
+            <span class="k">else</span> <span class="p">(</span><span class="n">sort_cols</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="k">if</span> <span class="n">lowercase_cols</span> <span class="k">else</span> <span class="n">sort_cols</span><span class="p">)</span>
+        <span class="p">)</span>
+        <span class="n">sort_ascending</span> <span class="o">=</span> <span class="n">sort_ascending</span> <span class="k">if</span> <span class="n">sort_ascending</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span> <span class="k">else</span> <span class="kc">True</span>
+        <span class="n">df</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">_sort_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">ascending</span><span class="o">=</span><span class="n">sort_ascending</span><span class="p">,</span> <span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+
+
+<div class="viewcode-block" id="get_dtypes_and_required_cols"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.get_dtypes_and_required_cols">[docs]</a><span class="k">def</span> <span class="nf">get_dtypes_and_required_cols</span><span class="p">(</span><span class="n">get_dtypes</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get OED column data types and required column names from JSON.</span>
+
+<span class="sd">    :param get_dtypes: method to get dict from JSON</span>
+<span class="sd">    :type get_dtypes: function</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">dtypes</span> <span class="o">=</span> <span class="n">get_dtypes</span><span class="p">()</span>
+    <span class="n">col_dtypes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">k</span><span class="p">:</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;py_dtype&#39;</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;py_dtype&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;str&#39;</span>
+    <span class="p">}</span>
+    <span class="n">required_cols</span> <span class="o">=</span> <span class="p">[</span>
+        <span class="n">k</span> <span class="k">for</span> <span class="n">k</span><span class="p">,</span> <span class="n">v</span> <span class="ow">in</span> <span class="n">dtypes</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;py_dtype&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;str&#39;</span>
+        <span class="k">if</span> <span class="n">v</span><span class="p">[</span><span class="s1">&#39;require_field&#39;</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;R&#39;</span>
+    <span class="p">]</span>
+
+    <span class="k">return</span> <span class="n">col_dtypes</span><span class="p">,</span> <span class="n">required_cols</span></div>
+
+
+<div class="viewcode-block" id="get_ids"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.get_ids">[docs]</a><span class="k">def</span> <span class="nf">get_ids</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">usecols</span><span class="p">,</span> <span class="n">group_by</span><span class="o">=</span><span class="p">[]):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Enumerates (counts) the rows of a given dataframe in a given subset</span>
+<span class="sd">    of dataframe columns, and optionally does the enumeration with</span>
+<span class="sd">    respect to subgroups of the column subset.</span>
+
+<span class="sd">    :param df: Input dataframe</span>
+<span class="sd">    :type df: pandas.DataFrame</span>
+
+<span class="sd">    :param usecols: The column subset</span>
+<span class="sd">    :param usecols: list</span>
+
+<span class="sd">    :param group_by: A subset of the column subset to use a subgroup key</span>
+<span class="sd">    :param group_by: list</span>
+
+<span class="sd">    :return: The enumeration</span>
+<span class="sd">    :rtype: numpy.ndarray</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_usecols</span> <span class="o">=</span> <span class="n">group_by</span> <span class="o">+</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">usecols</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">group_by</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">group_by</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">factorize_ndarray</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">loc</span><span class="p">[:,</span> <span class="n">usecols</span><span class="p">]</span><span class="o">.</span><span class="n">values</span><span class="p">,</span> <span class="n">col_idxs</span><span class="o">=</span><span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">_usecols</span><span class="p">)))[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">(</span><span class="n">df</span><span class="p">[</span><span class="n">usecols</span><span class="p">]</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="n">group_by</span><span class="p">)</span><span class="o">.</span><span class="n">cumcount</span><span class="p">())</span> <span class="o">+</span> <span class="mi">1</span></div>
+
+
+<div class="viewcode-block" id="get_json"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.get_json">[docs]</a><span class="k">def</span> <span class="nf">get_json</span><span class="p">(</span><span class="n">src_fp</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Loads JSON from file.</span>
+
+<span class="sd">    :param src_fp: Source JSON file path</span>
+<span class="sd">    :type src_fp: str</span>
+
+<span class="sd">    :return: dict</span>
+<span class="sd">    :rtype: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">with</span> <span class="n">io</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="n">src_fp</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">encoding</span><span class="o">=</span><span class="s1">&#39;utf-8&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+    <span class="k">except</span> <span class="p">(</span><span class="ne">IOError</span><span class="p">,</span> <span class="n">JSONDecodeError</span><span class="p">,</span> <span class="ne">OSError</span><span class="p">,</span> <span class="ne">TypeError</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="s1">&#39;Error trying to load JSON from </span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">src_fp</span><span class="p">))</span></div>
+
+
+<div class="viewcode-block" id="get_timestamp"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.get_timestamp">[docs]</a><span class="k">def</span> <span class="nf">get_timestamp</span><span class="p">(</span><span class="n">thedate</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;%Y%m</span><span class="si">%d</span><span class="s1">%H%M%S&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a timestamp string from a ``datetime.datetime`` object</span>
+
+<span class="sd">    :param thedate: ``datetime.datetime`` object</span>
+<span class="sd">    :type thedate: datetime.datetime</span>
+
+<span class="sd">    :param fmt: Timestamp format string</span>
+<span class="sd">    :type fmt: str</span>
+
+<span class="sd">    :return: Timestamp string</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">thedate</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="get_utctimestamp"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.get_utctimestamp">[docs]</a><span class="k">def</span> <span class="nf">get_utctimestamp</span><span class="p">(</span><span class="n">thedate</span><span class="o">=</span><span class="n">datetime</span><span class="o">.</span><span class="n">utcnow</span><span class="p">(),</span> <span class="n">fmt</span><span class="o">=</span><span class="s1">&#39;%Y-%b-</span><span class="si">%d</span><span class="s1"> %H:%M:%S&#39;</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Get a UTC timestamp string from a ``datetime.datetime`` object</span>
+
+<span class="sd">    :param thedate: ``datetime.datetime`` object</span>
+<span class="sd">    :type thedate: datetime.datetime</span>
+
+<span class="sd">    :param fmt: Timestamp format string, default is &quot;%Y-%b-%d %H:%M:%S&quot;</span>
+<span class="sd">    :type fmt: str</span>
+
+<span class="sd">    :return: UTC timestamp string</span>
+<span class="sd">    :rtype: str</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">thedate</span><span class="o">.</span><span class="n">astimezone</span><span class="p">(</span><span class="n">pytz</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="n">fmt</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="merge_check"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.merge_check">[docs]</a><span class="k">def</span> <span class="nf">merge_check</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">on</span><span class="o">=</span><span class="p">[],</span> <span class="n">raise_error</span><span class="o">=</span><span class="kc">True</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Check two dataframes for keys intersection, use before performing a merge</span>
+
+<span class="sd">    :param left: The first of two dataframes to be merged</span>
+<span class="sd">    :type left: pd.DataFrame</span>
+
+<span class="sd">    :param right: The second of two dataframes to be merged</span>
+<span class="sd">    :type left: pd.DataFrame</span>
+
+<span class="sd">    :param on: column keys to test</span>
+<span class="sd">    :type on: list</span>
+
+<span class="sd">    :return: A dict of booleans, True for an intersection between left/right</span>
+<span class="sd">    :rtype: dict</span>
+
+<span class="sd">    {&#39;portnumber&#39;: False, &#39;accnumber&#39;: True, &#39;layer_id&#39;: True, &#39;condnumber&#39;: True}</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">keys_checked</span> <span class="o">=</span> <span class="p">{}</span>
+    <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">on</span><span class="p">:</span>
+        <span class="n">key_intersect</span> <span class="o">=</span> <span class="nb">set</span><span class="p">(</span><span class="n">left</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">right</span><span class="p">[</span><span class="n">key</span><span class="p">]</span><span class="o">.</span><span class="n">unique</span><span class="p">())</span>
+        <span class="n">keys_checked</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="nb">bool</span><span class="p">(</span><span class="n">key_intersect</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">raise_error</span> <span class="ow">and</span> <span class="ow">not</span> <span class="nb">all</span><span class="p">(</span><span class="n">keys_checked</span><span class="o">.</span><span class="n">values</span><span class="p">()):</span>
+        <span class="n">err_msg</span> <span class="o">=</span> <span class="s2">&quot;Error: Merge mismatch on column(s) </span><span class="si">{}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span>
+            <span class="p">[</span><span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">keys_checked</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">keys_checked</span><span class="p">[</span><span class="n">k</span><span class="p">]]</span>
+        <span class="p">)</span>
+        <span class="k">raise</span> <span class="n">OasisException</span><span class="p">(</span><span class="n">err_msg</span><span class="p">)</span></div>
+
+
+<div class="viewcode-block" id="merge_dataframes"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.merge_dataframes">[docs]</a><span class="k">def</span> <span class="nf">merge_dataframes</span><span class="p">(</span><span class="n">left</span><span class="p">,</span> <span class="n">right</span><span class="p">,</span> <span class="n">join_on</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Merges two dataframes by ensuring there is no duplication of columns.</span>
+
+<span class="sd">    :param left: The first of two dataframes to be merged</span>
+<span class="sd">    :type left: pd.DataFrame</span>
+
+<span class="sd">    :param right: The second of two dataframes to be merged</span>
+<span class="sd">    :type left: pd.DataFrame</span>
+
+<span class="sd">    :param kwargs: Optional keyword arguments passed directly to the underlying</span>
+<span class="sd">                   pd.merge method that is called, including options for the</span>
+<span class="sd">                   join keys, join type, etc. - please see the pd.merge</span>
+<span class="sd">                   documentation for details of these optional arguments</span>
+<span class="sd">    :type kwargs: dict</span>
+
+<span class="sd">    :return: A merged dataframe</span>
+<span class="sd">    :rtype: pd.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">merge</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">join_on</span><span class="p">:</span>
+        <span class="n">left_keys</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;left_on&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;on&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">[]</span>
+        <span class="n">left_keys</span> <span class="o">=</span> <span class="p">[</span><span class="n">left_keys</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">left_keys</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">left_keys</span>
+
+        <span class="n">drop_cols</span> <span class="o">=</span> <span class="p">[</span>
+            <span class="n">k</span> <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="nb">set</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">k</span> <span class="ow">and</span> <span class="n">k</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">left_keys</span>
+        <span class="p">]</span>
+        <span class="n">drop_duplicates</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;drop_duplicates&#39;</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+        <span class="n">kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;drop_duplicates&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;drop_duplicates&#39;</span> <span class="ow">in</span> <span class="n">kwargs</span> <span class="k">else</span> <span class="kc">None</span>
+
+        <span class="n">merge</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span>
+            <span class="n">left</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">drop_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">),</span>
+            <span class="n">right</span><span class="p">,</span>
+            <span class="o">**</span><span class="n">kwargs</span>
+        <span class="p">)</span>
+
+        <span class="k">return</span> <span class="n">merge</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">drop_duplicates</span> <span class="k">else</span> <span class="n">merge</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">_join_on</span> <span class="o">=</span> <span class="p">[</span><span class="n">join_on</span><span class="p">]</span> <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">join_on</span><span class="p">,</span> <span class="nb">str</span><span class="p">)</span> <span class="k">else</span> <span class="n">join_on</span><span class="o">.</span><span class="n">copy</span><span class="p">()</span>
+        <span class="n">drop_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">left</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">right</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span><span class="o">.</span><span class="n">difference</span><span class="p">(</span><span class="n">_join_on</span><span class="p">))</span>
+        <span class="n">_left</span> <span class="o">=</span> <span class="n">left</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">_join_on</span><span class="p">)</span>
+        <span class="n">_right</span> <span class="o">=</span> <span class="n">right</span><span class="o">.</span><span class="n">drop</span><span class="p">(</span><span class="n">drop_cols</span><span class="p">,</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="n">_join_on</span><span class="p">)</span>
+
+        <span class="n">join</span> <span class="o">=</span> <span class="n">_left</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">_right</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;how&#39;</span><span class="p">)</span> <span class="ow">or</span> <span class="s1">&#39;left&#39;</span><span class="p">))</span><span class="o">.</span><span class="n">reset_index</span><span class="p">()</span>
+        <span class="k">del</span> <span class="n">_left</span><span class="p">,</span> <span class="n">_right</span>
+
+        <span class="k">return</span> <span class="n">join</span></div>
+
+
+<span class="k">def</span> <span class="nf">print_dataframe</span><span class="p">(</span>
+    <span class="n">df</span><span class="p">,</span>
+    <span class="n">string_cols</span><span class="o">=</span><span class="p">[],</span>
+    <span class="n">show_index</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">frame_header</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span>
+    <span class="n">column_headers</span><span class="o">=</span><span class="s1">&#39;keys&#39;</span><span class="p">,</span>
+    <span class="n">tablefmt</span><span class="o">=</span><span class="s1">&#39;psql&#39;</span><span class="p">,</span>
+    <span class="n">floatfmt</span><span class="o">=</span><span class="s2">&quot;.2f&quot;</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">,</span>
+    <span class="o">**</span><span class="n">tabulate_kwargs</span>
+<span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A method to pretty-print a Pandas dataframe - calls on the ``tabulate``</span>
+<span class="sd">    package</span>
+
+<span class="sd">    :param df: The dataframe to pretty-print</span>
+<span class="sd">    :type df: pd.DataFrame</span>
+
+<span class="sd">    :param string_cols: An iterable of names of columns whose values should</span>
+<span class="sd">                           be treated as strings (optional)</span>
+<span class="sd">    :type string_cols: list, tuple, collections.Iterable</span>
+
+<span class="sd">    :param show_index: Whether to display the index column in the printout</span>
+<span class="sd">                       (optional; default is False)</span>
+<span class="sd">    :type show_index: bool</span>
+
+<span class="sd">    :param frame_header: Header string to display on top of the printed</span>
+<span class="sd">                         dataframe (optional)</span>
+<span class="sd">    :type frame_header: str</span>
+
+<span class="sd">    :param column_headers: Column header format - see the tabulate.tabulate</span>
+<span class="sd">                        method documentation (optional, default is &#39;keys&#39;)</span>
+<span class="sd">    :type column_headers: list, str</span>
+
+<span class="sd">    :param tablefmt: Table format - see the tabulate.tabulate method</span>
+<span class="sd">                     documentation (optional; default is &#39;psql&#39;)</span>
+<span class="sd">    :type tablefmt: str, list, tuple</span>
+
+<span class="sd">    :param floatfmt: Floating point format - see the tabulate.tabulate</span>
+<span class="sd">                    method documnetation (optional; default is &quot;.2f&quot;)</span>
+<span class="sd">    :type floatfmt: str</span>
+
+<span class="sd">    :param end: String to append after printing the dataframe</span>
+<span class="sd">                (optional; default is newline)</span>
+<span class="sd">    :type end: str</span>
+
+<span class="sd">    :param tabulate_kwargs: Additional optional arguments passed directly to</span>
+<span class="sd">                            the underlying tabulate.tabulate method - see the</span>
+<span class="sd">                            method documentation for more details</span>
+<span class="sd">    :param tabulate_kwargs: dict</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">_df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">deep</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="k">for</span> <span class="n">col</span> <span class="ow">in</span> <span class="n">string_cols</span><span class="p">:</span>
+        <span class="n">_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span> <span class="o">=</span> <span class="n">_df</span><span class="p">[</span><span class="n">col</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">object</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">frame_header</span><span class="p">:</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="si">{}</span><span class="s1">&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">frame_header</span><span class="p">))</span>
+
+    <span class="k">if</span> <span class="n">tabulate_kwargs</span><span class="p">:</span>
+        <span class="n">tabulate_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;headers&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;headers&#39;</span> <span class="ow">in</span> <span class="n">tabulate_kwargs</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">tabulate_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;tablefmt&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;tablefmt&#39;</span> <span class="ow">in</span> <span class="n">tabulate_kwargs</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">tabulate_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;floatfmt&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;floatfmt&#39;</span> <span class="ow">in</span> <span class="n">tabulate_kwargs</span> <span class="k">else</span> <span class="kc">None</span>
+        <span class="n">tabulate_kwargs</span><span class="o">.</span><span class="n">pop</span><span class="p">(</span><span class="s1">&#39;showindex&#39;</span><span class="p">)</span> <span class="k">if</span> <span class="s1">&#39;showindex&#39;</span> <span class="ow">in</span> <span class="n">tabulate_kwargs</span> <span class="k">else</span> <span class="kc">None</span>
+
+    <span class="nb">print</span><span class="p">(</span><span class="n">tabulate</span><span class="p">(</span><span class="n">_df</span><span class="p">,</span> <span class="n">headers</span><span class="o">=</span><span class="n">column_headers</span><span class="p">,</span> <span class="n">tablefmt</span><span class="o">=</span><span class="n">tablefmt</span><span class="p">,</span> <span class="n">showindex</span><span class="o">=</span><span class="n">show_index</span><span class="p">,</span> <span class="n">floatfmt</span><span class="o">=</span><span class="n">floatfmt</span><span class="p">,</span> <span class="o">**</span><span class="n">tabulate_kwargs</span><span class="p">),</span> <span class="n">end</span><span class="o">=</span><span class="n">end</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="set_dataframe_column_dtypes"><a class="viewcode-back" href="../../../autoapi/oasislmf/utils/data/index.html#oasislmf.utils.data.set_dataframe_column_dtypes">[docs]</a><span class="k">def</span> <span class="nf">set_dataframe_column_dtypes</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">):</span>
+    <span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    A method to set column datatypes for a Pandas dataframe</span>
+
+<span class="sd">    :param df: The dataframe to process</span>
+<span class="sd">    :type df: pd.DataFrame</span>
+
+<span class="sd">    :param dtypes: A dict of column names and corresponding Numpy datatypes -</span>
+<span class="sd">                   Python built-in datatypes can be passed in but they will be</span>
+<span class="sd">                   mapped to the corresponding Numpy datatypes</span>
+<span class="sd">    :type dtypes: dict</span>
+
+<span class="sd">    :return: The processed dataframe with column datatypes set</span>
+<span class="sd">    :rtype: pandas.DataFrame</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="n">existing_cols</span> <span class="o">=</span> <span class="nb">list</span><span class="p">(</span><span class="nb">set</span><span class="p">(</span><span class="n">dtypes</span><span class="p">)</span><span class="o">.</span><span class="n">intersection</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">columns</span><span class="p">))</span>
+    <span class="n">_dtypes</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">col</span><span class="p">:</span> <span class="n">PANDAS_BASIC_DTYPES</span><span class="p">[</span><span class="nb">getattr</span><span class="p">(</span><span class="n">builtins</span><span class="p">,</span> <span class="n">dtype</span><span class="p">)</span> <span class="k">if</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="p">(</span><span class="s1">&#39;int&#39;</span><span class="p">,</span> <span class="s1">&#39;bool&#39;</span><span class="p">,</span> <span class="s1">&#39;float&#39;</span><span class="p">,</span> <span class="s1">&#39;object&#39;</span><span class="p">,</span> <span class="s1">&#39;str&#39;</span><span class="p">,)</span> <span class="k">else</span> <span class="n">dtype</span><span class="p">]</span>
+        <span class="k">for</span> <span class="n">col</span><span class="p">,</span> <span class="n">dtype</span> <span class="ow">in</span> <span class="p">[(</span><span class="n">_col</span><span class="p">,</span> <span class="n">dtypes</span><span class="p">[</span><span class="n">_col</span><span class="p">])</span> <span class="k">for</span> <span class="n">_col</span> <span class="ow">in</span> <span class="n">existing_cols</span><span class="p">]</span>
+    <span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="n">_dtypes</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">df</span></div>
+</pre></div>
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

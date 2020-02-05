@@ -1,0 +1,12 @@
+:mod:`src.server.oasisapi.files.tests.fakes`
+============================================
+
+.. py:module:: src.server.oasisapi.files.tests.fakes
+
+
+Module Contents
+---------------
+
+.. function:: fake_related_file(**kwargs)
+
+

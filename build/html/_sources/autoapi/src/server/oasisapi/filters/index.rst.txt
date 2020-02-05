@@ -1,0 +1,122 @@
+:mod:`src.server.oasisapi.filters`
+==================================
+
+.. py:module:: src.server.oasisapi.filters
+
+
+Module Contents
+---------------
+
+.. py:class:: TimeStampedFilter
+
+   Bases: :class:`django_filters.rest_framework.FilterSet`
+
+   .. attribute:: created
+      
+
+      
+
+   .. attribute:: created__date
+      
+
+      
+
+   .. attribute:: created__gte
+      
+
+      
+
+   .. attribute:: created__lte
+      
+
+      
+
+   .. attribute:: created__gt
+      
+
+      
+
+   .. attribute:: created__lt
+      
+
+      
+
+   .. attribute:: modified
+      
+
+      
+
+   .. attribute:: modified__date
+      
+
+      
+
+   .. attribute:: modified__gte
+      
+
+      
+
+   .. attribute:: modified__lte
+      
+
+      
+
+   .. attribute:: modified__gt
+      
+
+      
+
+   .. attribute:: modified__lt
+      
+
+      
+
+
+.. py:class:: Backend
+
+   Bases: :class:`django_filters.rest_framework.DjangoFilterBackend`
+
+   .. method:: get_coreschema_field(self, field)
+
+
+
+
+.. py:class:: CsvMultipleChoiceMixin
+
+   Bases: :class:`object`
+
+   .. method:: to_python(self, value)
+
+
+
+
+.. py:class:: CsvMultipleChoiceField
+
+   Bases: :class:`src.server.oasisapi.filters.CsvMultipleChoiceMixin`, :class:`django_filters.fields.MultipleChoiceField`
+
+
+.. py:class:: CsvModelMultipleChoiceField
+
+   Bases: :class:`src.server.oasisapi.filters.CsvMultipleChoiceMixin`, :class:`django_filters.fields.ModelMultipleChoiceField`
+
+
+.. py:class:: CsvMultipleChoiceFilter
+
+   Bases: :class:`django_filters.rest_framework.MultipleChoiceFilter`
+
+   .. attribute:: field_class
+      
+
+      
+
+
+.. py:class:: CsvModelMultipleChoiceFilter
+
+   Bases: :class:`django_filters.filters.QuerySetRequestMixin`, :class:`src.server.oasisapi.filters.CsvMultipleChoiceFilter`
+
+   .. attribute:: field_class
+      
+
+      
+
+

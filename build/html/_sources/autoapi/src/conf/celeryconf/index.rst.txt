@@ -1,0 +1,64 @@
+:mod:`src.conf.celeryconf`
+==========================
+
+.. py:module:: src.conf.celeryconf
+
+
+Module Contents
+---------------
+
+.. data:: CELERY_IGNORE_RESULT
+   :annotation: = False
+
+   
+
+.. data:: BROKER_URL
+   
+
+   
+
+.. data:: CELERY_RESULTS_DB_BACKEND
+   
+
+   
+
+.. data:: CELERY_RESULT_BACKEND
+   
+
+   
+
+.. data:: CELERY_AMQP_TASK_RESULT_EXPIRES
+   :annotation: = 1000
+
+   
+
+.. data:: CELERY_TASK_SERIALIZER
+   :annotation: = json
+
+   
+
+.. data:: CELERY_RESULT_SERIALIZER
+   :annotation: = json
+
+   
+
+.. data:: CELERY_ACCEPT_CONTENT
+   :annotation: = ['json']
+
+   
+
+.. data:: CELERY_TIMEZONE
+   :annotation: = Europe/London
+
+   
+
+.. data:: CELERY_ENABLE_UTC
+   :annotation: = True
+
+   
+
+.. data:: CELERYD_CONCURRENCY
+   :annotation: = 1
+
+   
+

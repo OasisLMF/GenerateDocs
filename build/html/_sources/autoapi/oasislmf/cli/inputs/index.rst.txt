@@ -1,0 +1,82 @@
+:mod:`oasislmf.cli.inputs`
+==========================
+
+.. py:module:: oasislmf.cli.inputs
+
+
+Module Contents
+---------------
+
+.. py:class:: InputValues(args, update_keys=True)
+
+   Bases: :class:`object`
+
+   Helper class for accessing the input values from either
+   the command line or the configuration file.
+
+   internal_update
+
+   .. method:: list_obsolete_keys(self)
+
+
+
+   .. method:: has_obsolete_keys(self)
+
+
+
+   .. method:: update_config_keys(self, warn_user=True)
+
+
+      If command line flags change between package versions, update them intenrally and warn the user
+
+
+   .. method:: load_config_file(self, config_fp)
+
+
+
+   .. method:: write_config_file(self, config_fp)
+
+
+
+   .. method:: confirm_action(self, question_str, no_confirm=False)
+
+
+
+   .. method:: _select_by_type(self, val_cmd, val_default, val_config, types)
+
+
+
+   .. method:: get(self, name, default=None, type=None, required=False, is_path=False)
+
+
+      Gets the names parameter from the command line arguments.
+
+      If it is not set on the command line the configuration file
+      is checked.
+
+      If it is also not present in the configuration file then
+      ``default`` is returned unless ``required`` is false in which
+      case an ``OasisException`` is raised.
+
+      :param name: The name of the parameter to lookup
+      :type name: str
+
+      :param default: The default value to return if the name is not
+          found on the command line or in the configuration file.
+
+      :param required: Flag whether the value is required, if so and
+          the parameter is not found on the command line or in the
+          configuration file an error is raised.
+      :type required: bool
+
+      :param is_path: Flag whether the value should be treated as a path,
+          is so the value is processed as relative to the config file.
+      :type is_path: bool
+
+      :raise OasisException: If the value is not found and ``required``
+          is True
+
+      :return: The found value or the default
+
+
+

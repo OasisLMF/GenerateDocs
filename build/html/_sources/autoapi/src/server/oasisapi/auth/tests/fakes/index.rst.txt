@@ -1,0 +1,12 @@
+:mod:`src.server.oasisapi.auth.tests.fakes`
+===========================================
+
+.. py:module:: src.server.oasisapi.auth.tests.fakes
+
+
+Module Contents
+---------------
+
+.. function:: fake_user(**kwargs)
+
+

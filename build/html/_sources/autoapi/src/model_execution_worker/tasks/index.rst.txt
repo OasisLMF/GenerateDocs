@@ -1,0 +1,172 @@
+:mod:`src.model_execution_worker.tasks`
+=======================================
+
+.. py:module:: src.model_execution_worker.tasks
+
+
+Module Contents
+---------------
+
+.. data:: LOG_FILE_SUFFIX
+   :annotation: = .txt
+
+   
+
+.. data:: ARCHIVE_FILE_SUFFIX
+   :annotation: = .tar
+
+   
+
+.. data:: RUNNING_TASK_STATUS
+   
+
+   
+
+.. data:: CELERY
+   
+
+   
+
+.. py:class:: TemporaryDir(persist=False)
+
+   Bases: :class:`object`
+
+   Context manager for mkdtemp() with option to persist
+
+   .. method:: __enter__(self)
+
+
+
+   .. method:: __exit__(self, exc_type, exc_value, traceback)
+
+
+
+
+.. function:: get_model_settings()
+
+   Read the settings file from the path OASIS_MODEL_SETTINGS
+   returning the contents as a python dict (none if not found)
+
+
+.. function:: get_worker_versions()
+
+   Search and return the versions of Oasis components
+       
+
+
+.. function:: register_worker(sender, **k)
+
+
+.. py:exception:: MissingInputsException(input_archive)
+
+   Bases: :class:`oasislmf.utils.exceptions.OasisException`
+
+
+.. py:exception:: InvalidInputsException(input_archive)
+
+   Bases: :class:`oasislmf.utils.exceptions.OasisException`
+
+
+.. py:exception:: MissingModelDataException(model_data_path)
+
+   Bases: :class:`oasislmf.utils.exceptions.OasisException`
+
+
+.. function:: get_lock()
+
+
+.. function:: get_oasislmf_config_path(model_id)
+
+
+.. function:: get_unique_filename(ext)
+
+   Create a unique filename using a random UUID4.
+
+   Args:
+       ext (str): File extension to use.
+
+   Returns:
+       str: A random unique filename.
+
+
+.. function:: notify_api_status(analysis_pk, task_status)
+
+
+.. function:: start_analysis_task(self, analysis_pk, input_location, analysis_settings_file, complex_data_files=None)
+
+   Task wrapper for running an analysis.
+
+   Args:
+       self: Celery task instance.
+       analysis_settings_file (str): Path to the analysis settings.
+       input_location (str): Path to the input tar file.
+       complex_data_files (list of complex_model_data_file): List of dicts containing
+           on-disk and original filenames for required complex model data files.
+
+   Returns:
+       (string) The location of the outputs.
+
+
+.. function:: start_analysis(analysis_settings_file, input_location, complex_data_files=None)
+
+   Run an analysis.
+
+   Args:
+       analysis_settings_file (str): Path to the analysis settings.
+       input_location (str): Path to the input tar file.
+       complex_data_files (list of complex_model_data_file): List of dicts containing
+           on-disk and original filenames for required complex model data files.
+
+   Returns:
+       (string) The location of the outputs.
+
+
+.. function:: generate_input(analysis_pk, loc_file, acc_file=None, info_file=None, scope_file=None, settings_file=None, complex_data_files=None)
+
+   Generates the input files for the loss calculation stage.
+
+   This function is a thin wrapper around "oasislmf model generate-oasis-files".
+   A temporary directory is created to contain the output oasis files.
+
+   Args:
+       analysis_pk (int): ID of the analysis. 
+       loc_file (str): Name of the portfolio locations file.
+       acc_file (str): Name of the portfolio accounts file.
+       info_file (str): Name of the portfolio reinsurance info file.
+       scope_file (str): Name of the portfolio reinsurance scope file.
+       settings_file (str): Name of the analysis settings file.
+       complex_data_files (list of complex_model_data_file): List of dicts containing
+           on-disk and original filenames for required complex model data files.
+
+   Returns:
+       (tuple(str, str)) Paths to the outputs tar file and errors tar file.
+
+
+.. function:: on_error(request, ex, traceback, record_task_name, analysis_pk, initiator_pk)
+
+   Because of how celery works we need to include a celery task registered in the
+   current app to pass to the `link_error` function on a chain.
+
+   This function takes the error and passes it on back to the server so that it can store
+   the info on the analysis.
+
+
+.. function:: prepare_complex_model_file_inputs(complex_model_files, upload_directory, run_directory)
+
+   Places the specified complex model files in the run_directory.
+
+   The unique upload filenames are converted back to the original upload names, so that the
+   names match any input configuration file.
+
+   On Linux, the files are symlinked, whereas on Windows the files are simply copied.
+
+   Args:
+       complex_model_files (list of complex_model_data_file): List of dicts giving the files
+           to make available.
+       upload_directory (str): Source directory containing the uploaded files with unique filenames.
+       run_directory (str): Model inputs directory to place the files in.
+
+   Returns:
+       None.
+
+

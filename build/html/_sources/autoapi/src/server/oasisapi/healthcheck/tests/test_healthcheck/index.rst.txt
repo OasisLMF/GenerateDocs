@@ -1,0 +1,22 @@
+:mod:`src.server.oasisapi.healthcheck.tests.test_healthcheck`
+=============================================================
+
+.. py:module:: src.server.oasisapi.healthcheck.tests.test_healthcheck
+
+
+Module Contents
+---------------
+
+.. py:class:: Healthcheck
+
+   Bases: :class:`django_webtest.WebTest`
+
+   .. method:: test_user_is_not_authenticated___response_is_ok(self)
+
+
+
+   .. method:: test_user_is_authenticated___response_is_ok(self)
+
+
+
+

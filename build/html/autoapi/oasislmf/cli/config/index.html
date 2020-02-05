@@ -1,0 +1,360 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.cli.config &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.cli.config</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/autoapi/oasislmf/cli/config/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-oasislmf.cli.config">
+<span id="oasislmf-cli-config"></span><h1><a class="reference internal" href="#module-oasislmf.cli.config" title="oasislmf.cli.config"><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.cli.config</span></code></a><a class="headerlink" href="#module-oasislmf.cli.config" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="oasislmf.cli.config.ConfigUpdateCmd">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.cli.config.</code><code class="sig-name descname">ConfigUpdateCmd</code><a class="reference internal" href="../../../../_modules/oasislmf/cli/config.html#ConfigUpdateCmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.cli.config.ConfigUpdateCmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base/index.html#oasislmf.cli.base.OasisBaseCommand" title="oasislmf.cli.base.OasisBaseCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">oasislmf.cli.base.OasisBaseCommand</span></code></a></p>
+<p>Read in an MDK config file and writes an updated file, replacing deprecated keys
+with newer ones compatible with the current MDK release</p>
+<dl class="method">
+<dt id="oasislmf.cli.config.ConfigUpdateCmd.add_args">
+<code class="sig-name descname">add_args</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">parser</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/cli/config.html#ConfigUpdateCmd.add_args"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.cli.config.ConfigUpdateCmd.add_args" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adds arguments to the argument parser.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>parser</strong> (<em>ArgumentParser</em>) – The argument parser object</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="method">
+<dt id="oasislmf.cli.config.ConfigUpdateCmd.action">
+<code class="sig-name descname">action</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">args</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/cli/config.html#ConfigUpdateCmd.action"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.cli.config.ConfigUpdateCmd.action" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>args</strong> (<em>Namespace</em>) – The arguments from the command line</p>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="oasislmf.cli.config.ConfigCmd">
+<em class="property">class </em><code class="sig-prename descclassname">oasislmf.cli.config.</code><code class="sig-name descname">ConfigCmd</code><a class="reference internal" href="../../../../_modules/oasislmf/cli/config.html#ConfigCmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.cli.config.ConfigCmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference internal" href="../base/index.html#oasislmf.cli.base.OasisBaseCommand" title="oasislmf.cli.base.OasisBaseCommand"><code class="xref py py-class docutils literal notranslate"><span class="pre">oasislmf.cli.base.OasisBaseCommand</span></code></a></p>
+<p>Describes the format of the configuration (JSON) file to use the MDK
+<code class="docutils literal notranslate"><span class="pre">model</span> <span class="pre">run</span></code> command for running models end-to-end.</p>
+<p>One file will need to be defined per model, usually in the model repository
+and with an indicative name.</p>
+<p>The path-related keys should be strings, given relative to the location of
+configuration file. Optional arguments for a command are usually defaulted
+with appropriate values, but can be overridden by providing a runtime flag.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Analysis_settings_json</dt>
+<dd class="field-odd"><p>Analysis settings (JSON) file path</p>
+</dd>
+<dt class="field-even">Lookup_data_dir</dt>
+<dd class="field-even"><p>Model lookup/keys data path (optional)</p>
+</dd>
+<dt class="field-odd">Lookup_config_json</dt>
+<dd class="field-odd"><p>Model built-in lookup config. (JSON) file path (optional)</p>
+</dd>
+<dt class="field-even">Lookup_package_dir</dt>
+<dd class="field-even"><p>Model custom lookup package path (optional)</p>
+</dd>
+<dt class="field-odd">Model_version_csv</dt>
+<dd class="field-odd"><p>Model version (CSV) file path (optional)</p>
+</dd>
+<dt class="field-even">Model_data_dir</dt>
+<dd class="field-even"><p>Model data path</p>
+</dd>
+<dt class="field-odd">Model_package_dir</dt>
+<dd class="field-odd"><p>Path to the directory to use as the model specific package (optional)</p>
+</dd>
+<dt class="field-even">Model_run_dir</dt>
+<dd class="field-even"><p>Model run directory (optional)</p>
+</dd>
+<dt class="field-odd">Oed_location_csv</dt>
+<dd class="field-odd"><p>Source OED exposure (CSV) file path</p>
+</dd>
+<dt class="field-even">Oed_accounts_csv</dt>
+<dd class="field-even"><p>Source OED accounts (CSV) file path (optional)</p>
+</dd>
+<dt class="field-odd">Oed_info_csv</dt>
+<dd class="field-odd"><p>Reinsurance (RI) info. file path (optional)</p>
+</dd>
+<dt class="field-even">Oed_scope_csv</dt>
+<dd class="field-even"><p>RI scope file path (optional)</p>
+</dd>
+<dt class="field-odd">Profile_location_csv</dt>
+<dd class="field-odd"><p>Source OED exposure (JSON) profile describing the financial terms contained in the source exposure file (optional)</p>
+</dd>
+<dt class="field-even">Profile_accounts_json</dt>
+<dd class="field-even"><p>Source OED accouns (JSON) profile describing the financial terms contained in the source accounts file (optional)</p>
+</dd>
+<dt class="field-odd">Summarise_exposure</dt>
+<dd class="field-odd"><p>Generates an exposure summary report in JSON</p>
+</dd>
+<dt class="field-even">Ktools_num_processes</dt>
+<dd class="field-even"><p>The number of concurrent processes used by ktools during model execution - default is <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+</dd>
+<dt class="field-odd">Ktools_fifo_relative</dt>
+<dd class="field-odd"><p>Whether to create ktools FIFO queues under the <code class="docutils literal notranslate"><span class="pre">./fifo</span></code> subfolder (in the model run directory)</p>
+</dd>
+<dt class="field-even">Ktools_alloc_rule_gul</dt>
+<dd class="field-even"><p>Override the allocation used in <code class="docutils literal notranslate"><span class="pre">fmcalc</span></code> - default is <code class="docutils literal notranslate"><span class="pre">1</span></code></p>
+</dd>
+<dt class="field-odd">Ktools_alloc_rule_il</dt>
+<dd class="field-odd"><p>Override the allocation used in <code class="docutils literal notranslate"><span class="pre">fmcalc</span></code> - default is <code class="docutils literal notranslate"><span class="pre">2</span></code></p>
+</dd>
+</dl>
+<dl class="attribute">
+<dt id="oasislmf.cli.config.ConfigCmd.formatter_class">
+<code class="sig-name descname">formatter_class</code><a class="reference internal" href="../../../../_modules/oasislmf/cli/config.html#ConfigCmd.formatter_class"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.cli.config.ConfigCmd.formatter_class" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="attribute">
+<dt id="oasislmf.cli.config.ConfigCmd.sub_commands">
+<code class="sig-name descname">sub_commands</code><a class="reference internal" href="../../../../_modules/oasislmf/cli/config.html#ConfigCmd.sub_commands"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.cli.config.ConfigCmd.sub_commands" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

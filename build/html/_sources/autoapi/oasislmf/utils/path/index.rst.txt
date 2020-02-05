@@ -1,0 +1,62 @@
+:mod:`oasislmf.utils.path`
+==========================
+
+.. py:module:: oasislmf.utils.path
+
+
+Module Contents
+---------------
+
+.. function:: as_path(path, label, is_dir=False, preexists=True)
+
+   Processes the path and returns the absolute path.
+
+   If the path does not exist and ``preexists`` is true
+   an ``OasisException`` is raised.
+
+   :param path: The path to process
+   :type path: str
+
+   :param label: Human-readable label of the path (used for error reporting)
+   :type label: str
+
+   :param is_dir: Whether the path is a directory
+   :type is_dir: bool
+
+   :param preexists: Flag whether to raise an error if the path
+       does not exist.
+   :type preexists: bool
+
+   :return: The absolute path of the input path
+
+
+.. function:: empty_dir(dir_fp)
+
+   Empties the contents of a directory, but leaves the directory in place.
+
+   :param dir_fp: A pre-existing directory path
+   :type dir_fp: str
+
+
+.. py:class:: PathCleaner(label, preexists=True)
+
+   Bases: :class:`object`
+
+   A callable that generates the absolute path of the given path and checks
+   that it exists if indicated as preexisting.
+
+   :param label: A user-friendly label for the path (used for error reporting)
+   :type label: str
+
+   :param preexists: Flag whether to raise an error if the path
+       does not exist.
+   :type preexists: bool
+
+   .. method:: __call__(self, path)
+
+
+
+
+.. function:: setcwd(path)
+
+

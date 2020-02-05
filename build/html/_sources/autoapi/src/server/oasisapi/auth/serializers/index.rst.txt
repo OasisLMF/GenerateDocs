@@ -1,0 +1,32 @@
+:mod:`src.server.oasisapi.auth.serializers`
+===========================================
+
+.. py:module:: src.server.oasisapi.auth.serializers
+
+
+Module Contents
+---------------
+
+.. py:class:: TokenObtainPairSerializer(*args, **kwargs)
+
+   Bases: :class:`rest_framework_simplejwt.serializers.TokenObtainPairSerializer`
+
+   .. method:: validate(self, attrs)
+
+
+
+
+.. py:class:: TokenRefreshSerializer
+
+   Bases: :class:`rest_framework_simplejwt.serializers.TokenRefreshSerializer`
+
+   .. attribute:: refresh
+      
+
+      
+
+   .. method:: validate(self, attrs)
+
+
+
+

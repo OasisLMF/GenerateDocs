@@ -1,0 +1,26 @@
+:mod:`src.server.oasisapi.oed_info`
+===================================
+
+.. py:module:: src.server.oasisapi.oed_info
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   tests/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   models/index.rst
+   peril/index.rst
+   views/index.rst
+
+

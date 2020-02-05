@@ -1,0 +1,724 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>src.server.oasisapi.analyses.tests.test_analysis_api &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../../../../" src="../../../../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.tests.test_analysis_api</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../../../../_sources/autoapi/src/server/oasisapi/analyses/tests/test_analysis_api/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-src.server.oasisapi.analyses.tests.test_analysis_api">
+<span id="src-server-oasisapi-analyses-tests-test-analysis-api"></span><h1><a class="reference internal" href="#module-src.server.oasisapi.analyses.tests.test_analysis_api" title="src.server.oasisapi.analyses.tests.test_analysis_api"><code class="xref py py-mod docutils literal notranslate"><span class="pre">src.server.oasisapi.analyses.tests.test_analysis_api</span></code></a><a class="headerlink" href="#module-src.server.oasisapi.analyses.tests.test_analysis_api" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisApi</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_user_is_authenticated_object_does_not_exist___response_is_404">
+<code class="sig-name descname">test_user_is_authenticated_object_does_not_exist___response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_user_is_authenticated_object_does_not_exist___response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_user_is_authenticated_object_does_not_exist___response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_name_is_not_provided___response_is_400">
+<code class="sig-name descname">test_name_is_not_provided___response_is_400</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_name_is_not_provided___response_is_400"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_name_is_not_provided___response_is_400" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_cleaned_name_is_empty___response_is_400">
+<code class="sig-name descname">test_cleaned_name_is_empty___response_is_400</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_cleaned_name_is_empty___response_is_400"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_cleaned_name_is_empty___response_is_400" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_cleaned_name_portfolio_and_model_are_present___object_is_created">
+<code class="sig-name descname">test_cleaned_name_portfolio_and_model_are_present___object_is_created</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_cleaned_name_portfolio_and_model_are_present___object_is_created"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_cleaned_name_portfolio_and_model_are_present___object_is_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_complex_model_file_present___object_is_created">
+<code class="sig-name descname">test_complex_model_file_present___object_is_created</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_complex_model_file_present___object_is_created"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_complex_model_file_present___object_is_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_model_does_not_exist___response_is_400">
+<code class="sig-name descname">test_model_does_not_exist___response_is_400</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_model_does_not_exist___response_is_400"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_model_does_not_exist___response_is_400" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_model_does_exist___response_is_200">
+<code class="sig-name descname">test_model_does_exist___response_is_200</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisApi.test_model_does_exist___response_is_200"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisApi.test_model_does_exist___response_is_200" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisRun</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRun"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRun.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun.test_user_is_authenticated_object_does_not_exist___response_is_404">
+<code class="sig-name descname">test_user_is_authenticated_object_does_not_exist___response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRun.test_user_is_authenticated_object_does_not_exist___response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun.test_user_is_authenticated_object_does_not_exist___response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun.test_user_is_authenticated_object_exists___run_is_called">
+<code class="sig-name descname">test_user_is_authenticated_object_exists___run_is_called</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRun.test_user_is_authenticated_object_exists___run_is_called"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRun.test_user_is_authenticated_object_exists___run_is_called" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisCancel</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancel"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancel.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel.test_user_is_authenticated_object_does_not_exist___response_is_404">
+<code class="sig-name descname">test_user_is_authenticated_object_does_not_exist___response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancel.test_user_is_authenticated_object_does_not_exist___response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel.test_user_is_authenticated_object_does_not_exist___response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel.test_user_is_authenticated_object_exists___cancel_is_called">
+<code class="sig-name descname">test_user_is_authenticated_object_exists___cancel_is_called</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancel.test_user_is_authenticated_object_exists___cancel_is_called"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancel.test_user_is_authenticated_object_exists___cancel_is_called" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisGenerateInputs</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisGenerateInputs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisGenerateInputs.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs.test_user_is_authenticated_object_does_not_exist___response_is_404">
+<code class="sig-name descname">test_user_is_authenticated_object_does_not_exist___response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisGenerateInputs.test_user_is_authenticated_object_does_not_exist___response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs.test_user_is_authenticated_object_does_not_exist___response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs.test_user_is_authenticated_object_exists___generate_inputs_is_called">
+<code class="sig-name descname">test_user_is_authenticated_object_exists___generate_inputs_is_called</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisGenerateInputs.test_user_is_authenticated_object_exists___generate_inputs_is_called"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisGenerateInputs.test_user_is_authenticated_object_exists___generate_inputs_is_called" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisCancelInputsGeneration</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancelInputsGeneration"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancelInputsGeneration.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration.test_user_is_authenticated_object_does_not_exist___response_is_404">
+<code class="sig-name descname">test_user_is_authenticated_object_does_not_exist___response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancelInputsGeneration.test_user_is_authenticated_object_does_not_exist___response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration.test_user_is_authenticated_object_does_not_exist___response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration.test_user_is_authenticated_object_exists___generate_inputs_generation_is_called">
+<code class="sig-name descname">test_user_is_authenticated_object_exists___generate_inputs_generation_is_called</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCancelInputsGeneration.test_user_is_authenticated_object_exists___generate_inputs_generation_is_called"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCancelInputsGeneration.test_user_is_authenticated_object_exists___generate_inputs_generation_is_called" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisCopy</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_user_is_authenticated_object_does_not_exist___response_is_404">
+<code class="sig-name descname">test_user_is_authenticated_object_does_not_exist___response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_user_is_authenticated_object_does_not_exist___response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_user_is_authenticated_object_does_not_exist___response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_new_object_is_created">
+<code class="sig-name descname">test_new_object_is_created</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_new_object_is_created"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_new_object_is_created" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_no_new_name_is_provided___copy_is_appended_to_name">
+<code class="sig-name descname">test_no_new_name_is_provided___copy_is_appended_to_name</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">name</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_no_new_name_is_provided___copy_is_appended_to_name"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_no_new_name_is_provided___copy_is_appended_to_name" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_new_name_is_provided___new_name_is_set_on_new_object">
+<code class="sig-name descname">test_new_name_is_provided___new_name_is_set_on_new_object</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">orig_name</em>, <em class="sig-param">new_name</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_new_name_is_provided___new_name_is_set_on_new_object"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_new_name_is_provided___new_name_is_set_on_new_object" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_state_is_reset">
+<code class="sig-name descname">test_state_is_reset</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">status</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_state_is_reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_state_is_reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_creator_is_set_to_caller">
+<code class="sig-name descname">test_creator_is_set_to_caller</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_creator_is_set_to_caller"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_creator_is_set_to_caller" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_run_task_id_is_reset">
+<code class="sig-name descname">test_run_task_id_is_reset</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">task_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_run_task_id_is_reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_run_task_id_is_reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_generate_inputs_task_id_is_reset">
+<code class="sig-name descname">test_generate_inputs_task_id_is_reset</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">task_id</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_generate_inputs_task_id_is_reset"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_generate_inputs_task_id_is_reset" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_portfolio_is_not_supplied___portfolio_is_copied">
+<code class="sig-name descname">test_portfolio_is_not_supplied___portfolio_is_copied</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_portfolio_is_not_supplied___portfolio_is_copied"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_portfolio_is_not_supplied___portfolio_is_copied" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_portfolio_is_supplied___portfolio_is_replaced">
+<code class="sig-name descname">test_portfolio_is_supplied___portfolio_is_replaced</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_portfolio_is_supplied___portfolio_is_replaced"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_portfolio_is_supplied___portfolio_is_replaced" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_model_is_not_supplied___model_is_copied">
+<code class="sig-name descname">test_model_is_not_supplied___model_is_copied</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_model_is_not_supplied___model_is_copied"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_model_is_not_supplied___model_is_copied" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_model_is_supplied___model_is_replaced">
+<code class="sig-name descname">test_model_is_supplied___model_is_replaced</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_model_is_supplied___model_is_replaced"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_model_is_supplied___model_is_replaced" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_complex_model_file_is_not_supplied___model_is_copied">
+<code class="sig-name descname">test_complex_model_file_is_not_supplied___model_is_copied</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_complex_model_file_is_not_supplied___model_is_copied"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_complex_model_file_is_not_supplied___model_is_copied" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_complex_model_file_is_supplied___model_is_replaced">
+<code class="sig-name descname">test_complex_model_file_is_supplied___model_is_replaced</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_complex_model_file_is_supplied___model_is_replaced"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_complex_model_file_is_supplied___model_is_replaced" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_settings_file_is_not_supplied___settings_file_is_copied">
+<code class="sig-name descname">test_settings_file_is_not_supplied___settings_file_is_copied</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_settings_file_is_not_supplied___settings_file_is_copied"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_settings_file_is_not_supplied___settings_file_is_copied" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_input_file_is_not_supplied___input_file_is_copied">
+<code class="sig-name descname">test_input_file_is_not_supplied___input_file_is_copied</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_input_file_is_not_supplied___input_file_is_copied"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_input_file_is_not_supplied___input_file_is_copied" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_lookup_errors_file_is_cleared">
+<code class="sig-name descname">test_lookup_errors_file_is_cleared</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_lookup_errors_file_is_cleared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_lookup_errors_file_is_cleared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_lookup_success_file_is_cleared">
+<code class="sig-name descname">test_lookup_success_file_is_cleared</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_lookup_success_file_is_cleared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_lookup_success_file_is_cleared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_lookup_validation_file_is_cleared">
+<code class="sig-name descname">test_lookup_validation_file_is_cleared</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_lookup_validation_file_is_cleared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_lookup_validation_file_is_cleared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_output_file_is_cleared">
+<code class="sig-name descname">test_output_file_is_cleared</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisCopy.test_output_file_is_cleared"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisCopy.test_output_file_is_cleared" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisSettingsJson</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsJson"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsJson.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_settings_json_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsJson.test_settings_json_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_not_present___delete_response_is_404">
+<code class="sig-name descname">test_settings_json_is_not_present___delete_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsJson.test_settings_json_is_not_present___delete_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_not_present___delete_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_not_valid___response_is_400">
+<code class="sig-name descname">test_settings_json_is_not_valid___response_is_400</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsJson.test_settings_json_is_not_valid___response_is_400"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_not_valid___response_is_400" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_uploaded___can_be_retrieved">
+<code class="sig-name descname">test_settings_json_is_uploaded___can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsJson.test_settings_json_is_uploaded___can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsJson.test_settings_json_is_uploaded___can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisSettingsFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_settings_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsFile.test_settings_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_not_present___delete_response_is_404">
+<code class="sig-name descname">test_settings_file_is_not_present___delete_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsFile.test_settings_file_is_not_present___delete_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_not_present___delete_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_not_a_valid_format___response_is_400">
+<code class="sig-name descname">test_settings_file_is_not_a_valid_format___response_is_400</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsFile.test_settings_file_is_not_a_valid_format___response_is_400"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_not_a_valid_format___response_is_400" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_uploaded___file_can_be_retrieved">
+<code class="sig-name descname">test_settings_file_is_uploaded___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisSettingsFile.test_settings_file_is_uploaded___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisSettingsFile.test_settings_file_is_uploaded___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisInputFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile.test_input_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_input_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputFile.test_input_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile.test_input_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile.test_input_file_is_present___file_can_be_retrieved">
+<code class="sig-name descname">test_input_file_is_present___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em>, <em class="sig-param">content_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputFile.test_input_file_is_present___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputFile.test_input_file_is_present___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisLookupErrorsFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupErrorsFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupErrorsFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile.test_lookup_errors_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_lookup_errors_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupErrorsFile.test_lookup_errors_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile.test_lookup_errors_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile.test_lookup_errors_file_is_present___file_can_be_retrieved">
+<code class="sig-name descname">test_lookup_errors_file_is_present___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em>, <em class="sig-param">content_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupErrorsFile.test_lookup_errors_file_is_present___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupErrorsFile.test_lookup_errors_file_is_present___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisLookupSuccessFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupSuccessFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupSuccessFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile.test_lookup_success_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_lookup_success_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupSuccessFile.test_lookup_success_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile.test_lookup_success_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile.test_lookup_success_file_is_present___file_can_be_retrieved">
+<code class="sig-name descname">test_lookup_success_file_is_present___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em>, <em class="sig-param">content_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupSuccessFile.test_lookup_success_file_is_present___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupSuccessFile.test_lookup_success_file_is_present___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisLookupValidationFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupValidationFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupValidationFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile.test_lookup_validation_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_lookup_validation_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupValidationFile.test_lookup_validation_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile.test_lookup_validation_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile.test_lookup_validation_file_is_present___file_can_be_retrieved">
+<code class="sig-name descname">test_lookup_validation_file_is_present___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em>, <em class="sig-param">content_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisLookupValidationFile.test_lookup_validation_file_is_present___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisLookupValidationFile.test_lookup_validation_file_is_present___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisInputGenerationTracebackFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputGenerationTracebackFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputGenerationTracebackFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_input_generation_traceback_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_not_present___delete_response_is_404">
+<code class="sig-name descname">test_input_generation_traceback_file_is_not_present___delete_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_not_present___delete_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_not_present___delete_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_present___file_can_be_retrieved">
+<code class="sig-name descname">test_input_generation_traceback_file_is_present___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_present___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisInputGenerationTracebackFile.test_input_generation_traceback_file_is_present___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisOutputFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisOutputFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisOutputFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_output_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisOutputFile.test_output_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_not_present___delete_response_is_404">
+<code class="sig-name descname">test_output_file_is_not_present___delete_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisOutputFile.test_output_file_is_not_present___delete_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_not_present___delete_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_not_valid_format___post_response_is_405">
+<code class="sig-name descname">test_output_file_is_not_valid_format___post_response_is_405</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisOutputFile.test_output_file_is_not_valid_format___post_response_is_405"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_not_valid_format___post_response_is_405" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_present___file_can_be_retrieved">
+<code class="sig-name descname">test_output_file_is_present___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em>, <em class="sig-param">content_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisOutputFile.test_output_file_is_present___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisOutputFile.test_output_file_is_present___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile">
+<em class="property">class </em><code class="sig-prename descclassname">src.server.oasisapi.analyses.tests.test_analysis_api.</code><code class="sig-name descname">AnalysisRunTracebackFile</code><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRunTracebackFile"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">django_webtest.WebTestMixin</span></code>, <code class="xref py py-class docutils literal notranslate"><span class="pre">hypothesis.extra.django.TestCase</span></code></p>
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_user_is_not_authenticated___response_is_forbidden">
+<code class="sig-name descname">test_user_is_not_authenticated___response_is_forbidden</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRunTracebackFile.test_user_is_not_authenticated___response_is_forbidden"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_user_is_not_authenticated___response_is_forbidden" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_not_present___get_response_is_404">
+<code class="sig-name descname">test_run_traceback_file_is_not_present___get_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRunTracebackFile.test_run_traceback_file_is_not_present___get_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_not_present___get_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_not_present___delete_response_is_404">
+<code class="sig-name descname">test_run_traceback_file_is_not_present___delete_response_is_404</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRunTracebackFile.test_run_traceback_file_is_not_present___delete_response_is_404"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_not_present___delete_response_is_404" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_not_valid_format___post_response_is_405">
+<code class="sig-name descname">test_run_traceback_file_is_not_valid_format___post_response_is_405</code><span class="sig-paren">(</span><em class="sig-param">self</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRunTracebackFile.test_run_traceback_file_is_not_valid_format___post_response_is_405"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_not_valid_format___post_response_is_405" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="method">
+<dt id="src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_present___file_can_be_retrieved">
+<code class="sig-name descname">test_run_traceback_file_is_present___file_can_be_retrieved</code><span class="sig-paren">(</span><em class="sig-param">self</em>, <em class="sig-param">file_content</em>, <em class="sig-param">content_type</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../../../../_modules/src/server/oasisapi/analyses/tests/test_analysis_api.html#AnalysisRunTracebackFile.test_run_traceback_file_is_present___file_can_be_retrieved"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#src.server.oasisapi.analyses.tests.test_analysis_api.AnalysisRunTracebackFile.test_run_traceback_file_is_present___file_can_be_retrieved" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

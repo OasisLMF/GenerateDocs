@@ -1,0 +1,113 @@
+:mod:`oasislmf.cli.api`
+=======================
+
+.. py:module:: oasislmf.cli.api
+
+
+Module Contents
+---------------
+
+.. function:: load_credentials(login_arg, logger=None)
+
+   Load credentials from JSON file
+
+   Options:
+       1. '--api-server-login ./APIcredentials.json'
+
+       2. Load credentials from default config file
+       '-C oasislmf.json'
+
+       3. Prompt for username / password
+
+
+.. function:: open_api_connection(input_args, logger)
+
+
+.. py:class:: GetApiCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   Issue API GET requests via the command line
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+
+   .. method:: action(self, args)
+
+
+
+
+.. py:class:: DelApiCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+
+   .. method:: action(self, args)
+
+
+
+
+.. py:class:: PutApiModelCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+
+   .. method:: action(self, args)
+
+
+
+
+.. py:class:: RunApiCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   .. attribute:: formatter_class
+      
+
+      
+
+   .. method:: add_args(self, parser)
+
+
+
+   .. method:: _select_model(self, avalible_models)
+
+
+
+   .. method:: action(self, args)
+
+
+
+
+.. py:class:: ApiCmd
+
+   Bases: :class:`oasislmf.cli.base.OasisBaseCommand`
+
+   .. attribute:: sub_commands
+      
+
+      
+
+

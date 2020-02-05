@@ -1,0 +1,16 @@
+:mod:`src.conf`
+===============
+
+.. py:module:: src.conf
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   celeryconf/index.rst
+   iniconf/index.rst
+
+

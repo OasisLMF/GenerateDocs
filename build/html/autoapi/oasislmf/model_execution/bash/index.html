@@ -1,0 +1,522 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>oasislmf.model_execution.bash &mdash; Oasis LMF 1.0.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+  <script type="text/javascript" src="../../../../_static/js/modernizr.min.js"></script>
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../../../" src="../../../../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../../../../_static/jquery.js"></script>
+        <script type="text/javascript" src="../../../../_static/underscore.js"></script>
+        <script type="text/javascript" src="../../../../_static/doctools.js"></script>
+        <script type="text/javascript" src="../../../../_static/language_data.js"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    
+    <script type="text/javascript" src="../../../../_static/js/theme.js"></script>
+
+    
+
+  
+  <link rel="stylesheet" href="../../../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../../../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../../../index.html" class="icon icon-home"> Oasis LMF
+          
+
+          
+          </a>
+
+          
+            
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Getting started</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/piwind_model.html">PiWind - toy model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_MDK.html">Run a model using the Oasis MDK</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_API.html">Run a model using the Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/running_a_model_using_the_Oasis_UI.html">Run a model using the Oasis UI</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../getting_started/FAQ.html">Frequently Asked Questions</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Developer guide</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/platform_architecture.html">Platform architecture</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/development_approach.html">Development approach</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/github_repositories.html">GitHub repositories</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/technology_stack.html">Technology stack</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../developer_guide/release_process.html">Release process</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Modelling methodology</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/what_is_a_catastrophe_model.html">What is a catastrophe model</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/simulation_methodology.html">Simulation methodology</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/financial_modelling_and_exposure_data.html">Financial modelling and exposure data</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../modelling_methodology/risk_metrics.html">Risk metrics</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Documentation</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_rest_api.html">Oasis API</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/oasis_mdk.html">Model Development Kit (MDK)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../docs/modules.html">Module documentation</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Release Notes</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../releases/latest_release.html">Latest release</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">Oasis LMF</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../../../index.html">Docs</a> &raquo;</li>
+        
+      <li><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.model_execution.bash</span></code></li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../../../_sources/autoapi/oasislmf/model_execution/bash/index.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  
+<style>
+/* CSS overrides for sphinx_rtd_theme */
+
+/* 24px margin */
+.nbinput.nblast.container,
+.nboutput.nblast.container {
+    margin-bottom: 19px;  /* padding has already 5px */
+}
+
+/* ... except between code cells! */
+.nblast.container + .nbinput.container {
+    margin-top: -19px;
+}
+
+.admonition > p:before {
+    margin-right: 4px;  /* make room for the exclamation icon */
+}
+
+/* Fix math alignment, see https://github.com/rtfd/sphinx_rtd_theme/pull/686 */
+.math {
+    text-align: unset;
+}
+</style>
+<div class="section" id="module-oasislmf.model_execution.bash">
+<span id="oasislmf-model-execution-bash"></span><h1><a class="reference internal" href="#module-oasislmf.model_execution.bash" title="oasislmf.model_execution.bash"><code class="xref py py-mod docutils literal notranslate"><span class="pre">oasislmf.model_execution.bash</span></code></a><a class="headerlink" href="#module-oasislmf.model_execution.bash" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="module-contents">
+<h2>Module Contents<a class="headerlink" href="#module-contents" title="Permalink to this headline">¶</a></h2>
+<dl class="data">
+<dt id="oasislmf.model_execution.bash.RUNTYPE_GROUNDUP_LOSS">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">RUNTYPE_GROUNDUP_LOSS</code><em class="property"> = gul</em><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#RUNTYPE_GROUNDUP_LOSS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.RUNTYPE_GROUNDUP_LOSS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="oasislmf.model_execution.bash.RUNTYPE_INSURED_LOSS">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">RUNTYPE_INSURED_LOSS</code><em class="property"> = il</em><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#RUNTYPE_INSURED_LOSS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.RUNTYPE_INSURED_LOSS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="oasislmf.model_execution.bash.RUNTYPE_REINSURANCE_LOSS">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">RUNTYPE_REINSURANCE_LOSS</code><em class="property"> = ri</em><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#RUNTYPE_REINSURANCE_LOSS"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.RUNTYPE_REINSURANCE_LOSS" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="data">
+<dt id="oasislmf.model_execution.bash.WAIT_PROCESSING_SWITCHES">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">WAIT_PROCESSING_SWITCHES</code><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#WAIT_PROCESSING_SWITCHES"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.WAIT_PROCESSING_SWITCHES" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.print_command">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">print_command</code><span class="sig-paren">(</span><em class="sig-param">command_file</em>, <em class="sig-param">cmd</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#print_command"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.print_command" title="Permalink to this definition">¶</a></dt>
+<dd><p>Writes the supplied command to the end of the generated script</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>command_file</strong> – File to append command to.</p></li>
+<li><p><strong>cmd</strong> – The command to append</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.leccalc_enabled">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">leccalc_enabled</code><span class="sig-paren">(</span><em class="sig-param">lec_options</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#leccalc_enabled"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.leccalc_enabled" title="Permalink to this definition">¶</a></dt>
+<dd><p>Checks if leccalc is enabled in the leccalc options</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>lec_options</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – The leccalc options from the analysis settings</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>True is leccalc is enables, False otherwise.</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_post_wait_processing">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_post_wait_processing</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">filename</em>, <em class="sig-param">process_counter</em>, <em class="sig-param">work_sub_dir=''</em>, <em class="sig-param">output_dir='output/'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_post_wait_processing"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_post_wait_processing" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_fifos_exec">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_fifos_exec</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">fifo_dir</em>, <em class="sig-param">action='mkfifo'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_fifos_exec"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_fifos_exec" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_fifos_calc">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_fifos_calc</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">action='mkfifo'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_fifos_calc"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_fifos_calc" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.create_workfolders">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">create_workfolders</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">filename</em>, <em class="sig-param">work_dir='work/'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#create_workfolders"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.create_workfolders" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_kats">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_kats</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">process_counter</em>, <em class="sig-param">work_dir='work/kat/'</em>, <em class="sig-param">output_dir='output/'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_kats"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_kats" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_summarycalcs">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_summarycalcs</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">stderr_guard=True</em>, <em class="sig-param">num_reinsurance_iterations=0</em>, <em class="sig-param">gul_alloc_rule=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_summarycalcs"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_summarycalcs" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_tees">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_tees</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">process_counter</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">work_dir='work/'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_tees"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_tees" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_any">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_any</code><span class="sig-paren">(</span><em class="sig-param">runtype</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">process_counter</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">work_dir='work/'</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_any"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_any" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.ri">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">ri</code><span class="sig-paren">(</span><em class="sig-param">analysis_settings</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">process_counter</em>, <em class="sig-param">num_reinsurance_iterations</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">work_dir='work/'</em>, <em class="sig-param">stderr_guard=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#ri"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.ri" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.il">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">il</code><span class="sig-paren">(</span><em class="sig-param">analysis_settings</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">process_counter</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">work_dir='work/'</em>, <em class="sig-param">stderr_guard=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#il"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.il" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_gul">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_gul</code><span class="sig-paren">(</span><em class="sig-param">analysis_settings</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">filename</em>, <em class="sig-param">process_counter</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">work_dir='work/'</em>, <em class="sig-param">gul_alloc_rule=None</em>, <em class="sig-param">stderr_guard=True</em>, <em class="sig-param">full_correlation=False</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_gul"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_gul" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_waits">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_waits</code><span class="sig-paren">(</span><em class="sig-param">wait_variable</em>, <em class="sig-param">wait_count</em>, <em class="sig-param">filename</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_waits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_waits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add waits to the script</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>wait_variable</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – The type of wait</p></li>
+<li><p><strong>wait_count</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The number of processes to wait for</p></li>
+<li><p><strong>filename</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#str" title="(in Python v3.8)"><em>str</em></a>) – Script to add waits to</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_pwaits">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_pwaits</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">process_counter</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_pwaits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_pwaits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add pwaits to the script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_awaits">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_awaits</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">process_counter</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_awaits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_awaits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add awaits to the script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_lwaits">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_lwaits</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">process_counter</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_lwaits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_lwaits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add lwaits to the script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_kwaits">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_kwaits</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">process_counter</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_kwaits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_kwaits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add kwaits to the script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_fcwaits">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_fcwaits</code><span class="sig-paren">(</span><em class="sig-param">filename</em>, <em class="sig-param">process_counter</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_fcwaits"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_fcwaits" title="Permalink to this definition">¶</a></dt>
+<dd><p>Add fcwaits to the script</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.get_getmodel_itm_cmd">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">get_getmodel_itm_cmd</code><span class="sig-paren">(</span><em class="sig-param">number_of_samples</em>, <em class="sig-param">gul_threshold</em>, <em class="sig-param">use_random_number_file</em>, <em class="sig-param">gul_alloc_rule</em>, <em class="sig-param">item_output</em>, <em class="sig-param">process_id</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">correlated_output</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#get_getmodel_itm_cmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.get_getmodel_itm_cmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the getmodel ktools command (3.1.0+) Gulcalc item stream
+:param number_of_samples: The number of samples to run
+:type number_of_samples: int
+:param gul_threshold: The GUL threshold to use
+:type gul_threshold: float
+:param use_random_number_file: flag to use the random number file
+:type use_random_number_file: bool
+:param gul_alloc_rule: back allocation rule for gulcalc
+:type gul_alloc_rule: int
+:param item_output: The item output
+:type item_output: str
+:return: The generated getmodel command</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.get_getmodel_cov_cmd">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">get_getmodel_cov_cmd</code><span class="sig-paren">(</span><em class="sig-param">number_of_samples</em>, <em class="sig-param">gul_threshold</em>, <em class="sig-param">use_random_number_file</em>, <em class="sig-param">coverage_output</em>, <em class="sig-param">item_output</em>, <em class="sig-param">process_id</em>, <em class="sig-param">max_process_id</em>, <em class="sig-param">**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#get_getmodel_cov_cmd"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.get_getmodel_cov_cmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the getmodel ktools command (version &lt; 3.0.8) gulcalc coverage stream
+:param number_of_samples: The number of samples to run
+:type number_of_samples: int
+:param gul_threshold: The GUL threshold to use
+:type gul_threshold: float
+:param use_random_number_file: flag to use the random number file
+:type use_random_number_file: bool
+:param coverage_output: The coverage output
+:type coverage_output: str
+:param item_output: The item output
+:type item_output: str
+:return: The generated getmodel command</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.get_main_cmd_ri_stream">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">get_main_cmd_ri_stream</code><span class="sig-paren">(</span><em class="sig-param">cmd</em>, <em class="sig-param">process_id</em>, <em class="sig-param">il_output</em>, <em class="sig-param">il_alloc_rule</em>, <em class="sig-param">ri_alloc_rule</em>, <em class="sig-param">num_reinsurance_iterations</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">stderr_guard=True</em>, <em class="sig-param">full_correlation=False</em>, <em class="sig-param">process_counter=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#get_main_cmd_ri_stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.get_main_cmd_ri_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the fmcalc ktools command reinsurance stream
+:param cmd: either gulcalc command stream or correlated output file
+:type cmd: str
+:param process_id: ID corresponding to thread
+:type process_id: int
+:param il_output: If insured loss outputs required
+:type il_output: Boolean
+:param il_alloc_rule: insured loss allocation rule for fmcalc
+:type il_alloc_rule: int
+:param ri_alloc_rule: reinsurance allocation rule for fmcalc
+:type ri_alloc_rule: int
+:param num_reinsurance_iterations: number of reinsurance iterations
+:type num_reinsurance_iterations: int
+:param fifo_dir: path to fifo directory
+:type fifo_dir: str
+:param stderr_guard: send stderr output to log file
+:type stderr_guard: bool
+:param full_correlation: execute fmcalc on fully correlated data
+:type full_correlation: bool
+:param process_counter: process counter
+:type process_counter: Counter
+:return: generated fmcalc command as str</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.get_main_cmd_il_stream">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">get_main_cmd_il_stream</code><span class="sig-paren">(</span><em class="sig-param">cmd</em>, <em class="sig-param">process_id</em>, <em class="sig-param">il_alloc_rule</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">stderr_guard=True</em>, <em class="sig-param">full_correlation=False</em>, <em class="sig-param">process_counter=None</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#get_main_cmd_il_stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.get_main_cmd_il_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the fmcalc ktools command insured losses stream
+:param cmd: either gulcalc command stream or correlated output file
+:type cmd: str
+:param process_id: ID corresponding to thread
+:type process_id: int
+:param il_alloc_rule: insured loss allocation rule for fmcalc
+:type il_alloc_rule: int
+:param fifo_dir: path to fifo directory
+:type fifo_dir: str
+:param stderr_guard: send stderr output to log file
+:type stderr_guard: bool
+:param full_correlation: execute fmcalc on fully correlated data
+:type full_correlation: bool
+:param process_counter: process counter
+:type process_counter: Counter
+:return: generated fmcalc command as str</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.get_main_cmd_gul_stream">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">get_main_cmd_gul_stream</code><span class="sig-paren">(</span><em class="sig-param">cmd</em>, <em class="sig-param">process_id</em>, <em class="sig-param">fifo_dir='fifo/'</em>, <em class="sig-param">stderr_guard=True</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#get_main_cmd_gul_stream"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.get_main_cmd_gul_stream" title="Permalink to this definition">¶</a></dt>
+<dd><p>Gets the command to output ground up losses
+:param cmd: either gulcalc command stream or correlated output file
+:type cmd: str
+:param process_id: ID corresponding to thread
+:type process_id: int
+:param fifo_dir: path to fifo directory
+:type fifo_dir: str
+:param stderr_guard: send stderr output to log file
+:type stderr_guard: bool
+:return: generated command as str</p>
+</dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.do_computes">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">do_computes</code><span class="sig-paren">(</span><em class="sig-param">outputs</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#do_computes"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.do_computes" title="Permalink to this definition">¶</a></dt>
+<dd></dd></dl>
+
+<dl class="function">
+<dt id="oasislmf.model_execution.bash.genbash">
+<code class="sig-prename descclassname">oasislmf.model_execution.bash.</code><code class="sig-name descname">genbash</code><span class="sig-paren">(</span><em class="sig-param">max_process_id</em>, <em class="sig-param">analysis_settings</em>, <em class="sig-param">num_reinsurance_iterations=0</em>, <em class="sig-param">fifo_tmp_dir=True</em>, <em class="sig-param">gul_alloc_rule=None</em>, <em class="sig-param">il_alloc_rule=None</em>, <em class="sig-param">ri_alloc_rule=None</em>, <em class="sig-param">stderr_guard=True</em>, <em class="sig-param">bash_trace=False</em>, <em class="sig-param">filename='run_kools.sh'</em>, <em class="sig-param">_get_getmodel_cmd=None</em>, <em class="sig-param">custom_args={}</em><span class="sig-paren">)</span><a class="reference internal" href="../../../../_modules/oasislmf/model_execution/bash.html#genbash"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#oasislmf.model_execution.bash.genbash" title="Permalink to this definition">¶</a></dt>
+<dd><p>Generates a bash script containing ktools calculation instructions for an
+Oasis model.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>max_process_id</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The number of processes to create</p></li>
+<li><p><strong>analysis_settings</strong> (<a class="reference external" href="https://docs.python.org/3/library/stdtypes.html#dict" title="(in Python v3.8)"><em>dict</em></a>) – The analysis settings</p></li>
+<li><p><strong>filename</strong> (<em>string</em>) – The output file name</p></li>
+<li><p><strong>num_reinsurance_iterations</strong> (<a class="reference external" href="https://docs.python.org/3/library/functions.html#int" title="(in Python v3.8)"><em>int</em></a>) – The number of reinsurance iterations</p></li>
+<li><p><strong>fifo_tmp_dir</strong> (<em>boolean</em>) – When set to True, Create and use FIFO quese in <cite>/tmp/[A-Z,0-9]/fifo</cite>, if False run in ‘./fifo’</p></li>
+<li><p><strong>gul_alloc_rule</strong> (<em>Int</em>) – Allocation rule (None or 1) for gulcalc, if not set default to coverage stream</p></li>
+<li><p><strong>il_alloc_rule</strong> (<em>Int</em>) – Allocation rule (0, 1 or 2) for fmcalc</p></li>
+<li><p><strong>ri_alloc_rule</strong> (<em>Int</em>) – Allocation rule (0, 1 or 2) for fmcalc</p></li>
+<li><p><strong>get_getmodel_cmd</strong> (<em>callable</em>) – Method for getting the getmodel command, by default
+<code class="docutils literal notranslate"><span class="pre">GenerateLossesCmd.get_getmodel_cmd</span></code> is used.</p></li>
+</ul>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2020, Oasis LMF
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

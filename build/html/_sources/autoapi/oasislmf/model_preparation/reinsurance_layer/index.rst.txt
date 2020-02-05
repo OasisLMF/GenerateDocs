@@ -1,0 +1,176 @@
+:mod:`oasislmf.model_preparation.reinsurance_layer`
+===================================================
+
+.. py:module:: oasislmf.model_preparation.reinsurance_layer
+
+
+Module Contents
+---------------
+
+.. function:: write_files_for_reinsurance(gul_inputs_df, xref_descriptions_df, ri_info_df, ri_scope_df, fm_xref_fp, output_dir)
+
+   Generate files for reinsurance.
+
+
+.. py:class:: ReinsuranceLayer(name, ri_info_df, ri_scope_df, items_df, coverages_df, xref_descriptions_df, risk_level, fmsummaryxref_df=pd.DataFrame(), gulsummaryxref_df=pd.DataFrame(), logger=None)
+
+   Bases: :class:`object`
+
+   Generates ktools inputs and runs financial module for a reinsurance structure.
+
+   .. attribute:: LOCATION_RISK_LEVEL
+      :annotation: = 2
+
+      
+
+   .. method:: _add_node(self, description, parent, level_id, agg_id, portfolio_number=oed.NOT_SET_ID, account_number=oed.NOT_SET_ID, policy_number=oed.NOT_SET_ID, location_number=oed.NOT_SET_ID, location_group=oed.NOT_SET_ID)
+
+
+
+   .. method:: _add_program_node(self, level_id)
+
+
+
+   .. method:: _add_item_node(self, item_id, parent)
+
+
+
+   .. method:: _add_filter_level_node(self, level_id, agg_id, xref_description, parent)
+
+
+
+   .. method:: _add_location_node(self, level_id, agg_id, xref_description, parent)
+
+
+
+   .. method:: _add_location_group_node(self, level_id, agg_id, xref_description, parent)
+
+
+
+   .. method:: _add_policy_node(self, level_id, agg_id, xref_description, parent)
+
+
+
+   .. method:: _add_account_node(self, agg_id, level_id, xref_description, parent)
+
+
+
+   .. method:: _add_portfolio_node(self, agg_id, level_id, xref_description, parent)
+
+
+
+   .. method:: _is_valid_id(self, id_to_check)
+
+
+
+   .. method:: _match_portfolio(self, node, scope_row, exact=False)
+
+
+
+   .. method:: _match_account(self, node, scope_row, exact=False)
+
+
+
+   .. method:: _match_policy(self, node, scope_row, exact=False)
+
+
+
+   .. method:: _match_location(self, node, scope_row, exact=False)
+
+
+
+   .. method:: _match_location_group(self, node, scope_row, exact=False)
+
+
+
+   .. method:: _is_valid_filter(self, value)
+
+
+
+   .. method:: _match_row(self, node, scope_row)
+
+
+
+   .. method:: _scope_filter(self, nodes_list, scope_row, exact=False)
+
+
+      Return subset of `nodes_list` based on values of a row in `ri_scope.csv`
+
+
+   .. method:: _risk_level_filter(self, nodes_list, scope_row, exact=False)
+
+
+      Return subset of `nodes_list` based on values of a row in `ri_scope.csv`
+
+
+   .. method:: _is_defined(self, num_to_check)
+
+
+
+   .. method:: _check_scope_row(self, scope_row)
+
+
+
+   .. method:: _get_tree(self)
+
+
+
+   .. method:: _get_risk_level_id(self)
+
+
+
+   .. method:: _get_filter_level_id(self)
+
+
+
+   .. method:: _get_next_profile_id(self, add_profiles_args)
+
+
+
+   .. method:: _add_fac_profiles(self, add_profiles_args)
+
+
+
+   .. method:: _add_per_risk_profiles(self, add_profiles_args)
+
+
+
+   .. method:: _add_surplus_share_profiles(self, add_profiles_args)
+
+
+
+   .. method:: _add_quota_share_profiles(self, add_profiles_args)
+
+
+
+   .. method:: _add_cat_xl_profiles(self, add_profiles_args)
+
+
+
+   .. method:: _log_reinsurance_structure(self, add_profiles_args)
+
+
+
+   .. method:: _log_tree(self, program_node)
+
+
+
+   .. method:: generate_oasis_structures(self)
+
+
+      Create the Oasis structures - FM Programmes, FM Profiles and FM Policy TCs -
+      that represent the reinsurance structure.
+
+      The algorithm to create the stucture has three steps:
+      Step 1 - Build a tree representation of the insurance program, depending on the reinsurance risk level.
+      Step 2 - Overlay the reinsurance structure. Each reinsurance contact is a seperate layer.
+      Step 3 - Iterate over the tree and write out the Oasis structure.
+
+
+   .. method:: write_oasis_files(self, directory=None)
+
+
+      Write out the generated data to Oasis input file format.
+
+
+

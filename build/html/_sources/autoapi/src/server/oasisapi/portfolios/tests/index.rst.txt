@@ -1,0 +1,16 @@
+:mod:`src.server.oasisapi.portfolios.tests`
+===========================================
+
+.. py:module:: src.server.oasisapi.portfolios.tests
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   fakes/index.rst
+   test_portfolio/index.rst
+
+

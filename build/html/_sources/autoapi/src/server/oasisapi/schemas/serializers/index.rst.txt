@@ -1,0 +1,163 @@
+:mod:`src.server.oasisapi.schemas.serializers`
+==============================================
+
+.. py:module:: src.server.oasisapi.schemas.serializers
+
+
+Module Contents
+---------------
+
+.. py:class:: LocFileSerializer
+
+   Bases: :class:`rest_framework.serializers.Serializer`
+
+   .. attribute:: url
+      
+
+      
+
+   .. attribute:: name
+      
+
+      
+
+   .. attribute:: Stored
+      
+
+      
+
+   .. method:: create(self, validated_data)
+      :abstractmethod:
+
+
+
+   .. method:: update(self, instance, validated_data)
+      :abstractmethod:
+
+
+
+
+.. py:class:: AccFileSerializer
+
+   Bases: :class:`rest_framework.serializers.Serializer`
+
+   .. attribute:: url
+      
+
+      
+
+   .. attribute:: name
+      
+
+      
+
+   .. attribute:: Stored
+      
+
+      
+
+   .. method:: create(self, validated_data)
+      :abstractmethod:
+
+
+
+   .. method:: update(self, instance, validated_data)
+      :abstractmethod:
+
+
+
+
+.. py:class:: ReinsInfoFileSerializer
+
+   Bases: :class:`rest_framework.serializers.Serializer`
+
+   .. attribute:: url
+      
+
+      
+
+   .. attribute:: name
+      
+
+      
+
+   .. attribute:: Stored
+      
+
+      
+
+   .. method:: create(self, validated_data)
+      :abstractmethod:
+
+
+
+   .. method:: update(self, instance, validated_data)
+      :abstractmethod:
+
+
+
+
+.. py:class:: ReinsScopeFileSerializer
+
+   Bases: :class:`rest_framework.serializers.Serializer`
+
+   .. attribute:: url
+      
+
+      
+
+   .. attribute:: name
+      
+
+      
+
+   .. attribute:: Stored
+      
+
+      
+
+   .. method:: create(self, validated_data)
+      :abstractmethod:
+
+
+
+   .. method:: update(self, instance, validated_data)
+      :abstractmethod:
+
+
+
+
+.. py:class:: ModelParametersSerializer(*args, **kwargs)
+
+   Bases: :class:`src.server.oasisapi.schemas.serializers.JsonSettingsSerializer`
+
+   .. py:class:: Meta
+
+      .. attribute:: swagger_schema_fields
+         
+
+         
+
+
+   .. method:: validate(self, data)
+
+
+
+
+.. py:class:: AnalysisSettingsSerializer(*args, **kwargs)
+
+   Bases: :class:`src.server.oasisapi.schemas.serializers.JsonSettingsSerializer`
+
+   .. py:class:: Meta
+
+      .. attribute:: swagger_schema_fields
+         
+
+         
+
+
+   .. method:: validate(self, data)
+
+
+
+

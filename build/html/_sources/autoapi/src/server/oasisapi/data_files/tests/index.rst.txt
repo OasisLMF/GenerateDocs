@@ -1,0 +1,16 @@
+:mod:`src.server.oasisapi.data_files.tests`
+===========================================
+
+.. py:module:: src.server.oasisapi.data_files.tests
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   fakes/index.rst
+   test_data_files/index.rst
+
+

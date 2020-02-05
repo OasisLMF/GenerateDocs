@@ -1,0 +1,16 @@
+:mod:`oasislmf.utils.exceptions`
+================================
+
+.. py:module:: oasislmf.utils.exceptions
+
+
+Module Contents
+---------------
+
+.. py:exception:: OasisException
+
+   Bases: :class:`Exception`
+
+   Oasis base exception class
+
+

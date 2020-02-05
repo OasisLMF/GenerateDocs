@@ -1,0 +1,27 @@
+:mod:`src.server.oasisapi.auth`
+===============================
+
+.. py:module:: src.server.oasisapi.auth
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   tests/index.rst
+
+
+Submodules
+----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 1
+
+   models/index.rst
+   serializers/index.rst
+   urls/index.rst
+   views/index.rst
+
+

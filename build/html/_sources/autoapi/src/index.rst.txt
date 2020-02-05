@@ -1,0 +1,19 @@
+:mod:`src`
+==========
+
+.. py:module:: src
+
+
+Subpackages
+-----------
+.. toctree::
+   :titlesonly:
+   :maxdepth: 3
+
+   common/index.rst
+   conf/index.rst
+   model_execution_worker/index.rst
+   server/index.rst
+   utils/index.rst
+
+

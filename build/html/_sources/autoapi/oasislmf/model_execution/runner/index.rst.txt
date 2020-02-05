@@ -1,0 +1,12 @@
+:mod:`oasislmf.model_execution.runner`
+======================================
+
+.. py:module:: oasislmf.model_execution.runner
+
+
+Module Contents
+---------------
+
+.. function:: run(analysis_settings, number_of_processes=-1, num_reinsurance_iterations=0, set_alloc_rule_gul=KTOOLS_ALLOC_GUL_DEFAULT, set_alloc_rule_il=KTOOLS_ALLOC_IL_DEFAULT, set_alloc_rule_ri=KTOOLS_ALLOC_RI_DEFAULT, fifo_tmp_dir=True, stderr_guard=True, run_debug=False, custom_gulcalc_cmd=None, filename='run_ktools.sh')
+
+
