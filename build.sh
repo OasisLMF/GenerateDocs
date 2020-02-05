@@ -37,10 +37,14 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
     pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
     pip install -r $DIR_BASE/modules/oasis_keys_server/requirements.txt 
 
-# script to extract / prase RELEASE.md / CHANGELOG.md  notes 
+# Script to extract / prase RELEASE.md / CHANGELOG.md  notes 
     cat $DIR_MODULES/Ktools/CHANGE.md > $DIR_RELEASE/ktools.md
     cat $DIR_MODULES/OasisLMF/CHANGELOG.rst > $DIR_RELEASE/oasislmf.rst
     cat $DIR_MODULES/OasisPlatform/RELEASE.md > $DIR_RELEASE/oasis_platform.md
+
+# Get the latest release notes
+    cd $DIR_MODULES/OasisPlatform
+    hub release show `git tag | tail -1` > latest_release.md
 
 # Build docs
     cd $DIR_BASE
