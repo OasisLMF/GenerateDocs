@@ -37,20 +37,21 @@ This should be used as a guide only and will vary.
 
 
 Models can be accessed for free as Open Access Models where they will be hosted internally on the Oasis AWS server. The suite of models available are continuously increasing based on demand and requirements. 
-Initial models available are the GEM (Global Earthquake Model) and the Columbia University climate and extreme weather event model developed by Adam Sobel. The focus of the Open Access Models will be primarily based on validation projects rather than commercial rollups and pricing.
+Initial models available are the GEM (Global Earthquake Model) and the Columbia University Climate Hazard Model (CHAZ). The focus of the Open Access Models will be primarily based on validation projects rather than commercial rollups and pricing.
+
 Contact Oasis for more information on the Open Access models.
 
 Can I use the Oasis software under Windows or is it currently just Linux and Mac?
 ---------------------------------------------------------------------------------
 
 The Oasis model developer tool kit (MDK) software is not fully supported for Windows currently. 
-However you should be able to run it in Docker for Windows.
+You can only run on Windows using a docker container or Linux Subsystem (WSL)
 
 What is the difference between “analytical” and “sample” in the results?
 ------------------------------------------------------------------------
 
 The Analytical outputs refer to the mean losses across the whole loss curve and is the true reflection of the ground-up losses when financial terms are not applied. 
-The Sample outputs refers to the losses across the number of samples selected by the user and is the most accurate view when applying financial terms and calculating the insured loss. 
+The Sample outputs refer to the losses across the number of samples selected by the user and is the most accurate view when applying financial terms and calculating the insured loss. 
 
 
 What are “samples”?
@@ -58,14 +59,18 @@ What are “samples”?
 
 Samples are based on the Monte-Carlo simulation methodology that is adopted by Oasis. 
 Each sample represents a “simulation year” that contains a randomly generated number of events. 
-For example, year one could experience five events; year two might only experience one event with zero events occurring in year three and so on. Each event can produce a loss depending on the locations of the risks and the severity of the event while some events may not produce a loss at all. 
+For example, year one could experience five events; year two might only experience one event with zero events occurring in year three and so on. 
+Each event can produce a loss depending on the locations of the risks and the severity of the event while some events may not produce a loss at all. 
 This generates the losses per sample perspective.
+
 
 
 How do I know how many samples to run?
 --------------------------------------
 
-This is a complex question that is largely based on the size of the portfolio being run and the user requirements. In general, for commercial purposes, to get a more accurate reflection of insured losses across a portfolio of risks that contain financial terms, the smaller the portfolio, the more samples should be run. Exposing a small number of risks to larger amounts of samples, increases the loss distribution around the mean and the convergence across the sample set. This reduces volatility and uncertainty especially in the tail of the loss curve, which is driven by the more severe, less frequent events.
+This is a complex question that is largely based on the size of the portfolio being run and the user requirements. 
+In general, for commercial purposes, to get a more accurate reflection of insured losses across a portfolio of risks that contain financial terms, the smaller the portfolio, the more samples should be run. 
+Exposing a small number of risks to larger amounts of samples, increases the loss distribution around the mean and the convergence across the sample set. This reduces volatility and uncertainty especially in the tail of the loss curve, which is driven by the more severe, less frequent events.
 Reducing uncertainty, ultimately provides a more accurate reflection of the risk.
 Following that, a large portfolio should not be limited to only running a small sample set. 
 Regardless of size of the portfolio, reducing uncertainty and increasing the accuracy, is recommended for all cat modelling exercises. 
@@ -74,7 +79,7 @@ It is, however, worth considering how increasing the number of samples will impa
 What is the uncertainty and how does it affect the outcomes?
 ------------------------------------------------------------
 
-As models are based on probabilistic distribution of losses along a severity curve, uncertainty is an important factor to consider when using any model. There is always statistical uncertainty around most aspects of a cat model as developing stochastic events, vulnerability functions, hazard lookups and calculating financial losses will all contain elements of uncertainty.
+As models are based on a probabilistic distribution of losses along a severity curve, uncertainty is an important factor to consider when using any model. There is always statistical uncertainty around most aspects of a cat model as developing stochastic events, vulnerability functions, hazard lookups and calculating financial losses will all contain elements of uncertainty.
 Including uncertainty is always recommended when using a cat model for commercial purposes, especially for pricing and setting risk appetites. However, removing uncertainty could be useful during model validation exercises and when validating its impact.
 
 What is demand surge and what impact does it have on the losses?
@@ -86,11 +91,14 @@ The impact of demand surge on the losses is dependent on multiple factors such a
 What does the Oasis API do?
 ---------------------------
 
-The Oasis Application Programming Interface (API), is an interface that enables systems to “talk” to each other which is a key function when a user wants to utilise multiple external tools in one place, such as an internal business system. Oasis models can be run directly using the API and the results can be captured without the need to access any third-party tools directly.
+The Oasis Application Programming Interface (API), is an interface that enables systems to “talk” to each other which is a key function when a user wants to utilise multiple external tools in one place, such as an internal business system. 
+Oasis models can be run directly using the API and the results can be captured without the need to access any third-party tools directly.
 
 What is OED, ORD and the “Open Standard”?
 -----------------------------------------
 
 OED is the Open Exposure Database and ORD is the Open Results Database. 
-These make up the “open standard” data formats used in Oasis where the exposure data being imported into a model and the results being produced by that model are consistent across all models regardless of the vendor. Historically, all input and output formats have been proprietary which makes transferring of data and analytical work between models and users difficult. 
-The “open standards” are governed and curated by a steering committee that is made up of participants from insurers, reinsurers, brokers and cat model vendors. The “open standard” is a market initiative to increase transparency and efficiency throughout the cat modelling community.
+These make up the “open standard” data formats used in Oasis where the exposure data being imported into a model and the results being produced by that model are consistent across all models regardless of the vendor. 
+Historically, all input and output formats have been proprietary which makes transferring of data and analytical work between models and users difficult. 
+The “open standards” are governed and curated by a steering committee that is made up of participants from insurers, reinsurers, brokers and cat model vendors. 
+The “open standard” is a market initiative to increase transparency and efficiency throughout the cat modelling community.
