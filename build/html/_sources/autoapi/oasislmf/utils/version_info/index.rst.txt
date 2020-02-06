@@ -1,6 +1,0 @@
-:mod:`oasislmf.utils.version_info`
-==================================
-
-.. py:module:: oasislmf.utils.version_info
-
-
