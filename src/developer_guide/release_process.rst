@@ -26,8 +26,6 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 * MINOR version when you add functionality in a backwards-compatible manner, and
 * PATCH version when you make backwards-compatible bug fixes.
 
-The latest stable builds are listed in :ref:`github_repositories`.
-
 Features
 --------
 Our development work is prioritized to maximise value to the Oasis community. 

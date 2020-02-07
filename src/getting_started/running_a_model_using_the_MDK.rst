@@ -1,8 +1,6 @@
 Run a model using the Oasis MDK 
 ===============================
 
-* Install the Model Development Kit (MDK) 
-
 The Model Development Kit (MDK) is the best way to get started using the Oasis platform.
 The MDK is a command line tookit providing command line access to Oasis' modelling functionality. 
 It is installed as a Python package, and available from PYPI: `OasisLMF PYPI module <https://pypi.python.org/pypi/oasislmf>`_.

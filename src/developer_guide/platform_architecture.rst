@@ -20,6 +20,5 @@ A schematic of the Oasis Platform architecture is shown in the diagram below, an
     "Model Worker", "Celery worker that can run a lookup or model execution task for a particular model version. The model data is attached to the container from the datastore at startup.", "Custom Python and C++ code"
 
 All of the components are packaged as Docker images.
-Docker-compose is used to deploy the system on one or more physical servers.
+Docker-compose can be used to deploy the system on one or more physical servers.
 Scalability can be achieved by provisioning more calculation servers and deploying more Analysis Worker images.
-We intend to investigate container-based orchestrators, such as Kubernetes or AWS Container Services, for running catastrophe models at scale in a cost effective manner.

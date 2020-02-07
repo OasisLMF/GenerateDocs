@@ -2,11 +2,11 @@ Financial modelling and exposure data
 =====================================
 
 The Oasis framework supports a wide range of financial calculation.
-Outputs can be output for three perspectives:
+Outputs can be generated for three perspectives:
 
-* Ground-up: the underlying economic loss,
+* Ground-up: the underlying cost of loss,
 * Insured loss: the loss ceded to the direct insurance contracts,
-* Net loss: the insured loss net of all resinsurance recovery.
+* Net loss: the insured loss net of resinsurance recoveries.
 
 Exposure is uploaded in the OED exposure format.
 See `here <https://github.com/simplitium/oed>`_ for full details.
