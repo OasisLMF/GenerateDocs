@@ -1,9 +1,6 @@
 Module documentation
 ====================
 
-* :doc:`OasisLmf </OasisLmf/modules>`
-
-* :doc:`oasis_keys_server </oasis_keys_server/modules>`
-
-* :doc:`OasisPlatform </OasisPlatform/modules>`
+* :doc:`OasisLmf <../autoapi/oasislmf/index>`
+* :doc:`OasisPlatform <../autoapi/src/index>`
  

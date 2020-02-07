@@ -5,3 +5,6 @@ sphinx-jsonschema
 nbsphinx
 sphinx_rtd_theme
 recommonmark
+m2r
+sphinx-autoapi
+hub

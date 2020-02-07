@@ -18,21 +18,20 @@ from sphinx.ext import autodoc
 from recommonmark.parser import CommonMarkParser
 
 sys.path.insert(0, os.path.abspath('../modules/OasisLMF'))
-sys.path.insert(0, os.path.abspath('../modules/oasis_keys_server'))
 sys.path.insert(0, os.path.abspath('../modules/OasisPlatform'))
 
-import src.server.app
+#import src.server.app
 
 # -- Project information -----------------------------------------------------
 
 project = u'Oasis LMF'
-copyright = u'2018, Oasis LMF'
+copyright = u'2020, Oasis LMF'
 author = u'Oasis LMF'
 
 # The short X.Y version
 version = u''
 # The full version, including alpha/beta/rc tags
-release = u'0.1.0'
+release = u'1.0.0'
 
 
 # -- General configuration ---------------------------------------------------
@@ -58,8 +57,16 @@ extensions = [
     'sphinx-jsonschema',
     'nbsphinx',
     'sphinx.ext.mathjax',
+    'm2r',
+    'autoapi.extension',
+    # 'recommonmark'
 ]
 
+autoapi_dirs = [
+    '../modules/OasisLMF/oasislmf',
+    '../modules/OasisPlatform/src',
+    ]
+autoapi_add_toctree_entry = False
 
 # Add any paths that contain templates here, relative to this directory.
 templates_path = ['_templates']
@@ -68,9 +75,9 @@ templates_path = ['_templates']
 # You can specify multiple suffix as a list of string:
 #
 # source_suffix = ['.rst', '.md']
-source_parsers = {
-    '.md': CommonMarkParser,
-}
+# source_parsers = {
+#     '.md': CommonMarkParser,
+# }
 source_suffix = ['.rst', '.md']
 
 # The master toctree document.

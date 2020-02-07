@@ -40,10 +40,11 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :titlesonly:
     :caption: Getting started
 
-    getting_started/installing_command_line_toolkit
-    getting_started/running_a_simple_model
-    getting_started/using_the_oasis_ui
-
+    getting_started/piwind_model
+    getting_started/running_a_model_using_the_MDK
+    getting_started/running_a_model_using_the_Oasis_API
+    getting_started/running_a_model_using_the_Oasis_UI
+    getting_started/FAQ
 
 .. toctree::
     :titlesonly:
@@ -71,19 +72,10 @@ It allows regression of the models after updates to the Oasis Platform code, and
     docs/oasis_rest_api
     docs/oasis_mdk
     docs/modules
-    docs/general
 
 .. toctree::
     :titlesonly:
     :caption: Release Notes
     :maxdepth: 0
 
-    releases/oasis_platform.md
-
-.. toctree::
-    :titlesonly:
-    :caption: Changelogs
-    :maxdepth: 0
-
-    releases/ktools.md
-    releases/oasislmf.md
+    releases/latest_release

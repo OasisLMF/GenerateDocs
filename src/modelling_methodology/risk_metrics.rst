@@ -2,12 +2,12 @@ Risk metrics
 ============
 
 The Oasis UI enables the user to generate multiple output reports for several summary levels and perspectives in a single run.  
-Reports are delivered as csv files which can be viewed through the user interface, downloaded or launched in Microsoft Excel.
-The Oasis kernel is a Monte-Carlo simulation engine allowing users to specify the number of samples to run.  
-The required number of samples to achieve convergence will vary depending on the model and portfolio, as well as the required outputs.
-There are two types of statistical outputs, and both types will generally be delivered in the final report if more than 1 sample is run.
-    Numerically integrated – meaning the loss statistic is calculated directly from the underlying probability distribution of loss by numerical integration.
-    Sample statistic – meaning the probability distributions of loss are sampled many times and the loss statistic is calculated from the samples.
+The Oasis kernel is a Monte-Carlo simulation engine and allows users to specify the number of samples to run.  
+The number of samples required to achieve convergence will vary depending on the model and portfolio, as well as the required outputs.
+There are two types of statistical outputs that can be delivered in the reports:
+
+* Numerically integrated – meaning the loss statistic is calculated directly from the underlying probability distribution of loss by numerical integration
+* Sample statistic – meaning the probability distributions of loss are sampled many times and the loss statistic is calculated from the samples
 
 The list of available reports are as follows:
 
@@ -32,14 +32,46 @@ By Perspective:
 * Ground up
 * Insured loss
 
-The following screenshot shows the range of reports that can be created via the Oasis UI:
+Output Reports
+--------------
 
-.. figure:: /images/flamingo_run_analysis.png
-    :alt: Oasis UI run analysis
+The following screenshot shows the suite of output reports that can be generated from the UI. 
+Multiple reports can be generated for each summary level:
 
-The following screenshot shows the analysis summary that can be created via the Oasis UI.
-More detailed outputs can be downloaded for analysis outside the platform.
-
-.. figure:: /images/falmingo_output_summary.png
+.. figure:: /images/Multiple_Outputs_2.png
     :alt: Oasis UI analysis summary
+
+
+Customising Plots
+------------------
+
+The following screenshot shows how the user can custom their own result plots before exporting for reporting purposes:
+
+.. figure:: /images/Summary_Plots.png
+    :alt: Oasis UI analysis summary
+
+
+Exposure and Loss Maps
+----------------------
+
+Risk level exposure and losses can be visualised on a map as shown below:
+
+.. figure:: /images/Exposure_Map.png
+    :alt: Oasis UI analysis summary
+
+.. figure:: /images/Loss_map_zoomed_in.png
+    :alt: Oasis UI analysis summary
+  
+
+
+
+
+
+
+
+
+  
+
+
+
  
