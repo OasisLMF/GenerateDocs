@@ -9,7 +9,6 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
     git_modules=(
         'OasisLMF'
         'OasisPlatform'
-        'oasis_keys_server'
         'Ktools'
     )
     for module in "${git_modules[@]}"; do
@@ -28,7 +27,7 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
     cd $DIR_BASE
     if [ ! -f ${DIR_ENV}/bin/activate ]; then
         printf "\n == Create Python virtualenv =="
-        virtualenv $DIR_ENV
+        virtualenv -p python3 $DIR_ENV 
     fi 
     source ${DIR_ENV}/bin/activate
 

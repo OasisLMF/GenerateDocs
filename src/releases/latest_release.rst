@@ -7,19 +7,19 @@ OasisPlatform ChangeLog
 -----------------------
 
 .. include:: ../../modules/OasisPlatform/CHANGELOG.rst
-  :start-after: start_latest_build
-  :end-before: end_latest_build
+  :start-after: start_latest_release
+  :end-before: end_latest_release
 
 OasisLMF ChangeLog
 ------------------
 
 .. include:: ../../modules/OasisLMF/CHANGELOG.rst
-  :start-after: start_latest_build
-  :end-before: end_latest_build
+  :start-after: start_latest_release
+  :end-before: end_latest_release
 
 Ktools ChangeLog
 ----------------
 
 .. include:: ../../modules/Ktools/CHANGELOG.rst
-  :start-after: start_latest_build
-  :end-before: end_latest_build
+  :start-after: start_latest_release
+  :end-before: end_latest_release
