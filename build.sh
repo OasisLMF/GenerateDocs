@@ -5,6 +5,7 @@ DIR_ENV=$DIR_BASE/venv
 DIR_MODULES=$DIR_BASE/modules
 DIR_RELEASE="${DIR_BASE}/src/releases/" 
 
+set -e 
 ## SETUP BUILD ENVIROMENT 
     git_modules=(
         'OasisLMF'
@@ -34,17 +35,24 @@ DIR_RELEASE="${DIR_BASE}/src/releases/"
 # Update python env
     pip install -r requirements.txt
     pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
-    pip install -r $DIR_BASE/modules/oasis_keys_server/requirements.txt 
 
 # Script to extract / prase RELEASE.md / CHANGELOG.md  notes 
-    cat $DIR_MODULES/Ktools/CHANGE.md > $DIR_RELEASE/ktools.md
+    cat $DIR_MODULES/Ktools/CHANGELOG.rst > $DIR_RELEASE/ktools.md
     cat $DIR_MODULES/OasisLMF/CHANGELOG.rst > $DIR_RELEASE/oasislmf.rst
-    cat $DIR_MODULES/OasisPlatform/RELEASE.md > $DIR_RELEASE/oasis_platform.md
+    cat $DIR_MODULES/OasisPlatform/CHANGELOG.rst > $DIR_RELEASE/oasis_platform.md
 
 # Get the latest release notes
-    cd $DIR_MODULES/OasisPlatform
-    hub release show `git tag | tail -1` > latest_release.md
+# requires a log in for the show command, hangs in docker, download directy?  
+#    cd $DIR_MODULES/OasisPlatform
+#    hub release show `git tag | tail -1` > latest_release.md
 
 # Build docs
     cd $DIR_BASE
     make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
+
+# Create TAR
+    if [[ ! -d "$DIR_BASE/output/" ]]; then 
+        mkdir $DIR_BASE/output/
+    fi 
+    tar -czvf oasis_docs.tar.gz -C build/html/ .
+    mv oasis_docs.tar.gz $DIR_BASE/output/
