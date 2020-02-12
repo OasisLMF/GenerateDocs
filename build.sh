@@ -4,6 +4,8 @@ DIR_BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DIR_ENV=$DIR_BASE/venv
 DIR_MODULES=$DIR_BASE/modules
 DIR_RELEASE="${DIR_BASE}/src/releases/" 
+URL_RELEASE_TAG='https://api.github.com/repos/oasislmf/OasisPlatform/releases/tags/<TAG>'
+URL_RELEASE_LATEST='https://api.github.com/repos/oasislmf/OasisPlatform/releases/latest'
 
 set -e 
 ## SETUP BUILD ENVIROMENT 
@@ -42,9 +44,12 @@ set -e
     cat $DIR_MODULES/OasisPlatform/CHANGELOG.rst > $DIR_RELEASE/oasis_platform.md
 
 # Get the latest release notes
-# requires a log in for the show command, hangs in docker, download directy?  
-#    cd $DIR_MODULES/OasisPlatform
-#    hub release show `git tag | tail -1` > latest_release.md
+    if ! [ -x "$(command -v jq)" ]; then
+        echo 'Error: jq is not installed.' >&2
+    else    
+        cd $DIR_MODULES/OasisPlatform
+        curl -s $URL_RELEASE_LATEST | jq -r '{body} | .body' > latest_release.md
+    fi
 
 # Build docs
     cd $DIR_BASE

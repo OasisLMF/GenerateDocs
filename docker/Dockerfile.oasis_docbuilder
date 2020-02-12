@@ -1,7 +1,7 @@
 FROM python:3
 
 RUN apt update && \
-    apt-get install -y --no-install-recommends virtualenv hub libspatialindex-dev && \
+    apt-get install -y --no-install-recommends virtualenv jq curl libspatialindex-dev && \
     rm -rf /var/lib/apt/lists/*
 
 RUN mkdir -p /tmp/modules && \
