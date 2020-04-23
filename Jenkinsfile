@@ -66,16 +66,16 @@ node {
                         sh "git status"
                         sh "git commit -m 'Update documenation - v${env.TAG_RELEASE}'"
                         sh "git push"
-                        sh "git tag ${env.TAG_RELEASE}"
-                        sh "git push origin ${env.TAG_RELEASE}"
+                        //sh "git tag ${env.TAG_RELEASE}"
+                        //sh "git push origin ${env.TAG_RELEASE}"
                     }
                 }
-                dir(dir_docs) {
-                    sshagent (credentials: [git_creds]) {
-                        sh "git tag ${env.TAG_RELEASE}"
-                        sh "git push origin ${env.TAG_RELEASE}"
-                    }
-                }
+                //dir(dir_docs) {
+                //    sshagent (credentials: [git_creds]) {
+                //        sh "git tag ${env.TAG_RELEASE}"
+                //        sh "git push origin ${env.TAG_RELEASE}"
+                //    }
+                //}
             }
         }
 
