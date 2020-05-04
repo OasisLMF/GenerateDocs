@@ -15,6 +15,14 @@ config
 model
 -----
 
+
+``oasislmf model generate-exposure-pre-analysis``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. autocli:: oasislmf.cli.model.GenerateExposurePreAnalysisCmd
+   :noindex:
+
+
 ``oasislmf model generate-keys``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
@@ -47,6 +55,17 @@ exposure
 
 .. autocli:: oasislmf.cli.model.RunCmd
    :noindex:
+
+API client 
+----------
+
+``oasislmf api run``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. autocli:: oasislmf.cli.api.RunApiCmd
+   :noindex:
+
+
 
 version
 -------
