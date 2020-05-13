@@ -8,35 +8,43 @@ For a full list of namespaces use ``oasislmf --help``, and ``oasislmf <namespace
 config
 ------
 
-.. autocli:: oasislmf.cmd.config.ConfigCmd
+.. autocli:: oasislmf.cli.config.ConfigCmd
    :noindex:
 
 
 model
 -----
 
+
+``oasislmf model generate-exposure-pre-analysis``
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. autocli:: oasislmf.cli.model.GenerateExposurePreAnalysisCmd
+   :noindex:
+
+
 ``oasislmf model generate-keys``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. autocli:: oasislmf.cmd.model.GenerateKeysCmd
+.. autocli:: oasislmf.cli.model.GenerateKeysCmd
    :noindex:
 
 ``oasislmf model generate-losses``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. autocli:: oasislmf.cmd.model.GenerateLossesCmd
+.. autocli:: oasislmf.cli.model.GenerateLossesCmd
    :noindex:
 
 ``oasislmf model generate-oasis-files``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. autocli:: oasislmf.cmd.model.GenerateOasisFilesCmd
+.. autocli:: oasislmf.cli.model.GenerateOasisFilesCmd
    :noindex:
 
 ``oasislmf model run``
 ^^^^^^^^^^^^^^^^^^^^^^
 
-.. autocli:: oasislmf.cmd.model.RunCmd
+.. autocli:: oasislmf.cli.model.RunCmd
    :noindex:
 
 exposure
@@ -45,11 +53,22 @@ exposure
 ``oasislmf exposure run``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
 
-.. autocli:: oasislmf.cmd.model.RunCmd
+.. autocli:: oasislmf.cli.model.RunCmd
    :noindex:
+
+API client 
+----------
+
+``oasislmf api run``
+^^^^^^^^^^^^^^^^^^^^^^^^^
+
+.. autocli:: oasislmf.cli.api.RunApiCmd
+   :noindex:
+
+
 
 version
 -------
 
-.. autocli:: oasislmf.cmd.version.VersionCmd
+.. autocli:: oasislmf.cli.version.VersionCmd
    :noindex:
