@@ -79,3 +79,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :maxdepth: 0
 
     releases/latest_release
+    releases/fixed_ktools
+    releases/fixed_mdk
+    releases/fixed_platform
+    releases/known_issues

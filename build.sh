@@ -1,5 +1,6 @@
 #!/bin/bash
 
+GH_TOKEN=$1
 DIR_BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DIR_ENV=$DIR_BASE/venv
 DIR_MODULES=$DIR_BASE/modules
@@ -50,6 +51,16 @@ set -e
         cd $DIR_MODULES/OasisPlatform
         curl -s $URL_RELEASE_LATEST | jq -r '{body} | .body' > latest_release.md
     fi
+
+# Get Known issues 
+    if [ ! -z "$GH_TOKEN" ]; then
+        cd $DIR_BASE
+        ./known_issues.py $GH_TOKEN > $DIR_MODULES/OasisPlatform/known_issues.md
+        echo 'Witten known_issues list'
+    else
+        echo 'Missing GitHub token'
+        exit 1
+    fi 
 
 # Build docs
     cd $DIR_BASE

@@ -9,6 +9,7 @@ RUN mkdir -p /tmp/modules && \
 COPY ./src /tmp/src
 COPY ["./build.sh", \
       "Makefile", \
+      "known_issues.py", \
       "requirements.txt", \
       "/tmp/"]
 
@@ -17,4 +18,4 @@ WORKDIR /tmp/
 RUN virtualenv -p python3 venv
 RUN . venv/bin/activate && pip install -r requirements.txt
 
-ENTRYPOINT ./build.sh
+ENTRYPOINT ["/bin/bash", "-c", "/tmp/build.sh \"$@\"", "--"]

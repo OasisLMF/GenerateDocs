@@ -6,15 +6,11 @@ node {
     properties([
       parameters([
         [$class: 'StringParameterDefinition',  name: 'DOCS_BRANCH', defaultValue: BRANCH_NAME],
-        //[$class: 'StringParameterDefinition',  name: 'KTOOLS_BRANCH', defaultValue: set_piwind_branch],
-        //[$class: 'StringParameterDefinition',  name: 'PLATFORM_BRANCH', defaultValue: set_piwind_branch],
-        //[$class: 'StringParameterDefinition',  name: 'OASISLMF_BRANCH', defaultValue: set_piwind_branch],
         [$class: 'StringParameterDefinition',  name: 'PUBLISH_VERSION', defaultValue: ''],
         [$class: 'BooleanParameterDefinition', name: 'PUBLISH', defaultValue: Boolean.valueOf(false)],
         [$class: 'BooleanParameterDefinition', name: 'SLACK_MESSAGE', defaultValue: Boolean.valueOf(false)]
-      ])  
-    ])  
-    
+      ])
+    ])
 
     //String Vars
     hasFailed = false
@@ -26,9 +22,8 @@ node {
     String dir_docs             = "oasis_doc_build"
     String dir_ghpages          = "oasis_doc_publish"
 
-    //Env vars 
+    //Env vars
     env.TAG_RELEASE = params.PUBLISH_VERSION
-
 
     try {
         stage('Clone: AutoDoc Generator') {
@@ -40,9 +35,11 @@ node {
         }
         stage('Run: AutoDoc Generator') {
             sshagent (credentials: [git_creds]) {
-                dir(dir_docs) {
-                    sh 'docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .'
-                    sh 'docker run -v $(pwd):/tmp/output oasis_doc_builder:latest'
+                withCredentials([string(credentialsId: 'github-tkn-read', variable: 'gh_token')]) {
+                    dir(dir_docs) {
+                        sh 'docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .'
+                        sh 'docker run -v $(pwd):/tmp/output oasis_doc_builder:latest ' + gh_token
+                    }
                 }
             }
         }
@@ -59,7 +56,7 @@ node {
                 dir(dir_docs) {
                     sh "tar -zxvf oasis_docs.tar.gz -C ../${dir_ghpages}"
                 }
-                //Update gh-pages 
+                //Update gh-pages
                 dir(dir_ghpages) {
                     sshagent (credentials: [git_creds]) {
                         sh "git add *"
@@ -70,15 +67,19 @@ node {
                         //sh "git push origin ${env.TAG_RELEASE}"
                     }
                 }
-                //dir(dir_docs) {
-                //    sshagent (credentials: [git_creds]) {
-                //        sh "git tag ${env.TAG_RELEASE}"
-                //        sh "git push origin ${env.TAG_RELEASE}"
-                //    }
-                //}
+            }
+            stage('Publish: Send release message') {
+                //If publish send slack notification
+                dir(dir_docs) {
+                    withCredentials([string(credentialsId: 'slack-oasis-core', variable: 'slack_webhook')]) {
+                        sh 'python3 post_slack.py ' + slack_webhook
+                    }
+                    withCredentials([string(credentialsId: 'slack-oasis-members', variable: 'slack_webhook')]) {
+                        sh 'python3 post_slack.py ' + slack_webhook
+                    }
+                }
             }
         }
-
     } catch(hudson.AbortException | org.jenkinsci.plugins.workflow.steps.FlowInterruptedException buildException) {
         hasFailed = true
         error('Build Failed')
@@ -90,6 +91,5 @@ node {
             SLACK_CHAN = (params.PUBLISH ? "#builds-release":"#builds-dev")
             slackSend(channel: SLACK_CHAN, message: SLACK_MSG, color: slackColor)
         }
-        // If publish PUSH release TAG to github pages repo
     }
 }
