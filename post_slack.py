@@ -38,6 +38,14 @@ if __name__ == "__main__":
         },
         {
            "type": "section",
+           "block_id": "api",
+           "text": {
+                "type": "mrkdwn",
+                "text": f'• <https://api.oasislmfdev.org/swagger/|API Schema {tag_plat}>'
+            }
+        },
+        {
+           "type": "section",
            "block_id": "mdk",
            "text": {
                 "type": "mrkdwn",
