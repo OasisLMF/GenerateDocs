@@ -6,20 +6,14 @@ Latest release
 OasisPlatform ChangeLog
 -----------------------
 
-.. include:: ../../modules/OasisPlatform/CHANGELOG.rst
-  :start-after: start_latest_release
-  :end-before: end_latest_release
+.. mdinclude:: ./oasis_platform.md
 
 OasisLMF ChangeLog
 ------------------
 
-.. include:: ../../modules/OasisLMF/CHANGELOG.rst
-  :start-after: start_latest_release
-  :end-before: end_latest_release
+.. mdinclude:: ./ktools.md
 
 Ktools ChangeLog
 ----------------
 
-.. include:: ../../modules/Ktools/CHANGELOG.rst
-  :start-after: start_latest_release
-  :end-before: end_latest_release
+.. mdinclude:: ./oasislmf.md

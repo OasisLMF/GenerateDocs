@@ -40,9 +40,9 @@ set -e
     pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
 
 # Script to extract / prase RELEASE.md / CHANGELOG.md  notes 
-    cat $DIR_MODULES/Ktools/CHANGELOG.rst > $DIR_RELEASE/ktools.md
-    cat $DIR_MODULES/OasisLMF/CHANGELOG.rst > $DIR_RELEASE/oasislmf.rst
-    cat $DIR_MODULES/OasisPlatform/CHANGELOG.rst > $DIR_RELEASE/oasis_platform.md
+    sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/Ktools/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/ktools.md
+    sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisLMF/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasislmf.md
+    sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisPlatform/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasis_platform.md
 
 # Get the latest release notes
     if ! [ -x "$(command -v jq)" ]; then
