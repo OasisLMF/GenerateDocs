@@ -68,20 +68,20 @@ node {
                     }
                 }
             }
-            if (params.SLACK_MESSAGE) {
-                stage('Publish: Send release message') {
-                    //If publish send slack notification
-                    dir(dir_docs) {
-                        withCredentials([string(credentialsId: 'slack-oasis-core', variable: 'slack_webhook')]) {
-                            sh 'python3 post_slack.py ' + slack_webhook
-                        }
-                        withCredentials([string(credentialsId: 'slack-oasis-members', variable: 'slack_webhook')]) {
-                            sh 'python3 post_slack.py ' + slack_webhook
-                        }
+        }
+        if (params.SLACK_MESSAGE) {
+            stage('Publish: Send release message') {
+                //If publish send slack notification
+                dir(dir_docs) {
+                    withCredentials([string(credentialsId: 'slack-oasis-core', variable: 'slack_webhook')]) {
+                        sh 'python3 post_slack.py ' + slack_webhook
+                    }
+                    withCredentials([string(credentialsId: 'slack-oasis-members', variable: 'slack_webhook')]) {
+                        sh 'python3 post_slack.py ' + slack_webhook
                     }
                 }
-            }    
-        }
+            }
+        }    
     } catch(hudson.AbortException | org.jenkinsci.plugins.workflow.steps.FlowInterruptedException buildException) {
         hasFailed = true
         error('Build Failed')
