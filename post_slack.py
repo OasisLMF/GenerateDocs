@@ -25,7 +25,7 @@ if __name__ == "__main__":
            "block_id": "main",
            "text": {
                "type": "mrkdwn",
-               "text": "Oasis monthly release - {} \n".format(date.today().strftime("%d %B, %Y"))
+               "text": "Oasis release - {} \n".format(date.today().strftime("%d %B, %Y"))
             }   
         },
         {
