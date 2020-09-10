@@ -73,7 +73,7 @@ if __name__ == "__main__":
            "block_id": "docs",
            "text": {
                 "type": "mrkdwn",
-                "text": f'• <https://oasislmf.github.io/|Oasis Documenation>'
+                "text": f'• <https://oasislmf.github.io/releases/latest_release|Release Notes>'
             }
         }]
     }
