@@ -11,9 +11,10 @@ OasisPlatform ChangeLog
 OasisLMF ChangeLog
 ------------------
 
-.. mdinclude:: ./ktools.md
+.. mdinclude:: ./oasislmf.md
+
 
 Ktools ChangeLog
 ----------------
 
-.. mdinclude:: ./oasislmf.md
+.. mdinclude:: ./ktools.md
