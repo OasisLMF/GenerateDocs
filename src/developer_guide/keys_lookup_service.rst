@@ -17,15 +17,17 @@ Return JSON specification
 -------------------------
 The return JSON should subscribe to the following defintion:
 
-	{
-		"loc_id": <integer location id from input OED file>,
-                    	"peril_id": <sub-peril id for model (see below)>,
-                    	"coverage_type": <coverage type id (see below)>,
-                    	"area_peril_id": <integer id of the area peril in the footprint file>
-                    	"vulnerability_id": <integer id of the vulnerability function in the vulnerability file>,
-                    	"status": <one of the accepted statuses (see below)>,
-		“message”: <message to accompany status>
-                }
+.. code-block:: JSON
+
+        {
+        "loc_id": <integer location id from input OED file>,
+        "peril_id": <sub-peril id for model (see below)>,
+        "coverage_type": <coverage type id (see below)>,
+        "area_peril_id": <integer id of the area peril in the footprint file>
+        "vulnerability_id": <integer id of the vulnerability function in the vulnerability file>,
+        "status": <one of the accepted statuses (see below)>,
+        "message": <message to accompany status>
+        }
 
 
 
@@ -37,25 +39,25 @@ Coverage Type
 -------------
 The coverage type field returned in the JSON stream should comply to the oasislmf standard supported coverage types:
 
-    • 1: Buildings
-    • 2: Other
-    • 3: Contents
-    • 4: Business Interuption (BI)
+    • **1**: Buildings
+    • **2**: Other
+    • **3**: Contents
+    • **4**: Business Interuption (BI)
 
 Status
 ------
 The status returned by the keys service should comply with the accepeted status values included in the oasislmf package. These accepted statuses are:
 
-    • success: the location/coverage type/sub-peril combination has an area peril and vulnerbaility id mapped
-    • fail: the location/coverage type/sub-peril combination has neither area peril or vulnerbaility id mapped
-    • fail_ap: the location/coverage type/sub-peril combination has no area peril but a successful vulnerbaility id mapped
-    • fail_v: the location/coverage type/sub-peril combination has a successful area peril but no vulnerbaility id mapped
-    • notatrisk:  the location/coverage type/sub-peril combination is within the realm of the model but deamed to be not at risk. This can be used to show that the risk is considered (and so the TIV will be counted in any exposure metrics) but will never generate a loss from the events in the footprint.
+    • **success**: the location/coverage type/sub-peril combination has an area peril and vulnerbaility id mapped
+    • **fail**: the location/coverage type/sub-peril combination has neither area peril or vulnerbaility id mapped
+    • **fail_ap**: the location/coverage type/sub-peril combination has no area peril but a successful vulnerbaility id mapped
+    • **fail_v**: the location/coverage type/sub-peril combination has a successful area peril but no vulnerbaility id mapped
+    • **notatrisk**:  the location/coverage type/sub-peril combination is within the realm of the model but deamed to be not at risk. This can be used to show that the risk is considered (and so the TIV will be counted in any exposure metrics) but will never generate a loss from the events in the footprint.
 
 Note, there are two additonal defined statuses but these should not be included in the keys service return:
 
-    • nomatch: this is a legacy status which is no longer used
-    • noreturn: this is a status used by oasislmf to highlight exposure records for which no keys service returns were made, wither successful or not. 
+    • **nomatch**: this is a legacy status which is no longer used
+    • **noreturn**: this is a status used by oasislmf to highlight exposure records for which no keys service returns were made, wither successful or not. 
 
 
 Messages
@@ -66,9 +68,9 @@ Best Practice
 -------------
 The following list details the expectations from the keys service implementation:
 
-    1. OED location file fields: The keys service implementation should accept valid OED location file fields
-    2. Case Sensitivity: The OED field names should not be case sensitive, so the keys service implementation should not be sensetive to a particular format
-    3. Peril mapping: It is the responsibility of the keys service to interpret the “LocPerilsCovered” field in the OED input file and assess whether the risk is in scope for the model or not.
-    4. Complete reporting: The keys service should return records for all risks submitted in the input location file. If a risk is deamed to be out of scope, then the keys service should report that back to oasislmf and not simply ignore the record.
-    5. Coverage Types: The keys servcie implementation should return records for all coverage types which are included in the model. If the model does not include damage for a particular coverage type at all (e.g. BI) then there is no need to return any values for this coverage type.
-    6. Not at Risk: If a risk is deamed to be within scope for the model but not at risk for any of the events in the footprint, then the record should be returned with the “notatrisk” status and not with a dummy areaperil value, say. Not at risk items will be included in exposure counts but will not be entered into the calculation kernel.
+    1. **OED location file fields**: The keys service implementation should accept valid OED location file fields
+    2. **Case Sensitivity**: The OED field names should not be case sensitive, so the keys service implementation should not be sensetive to a particular format
+    3. **Peril mapping**: It is the responsibility of the keys service to interpret the “LocPerilsCovered” field in the OED input file and assess whether the risk is in scope for the model or not.
+    4. **Complete reporting**: The keys service should return records for all risks submitted in the input location file. If a risk is deamed to be out of scope, then the keys service should report that back to oasislmf and not simply ignore the record.
+    5. **Coverage Types**: The keys servcie implementation should return records for all coverage types which are included in the model. If the model does not include damage for a particular coverage type at all (e.g. BI) then there is no need to return any values for this coverage type.
+    6. **Not at Risk**: If a risk is deamed to be within scope for the model but not at risk for any of the events in the footprint, then the record should be returned with the “notatrisk” status and not with a dummy areaperil value, say. Not at risk items will be included in exposure counts but will not be entered into the calculation kernel.
