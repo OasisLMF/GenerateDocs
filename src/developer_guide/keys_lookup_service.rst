@@ -1,4 +1,4 @@
-Oasis LMF Keys Service Specification
+Keys Service
 ====================================
 
 Inrotduction
