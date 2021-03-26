@@ -7,6 +7,7 @@ node {
       parameters([
         [$class: 'StringParameterDefinition',  name: 'DOCS_BRANCH', defaultValue: BRANCH_NAME],
         [$class: 'StringParameterDefinition',  name: 'PUBLISH_VERSION', defaultValue: ''],
+        [$class: 'StringParameterDefinition',  name: 'PUBLISH_TITLE', defaultValue: ''],
         [$class: 'BooleanParameterDefinition', name: 'PUBLISH', defaultValue: Boolean.valueOf(false)],
         [$class: 'BooleanParameterDefinition', name: 'SLACK_MESSAGE', defaultValue: Boolean.valueOf(false)]
       ])
@@ -74,10 +75,10 @@ node {
                 //If publish send slack notification
                 dir(dir_docs) {
                     withCredentials([string(credentialsId: 'slack-oasis-core', variable: 'slack_webhook')]) {
-                        sh 'python3 post_slack.py ' + slack_webhook
+                        sh 'python3 post_slack.py ' + "'${params.PUBLISH_TITLE}' " + slack_webhook
                     }
                     withCredentials([string(credentialsId: 'slack-oasis-members', variable: 'slack_webhook')]) {
-                        sh 'python3 post_slack.py ' + slack_webhook
+                        sh 'python3 post_slack.py ' + "'${params.PUBLISH_TITLE}' " + slack_webhook
                     }
                 }
             }

@@ -17,6 +17,12 @@ if __name__ == "__main__":
     tag_ui = requests.get('https://api.github.com/repos/OasisLMF/OasisUI/tags').json()[0]['name']
     tag_ktools = requests.get('https://api.github.com/repos/OasisLMF/ktools/tags').json()[0]['name']
 
+    title = sys.argv[1].strip()
+    if not title:
+        release_title = "*Oasis Release:* ({}) - {}".format(tag_plat, date.today().strftime("%d %B, %Y"))
+    else:
+        release_title = "*{}:* ({}) - {}".format(title, tag_plat, date.today().strftime("%d %B, %Y"))
+
     slack_message = {
         "text": "Oasis Release {}".format(tag_plat),
         "blocks": [
@@ -25,7 +31,7 @@ if __name__ == "__main__":
            "block_id": "main",
            "text": {
                "type": "mrkdwn",
-               "text": "Oasis release - {} \n".format(date.today().strftime("%d %B, %Y"))
+               "text": release_title
             }   
         },
         {
@@ -78,6 +84,6 @@ if __name__ == "__main__":
         }]
     }
 
-    for web_hook in sys.argv[1:]:
+    for web_hook in sys.argv[2:]:
         requests.post('https://hooks.slack.com/services/{}'.format(web_hook), 
                       headers=headers, data=json.dumps(slack_message))
