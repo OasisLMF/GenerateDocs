@@ -9,6 +9,7 @@ node {
         [$class: 'StringParameterDefinition',  name: 'PUBLISH_VERSION', defaultValue: ''],
         [$class: 'StringParameterDefinition',  name: 'PUBLISH_TITLE', defaultValue: ''],
         [$class: 'BooleanParameterDefinition', name: 'PUBLISH', defaultValue: Boolean.valueOf(false)],
+        [$class: 'BooleanParameterDefinition', name: 'BUILD', defaultValue: Boolean.valueOf(true)],
         [$class: 'BooleanParameterDefinition', name: 'SLACK_MESSAGE', defaultValue: Boolean.valueOf(false)]
       ])
     ])
@@ -34,16 +35,18 @@ node {
                 }
             }
         }
-        stage('Run: AutoDoc Generator') {
-            sshagent (credentials: [git_creds]) {
-                withCredentials([string(credentialsId: 'github-tkn-read', variable: 'gh_token')]) {
-                    dir(dir_docs) {
-                        sh 'docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .'
-                        sh 'docker run -v $(pwd):/tmp/output oasis_doc_builder:latest ' + gh_token
+        if(params.PUBLISH || params.BUILD) {
+            stage('Run: AutoDoc Generator') {
+                sshagent (credentials: [git_creds]) {
+                    withCredentials([string(credentialsId: 'github-tkn-read', variable: 'gh_token')]) {
+                        dir(dir_docs) {
+                            sh 'docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .'
+                            sh 'docker run -v $(pwd):/tmp/output oasis_doc_builder:latest ' + gh_token
+                        }
                     }
                 }
             }
-        }
+        }    
         if(params.PUBLISH){
             stage('Clone: GitHub Pages') {
                 sshagent (credentials: [git_creds]) {
