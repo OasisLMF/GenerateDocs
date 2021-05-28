@@ -39,7 +39,7 @@ if __name__ == "__main__":
            "block_id": "platform",
            "text": {
                 "type": "mrkdwn",
-                "text": f'• <https://github.com/OasisLMF/OasisPlatform/releases/tag/{tag_plat}|OasisPlatform {tag_plat}>'
+                "text": f'• <https://github.com/OasisLMF/OasisPlatform/releases/tag/{tag_plat}|OasisPlatform {tag_plat}> (release notes)'
             }
         },
         {
@@ -73,15 +73,8 @@ if __name__ == "__main__":
                 "type": "mrkdwn",
                 "text": f'• <https://github.com/OasisLMF/ktools/releases/tag/{tag_ktools}|Ktools {tag_ktools}>'
             }
-        },
-        {
-           "type": "section",
-           "block_id": "docs",
-           "text": {
-                "type": "mrkdwn",
-                "text": f'• <https://oasislmf.github.io/releases/latest_release|Release Notes>'
-            }
-        }]
+        }
+        ]
     }
 
     for web_hook in sys.argv[2:]:
