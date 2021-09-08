@@ -15,8 +15,11 @@ The associated values for event intensities and consequential damages can theref
 The design of Oasis therefore makes no assumptions about the probability distributions and instead treats all probability distributions as probability masses in discrete bins.
 This includes closed interval point bins such as the values [0,0] for no damage and [1,1] for total damage. 
 
-The simulation approach taken by the Oasis calculation kernel computes a single cumulative distribution function (CDF) for the damage by “convolving” the binned intensity distribution with the vulnerability matrices.
-Sampling can then be done against the CDF. 
+The simulation approach taken by the Oasis calculation kernel computes a single cumulative distribution function (CDF) for the damage by “convolving” the binned intensity distribution with the vulnerability matrices. The convolution applies the 'law of total probability' to evaluate the overall probability of each damage outcome, by summing the probability of all levels of intensity multiplied by the conditional probability of the damage outcome in each case.
+
+Uniform sampling of the cumulative distribution function is then performed. Random numbers between 0 and 1 are drawn, and used to sample a relative damage ratio from the effective damage CDF. Linear interpolation of the cumulative probability thresholds of the bin in which the random number falls is used to calculate the damage ratio for each sample.  
+
+Finally, a ground up loss sample is calculated by multiplying the damage ratio with the Total Insured Value 'TIV'.
 
 .. figure:: /images/simulation_approach.png
     :alt: Oasis simulation approach
