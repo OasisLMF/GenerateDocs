@@ -9,3 +9,6 @@ m2r==0.2.1
 sphinx-autoapi==1.2.1
 requests==2.23.0
 celery==4.4
+jinja2==2.11
+markupsafe==2.0.1
+docutils==0.16

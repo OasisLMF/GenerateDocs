@@ -57,6 +57,13 @@ It allows regression of the models after updates to the Oasis Platform code, and
     developer_guide/keys_lookup_service
     developer_guide/release_process
 
+
+.. toctree::
+    :titlesonly:
+    :caption: Ben Test
+
+    ben_test/development_approach
+
 .. toctree::
     :titlesonly:
     :caption: Modelling methodology 

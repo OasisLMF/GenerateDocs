@@ -53,14 +53,14 @@ set -e
     fi
 
 # Get Known issues 
-    #if [ ! -z "$GH_TOKEN" ]; then
-    #    cd $DIR_BASE
-    #    ./known_issues.py $GH_TOKEN > $DIR_MODULES/OasisPlatform/known_issues.md
-    #    echo 'Witten known_issues list'
-    #else
-    #    echo 'Missing GitHub token'
-    #    exit 1
-    #fi 
+    if [ ! -z "$GH_TOKEN" ]; then
+        cd $DIR_BASE
+        ./known_issues.py $GH_TOKEN > $DIR_MODULES/OasisPlatform/known_issues.md
+        echo 'Witten known_issues list'
+    else
+        echo 'Missing GitHub token'
+        exit 1
+    fi 
 
 # Build docs
     cd $DIR_BASE
