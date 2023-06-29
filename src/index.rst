@@ -1,3 +1,10 @@
+Indroduction:
+=============
+
+•	What is Oasis: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet tellus eu, gravida nisl.
+•	How is the documentation structured: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet tellus eu, gravida nisl.
+
+
 Overview
 ========
 
@@ -38,7 +45,43 @@ It allows regression of the models after updates to the Oasis Platform code, and
 
 .. toctree::
     :titlesonly:
-    :caption: Getting started
+    :caption: Use Cases:
+
+    use_cases/model-developer
+    use_cases/model-users
+    use_cases/installing-deploying-Oasis
+    use_cases/support
+..
+    model-developer
+    model-users
+    installing-deploying-Oasis
+    support
+
+.. toctree::
+    :titlesonly:
+    :caption: Sections:
+
+    sections/A-sections
+    sections/API.rst
+    sections/deployment.rst
+    sections/errors.rst
+    sections/financial-module.rst
+    sections/keys-service.rst
+    sections/ktools-pytools.rst
+    sections/Oasis-evaluation.rst
+    sections/Oasis-model-data-formats.rst
+    sections/Oasis-models.rst
+    sections/Oasis-platform.rst
+    sections/Oasis-UI.rst
+    sections/Oasis-workflow.rst
+    sections/OasisLMF-package.rst
+    sections/OED.rst
+    sections/options.rst
+    sections/results.rst
+
+.. toctree::
+    :titlesonly:
+    :caption: OLD - Getting started
 
     getting_started/piwind_model
     getting_started/running_a_model_using_the_MDK
@@ -50,7 +93,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :titlesonly:
     :caption: Developer guide
 
-    developer_guide/platform_architecture
+    OLD/developer_guide/platform_architecture
     developer_guide/development_approach
     developer_guide/github_repositories
     developer_guide/technology_stack
