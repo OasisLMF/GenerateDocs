@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.abspath('../modules/OasisPlatform'))
 # -- Project information -----------------------------------------------------
 
 project = u'Oasis LMF'
-copyright = u'2020, Oasis LMF'
+copyright = u'2023, Oasis LMF'
 author = u'Oasis LMF'
 
 # The short X.Y version

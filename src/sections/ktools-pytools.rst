@@ -1,7 +1,5 @@
 Ktools/pytools
 ==============
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
-lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu 
-efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet 
-tellus eu, gravida nisl.
+This is the POSIX-compliant Oasis LMF In-Memory Kernel toolkit. Click `here <https://github.com/OasisLMF/Ktools#readme>`_ 
+for more information on Ktools.

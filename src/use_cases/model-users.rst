@@ -9,12 +9,12 @@ tellus eu, gravida nisl.
 Sections
 --------
 
-:doc:`OED-inputs`.
+:doc:`OED inputs <../../sections/OED>`.
 
-:doc:`results`
+:doc:`Results <../../sections/results>`
 
-:doc:`analysis-options`.
+:doc:`Analysis options <../../sections/options>`.
 
-:doc:`Oasis-UI`.
+:doc:`Oasis UI <../../sections/Oasis-UI>`.
 
-:doc:`3rd-Party-SaaS-providers`.
+`3rd Party SaaS providers <https://oasislmf.org/community/model-providers>`.

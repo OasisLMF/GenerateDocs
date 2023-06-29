@@ -1,4 +1,4 @@
-Installing/deploying the Oasis Platform
+Installing/Deploying the Oasis Platform
 =======================================
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
@@ -9,10 +9,8 @@ tellus eu, gravida nisl.
 Sections
 --------
 
-platform-1.
+:doc:`Platform 1 and 2 <../../sections/Oasis-platform>`
 
-plarform-2.
+`Camel <https://github.com/OasisLMF/camel/#readme>`_.
 
-camel: https://github.com/OasisLMF/camel/#readme.
-
-adding-models.
+Adding models.
