@@ -12,4 +12,4 @@ User Interface and example PiWind model.
 GitHub repository:
 ------------------
 
-`Oasis Platform Evaluation<https://github.com/OasisLMF/OasisEvaluation>`_.
+`Oasis Platform Evaluation <https://github.com/OasisLMF/OasisEvaluation#readme>`_.

@@ -1,4 +1,4 @@
-Indroduction:
+Indroduction
 =============
 
 •	What is Oasis: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet tellus eu, gravida nisl.
@@ -13,7 +13,7 @@ It is also a community that seeks to unlock and change the world around catastro
 While its development is largely driven by the global (re-)insurance community, it seeks to provide tools and utility to all.
 For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
-.. figure:: images/oasis_ecosystem.jpg
+.. figure:: ../images/oasis_ecosystem.jpg
     :alt: Oasis Ecosystem
 
     Oasis Ecosystem
@@ -49,40 +49,44 @@ It is designed with a model developer or academic user in mind, who are likely t
 **Oasis Model Library** is a hosted catalogue for Oasis models, hosted in AWS. 
 It allows regression of the models after updates to the Oasis Platform code, and validation of model operation and scalability within a hosted Oasis Platform.
 
-.. toctree::
-    :titlesonly:
-    :caption: Home:
 
-    home/introduction.rst
-    home/git-repo.rst
-    home/FAQs.rst
+..
+    This doesn't really work - gets messy having an index inside of the same index
+..    
+    .. toctree::
+        :titlesonly:
+        :caption: Home:
 
-.. toctree::
-    :titlesonly:
-    :caption: Use Cases:
+        introduction.rst
+        git-repo.rst
+        FAQs.rst
 
-    use_cases/model-developer
-    use_cases/model-users
-    use_cases/installing-deploying-Oasis
-    use_cases/support
+    .. toctree::
+        :titlesonly:
+        :caption: Use Cases:
 
-.. toctree::
-    :titlesonly:
-    :caption: Sections:
+        ../use_cases/model-developer
+        ../use_cases/model-users
+        ../use_cases/installing-deploying-Oasis
+        ../use_cases/support
 
-    sections/API.rst
-    sections/deployment.rst
-    sections/errors.rst
-    sections/financial-module.rst
-    sections/keys-service.rst
-    sections/ktools-pytools.rst
-    sections/Oasis-evaluation.rst
-    sections/Oasis-model-data-formats.rst
-    sections/Oasis-models.rst
-    sections/Oasis-platform.rst
-    sections/Oasis-UI.rst
-    sections/Oasis-workflow.rst
-    sections/OasisLMF-package.rst
-    sections/OED.rst
-    sections/options.rst
-    sections/results.rst
+    .. toctree::
+        :titlesonly:
+        :caption: Sections:
+
+        ../sections/API.rst
+        ../sections/deployment.rst
+        ../sections/errors.rst
+        ../sections/financial-module.rst
+        ../sections/keys-service.rst
+        ../sections/ktools-pytools.rst
+        ../sections/Oasis-evaluation.rst
+        ../sections/Oasis-model-data-formats.rst
+        ../sections/Oasis-models.rst
+        ../sections/Oasis-platform.rst
+        ../sections/Oasis-UI.rst
+        ../sections/Oasis-workflow.rst
+        ../sections/OasisLMF-package.rst
+        ../sections/OED.rst
+        ../sections/options.rst
+        ../ sections/results.rst

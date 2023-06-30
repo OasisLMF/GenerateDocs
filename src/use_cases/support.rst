@@ -9,6 +9,6 @@ tellus eu, gravida nisl.
 Sections
 --------
 
-:doc:`../../sections/Oasis-workflow`.
+:doc:`../../sections/Oasis-workflow`
 
-:doc:`../../sections/errors`.
+:doc:`../../sections/errors`

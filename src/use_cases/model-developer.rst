@@ -9,8 +9,8 @@ tellus eu, gravida nisl.
 Sections
 --------
 
-:doc:`Building a new model <../../sections/OasisLMF-package>`.
+:doc:`Building a new model <../../sections/OasisLMF-package>`
 
-Converting an existing model.
+Converting an existing model
 
-Managing versions and upgrades.
+Managing versions and upgrades

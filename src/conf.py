@@ -97,7 +97,7 @@ language = None
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'friendly'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -117,8 +117,8 @@ html_theme_options = {
     'display_version': False,
 
     "light_css_variables": {
-        "color-brand-primary": "#d22630",
-        "color-brand-content": "#862633",
+        "color-brand-primary": " #862633",
+        "color-brand-content": "#d22630",
         "font-stack": "Arial, sans-serif",
         "font-stack--monospace": "Courier, monospace",
     }
