@@ -1,5 +1,5 @@
-Errors
-======
+Error Handling
+==============
 
 Known Issues
 ------------

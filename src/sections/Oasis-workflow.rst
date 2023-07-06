@@ -1,5 +1,5 @@
 Oasis Workflow
-=======================================
+==============
 
 The general workflow is as follows:
 
@@ -15,4 +15,4 @@ The general workflow is as follows:
 
 * Run the analysis (post to ``/analyses/<pk>/run/``)
 
-* Get the outputs (get ``/analuses/<pk>/output_file/``)
+* Get the outputs (get ``/analyses/<pk>/output_file/``)

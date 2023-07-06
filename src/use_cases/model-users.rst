@@ -13,8 +13,8 @@ Sections
 
 :doc:`Results <../../sections/results>`
 
-:doc:`Analysis options <../../sections/options>`
+:doc:`Analysis options <../../sections/analysis-settings>`
 
 :doc:`Oasis UI <../../sections/Oasis-UI>`
 
-`3rd Party SaaS providers <https://oasislmf.org/community/model-providers>`_
+:doc:`3rd Party SaaS providers <../../sections/SaaS-providers>`

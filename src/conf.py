@@ -57,7 +57,7 @@ extensions = [
     'sphinx-jsonschema',
     'nbsphinx',
     'sphinx.ext.mathjax',
-    "sphinxcontrib.youtube", # Chaz testing for embidding YouTube videos
+    "sphinxcontrib.youtube",
     # 'm2r',
     # 'autoapi.extension',
     # 'recommonmark'
@@ -107,6 +107,7 @@ pygments_style = 'friendly'
 #
 html_theme = 'furo'
 html_logo = 'images/OASIS_LMF_COLOUR.png'
+html_static_path = ['_static']
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -127,7 +128,6 @@ html_theme_options = {
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.

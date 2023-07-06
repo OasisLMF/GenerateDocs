@@ -1,6 +1,49 @@
 Oasis Platform (1&2)
 ====================
 
+The Oasis Loss Modelling Framework provides an open source platform for developing, deploying and executing catastrophe 
+models. It uses a full simulation engine and makes no restrictions on the modelling approach. Models are packaged in a 
+standard format and the components can be from any source, such as model vendors, academic and research groups. The 
+platform provides:
+
+* A platform for running catastrophe models, including a web based user interface and an API for integration with other 
+  systems (Oasis Loss Modelling Framework)
+
+* Core components for executing catastrophe models at scale and standard data formats for hazard and vulnerability (Oasis 
+  ktools)
+
+* Toolkit for developing, testing and deploying catastrophe models (Oasis Model Development Toolkit)
+
+On this page:
+
+* :ref:`installing_oasis`
+* :ref:`platform_architecture`
+* :ref:`hard_scaling`
+* :ref:`weak_scaling`
+* :ref:`development_approach`
+* :ref:`technology_stack`
+* :ref:`github_repositories`
+
+
+.. _installing_oasis:
+
+Installing Oasis
+----------------
+
+Oasis Installation Guide: Windows 10 OS
+***************************************
+
+..  youtube:: SxRt5E-Y5Sw
+
+
+Oasis Installation Guide: Linux based OS
+****************************************
+
+..  youtube:: OFLTpGGEM10
+
+
+.. _platform_architecture:
+
 Platform architecture
 ---------------------
 
@@ -22,6 +65,8 @@ A schematic of the Oasis Platform architecture is shown in the diagram below, an
     "Datastore", "File based datastore for exposure data, analysis results and model data.", "Docker volume"
     "Model Worker", "Celery worker that can run a lookup or model execution task for a particular model version. The model data is attached to the container from the datastore at startup.", "Custom Python and C++ code"
 
+
+.. _hard_scaling:
 
 hard-Scaling
 -------------
@@ -59,6 +104,8 @@ To overcome those limitation we are putting in place new approach.
   (see detail at: https://github.com/OasisLMF/OasisAtScaleEvaluation)
 
 
+.. _weak_scaling:
+
 Weak Scaling
 ------------
 
@@ -69,9 +116,12 @@ provisioning more calculation servers and deploying more Analysis Worker images.
 
 
 
-# From Development approach:
+..
+   From Development approach:
 
 
+
+.. _development_approach:
 
 Development approach
 --------------------
@@ -100,9 +150,12 @@ Development approach
 
 
 
-# From tech stack
+.. 
+   From tech stack
 
 
+
+.. _technology_stack:
 
 Technology stack
 ----------------
@@ -128,7 +181,8 @@ Jupyter                   Python notebooks for examples and training material.
 
 
 
-# From GitHub repositories
+.. 
+   From GitHub repositories
 
 
 

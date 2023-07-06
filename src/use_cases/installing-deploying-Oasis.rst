@@ -11,6 +11,7 @@ Sections
 
 :doc:`Platform 1 and 2 <../../sections/Oasis-platform>`
 
-`Camel <https://github.com/OasisLMF/camel/#readme>`_
+:doc:`Camel <../../sections/camel>`
 
-Adding models
+:doc:`Adding models <../../sections/model-development-kit>`
+

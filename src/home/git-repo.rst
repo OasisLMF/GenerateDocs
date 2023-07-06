@@ -1,4 +1,4 @@
 OasisLMF GitHub
 ===============
 
-To access the OasisLMF GitHub repository, please click `here <https://github.com/OasisLMF>`_
+The OasisLMF GitHub repository can be found `here <https://github.com/OasisLMF>`_

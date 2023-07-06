@@ -1,17 +1,17 @@
 Indroduction
 =============
 
-•	What is Oasis: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet tellus eu, gravida nisl.
-•	How is the documentation structured: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet tellus eu, gravida nisl.
+* **What is Oasis**: The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
+  It is also a community that seeks to unlock and change the world around catastrophe modelling to better understand risk in insurance and beyond. 
+  While its development is largely driven by the global (re-)insurance community, it seeks to provide tools and utility to all.
+  For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
+* **How the documentation is structured**: This documentataion is broken down into 4 main areas: Model developers, Model 
+  users, Installing and developing Oasis, and Supporting and Oasis model deployment. These are the different use cases that 
+  are detailed in this documentation. By selecting your use case, the relevant information can be accessed.
 
 Overview
 --------
-
-The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
-It is also a community that seeks to unlock and change the world around catastrophe modelling to better understand risk in insurance and beyond. 
-While its development is largely driven by the global (re-)insurance community, it seeks to provide tools and utility to all.
-For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
 .. figure:: ../images/oasis_ecosystem.jpg
     :alt: Oasis Ecosystem
