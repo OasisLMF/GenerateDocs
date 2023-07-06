@@ -4,14 +4,14 @@ ORD - Open Results Data
 |
 On this page:
 
-* :ref:`intro`
+* :ref:`intro_ORD`
 * :ref:`tables`
 * :ref:`summary_levels_example`
-* :ref:`links`
+* :ref:`links_ORD`
 
 
 
-.. _intro:
+.. _intro_ORD:
 
 Introduction
 ------------
@@ -106,7 +106,7 @@ ORD summary levels example
 
 
 |
-.. _links:
+.. _links_ORD:
 
 Links for further information
 *****************************

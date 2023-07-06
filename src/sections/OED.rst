@@ -4,15 +4,15 @@ OED - Open Exposure Data
 |
 On this page:
 
-* :ref:`intro`
+* :ref:`intro_OED`
 * :ref:`why_OED`
 * :ref:`property`
 * :ref:`liability`
 * :ref:`cyber`
-* :ref:`links`
+* :ref:`links_OED`
 
 
-.. _intro:
+.. _intro_OED:
 
 Introduction
 ------------
@@ -274,7 +274,7 @@ blob/develop/OpenExposureData/Cyber/ReadMe.md>`_.
 
 
 |
-.. _links:
+.. _links_OED:
 
 Links for further information
 *****************************

@@ -4,14 +4,14 @@ ODS - Open Data Standards
 |
 On this page:
 
-* :ref:`intro`
+* :ref:`intro_ODS`
 * :ref:`structure`
 * :ref:`committee`
-* :ref:`links`
+* :ref:`links_ODS`
 
 
 
-.. _intro:
+.. _intro_ODS:
 
 Introduction
 ------------
@@ -104,7 +104,7 @@ updates or changes.
 
 
 |
-.. _links:
+.. _links_ODS:
 
 Links for further information
 *****************************
