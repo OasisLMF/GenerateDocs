@@ -25,7 +25,7 @@ sys.path.insert(0, os.path.abspath('../modules/OasisPlatform'))
 # -- Project information -----------------------------------------------------
 
 project = u'Oasis LMF'
-copyright = u'2020, Oasis LMF'
+copyright = u'2023, Oasis LMF'
 author = u'Oasis LMF'
 
 # The short X.Y version
@@ -52,13 +52,14 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinxcontrib.httpdomain',
-    'sphinxcontrib.autohttp.flask',
-    'sphinxcontrib.autohttp.flaskqref',
+    # 'sphinxcontrib.autohttp.flask',
+    # 'sphinxcontrib.autohttp.flaskqref',
     'sphinx-jsonschema',
     'nbsphinx',
     'sphinx.ext.mathjax',
-    'm2r',
-    'autoapi.extension',
+    "sphinxcontrib.youtube",
+    # 'm2r',
+    # 'autoapi.extension',
     # 'recommonmark'
 ]
 
@@ -96,7 +97,7 @@ language = None
 exclude_patterns = ['_build', '**.ipynb_checkpoints']
 
 # The name of the Pygments (syntax highlighting) style to use.
-pygments_style = 'sphinx'
+pygments_style = 'friendly'
 
 
 # -- Options for HTML output -------------------------------------------------
@@ -104,18 +105,29 @@ pygments_style = 'sphinx'
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
 #
-html_theme = 'sphinx_rtd_theme'
+html_theme = 'furo'
+html_logo = 'images/OASIS_LMF_COLOUR.png'
+html_static_path = ['_static']
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
 # documentation.
 #
-# html_theme_options = {}
+html_theme_options = {
+    'logo_only': True,
+    'display_version': False,
+
+    "light_css_variables": {
+        "color-brand-primary": " #862633",
+        "color-brand-content": "#d22630",
+        "font-stack": "Arial, sans-serif",
+        "font-stack--monospace": "Courier, monospace",
+    }
+}
 
 # Add any paths that contain custom static files (such as style sheets) here,
 # relative to this directory. They are copied after the builtin static files,
 # so a file named "default.css" will overwrite the builtin "default.css".
-html_static_path = ['_static']
 
 # Custom sidebar templates, must be a dictionary that maps document names
 # to template names.

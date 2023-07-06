@@ -43,3 +43,13 @@ build/
 .venv
 venv/
 ENV/
+
+# vs code
+.vscode/
+
+# mac os
+.DS_Store/
+.DS_Store
+
+# Ignore output
+output/

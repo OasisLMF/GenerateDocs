@@ -1,4 +1,4 @@
-Indroduction:
+Indroduction
 =============
 
 * **What is Oasis**: The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
@@ -7,14 +7,13 @@ Indroduction:
   For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
 * **How the documentation is structured**: This documentataion is broken down into 4 main areas: Model developers, Model 
-  users, Installing and developing Oasis, and Supporting and Oasis model deployment. Thees are the different use cases that 
+  users, Installing and developing Oasis, and Supporting and Oasis model deployment. These are the different use cases that 
   are detailed in this documentation. By selecting your use case, the relevant information can be accessed.
-
 
 Overview
 --------
 
-.. figure:: images/oasis_ecosystem.jpg
+.. figure:: ../images/oasis_ecosystem.jpg
     :alt: Oasis Ecosystem
 
     Oasis Ecosystem
@@ -50,53 +49,44 @@ It is designed with a model developer or academic user in mind, who are likely t
 **Oasis Model Library** is a hosted catalogue for Oasis models, hosted in AWS. 
 It allows regression of the models after updates to the Oasis Platform code, and validation of model operation and scalability within a hosted Oasis Platform.
 
-.. toctree::
-    :titlesonly:
-    :caption: Home:
 
-    home/introduction.rst
-    home/git-repo.rst
-    home/FAQs.rst
+..
+    This doesn't really work - gets messy having an index inside of the same index
+..    
+    .. toctree::
+        :titlesonly:
+        :caption: Home:
 
-.. toctree::
-    :titlesonly:
-    :caption: Use Cases:
+        introduction.rst
+        git-repo.rst
+        FAQs.rst
 
-    use_cases/model-developer
-    use_cases/model-users
-    use_cases/installing-deploying-Oasis
-    use_cases/support
+    .. toctree::
+        :titlesonly:
+        :caption: Use Cases:
 
-.. toctree::
-    :titlesonly:
-    :caption: Sections:
+        ../use_cases/model-developer
+        ../use_cases/model-users
+        ../use_cases/installing-deploying-Oasis
+        ../use_cases/support
 
-    sections/API.rst
-    sections/camel.rst
-    sections/deployment-options.rst
-    sections/disaggregation.rst
-    sections/error-handling.rst
-    sections/financial-module.rst
-    sections/git-repos.rst
-    sections/keys-service.rst
-    sections/ktools.rst
-    sections/model-data-library.rst
-    sections/model-development-kit.rst
-    sections/model-settings.rst
-    sections/Oasis-evaluation.rst
-    sections/Oasis-file-formats.rst
-    sections/Oasis-model-data-formats.rst
-    sections/Oasis-models.rst
-    sections/Oasis-platform.rst
-    sections/Oasis-UI.rst
-    sections/Oasis-workflow.rst
-    sections/OasisLMF-package.rst
-    sections/ODS-tools.rst
-    sections/ODS.rst
-    sections/OED.rst
-    sections/ORD.rst
-    sections/post-loss-amplification.rst
-    sections/pre-analysis-adjustment.rst
-    sections/pytools.rst
-    sections/results.rst
-    sections/SaaS-providers.rst
+    .. toctree::
+        :titlesonly:
+        :caption: Sections:
+
+        ../sections/API.rst
+        ../sections/deployment.rst
+        ../sections/errors.rst
+        ../sections/financial-module.rst
+        ../sections/keys-service.rst
+        ../sections/ktools-pytools.rst
+        ../sections/Oasis-evaluation.rst
+        ../sections/Oasis-model-data-formats.rst
+        ../sections/Oasis-models.rst
+        ../sections/Oasis-platform.rst
+        ../sections/Oasis-UI.rst
+        ../sections/Oasis-workflow.rst
+        ../sections/OasisLMF-package.rst
+        ../sections/OED.rst
+        ../sections/options.rst
+        ../ sections/results.rst
