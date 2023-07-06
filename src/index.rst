@@ -1,17 +1,18 @@
 Indroduction:
 =============
 
-•	What is Oasis: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet tellus eu, gravida nisl.
-•	How is the documentation structured: Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet tellus eu, gravida nisl.
+* **What is Oasis**: The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
+  It is also a community that seeks to unlock and change the world around catastrophe modelling to better understand risk in insurance and beyond. 
+  While its development is largely driven by the global (re-)insurance community, it seeks to provide tools and utility to all.
+  For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
+
+* **How the documentation is structured**: This documentataion is broken down into 4 main areas: Model developers, Model 
+  users, Installing and developing Oasis, and Supporting and Oasis model deployment. Thees are the different use cases that 
+  are detailed in this documentation. By selecting your use case, the relevant information can be accessed.
 
 
 Overview
 --------
-
-The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
-It is also a community that seeks to unlock and change the world around catastrophe modelling to better understand risk in insurance and beyond. 
-While its development is largely driven by the global (re-)insurance community, it seeks to provide tools and utility to all.
-For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
 .. figure:: images/oasis_ecosystem.jpg
     :alt: Oasis Ecosystem
@@ -71,18 +72,31 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :caption: Sections:
 
     sections/API.rst
-    sections/deployment.rst
-    sections/errors.rst
+    sections/camel.rst
+    sections/deployment-options.rst
+    sections/disaggregation.rst
+    sections/error-handling.rst
     sections/financial-module.rst
+    sections/git-repos.rst
     sections/keys-service.rst
-    sections/ktools-pytools.rst
+    sections/ktools.rst
+    sections/model-data-library.rst
+    sections/model-development-kit.rst
+    sections/model-settings.rst
     sections/Oasis-evaluation.rst
+    sections/Oasis-file-formats.rst
     sections/Oasis-model-data-formats.rst
     sections/Oasis-models.rst
     sections/Oasis-platform.rst
     sections/Oasis-UI.rst
     sections/Oasis-workflow.rst
     sections/OasisLMF-package.rst
+    sections/ODS-tools.rst
+    sections/ODS.rst
     sections/OED.rst
-    sections/options.rst
+    sections/ORD.rst
+    sections/post-loss-amplification.rst
+    sections/pre-analysis-adjustment.rst
+    sections/pytools.rst
     sections/results.rst
+    sections/SaaS-providers.rst
