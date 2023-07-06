@@ -11,9 +11,9 @@ URL_RELEASE_LATEST='https://api.github.com/repos/oasislmf/OasisPlatform/releases
 set -e 
 ## SETUP BUILD ENVIROMENT 
     git_modules=(
-        'OasisLMF'
-        'OasisPlatform'
-        'Ktools'
+        #'OasisLMF'
+        #'OasisPlatform'
+        #'Ktools'
     )
     for module in "${git_modules[@]}"; do
         cd $DIR_MODULES
@@ -37,20 +37,20 @@ set -e
 
 # Update python env
     pip install -r requirements.txt
-    pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
+    ###pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
 
 # Script to extract / prase RELEASE.md / CHANGELOG.md  notes 
-    sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/Ktools/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/ktools.md
-    sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisLMF/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasislmf.md
-    sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisPlatform/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasis_platform.md
+    #sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/Ktools/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/ktools.md
+    #sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisLMF/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasislmf.md
+    #sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisPlatform/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasis_platform.md
 
 # Get the latest release notes
-    if ! [ -x "$(command -v jq)" ]; then
-        echo 'Error: jq is not installed.' >&2
-    else    
-        cd $DIR_MODULES/OasisPlatform
-        curl -s $URL_RELEASE_LATEST | jq -r '{body} | .body' > latest_release.md
-    fi
+    #if ! [ -x "$(command -v jq)" ]; then
+    #    echo 'Error: jq is not installed.' >&2
+    #else    
+    #    #cd $DIR_MODULES/OasisPlatform
+    #    #curl -s $URL_RELEASE_LATEST | jq -r '{body} | .body' > latest_release.md
+    #fi
 
 # Get Known issues 
     #if [ ! -z "$GH_TOKEN" ]; then
