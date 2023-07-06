@@ -1,7 +1,6 @@
 name: Deploy PR previews
 
 on:
-  push:    #testing only
   pull_request:
     types:
       - opened
