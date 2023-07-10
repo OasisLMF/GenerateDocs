@@ -3,12 +3,12 @@ Keys Service
 
 
 
-Inrotduction
+Introduction
 ------------
 
 The keys service in the Oasis Loss Modelling Framework is the process which is used to map exposure data (in OED format) 
 into the into the model specific keys required to execute analyses against that model in the core calculation kernel. This 
-document specifies the requirements form the keys service for a typical implementation of an Oasis LMF complient model. It 
+document specifies the requirements form the keys service for a typical implementation of an Oasis LMF compliant model. It 
 should be noted that this document does not cover the example of a complex model implementation, where the requirements are 
 much more loose, but focusses on the standard implementation where all of the regular ktools components are utilised in the 
 calculation kernel.
@@ -30,7 +30,7 @@ location/coverage-type/sub-peril combinations where they are outside of the remi
 Return JSON specification
 #########################
 
-The return JSON should subscribe to the following defintion:
+The return JSON should subscribe to the following definition:
 
 .. code-block:: JSON
 
@@ -53,7 +53,7 @@ It is the responsibility of the keys service to identify the exposures in the in
 Included in this definition is the identification of risks by perils covered. The keys service implementation should use 
 the “LocPerilsCovered” field in the input location OED file to identify and filter out those locations which are covered by 
 the model and those which are not. If a location in the input file has only location perils covered which are not 
-considered by the model, then this location should receive a failure status (see below), be rejected by the keys sevice and 
+considered by the model, then this location should receive a failure status (see below), be rejected by the keys service and 
 not be assigned an areaperil id value.
 
 
@@ -61,7 +61,7 @@ not be assigned an areaperil id value.
 Coverage Type
 ##############
 
-The coverage type field returned in the JSON stream should comply to the oasislmf standard supported coverage types:
+The coverage type field returned in the JSON stream should comply to the Oasislmf standard supported coverage types:
 
 **1:** Buildings
 
@@ -69,30 +69,30 @@ The coverage type field returned in the JSON stream should comply to the oasislm
 
 **3:** Contents
 
-**4:** Business Interuption (BI)
+**4:** Business Interruption (BI)
 
 
 
 Status
 ##############
 
-The status returned by the keys service should comply with the accepeted status values included in the oasislmf package. 
+The status returned by the keys service should comply with the accepted status values included in the oasislmf package. 
 These accepted statuses are:
 
-**success:** the location/coverage type/sub-peril combination has an area peril and vulnerbaility id mapped
+**success:** the location/coverage type/sub-peril combination has an area peril and vulnerability id mapped
 
-**fail:** the location/coverage type/sub-peril combination has neither area peril or vulnerbaility id mapped
+**fail:** the location/coverage type/sub-peril combination has neither area peril or vulnerability id mapped
 
-**fail_ap:** the location/coverage type/sub-peril combination has no area peril but a successful vulnerbaility id mapped
+**fail_ap:** the location/coverage type/sub-peril combination has no area peril but a successful vulnerability id mapped
 
-**fail_v:** the location/coverage type/sub-peril combination has a successful area peril but no vulnerbaility id mapped
+**fail_v:** the location/coverage type/sub-peril combination has a successful area peril but no vulnerability id mapped
 
-**notatrisk:** the location/coverage type/sub-peril combination is within the realm of the model but deamed to be not at 
+**notatrisk:** the location/coverage type/sub-peril combination is within the realm of the model but deemed to be not at 
 risk. This can be used to show that the risk is considered (and so the TIV will be counted in any exposure metrics) but will 
 never generate a loss from the events in the footprint.
 
 .. note::
-   There are two additonal defined statuses but these should not be included in the keys service return:
+   There are two additional defined statuses but these should not be included in the keys service return:
 
 **nomatch:** this is a legacy status which is no longer used
 
@@ -104,9 +104,9 @@ wither successful or not.
 Messages
 ########
 
-A free text message can be returned with the keys service return JSON. This message should be used to describe the resaon 
+A free text message can be returned with the keys service return JSON. This message should be used to describe the reason 
 for no oasis key being assigned (e.g. location is outside of model domain) and should be concise while clear enough for a 
-user to understand the issue. Messages only need to be returned with one of the fail stauses.
+user to understand the issue. Messages only need to be returned with one of the fail statuses.
 
 
 
@@ -118,20 +118,20 @@ The following list details the expectations from the keys service implementation
 1. **OED location file fields:** The keys service implementation should accept valid OED location file fields
 
 2. **Case Sensitivity:** The OED field names should not be case sensitive, so the keys service implementation should not be 
-   sensetive to a particular format
+   sensitive to a particular format
 
 3. **Peril mapping:** It is the responsibility of the keys service to interpret the “LocPerilsCovered” field in the OED 
    input file and assess whether the risk is in scope for the model or not.
 
 4. **Complete reporting:** The keys service should return records for all risks submitted in the input location file. If a 
-   risk is deamed to be out of scope, then the keys service should report that back to oasislmf and not simply ignore the 
+   risk is deemed to be out of scope, then the keys service should report that back to oasislmf and not simply ignore the 
    record.
 
-5. **Coverage Types:** The keys servcie implementation should return records for all coverage types which are included in 
+5. **Coverage Types:** The keys service implementation should return records for all coverage types which are included in 
    the model. If the model does not include damage for a particular coverage type at all (e.g. BI) then there is no need to 
    return any values for this coverage type.
 
-6. **Not at Risk:** If a risk is deamed to be within scope for the model but not at risk for any of the events in the 
+6. **Not at Risk:** If a risk is deemed to be within scope for the model but not at risk for any of the events in the 
    footprint, then the record should be returned with the “notatrisk” status and not with a dummy areaperil value, say. Not at 
    risk items will be included in exposure counts but will not be entered into the calculation kernel.
 
@@ -298,7 +298,7 @@ rtree
 
    .. note::
       !!!
-      Please note that this method is quite time consuming (especialy if you use the nearest point option
+      Please note that this method is quite time consuming (especially if you use the nearest point option
       if your peril_area are square you should use area_peril function fixed_size_geo_grid).
       !!!
 
@@ -460,7 +460,7 @@ A general analysis settings config file has the following layout:
 Custom lookup
 #############
 
-On top of allowing user to set their own steps to create a lookup, Oasis builtin lookup provide a easy way to add your own custom functions if more complex behavior are needed.
+On top of allowing user to set their own steps to create a lookup, Oasis builtin lookup provide a easy way to add your own custom functions if more complex behaviour are needed.
 
 **1. Creating a custom class**
 
@@ -475,7 +475,7 @@ In ``<module_name>.py`` we create our custom class ``<model_id>KeysLookup`` wher
    class <model_id>Lookup(Lookup):
       pass
 
-This is done, Oasis will now use you custom lookup in the key server (although for the moment the custom lookup behave exactly like the built-in one).
+This is done, Oasis will now use your custom lookup in the key server (although for the moment the custom lookup behave exactly like the built-in one).
 
 You may want to have your custom lookup in a different path, it is possible ``lookup_module_path`` can be an absolute path of a path relative to ``lookup_config.json``.
 
@@ -543,7 +543,7 @@ As the function has parameters, on top of adding the step name to strategy we al
          },
         ...
       }
-      "strategy": ["default_height", ...] # step name and function name can be the same but if different make sure it is the step name in startegy
+      "strategy": ["default_height", ...] # step name and function name can be the same but if different make sure it is the step name in strategy
 
 Custom parametric function let you be as flexible as you need and also let you use builtin function. In this example we will use custom function to use two different method of geo-localization depending on the data available. If we have lat lon we use it otherwise we use a mapping file based on the ``locuserdef1`` column.
 

@@ -4,14 +4,14 @@ ODS - Open Data Standards
 |
 On this page:
 
-* :ref:`intro`
+* :ref:`intro_ODS`
 * :ref:`structure`
 * :ref:`committee`
-* :ref:`links`
+* :ref:`links_ODS`
 
 
 
-.. _intro:
+.. _intro_ODS:
 
 Introduction
 ------------
@@ -22,19 +22,18 @@ understood by different systems, organizations, and users. Its aim is to be the 
 outputs and contract(s) terminology for the (Re)Insurance industry and other interested parties in catastrophe modelling 
 and exposure management across all classes of business.
 
-ODS are central to the evolution of catastrophe modelling. They are key to ensuring continued data consistency, 
-transparency, collaboration, and scalability. This enables a significant reduction in work and cost involved to run a 
-portfolio of exposures through different models; instead of there being a range of data formats and standards 
-from model providers, the ODS facilitates a single, unambiguous format. Detailed documentation on the ODS strategy can be 
-found `here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/ODS_2021_Planning_%26_Strategy_v1.pdf>`_.
+ODS is key to ensuring continued data consistency, transparency, collaboration, and scalability for the cat modelling 
+community. This one consistent data format enables a significant reduction in  required efforts and cost when using 
+multiple models from various providers
 
 The ODS is primarily comprised of two parts: 
 
 * :doc:`../../sections/OED`
 * :doc:`../../sections/ORD`
 
-OED and ORD define the standardise formats for exposure data that's put into a model, and the results data that is output. 
-They are both designed to assist with overcoming interoperability problems current in the catastrophe modelling community.
+The Open Data Standard (OED) refers to the standard format for exposure data going into the models and the Open Results Data 
+(ORD) refers to the standardised model outputs. They are both designed to assist with overcoming interoperability problems 
+current in the catastrophe modelling community.
 
 .. note::
     **It's important to know that ODS is NOT an Oasis standard, but an initiative developed by the market for the market.**
@@ -47,10 +46,9 @@ They are both designed to assist with overcoming interoperability problems curre
 ODS structure with Oasis
 ************************
 
-Oasis implements ODS as they view open data as central to continued growth in the catastrophe modelling and (re)insurance 
-instusties. Oasis LMF are continuously expanding the ODS functionality they support on their platform, especially in 
-their `financial module (FM) <https://github.com/OasisLMF/ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/
-FinancialModule.md#L4>`_.
+Oasis utilises ODS and continues to drive and support its development in collaboration with the community. Oasis LMF are 
+continuously expanding the ODS functionality they support on their platform, especially in their `financial module (FM) 
+<https://github.com/OasisLMF/ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/FinancialModule.md#L4>`_.
 
 The diagram below highlights the proposed, long-term structure of ODS and all the key components. Interoperability is vital 
 to ensure efficient interaction across multiple databases, systems and external exposure management and data storage 
@@ -70,13 +68,11 @@ Detailed documentation on which financial fields are supported in the Oasis kern
 How ODS is Governed
 *******************
 
-ODS is curated by Oasis LMF and governed by the Open Data Standards Steering Committee (SC), comprised of industry experts 
-representing (re)insurers, brokers, service providers and catastrophe model vendors. Its agreed that ODS should not be owned 
-by one particular company or entity for specific commercial gain and is currently only being ‘looked after’ by Oasis LMF. 
-This will likely change in the coming years. ODS is a market initiative which will rely on wide collaboration from the 
-market to develop and progress. The SC will evolve over time and include Subject Matter Experts to assist with areas 
-requiring specific domain experience, including data validation and support for enhancing and automating the 
-interoperability of these standards.
+ODS is curated by Oasis LMF and governed by the Open Data Standards Steering Committee (SC) that meets 3-4 times a year ,and 
+is comprised of industry experts representing (re)insurers, brokers, service providers and catastrophe model vendors. ODS 
+is a market initiative which relies on wide collaboration from the market to develop and progress. The SC will evolve over 
+time and include Subject Matter Experts to assist with areas requiring specific domain experience, including data validation 
+and support for enhancing and automating the interoperability of these standards.
 
 ODS Committee Members:
 ######################
@@ -87,8 +83,6 @@ ODS Committee Members:
 
 ODS Governance
 ##############
-
-ODS is governed by a steering committee that meets periodically and is chaired by Oasis LMF.
 
 The governance and process around releases and updates of ODS can be found `here <https://github.com/OasisLMF/
 ODS_OpenExposureData/tree/develop/Docs>`_ but a schematic of the overview is shown below: 
@@ -104,7 +98,7 @@ updates or changes.
 
 
 |
-.. _links:
+.. _links_ODS:
 
 Links for further information
 *****************************
