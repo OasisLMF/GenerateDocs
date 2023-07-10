@@ -4,35 +4,78 @@ ODS Tools
 |
 On this page:
 
-* :ref:`intro`
+* :ref:`intro_ODS_Tools`
+* :ref:`analysis_settings`
+* :ref:`exposure_data`
 * :ref:`installation`
-* :ref:`links`
+* :ref:`links_ODS_Tools`
 
 
 
-.. _intro:
+.. _intro_ODS_Tools:
 
 Introduction
 ------------
 
 ODS Tools is a Python package designed to support users of the Oasis Loss Modelling Framework (Oasis LMF). This package 
-includes a range of tools for working with Oasis data files, including loading, conversion and validation. This package is 
+includes a range of tools for working with Oasis data files, including loading, conversion, and validation. This package is 
 in accordance with :doc:`../../sections/ODS`. 
+
+ODS tools comprises primarily of two parts:
+
+* :ref:`analysis_settings`
+* :ref:`exposure_data`
+
 
 |
 
-**How does Oasis use ODS Tools...**
+.. _analysis_settings:
 
-Within Oasis, ODS Tools has 5 primary purposes:
+Management of analysis settings
+********************************
 
-* **OED Validation** - this tool checks to 
-* **Currency conversion** - ...
-* **Loading exposure data** - ...
-* **Accessing OED files** - ...
-* **Manipulating OED files** - ...
+ODS Tools manages two settings files: ``model_settings.json`` and ``analysis_settings.json``. These are used in both the 
+Platform and MDK for running models.
 
-More information on these applications with documebtation on how to implements these features can be found `here 
-<https://github.com/OasisLMF/ODS_Tools/blob/master/README.md>`_.
+* ``analysis_settings.json`` is the main user input. This is used to configure execution options, selected output reports,
+  and (depending on the model) lookup and keys generation.
+
+* ``model_settings.json`` presents all valid inputs set in an analysis_settings.json (along with some default values 
+  if no input is given). The intended use pf this is that a UI, such as OasisUI, picks up the available options and render 
+  them as widgets and input fields to generate an analysis_settings.json file.
+
+
+|
+
+.. _exposure_data:
+
+Management of exposure data
+****************************
+
+This part of ODS Tools is to manage OED data through an ELT step. ELT is crucial as it checks the incoming data and makes 
+sure it's in the correct format. This is achieved through several functionalities:
+
+* It loads the data from a range of sources (which are currently: data stream, csv and parquet files, pandas dataframe). 
+  This is then stored all as a pandas dataframe.
+
+* It sets the columns in the dataframe to correct type. More information on the columns and type can be found in the `Open 
+  Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Docs/
+  OpenExposureData_Spec.xlsx>`_.
+
+* It performs checks to ensure the data is correct by validating that the OED data according to the OED schema in 
+  the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/
+  Docs/OpenExposureData_Spec.xlsx>`_. This currently checks **source_coherence, required_fields, unknown_column, valid_values, 
+  perils, occupancy_code, construction_code, country_and_area_code**
+
+* It checks the currencies in the exposure data. Only one currency is required for the exposure, so there is built in 
+  functionality to convert to one currency type if required.
+
+* It provides capability to convert the exposure to different format if required (csv and parquet are the one currently 
+  implemented).
+
+More information of these capabilities can be found `here <https://github.com/OasisLMF/ODS_Tools/tree/develop#readme>`_.
+
+
 
 |
 
@@ -59,20 +102,12 @@ Example :
     See ``ods_tools convert --help`` for more options.
 |
 
-ODS Tools has many useful applications mnaipulating with open exposure data. The ODS Tools package can be used for `loading 
-exposure data <https://github.com/OasisLMF/ODS_Tools/blob/master/README.md#loading-exposure-data>`_, `accessing the OED file 
-as a DataFrame <https://github.com/OasisLMF/ODS_Tools/blob/master/README.md#access-oed-file-as-dataframe>`_ once the config 
-is complete, and `modifying and save the DataFrame <https://github.com/OasisLMF/ODS_Tools/blob/master/
-README.md#saving-change-to-the-oed-dataframe>`_. Additonally the `validity <https://github.com/OasisLMF/ODS_Tools/blob/
-master/README.md#oed-validation>`_ of OED file can be checked, and the package supports `currency conversion <https://
-github.com/OasisLMF/ODS_Tools/blob/master/README.md#currency-conversion-support>`_.
 
 
-|
-.. _links:
+.. _links_ODS_Tools:
 
 Links for further information
 *****************************
 
-Further information on ODS_Tools can be found `here <https://github.com/OasisLMF/
+Further information on ODS Tools can be found `here <https://github.com/OasisLMF/
 ODS_Tools/blob/master/README.md>`_.
