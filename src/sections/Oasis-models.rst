@@ -7,7 +7,7 @@ What is a catastrophe model
 ---------------------------
 
 Catastrophe models are used extensively in the (re)insurance industry to estimate expected losses from natural disasters. 
-Catastrophe models output loss exceedence curves (LECs), i.e. a probability distribution of losses that will be sustained by an insurance company in any given year, together with an annual average loss (AAL) and standard deviation.
+Catastrophe models output loss exceedance curves (LECs), i.e. a probability distribution of losses that will be sustained by an insurance company in any given year, together with an annual average loss (AAL) and standard deviation.
 Given the paucity in historical losses for extreme events from which to build actuarial based models, catastrophe models take a bottom-up approach from scientific first principles to estimate the risk. 
 The anatomy of a typical catastrophe model is shown below:
 
@@ -37,10 +37,10 @@ A financial module calculates losses after taking into account the impact of ins
 The (re)insurance company enters a list of all the policies it has underwritten with information about the location and risk characteristics, such as occupancy type, age, construction material, building height, and replacement cost of the building, as well as policy terms & conditions. 
 The catastrophe model will then run the entire event set across the portfolio, and calculate a loss from every event in the model to every policy. 
 This produces an event loss table. 
-These event losses are then ordered in terms of magnitude from largest to smallest to generate the Loss Exceedence Curve for the number of years the model simulates. 
+These event losses are then ordered in terms of magnitude from largest to smallest to generate the Loss Exceedance Curve for the number of years the model simulates. 
 
 Catastrophe models typically cover single peril-region combinations, e.g. Europe windstorm, Japanese earthquake. 
-Whilst average annual losses from each peril-region combination analysis can be added together, loss exceedence curves cannot and must be recalculated after different peril-region analyses have been grouped together. 
+Whilst average annual losses from each peril-region combination analysis can be added together, loss exceedance curves cannot and must be recalculated after different peril-region analyses have been grouped together. 
 This is because of the diversifying nature of writing risk in different, uncorrelated regions, or conversely because two portfolios have a very similar risk profile and are correlated, and therefore the combined return-period risk may be more or less than the sum of the two.
 
 Catastrophe model loss results output varies considerably between different developers, due to differences in data, assumptions, modelling techniques etc. 
@@ -113,7 +113,7 @@ Keys lookup logic:
     The lookup also provides informative messages about any exposures that will not be modelled.
     For example, an exposure may not be modelled if there is insufficiently detailed address information or if the exposure is not within the geographic scope of the model.
     
-The PiWind model is a very small example model, so it's files can be saved to a GitHub repository and easilly queried.
+The PiWind model is a very small example model, so it's files can be saved to a GitHub repository and easily queried.
 For real models the data sets can get much larger, in some cases more than 1 TB for a single model.
 The following link is to a Jupyter notebook that illustrates the setup of the PiWind model and how it can be ran using the Oasis MDK:
 `Running PiWind <https://mybinder.org/v2/gh/OasisLMF/OasisPiWind/master>`_.

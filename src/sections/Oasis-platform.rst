@@ -1,6 +1,25 @@
 Oasis Platform (1&2)
 ====================
 
+On this page:
+
+* :ref:`introduction_platform`
+* :ref:`installing_oasis`
+* :ref:`platform_architecture`
+* :ref:`hard_scaling`
+* :ref:`weak_scaling`
+* :ref:`development_approach`
+* :ref:`technology_stack`
+* :ref:`github_repositories`
+
+
+|
+
+.. _introduction_platform:
+
+introduction_platform
+---------------------
+
 The Oasis Loss Modelling Framework provides an open source platform for developing, deploying and executing catastrophe 
 models. It uses a full simulation engine and makes no restrictions on the modelling approach. Models are packaged in a 
 standard format and the components can be from any source, such as model vendors, academic and research groups. The 
@@ -14,40 +33,34 @@ platform provides:
 
 * Toolkit for developing, testing and deploying catastrophe models (Oasis Model Development Toolkit)
 
-On this page:
-
-* :ref:`installing_oasis`
-* :ref:`platform_architecture`
-* :ref:`hard_scaling`
-* :ref:`weak_scaling`
-* :ref:`development_approach`
-* :ref:`technology_stack`
-* :ref:`github_repositories`
 
 
+|
 .. _installing_oasis:
 
 Installing Oasis
-----------------
-
+****************
+|
 Oasis Installation Guide: Windows 10 OS
-***************************************
+#######################################
 
 ..  youtube:: SxRt5E-Y5Sw
 
-
+|
 Oasis Installation Guide: Linux based OS
-****************************************
+########################################
 
 ..  youtube:: OFLTpGGEM10
 
 
+
+|
 .. _platform_architecture:
 
 Platform architecture
----------------------
+*********************
 
-A schematic of the Oasis Platform architecture is shown in the diagram below, and the components are descibed in the following table:
+A schematic of the Oasis Platform architecture is shown in the diagram below, and the components are described in the following table:
 
 .. figure:: /images/oasis_containers.png
     :alt: Oasis UI and Platform architecture
@@ -63,15 +76,17 @@ A schematic of the Oasis Platform architecture is shown in the diagram below, an
     "Celery - Message Queue", "Message queue for the celery job management framework.", "Rabbit MQ (other options)"
     "Celery – Backing Store", "Backing store for the celery job management framework.", "MySQL (other options)"
     "Datastore", "File based datastore for exposure data, analysis results and model data.", "Docker volume"
-    "Model Worker", "Celery worker that can run a lookup or model execution task for a particular model version. The model data is attached to the container from the datastore at startup.", "Custom Python and C++ code"
+    "Model Worker", "Celery worker that can run a lookup or model execution task for a particular model version. The model data is attached to the container from the datastore at start up.", "Custom Python and C++ code"
 
 
+
+|
 .. _hard_scaling:
 
 hard-Scaling
--------------
+************
 
-the typical computation in oasis follow a split-apply-combine strategy, with the following modules:
+The typical computation in oasis follows a split-apply-combine strategy, with the following modules:
 
 - parametrization of eve does the split, indicating to generate a subset of the events
 - eve, getmodel, gulcalc and fmcalc (insurance and re-insurance) does the apply,
@@ -97,17 +112,18 @@ and slowing fmcalc by having too many context switches.
 
 To overcome those limitation we are putting in place new approach.
 
-- gul-fm load balancer (next realease) that will split events out of the gul further
+- gul-fm load balancer (next release) that will split events out of the gul further
   and increase fmcalc parallelization.
 - Oasis at scale (in test) will provide to the Oasis platform a way to split events
   on a cluster using celery with the ability to auto-scale depending on the workload size.
   (see detail at: https://github.com/OasisLMF/OasisAtScaleEvaluation)
 
 
+|
 .. _weak_scaling:
 
 Weak Scaling
-------------
+************
 
 All of the components are packaged as Docker images.
 Docker-compose can be used to deploy the system on one or more physical servers.
@@ -120,11 +136,11 @@ provisioning more calculation servers and deploying more Analysis Worker images.
    From Development approach:
 
 
-
+|
 .. _development_approach:
 
 Development approach
---------------------
+********************
 
 1. We build open source software. This allows the community to directly
    review and critique our code and methodologies, and to contribute
@@ -154,11 +170,11 @@ Development approach
    From tech stack
 
 
-
+|
 .. _technology_stack:
 
 Technology stack
-----------------
+****************
 
 **Using**
 
@@ -186,10 +202,11 @@ Jupyter                   Python notebooks for examples and training material.
 
 
 
+|
 .. _github_repositories:
 
 GitHub repositories
--------------------
+*******************
 
 .. csv-table::
   :header: "Repository name", "Purpose"

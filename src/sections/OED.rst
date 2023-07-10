@@ -4,15 +4,15 @@ OED - Open Exposure Data
 |
 On this page:
 
-* :ref:`intro`
+* :ref:`intro_OED`
 * :ref:`why_OED`
 * :ref:`property`
 * :ref:`liability`
 * :ref:`cyber`
-* :ref:`links`
+* :ref:`links_OED`
 
 
-.. _intro:
+.. _intro_OED:
 
 Introduction
 ------------
@@ -51,12 +51,7 @@ ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/FinancialModule.md#
 of the OED functionality as possible. An in depth overview of the OED can be found `here <https://github.com/OasisLMF/
 ODS_OpenExposureData/blob/develop/OpenExposureData/2_OED_Overview.rst>`_.
 
-Although Oasis deals with primarily property CAT modelling, the OED format is not limited to this. The OED covers 3 
-categories:
-
-* :ref:`property`
-* :ref:`liability`
-* :ref:`cyber`
+OED can support :ref:`property`, :ref:`liability` and :ref:`cyber` classes of business.
 
 
 
@@ -67,14 +62,14 @@ categories:
 Property
 ********
 
-The OED format for property comprises of 4 input files:
+The OED format for property comprises of four input files:
 
 * **Location (loc)**
 * **Account (acc)**
 * **Reinsurance info (RIinfo)**
 * **Reinsurance scope (RIscope)**
 
-Together, these 4 files efficiently and practically represent exposure data that can be interpreted by a catastrophe model. 
+Together, these four files efficiently and practically represent exposure data that can be interpreted by a catastrophe model. 
 The fields in each file and their corresponding data type are described in the ‘OED Input Fields’ tab in the `OED Data Spec 
 spreadsheet <https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs>`_. 
 
@@ -220,23 +215,11 @@ filtering for ‘ReinsScope'
 Liability
 *********
 
-There is an increasing demand for a set of agreed open standards around Liability business. It makes sense for the whole 
-industry that these standards are developed in line with current standards for property business and should be encapsulated 
-in the ODS process and format.
+The current OED schema for liability is a first version with the aim that it develops as market adoption increases and paths 
+for development are suggested.
 
-The OED for liability comprises of 3 input files:
-
-* **Policyholder**
-* **Policy Coverage**
-* **Policy Financial Terms**
-
-Together, these 3 files represent exposure data neccessary for a liability catastrophe model. A full, detailed list of the 
-liability data fields with addition information of the fields can be found `here <https://github.com/OasisLMF/
-ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/Docs/OExD_Liabs_DataFields.csv>`_.
-
-.. note::
-    Detailed documentation for the OED liability documentation can be found `Open Exposure Data Spec spreadsheet <https://
-    github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/Docs/OED_Liabs_DataSpec_v1.0.xlsx>`_.
+A full, detailed list of the liability data fields with addition information of the fields can be found `here 
+<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/Docs/OExD_Liabs_DataFields.csv>`_.
 
 More information about ODS Liability can be found in the `GitHub repository <https://github.com/OasisLMF/
 ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/ReadMe.md>`_.
@@ -249,24 +232,12 @@ ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/ReadMe.md>`_.
 Cyber
 *****
 
-There is an increasing demand for a set of agreed open standards for cyber business. It makes sense for the whole industry 
-that these standards are developed in line with current standards for property and liability business and should be 
-encapsulated in the ODS process and format.
+Like liability, the OED schema for cyber is a first version with the aim it develops as market adoption increases. The cyber 
+modelling space is still in its infancy and is expected to develop relatively quickly so the OED is expected to develop in
+parallel to be appropriate for cyber data capture and modelling requirements. 
 
-The OED for cyber comprises of 4 input files:
-
-* **Policyholder**
-* **Policy Coverage**
-* **Policy Financial Terms**
-* **Technographic**
-
-Together, these 4 files represent exposure data neccessary for a cyber catastrophe model. A full, detailed list of the cyber 
-data fieldswith addition information of the fields can be found `here <https://github.com/OasisLMF/ODS_OpenExposureData/
-blob/develop/OpenExposureData/Cyber/Docs/OED_Cyber_DataFields_v1.0.0.csv>`_.
-
-.. note::
-    Detailed documentation for the OED cyber documentation can be found `Open Exposure Data Spec spreadsheet <https://
-    github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Cyber/Docs/OED_Cyber_Data_Spec_v1.0.0.xlsx>`_.
+Detailed documentation for the OED cyber documentation can be found `Open Exposure Data Spec spreadsheet 
+<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Cyber/Docs/OED_Cyber_Data_Spec_v1.0.0.xlsx>`_.
 
 More information about ODS Cyber can be found in the `GitHub repository <https://github.com/OasisLMF/ODS_OpenExposureData/
 blob/develop/OpenExposureData/Cyber/ReadMe.md>`_.
@@ -274,7 +245,7 @@ blob/develop/OpenExposureData/Cyber/ReadMe.md>`_.
 
 
 |
-.. _links:
+.. _links_OED:
 
 Links for further information
 *****************************
@@ -283,6 +254,6 @@ Further information and community views of ODS can be found on the ODS website: 
 
 The GitHub repository for OED can be found `here <https://github.com/OasisLMF/ODS_OpenExposureData>`_.
 
-Also availible is documentation on `OED currency support <https://github.com/OasisLMF/OasisLMF/blob/master/docs/
+Also available is documentation on `OED currency support <https://github.com/OasisLMF/OasisLMF/blob/master/docs/
 OED_currency_support.md>`_ and `OED validation guidelines <https://github.com/OasisLMF/OasisLMF/blob/master/docs/
 OED_validation_guidelines.md>`_.

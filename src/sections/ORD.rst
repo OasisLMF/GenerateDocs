@@ -4,27 +4,26 @@ ORD - Open Results Data
 |
 On this page:
 
-* :ref:`intro`
+* :ref:`intro_ORD`
 * :ref:`tables`
 * :ref:`summary_levels_example`
-* :ref:`links`
+* :ref:`links_ORD`
 
 
 
-.. _intro:
+.. _intro_ORD:
 
 Introduction
 ------------
 
-ORD is part of the :doc:`../../sections/ODS` initiative curated by Oasis. It was initially developed during the Lloyd's Lab 
-innovation project (Cohort 3) in 2019, by a working group led by Oasis, that focussed on constructing model agnostic 
-results formats and appropriate data formats. These model outputs cover an extensive suite of results that can be isolated 
-by aspects of the exposure data, financial and statistical perspectives.
+ORD was initially developed during the Lloyd's Lab innovation project (Cohort 3) in 2019, by a working group led by Oasis, 
+that focussed on constructing model agnostic results formats and appropriate data formats. These model outputs cover an 
+extensive suite of results that can be isolated by aspects of the exposure data, financial and statistical perspectives.
 
-Similar to :doc:`../../sections/OED`, the purpose of ORD is to ensure that outputs have a standard format. The ORD package 
-is intended to contain the outputs of all current catastrophe models and to be extensible in order to cope with future 
-requirements that may arise. The ORD outputs come in the form of results tables that capture all the possible data that a 
-model could produce.
+Like :doc:`../../sections/OED`, the purpose of ORD is to ensure model outputs 
+are consistent, transparent, and model agnostic. The ORD package is intended to contain the outputs of all current 
+catastrophe models and to be extensible to cope with future requirements that may arise. The ORD outputs come in the form 
+of results tables that capture all the possible data that a model could produce.
 
 Listed below are the different result tables.
 
@@ -53,11 +52,11 @@ Tables in the ORD format
 
 .. note::
     A model may not produce every result table; some may not be applicable from that scenario. However, this package covers 
-    an extensive suite of model outputs for multiple perspectives and calculations. All of the outputs are available in 
+    an extensive suite of model outputs for multiple perspectives and calculations. All the outputs are available in 
     order to cater to all model types and ensure continued interoperability.
 
-The results can then be use to enable users to conduct comprehensive catastrophe risk analysis, quantify potential losses, 
-and make informed risk management decisions. Results can be output at a variety of summary levels, including single-way 
+The results can then be used to enable users to conduct comprehensive catastrophe risk analysis, quantify potential losses, 
+and make informed risk management decisions. Results can be generated at a variety of summary levels, including single-way 
 summaries and multi-way summaries. The way such complexity is represented in ORD is shown in the following example:
 
 
@@ -106,7 +105,7 @@ ORD summary levels example
 
 
 |
-.. _links:
+.. _links_ORD:
 
 Links for further information
 *****************************

@@ -1,6 +1,20 @@
 OasisLMF Package
 ================
 
+|
+On this page:
+-------------
+:ref:`intro_package`
+:ref:`getting_started`
+:ref:`MDK`
+
+
+
+.. _intro_package:
+|
+Introduction
+------------
+
 The ``oasislmf`` Python package, loosely called the model development kit (MDK) or the MDK package, provides a command line 
 toolkit for developing, testing and running Oasis models end-to-end locally, or remotely via the Oasis API. It can generate 
 ground-up losses (GUL), direct/insured losses (IL) and reinsurance losses (RIL). It can also generate deterministic losses 
@@ -13,10 +27,10 @@ at all these levels.
 .. 
    From wiki - Getting started
 
-
-
+.. _getting_started:
+|
 Getting started:
-----------------
+****************
 
 Welcome to the `OasisLMF <https://pypi.org/project/oasislmf/>`_ package. In this section, we will go through setting up our 
 environment to run a basic pipeline using this package. We will achieve this with the following steps:
@@ -226,7 +240,7 @@ Once this is done, we can run our model with the command below:
 Here, we are running the model using the config file that is already defined in the repo. This will result in a lot of 
 printout where the model is being created and then ran. We can see the result in the ``runs`` directory. Here we will see a 
 losses directory with a random number which denotes the model run. If you run multiple models you will see multiple losses 
-directories with multiple unique IDs. So build on what we learnt in the previous sections we can inspect the bash script 
+directories with multiple unique IDs. So, building on what we learnt in the previous sections we can inspect the bash script 
 below:
 
 .. code-block:: python
@@ -262,9 +276,10 @@ getmodel to the rest of the process.
 ..
    From MDK on github.io
 
-
+.. _MDK:
+|
 Model Development Kit (MDK)
----------------------------
+***************************
 
 The oasislmf Python package comes with a command line interface for creating, testing and managing models.
 The tool is split into several namespaces that group similar commands. 
@@ -272,14 +287,14 @@ For a full list of namespaces use ``oasislmf --help``, and ``oasislmf <namespace
 available in each namespace.
 
 config
-------
+######
 
 .. autocli:: oasislmf.cli.config.ConfigCmd
    :noindex:
 
 
 model
------
+#####
 
 
 ``oasislmf model generate-exposure-pre-analysis``
@@ -314,7 +329,7 @@ model
    :noindex:
 
 exposure
---------
+########
 
 ``oasislmf exposure run``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -323,7 +338,7 @@ exposure
    :noindex:
 
 API client 
-----------
+##########
 
 ``oasislmf api run``
 ^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -334,7 +349,7 @@ API client
 
 
 version
--------
+#######
 
 .. autocli:: oasislmf.cli.version.VersionCmd
    :noindex:
@@ -343,7 +358,7 @@ version
 
 
 Run a model using the Oasis MDK 
--------------------------------
+###############################
 
 The Model Development Kit (MDK) is the best way to get started using the Oasis platform.
 The MDK is a command line tookit providing command line access to Oasis' modelling functionality. 
