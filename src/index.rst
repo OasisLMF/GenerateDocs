@@ -65,23 +65,24 @@ It allows regression of the models after updates to the Oasis Platform code, and
     use_cases/model-developer
     use_cases/model-users
     use_cases/installing-deploying-Oasis
-    use_cases/support
 
 .. toctree::
     :titlesonly:
     :caption: Sections:
 
+    sections/analysis-settings.rst
     sections/API.rst
     sections/camel.rst
-    sections/deployment-options.rst
+    sections/deployment.rst
     sections/disaggregation.rst
-    sections/error-handling.rst
+    sections/errors.rst
     sections/financial-module.rst
     sections/git-repos.rst
     sections/keys-service.rst
     sections/ktools.rst
     sections/model-data-library.rst
     sections/model-development-kit.rst
+    sections/model-providers.rst
     sections/model-settings.rst
     sections/Oasis-evaluation.rst
     sections/Oasis-file-formats.rst

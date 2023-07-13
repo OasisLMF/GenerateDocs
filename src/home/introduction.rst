@@ -68,7 +68,6 @@ It allows regression of the models after updates to the Oasis Platform code, and
         ../use_cases/model-developer
         ../use_cases/model-users
         ../use_cases/installing-deploying-Oasis
-        ../use_cases/support
 
     .. toctree::
         :titlesonly:

@@ -17,9 +17,10 @@ On this page:
 Introduction
 ------------
 
-ODS Tools is a Python package designed to support users of the Oasis Loss Modelling Framework (Oasis LMF). This package 
-includes a range of tools for working with Oasis data files, including loading, conversion, and validation. This package is 
-in accordance with :doc:`../../sections/ODS`. 
+ODS Tools is a Python package designed to manage :doc:`../../sections/ODS` data, and ensure that this is complying with the 
+:doc:`../../sections/ODS` schema. This package is designed to be compatible with Oasis files, but can operate independently  
+with any :doc:`../../sections/ODS` data. It includes a range of tools for working with Oasis data files, including loading, 
+conversion, and validation. This package is in accordance with :doc:`../../sections/ODS`. 
 
 ODS tools comprises primarily of two parts:
 

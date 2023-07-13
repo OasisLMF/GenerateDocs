@@ -1,7 +1,17 @@
 Keys Service
 ============
 
+On this page
+------------
 
+* :ref:`intro_keys`
+* :ref:`interface_keys`
+* :ref:`config_keys`
+* :ref:`built_in_functions_keys`
+
+|
+
+.. _intro_keys:
 
 Introduction
 ------------
@@ -13,6 +23,7 @@ should be noted that this document does not cover the example of a complex model
 much more loose, but focusses on the standard implementation where all of the regular ktools components are utilised in the 
 calculation kernel.
 
+|
 
 
 High Level Overview
@@ -23,8 +34,9 @@ including the oasis keys per location/coverage type/sub-peril, along with reason
 location/coverage-type/sub-peril combinations where they are outside of the remit of the model
 
 .. image:: ../images/keys_service.png
-   :width: 600
-
+   :width: 400
+   :align: center
+|
 
 
 Return JSON specification
@@ -44,7 +56,7 @@ The return JSON should subscribe to the following definition:
     "message": <message to accompany status>
     }
 
-
+|
 
 Perils Covered
 ##############
@@ -56,7 +68,7 @@ the model and those which are not. If a location in the input file has only loca
 considered by the model, then this location should receive a failure status (see below), be rejected by the keys service and 
 not be assigned an areaperil id value.
 
-
+|
 
 Coverage Type
 ##############
@@ -71,10 +83,10 @@ The coverage type field returned in the JSON stream should comply to the Oasislm
 
 **4:** Business Interruption (BI)
 
-
+|
 
 Status
-##############
+######
 
 The status returned by the keys service should comply with the accepted status values included in the oasislmf package. 
 These accepted statuses are:
@@ -99,7 +111,7 @@ never generate a loss from the events in the footprint.
 **noreturn:** this is a status used by oasislmf to highlight exposure records for which no keys service returns were made, 
 wither successful or not.
 
-
+|
 
 Messages
 ########
@@ -108,7 +120,7 @@ A free text message can be returned with the keys service return JSON. This mess
 for no oasis key being assigned (e.g. location is outside of model domain) and should be concise while clear enough for a 
 user to understand the issue. Messages only need to be returned with one of the fail statuses.
 
-
+|
 
 Best Practice
 #############
@@ -137,12 +149,9 @@ The following list details the expectations from the keys service implementation
 
 
 
+|
 
-..
-   From wiki
-
-
-
+.. _interface_keys:
 
 Interface for Keys lookup
 -------------------------
@@ -150,10 +159,12 @@ Interface for Keys lookup
 The Keys look up process interface now has a new generic interface in order to reduce the amount of code needed to define 
 and run a keys look up process.
 
-
+|
 
 Setup
 #####
+
+|
 
 Basic execution
 ***************
@@ -182,6 +193,7 @@ have to define the config file. If we look at the config file for this example, 
    "write_chunksize": 200000,
    "lookup_config_json": "keys_data/US_FLOOD/new_key_server.json"
    }
+|
 
 What we have is the parameters for the execution of the model which we will explore in the general 
 `config <https://github.com/OasisLMF/OasisLMF/wiki/general-config-file>`_ subsection.
@@ -191,14 +203,27 @@ this is the `lookup config <https://github.com/OasisLMF/OasisLMF/wiki/lookup-con
 lookup. The process behind running the keys lookup happens in the `oasislmf <https://pypi.org/project/oasislmf/>`_ package 
 via the steps below:
 
+|
+
 .. image:: ../images/key_flow.png
-   :width: 600
+   :width: 400
+   :align: center
+|
 
 Once the flow above has executed, the class that you have defined that inherits the ``Lookup`` class 
 (`Lookup <https://github.com/OasisLMF/OasisLMF/blob/master/oasislmf/lookup/builtin.py>`_). This then runs the 
-``process_locations`` function which will run the series of functions defined in the that are defined in the "strategy" section. When it comes to the ``process_locations`` function we do not overwrite it as the ``process_locations`` function in the base ``Lookup`` class is the function responsible for going through the ``stratergy`` list in the config. If we define a function in the strategy list, the ``process_locations`` function checks to see if our class has this. If it does not, then it runs a build function around this, assigns it to the return function as an attribute under the name of the step to our class and fires this. This may seem a little convoluted but do not worry, we will cover this more in depth now. 
+``process_locations`` function which will run the series of functions defined in the that are defined in the "strategy" 
+section. When it comes to the ``process_locations`` function we do not overwrite it as the ``process_locations`` function 
+in the base ``Lookup`` class is the function responsible for going through the ``stratergy`` list in the config. If we 
+define a function in the strategy list, the ``process_locations`` function checks to see if our class has this. If it does 
+not, then it runs a build function around this, assigns it to the return function as an attribute under the name of the 
+step to our class and fires this. This may seem a little convoluted but do not worry, we will cover this more in depth now. 
 
-First of all, we have to acknowledge that every step function has to return a pandas data frame that will get fed into the next step function. For our first example, we will build a function that will accept parameters and return a data frame. For this mini example, we will accept two integers and a string for a column name. We will then add the two integers and assign the result for ever row under the name of the column. We will call this function ``simple_add`` which can be defined with the code below:
+First of all, we have to acknowledge that every step function has to return a pandas data frame that will get fed into the 
+next step function. For our first example, we will build a function that will accept parameters and return a data frame. 
+For this mini example, we will accept two integers and a string for a column name. We will then add the two integers and 
+assign the result for ever row under the name of the column. We will call this function ``simple_add`` which can be defined 
+with the code below:
 
 .. code-block:: python
 
@@ -220,6 +245,8 @@ First of all, we have to acknowledge that every step function has to return a pa
          locations[name] = one + two
          return locations
       return _internal_function
+|
+
 
 As long as this function is defined in our lookup class that we have defined which inherits the ``Lookup`` class, we can 
 call it in our `lookup config <https://github.com/OasisLMF/OasisLMF/wiki/lookup-config-file>`_ file with the setup below:
@@ -247,6 +274,8 @@ call it in our `lookup config <https://github.com/OasisLMF/OasisLMF/wiki/lookup-
       }
       "strategy": ["simple_add"]
    }
+|
+
 
 This will run our ``simple_add`` function with the parameters defined in the JSON file above. Once the strategy sequence 
 has finished the final result data frame will be passed forward for further processing. Even though we have built our 
@@ -255,101 +284,113 @@ class otherwise this will try and run and the ``build_simple_add`` function will
 that we have signposted our ``["example"]`` column name in the ``"columns"`` field. This is to ensure that our ``example`` 
 field is not wiped at the end of the process.
 
+|
 
 
-Builtin Function
-################
 
-combine
-*******
+.. _built_in_functions_keys:
 
-   Build a function that will combine several strategy trying to achieve the same purpose by different mean into one.
-   For example, finding the correct area_peril_id for a location with one method using (latitude, longitude)
-   and one using postcode.
+Built-in functions
+##################
 
-   Each strategy will be applied sequentially on the location that steal have OASIS_UNKNOWN_ID in their id_columns after 
-   the precedent strategy.
+|
 
-split_loc_perils_covered
-************************
+* **combine**
 
-   Split the value of ``LocPerilsCovered`` into multiple lines, taking peril group into account.
+Build a function that will combine several strategy trying to achieve the same purpose by different mean into one.
+For example, finding the correct area_peril_id for a location with one method using (latitude, longitude)
+and one using postcode.
 
-   Drop all lines that are not in the list ``model_perils_covered``.
+Each strategy will be applied sequentially on the location that steal have OASIS_UNKNOWN_ID in their id_columns after 
+the precedent strategy.
 
-prepare
-*******
+|
 
-   Prepare the dataframe by setting default, min and max values and type.
+* **split_loc_perils_covered**
 
-   Support several simple DataFrame preparation:
-      * default: create the column if missing and replace the nan value with the default value
-      * max: truncate the values in a column to the specified max
-      * min: truncate the values in a column to the specified min
-      * type: convert the type of the column to the specified numpy dtype
-   .. note::
-      We use the string representation of numpy dtype available at
-      https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes-constructing.
+Split the value of ``LocPerilsCovered`` into multiple lines, taking peril group into account.
 
-rtree
-*****
+Drop all lines that are not in the list ``model_perils_covered``.
 
-   Function Factory to associate location to ``area_peril`` based on the rtree method.
+|
 
-   .. note::
-      !!!
-      Please note that this method is quite time consuming (especially if you use the nearest point option
-      if your peril_area are square you should use area_peril function fixed_size_geo_grid).
-      !!!
+* **prepare**
 
-   ``file_path``: is the path to the file containing the ``area_peril_dictionary``
+Prepare the dataframe by setting default, min and max values and type.
 
-      * This file must be a geopandas Dataframe with a valid geometry
+Support several simple DataFrame preparation:
+   * default: create the column if missing and replace the nan value with the default value
+   * max: truncate the values in a column to the specified max
+   * min: truncate the values in a column to the specified min
+   * type: convert the type of the column to the specified numpy dtype
+.. note::
+   We use the string representation of numpy dtype available at
+   https://numpy.org/doc/stable/reference/arrays.dtypes.html#arrays-dtypes-constructing.
 
-      * An example on how to create such dataframe is available in PiWind
+|
 
-      * If you are new to geo data (in python) and want to learn more, you may have a look at this excellent course:
-      https://automating-gis-processes.github.io/site/index.html
+* **rtree**
 
-   ``file_type``: can be any format readable by geopandas ('file', 'parquet', ...)
+Function Factory to associate location to ``area_peril`` based on the rtree method.
 
-      * See: https://geopandas.readthedocs.io/en/latest/docs/reference/io.html (you may have to install additional library) such as pyarrow for parquet
+.. note::
+   !!!
+   Please note that this method is quite time consuming (especially if you use the nearest point option
+   if your peril_area are square you should use area_peril function fixed_size_geo_grid).
+   !!!
 
-   ``id_columns``: column to transform to an 'id_column' (type int32 with nan replace by -1)
+``file_path``: is the path to the file containing the ``area_peril_dictionary``
+   * This file must be a geopandas Dataframe with a valid geometry
+   * An example on how to create such dataframe is available in PiWind
+   * If you are new to geo data (in python) and want to learn more, you may have a look at this excellent course:
+   https://automating-gis-processes.github.io/site/index.html
 
-   ``nearest_neighbor_min_distance``: option to compute the nearest point if intersection method fails
+``file_type``: can be any format readable by geopandas ('file', 'parquet', ...)
+   * See: https://geopandas.readthedocs.io/en/latest/docs/reference/io.html (you may have to install additional library) 
+     such as pyarrow for parquet
 
-      * We use: https://automating-gis-processes.github.io/site/notebooks/L3/nearest-neighbor-faster.html
+``id_columns``: column to transform to an 'id_column' (type int32 with nan replace by -1)
 
-      * But alternatives can be found here: https://gis.stackexchange.com/questions/222315?geopandas-find-nearest-point-in-other-dataframe
+``nearest_neighbor_min_distance``: option to compute the nearest point if intersection method fails
+   * We use: https://automating-gis-processes.github.io/site/notebooks/L3/nearest-neighbor-faster.html
+   * But alternatives can be found here: https://gis.stackexchange.com/questions/222315?geopandas-find-nearest-point-in-other-dataframe
 
-fixed_size_geo_grid
-*******************
+|
 
-   Associate an id to each square of a grid define by the limit of lat and lon
+* **fixed_size_geo_grid**
 
-merge
-*****
+Associate an id to each square of a grid define by the limit of lat and lon
 
-   This method will merge the locations Dataframe with the Dataframe present in ``file_path``
+|
 
-   All non match column present in ``id_columns`` will be set to -1
+* **merge**
 
-   Τhis is an efficient way to map a combination of column that have a finite scope to an idea
+This method will merge the locations Dataframe with the Dataframe present in ``file_path``
 
-simple_pivot
-************
+All non match column present in ``id_columns`` will be set to -1
 
-   Αllow to pivot columns of the locations dataframe into multiple rows.
+Τhis is an efficient way to map a combination of column that have a finite scope to an idea
 
-   Εach pivot in the pivot list may define:
-      * ``on``: to rename a column into a new one
-      * ``new_cols``: to create a new column with a certain values
+|
+
+* **simple_pivot**
+
+Αllow to pivot columns of the locations dataframe into multiple rows.
+
+Εach pivot in the pivot list may define:
+   * ``on``: to rename a column into a new one
+   * ``new_cols``: to create a new column with a certain values
+
+|
 
 
+
+.. _config_keys:
 
 Config
 ######
+
+|
 
 Lookup config file
 ******************
@@ -401,19 +442,25 @@ If we are to define a basic config file we can so with the following:
       },
       "strategy": ["split_loc_perils_covered", "peril", "create_coverage_type", "vulnerability"]
    }
+|
 
 General config file 
 *******************
 
 The general config file has to have to following parameters:
 
-* **analysis_settings_json:** This points to a analysis settings config file `<https://github.com/OasisLMF/OasisLMF/wiki/Key-Server#analysis-settings-config>`_
+* **analysis_settings_json:** This points to a analysis settings config file 
+  `<https://github.com/OasisLMF/OasisLMF/wiki/Key-Server#analysis-settings-config>`_
 
-* **lookup_data_dir:** This points to the directory of data that describes the data that describes the data of objects such as buildings and the location of the buildings within a grid.
+* **lookup_data_dir:** This points to the directory of data that describes the data that describes the data of objects such 
+  as buildings and the location of the buildings within a grid.
 
-* **model_data_dir:** the directory of the data around the model. For instance, the probability of the event happening is housed in this data. This data is applied to the processed data from the **look_up** data which has coded the location of an asset such as a building in a grid square.
+* **model_data_dir:** the directory of the data around the model. For instance, the probability of the event happening is 
+  housed in this data. This data is applied to the processed data from the **look_up** data which has coded the location of 
+  an asset such as a building in a grid square.
 
-* **model_version_csv:** the directory of the data that depicts the version of the model (seeing as this is just a single value, this could just be a direct value itself instead of reading a file for that single value)
+* **model_version_csv:** the directory of the data that depicts the version of the model (seeing as this is just a single 
+  value, this could just be a direct value itself instead of reading a file for that single value)
 
 * **oed_accounts_csv:**
 
@@ -422,6 +469,8 @@ The general config file has to have to following parameters:
 * **write_chunksize:**
 
 * **lookup_config_json:**
+
+|
 
 Analysis settings config file
 *****************************
@@ -455,18 +504,23 @@ A general analysis settings config file has the following layout:
          "number_of_samples": 10
    }
 
-
+|
 
 Custom lookup
 #############
 
-On top of allowing user to set their own steps to create a lookup, Oasis builtin lookup provide a easy way to add your own custom functions if more complex behaviour are needed.
+On top of allowing user to set their own steps to create a lookup, Oasis builtin lookup provide a easy way to add your own 
+custom functions if more complex behaviour are needed.
 
 **1. Creating a custom class**
 
-To create our own functions we first need to create our custom class that will inherit from the built-in lookup the simplest way is to create a ``<module_name>.py`` file in the folder where your ``lookup_config.json`` file is (``module_name`` can be any name of your choice). In ``lookup_config.json`` change ``builtin_lookup_type``: ``new_lookup``, to ``lookup_module_path``: ``<module_name>.py``.
+To create our own functions we first need to create our custom class that will inherit from the built-in lookup the simplest 
+way is to create a ``<module_name>.py`` file in the folder where your ``lookup_config.json`` file is (``module_name`` can be 
+any name of your choice). In ``lookup_config.json`` change ``builtin_lookup_type``: ``new_lookup``, to 
+``lookup_module_path``: ``<module_name>.py``.
 
-In ``<module_name>.py`` we create our custom class ``<model_id>KeysLookup`` where ``<model_id>`` is the ``model_id`` in your lookup config.
+In ``<module_name>.py`` we create our custom class ``<model_id>KeysLookup`` where ``<model_id>`` is the ``model_id`` in 
+your lookup config.
 
 .. code-block:: python
 
@@ -474,21 +528,27 @@ In ``<module_name>.py`` we create our custom class ``<model_id>KeysLookup`` wher
 
    class <model_id>Lookup(Lookup):
       pass
+|
 
-This is done, Oasis will now use your custom lookup in the key server (although for the moment the custom lookup behave exactly like the built-in one).
+This is done, Oasis will now use your custom lookup in the key server (although for the moment the custom lookup behave 
+exactly like the built-in one).
 
-You may want to have your custom lookup in a different path, it is possible ``lookup_module_path`` can be an absolute path of a path relative to ``lookup_config.json``.
+You may want to have your custom lookup in a different path, it is possible ``lookup_module_path`` can be an absolute path 
+of a path relative to ``lookup_config.json``.
 
 There are two other ways to have oasis call your custom lookup class specifying in ``lookup_config.json``:
 
 * ``lookup_module`` will load the module and use the class named ``'{self.config['model']['model_id']}KeysLookup``
-* ``lookup_class`` will load and return the class from the python environment. ``lookup_class``: ``my_package.MySpecialLookup`` will do like "from my_package import MySpecialLookup"
+* ``lookup_class`` will load and return the class from the python environment. ``lookup_class``: 
+  ``my_package.MySpecialLookup`` will do like "from my_package import MySpecialLookup"
 
 **2. Creating static function**
 
-If your custom function is static (doesn't need have parameters) you can just add a static method to your lookup class with the signature ``fct_name(locations)=>locations``.
+If your custom function is static (doesn't need have parameters) you can just add a static method to your lookup class with 
+the signature ``fct_name(locations)=>locations``.
 
-For example let's say we want to have a default height if missing based on the number of ``storeys``. With ``numberofstoreys`` between 0 and 100.
+For example let's say we want to have a default height if missing based on the number of ``storeys``. With 
+``numberofstoreys`` between 0 and 100.
 
 .. code-block:: python
 
@@ -502,12 +562,14 @@ For example let's say we want to have a default height if missing based on the n
          loc_missing = locations[missing_height_with_storeys]
          loc_missing['buildingheight'] = locations['numberofstoreys'].clip(0, 100) * 3 # as a default each storey is 3 meters
          return pd.concat([loc_missing, locations[~missing_height_with_storeys])
+|
 
 Then we can call our function by adding it in our strategy in ``lookup_config.json "strategy": ["storey_nb_to_height", ...]``.
 
 **3. Creating parametric function**
 
-You may want to have function that will depend on parameter that will be specify in you lookup config. Let's take our storey example above and put the min max and storey heigh as parameters.
+You may want to have function that will depend on parameter that will be specify in you lookup config. Let's take our storey 
+example above and put the min max and storey heigh as parameters.
 
 Then the code will be changed to:
 
@@ -526,8 +588,10 @@ Then the code will be changed to:
             return pd.concat([loc_missing, locations[~missing_height_with_storeys])
          
          return fct
+|
 
-As the function has parameters, on top of adding the step name to strategy we also need to specify the parameter in step_definition:
+As the function has parameters, on top of adding the step name to strategy we also need to specify the parameter in 
+step_definition:
 
 .. code-block:: python
 
@@ -544,8 +608,11 @@ As the function has parameters, on top of adding the step name to strategy we al
         ...
       }
       "strategy": ["default_height", ...] # step name and function name can be the same but if different make sure it is the step name in strategy
+|
 
-Custom parametric function let you be as flexible as you need and also let you use builtin function. In this example we will use custom function to use two different method of geo-localization depending on the data available. If we have lat lon we use it otherwise we use a mapping file based on the ``locuserdef1`` column.
+Custom parametric function let you be as flexible as you need and also let you use builtin function. In this example we 
+will use custom function to use two different method of geo-localization depending on the data available. If we have lat 
+lon we use it otherwise we use a mapping file based on the ``locuserdef1`` column.
 
 .. code-block:: python
 
@@ -569,6 +636,7 @@ Custom parametric function let you be as flexible as you need and also let you u
             return pd.concat([gdf_loc1, null_gdf_loc])
 
          return fct
+|
 
 In lookup_config.json, we define the step and its parameters:
 
@@ -585,3 +653,4 @@ In lookup_config.json, we define the step and its parameters:
          "nearest_neighbor_min_distance": -1
       }
    }
+|

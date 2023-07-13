@@ -1,20 +1,23 @@
 Model users
 ===========
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
-lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu 
-efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet 
-tellus eu, gravida nisl.
+These sections will be of interest if you are a model user, running analyses against existent models in an environment. 
+Here you will learn about the OED data format, the analysis settings options including output aggregation, sampling 
+methodology, the financial module, and the results formats available including ORD.
 
 Sections
 --------
 
-:doc:`OED inputs <../../sections/OED>`
+:doc:`OED - Open Exposure Data <../../sections/OED>`
 
-:doc:`Results <../../sections/results>`
-
-:doc:`Analysis options <../../sections/analysis-settings>`
+:doc:`Analysis Settings <../../sections/analysis-settings>`
 
 :doc:`Oasis UI <../../sections/Oasis-UI>`
 
-:doc:`3rd Party SaaS providers <../../sections/SaaS-providers>`
+:doc:`Sampling Methodology <../../sections/sampling-methodology>`
+
+:doc:`Financial Module <../../sections/financial-module>`
+
+:doc:`Results <../../sections/results>`
+
+:doc:`ORD - Open Results Data <../../sections/ORD>`

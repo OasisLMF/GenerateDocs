@@ -1,5 +1,21 @@
-Financial Module and Exposure Data
-==================================
+Financial Module
+================
+
+On this page
+------------
+
+* :ref:`intro_FM`
+* :ref:`DI_support_FM`
+* :ref:`RI_support_FM`
+
+
+
+|
+
+.. _intro_FM:
+
+Introduction
+************
 
 The Oasis framework supports a wide range of financial calculation. Outputs can be generated for three perspectives:
 
@@ -11,8 +27,12 @@ The Oasis framework supports a wide range of financial calculation. Outputs can 
 
 Exposure is uploaded in the OED exposure format. See `here <https://github.com/simplitium/oed>`_ for full details.
 
+|
+
+.. _DI_support_FM:
+
 Direct insurance support
-------------------------
+************************
 
 Any combination of coverage, combined, site, sublimit or “special conditions” and policy terms
 
@@ -26,8 +46,12 @@ Deductible and limits as a percentage of loss or TIV
 
 Step policies
 
+|
+
+.. _RI_support_FM:
+
 Reinsurance support
--------------------
+*******************
 
 Facultative
 

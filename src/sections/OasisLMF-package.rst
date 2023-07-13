@@ -4,14 +4,14 @@ OasisLMF Package
 |
 On this page:
 -------------
-:ref:`intro_package`
-:ref:`getting_started`
-:ref:`MDK`
+* :ref:`intro_package`
+* :ref:`getting_started`
+* :ref:`MDK`
 
 
-
-.. _intro_package:
 |
+.. _intro_package:
+
 Introduction
 ------------
 
@@ -22,13 +22,9 @@ at all these levels.
 
 
 
-
-
-.. 
-   From wiki - Getting started
-
-.. _getting_started:
 |
+.. _getting_started:
+
 Getting started:
 ****************
 
@@ -43,7 +39,7 @@ environment to run a basic pipeline using this package. We will achieve this wit
 * Carrying out these steps will enable us to understand the basics of how the model pipeline works. It will also enable us 
 to test our installation and contribute to the project.
 
-
+|
 
 Installing OasisLMF
 ###################
@@ -55,6 +51,8 @@ command below:
 
    pip install oasislmf
 
+|
+
 If we want to install the `OasisLMF <https://pypi.org/project/oasislmf/>`_ package in relation to a specific branch, we can 
 carry out the command below:
 
@@ -62,10 +60,12 @@ carry out the command below:
 
    pip install git+https://github.com/OasisLMF/OasisLMF@some-branch
 
+|
+
 With the command above, the branch ``some-branch`` can be substituted with whatever branch you want to install using pip. 
 Now that our package is installed, we can move onto the next section, generating fake test data.
 
-
+|
 
 Generate fake test data
 #######################
@@ -92,6 +92,8 @@ generate data that will not break the pipeline. This can be done by creating a
       "num_layers": 1
    }
 
+|
+
 The explanation of these values will be provided in another page later on. Right now, we just have to know that this will 
 create a range of binary files that we can ingest for our model. Once this 
 `JSON <https://docs.python.org/3/library/json.html>`_ file is saved, and we have access to this file, we can generate the 
@@ -100,6 +102,8 @@ data with the command below:
 .. code-block:: python
 
    oasislmf test model generate-oasis-files -C oasislmf_dummyModel.json
+
+|
 
 Here we can see that the ``-C`` argument points to our `JSON <https://docs.python.org/3/library/json.html>`_  configuration 
 file. Once this runs, we have the following file:
@@ -124,7 +128,7 @@ file. Once this runs, we have the following file:
 We now have all the data that we need to run our model so we can move onto the next step of reading events and streaming 
 them.
 
-
+|
 
 Read events and stream them
 ###########################
@@ -136,11 +140,15 @@ below:
 
    mkdir input && cp events.bin ./input/events.bin
 
+|
+
 We now have event IDs in our input directory so we can read and stream our event IDs with the command below:
 
 .. code-block:: python
 
    eve 1 1
+
+|
 
 [ENTER DESCRIPTION ABOUT THE 1 1]
 
@@ -149,6 +157,8 @@ Running this gives us a byte stream that cannot be read by the human eyes as it 
 .. code-block:: python
 
    �!�"�#�$�%�&�'�(�)�*�+�,�-�.�/�0�1�2
+
+|
 
 The ``getmodel`` that is next in the pipeline will process this stream. However, if you want to process this yourself in 
 Python, this can be done using the `struct <https://docs.python.org/3/library/struct.html>`_ module with the code below:
@@ -162,11 +172,13 @@ Python, this can be done using the `struct <https://docs.python.org/3/library/st
    eve_raw_data = [data[i:i + 4] for i in range(0, len(data), 4)]
    eve_buffer = [struct.unpack("i", i)[0] for i in eve_raw_data]
 
+|
+
 Because the event IDs are integers. Because integers take up 4 bytes each, we loop through the data breaking it into chunks 
 or 4 bytes and using the `struct <https://docs.python.org/3/library/struct.html>`_ module to unpack this giving us a list of 
 integers that are event IDs. With this, we can move onto our next section which is constructing a model.
 
-
+|
 
 Construct a model
 #################
@@ -176,7 +188,11 @@ command below:
 
 .. code-block:: python
 
-   mkdir static && cp footprint.bin ./static/footprint.bin && cp items.bin ./input/items.bin && cp vulnerability.bin ./static/vulnerability.bin && cp damage_bin_dict.bin ./static/damage_bin_dict.bin && cp footprint.idx ./static/footprint.idx
+   mkdir static && cp footprint.bin ./static/footprint.bin && cp items.bin ./input/items.bin && cp vulnerability.bin 
+   ./static/vulnerability.bin && cp damage_bin_dict.bin ./static/damage_bin_dict.bin && cp footprint.idx 
+   ./static/footprint.idx
+
+|
 
 Now that our data is in the correct directories, we can run the ``getmodel`` command and dump the output into a ``csv`` file 
 with the command below:
@@ -184,6 +200,8 @@ with the command below:
 .. code-block:: python
 
    eve 1 1 | getmodel | cdftocsv > dump.csv
+
+|
 
 This streams the event IDs into the ``getmodel``, the model is then passed into the ``cdftocsv`` and the output of this is 
 dumped into a ``csv`` file called ``dump.csv``. The outcome in the ``dump.csv`` will look similar to the outcome below:
@@ -198,13 +216,13 @@ dumped into a ``csv`` file called ``dump.csv``. The outcome in the ``dump.csv`` 
     "..", "..", "..", "..", "..", ".."
     "1", "7", "3", "10", "1", "1"
     "1", "7", "9", "1", "0.194455", "0.00000"
-
+|
 
 
 Here the ``prob_to`` is the probability of an event happening multiplied by the probability of damage happening. The 
 probability of ``prob_to`` for all ``bin_indexs`` for a specific ``vulnerability_id``, ``areaperil_id``, and ``event_id``.
 
-
+|
 
 Construct a Python model
 ########################
@@ -216,6 +234,8 @@ files and the Python model ingests ``csv`` files as default. We can run our Pyth
 
    eve 1 1 | getpymodel -f bin | cdftocsv > dump_two.csv
 
+|
+
 This achieves the same as the previous section. However, it runs in the Python model so at this stage it will be slower. We 
 have also dumped the data in the file ``dump_two.csv``.
 
@@ -224,7 +244,7 @@ end model. We have not covered everything that goes on in the end to end model h
 lost. Instead, we should now know where to look to get further answers when looking at this toy example with a little 
 guidance.
 
-
+|
 
 Running an end to end Toy model
 ###############################
@@ -237,6 +257,8 @@ Once this is done, we can run our model with the command below:
 
    oasislmf model run --config oasislmf_mdk.json
 
+|
+
 Here, we are running the model using the config file that is already defined in the repo. This will result in a lot of 
 printout where the model is being created and then ran. We can see the result in the ``runs`` directory. Here we will see a 
 losses directory with a random number which denotes the model run. If you run multiple models you will see multiple losses 
@@ -246,6 +268,8 @@ below:
 .. code-block:: python
 
    ParisWindstormModel/runs/losses-XXXXXXXXXXXXXX/run_ktools.sh
+
+|
 
 This bash script is essentially the entire process of constructing the model and running it. There is a lot of moving parts 
 here that we have not covered yet, however, if we scroll down we can see the something we kind of understand as seen below:
@@ -261,23 +285,17 @@ here that we have not covered yet, however, if we scroll down we can see the som
    ( eve 7 8 | getmodel | gulcalc -S10 -L0 -a0 -i ...
    ( eve 8 8 | getmodel | gulcalc -S10 -L0 -a0 -i ...
 
+|
+
 Here we have split our events into eight different streams and fed them into our getmodel and then fed the results of the 
 getmodel to the rest of the process.
 
 
 
 
-
-
-
-
-
-
-..
-   From MDK on github.io
-
-.. _MDK:
 |
+.. _MDK:
+
 Model Development Kit (MDK)
 ***************************
 
@@ -286,12 +304,14 @@ The tool is split into several namespaces that group similar commands.
 For a full list of namespaces use ``oasislmf --help``, and ``oasislmf <namespace> --help`` for a full list of commands 
 available in each namespace.
 
+|
+
 config
 ######
 
 .. autocli:: oasislmf.cli.config.ConfigCmd
    :noindex:
-
+|
 
 model
 #####
@@ -302,6 +322,7 @@ model
 
 .. autocli:: oasislmf.cli.model.GenerateExposurePreAnalysisCmd
    :noindex:
+|
 
 
 ``oasislmf model generate-keys``
@@ -309,24 +330,28 @@ model
 
 .. autocli:: oasislmf.cli.model.GenerateKeysCmd
    :noindex:
+|
 
 ``oasislmf model generate-losses``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autocli:: oasislmf.cli.model.GenerateLossesCmd
    :noindex:
+|
 
 ``oasislmf model generate-oasis-files``
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
 .. autocli:: oasislmf.cli.model.GenerateOasisFilesCmd
    :noindex:
+|
 
 ``oasislmf model run``
 ^^^^^^^^^^^^^^^^^^^^^^
 
 .. autocli:: oasislmf.cli.model.RunCmd
    :noindex:
+|
 
 exposure
 ########
@@ -336,6 +361,7 @@ exposure
 
 .. autocli:: oasislmf.cli.model.RunCmd
    :noindex:
+|
 
 API client 
 ##########
@@ -345,7 +371,7 @@ API client
 
 .. autocli:: oasislmf.cli.api.RunApiCmd
    :noindex:
-
+|
 
 
 version
@@ -353,7 +379,7 @@ version
 
 .. autocli:: oasislmf.cli.version.VersionCmd
    :noindex:
-
+|
 
 
 
@@ -366,18 +392,30 @@ It is installed as a Python package, and available from PYPI: `OasisLMF PYPI mod
 
 The OasisLMF package has the following dependencies:
 
-*Debian*: 
-    g++, build-essential, libtool, zlib1g-dev, autoconf, unixobdbc-dev
-*RHEL*:
-    Development Tools, zlib-devel
+|
+
+* Debian
+
+.. code-block:: Debian
+
+   g++, build-essential, libtool, zlib1g-dev, autoconf, unixobdbc-dev
+
+* RHEL
+
+.. code-block:: RHEL
+
+   Development Tools, zlib-devel
+|
 
 To install the OasisLMF package run:
 
 .. code-block:: python
 
-    pip install oasislmf
+   pip install oasislmf
+|
 
 .. warning:: Windows is not directly supported for running the MDK.
-    You can run the Oasis MDK on Linux or MacOS.
-    You can only run on Windows using a docker container or Linux Subsystem (WSL).
+   You can run the Oasis MDK on Linux or MacOS.
+   You can only run on Windows using a docker container or Linux Subsystem (WSL).
+|
 
