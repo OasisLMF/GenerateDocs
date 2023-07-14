@@ -1,5 +1,5 @@
-Analysis Settings
-=================
+Sampling Methodology
+====================
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
 lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu 

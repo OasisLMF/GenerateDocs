@@ -2,6 +2,7 @@ Oasis Platform (1&2)
 ====================
 
 On this page:
+-------------
 
 * :ref:`introduction_platform`
 * :ref:`installing_oasis`
@@ -10,15 +11,18 @@ On this page:
 * :ref:`weak_scaling`
 * :ref:`development_approach`
 * :ref:`technology_stack`
-* :ref:`github_repositories`
+
+
 
 
 |
 
 .. _introduction_platform:
 
-introduction_platform
----------------------
+Introduction
+************
+
+----
 
 The Oasis Loss Modelling Framework provides an open source platform for developing, deploying and executing catastrophe 
 models. It uses a full simulation engine and makes no restrictions on the modelling approach. Models are packaged in a 
@@ -40,7 +44,9 @@ platform provides:
 
 Installing Oasis
 ****************
-|
+
+----
+
 Oasis Installation Guide: Windows 10 OS
 #######################################
 
@@ -59,6 +65,8 @@ Oasis Installation Guide: Linux based OS
 
 Platform architecture
 *********************
+
+----
 
 A schematic of the Oasis Platform architecture is shown in the diagram below, and the components are described in the following table:
 
@@ -80,11 +88,15 @@ A schematic of the Oasis Platform architecture is shown in the diagram below, an
 
 
 
+
+
 |
 .. _hard_scaling:
 
-hard-Scaling
+Hard Scaling
 ************
+
+----
 
 The typical computation in oasis follows a split-apply-combine strategy, with the following modules:
 
@@ -119,11 +131,15 @@ To overcome those limitation we are putting in place new approach.
   (see detail at: https://github.com/OasisLMF/OasisAtScaleEvaluation)
 
 
+
+
 |
 .. _weak_scaling:
 
 Weak Scaling
 ************
+
+----
 
 All of the components are packaged as Docker images.
 Docker-compose can be used to deploy the system on one or more physical servers.
@@ -132,15 +148,14 @@ provisioning more calculation servers and deploying more Analysis Worker images.
 
 
 
-..
-   From Development approach:
-
 
 |
 .. _development_approach:
 
 Development approach
 ********************
+
+----
 
 1. We build open source software. This allows the community to directly
    review and critique our code and methodologies, and to contribute
@@ -166,15 +181,14 @@ Development approach
 
 
 
-.. 
-   From tech stack
-
 
 |
 .. _technology_stack:
 
 Technology stack
 ****************
+
+----
 
 **Using**
 
@@ -194,28 +208,3 @@ ShinyProxy                Server for scaling RShiny applications.
 MySql                     Application database for UI.
 Jupyter                   Python notebooks for examples and training material.
 ========================  ===============================================================================
-
-
-
-.. 
-   From GitHub repositories
-
-
-
-|
-.. _github_repositories:
-
-GitHub repositories
-*******************
-
-.. csv-table::
-  :header: "Repository name", "Purpose"
-
-  "`CookiecutterOasisSimpleModel <https://github.com/OasisLMF/CookiecutterOasisSimpleModel>`_", "Repository template for a model implementation."
-  "`CookiecutterOasisComplexModel <https://github.com/OasisLMF/CookiecutterOasisComplexModel>`_", "Repository template for a complex implementation."
-  "`ktools <https://github.com/OasisLMF/Ktools>`_", "Model execution kernel."
-  "`OasisEvaluation <https://github.com/OasisLMF/OasisEvaluation>`_", "Getting started with the Oasis platform."
-  "`OasisLMF <https://github.com/OasisLMF/OasisLMF>`_", "Python package, with the core oasis business logic, MDK command line tools and the Oasis API client."
-  "`OasisPiWind <https://github.com/OasisLMF/OasisPiWind>`_", "Example model implementation."
-  "`OasisPlatform <(https://github.com/OasisLMF/OasisPlatform>`_", "Flask application that provides the Oasis API and workers for running a model."
-  "`OasisUI <https://github.com/OasisLMF/OasisUI>`_", "Shiny application, Flask application and database for the Flamingo application."
