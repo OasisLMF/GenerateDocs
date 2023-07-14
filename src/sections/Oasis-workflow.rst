@@ -1,7 +1,40 @@
 Oasis Workflow
 ==============
 
-The general workflow is as follows:
+On this page
+------------
+
+* :ref:`MDK_Workflow`
+* :ref:`API_Workflow`
+
+|
+
+.. _MDK_Workflow:
+
+MDK Workflow
+************
+
+----
+
+The schematic below shows the Oasis :doc:`model-development-kit` workflow:
+
+|
+
+.. image:: ../images/Oasis_workflow.png
+    :width: 600
+    :align: center
+    :alt: Oasis Workflow Schematic
+
+|
+
+.. _API_Workflow:
+
+API Workflow
+************
+
+----
+
+The general workflow for the Oasis :doc:`API` is as follows:
 
 * Create a portfolio (post to ``/portfolios/``).
 
@@ -16,3 +49,5 @@ The general workflow is as follows:
 * Run the analysis (post to ``/analyses/<pk>/run/``)
 
 * Get the outputs (get ``/analyses/<pk>/output_file/``)
+
+|

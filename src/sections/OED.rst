@@ -1,8 +1,8 @@
 OED - Open Exposure Data
 ========================
 
-|
 On this page:
+-------------
 
 * :ref:`intro_OED`
 * :ref:`why_OED`
@@ -11,11 +11,14 @@ On this page:
 * :ref:`cyber`
 * :ref:`links_OED`
 
+|
 
 .. _intro_OED:
 
 Introduction
-------------
+************
+
+----
 
 Open Exposure Data (OED) is a standard that provides the industry with a robust, open, and transparent data format with the 
 aim to deliver a common framework for encoding, transmitting, and interpreting data. The results of this is seamless 
@@ -29,6 +32,8 @@ data-driven processes and furthering interoperability between systems.
 
 Why OED?
 ********
+
+----
 
 The need for a new (re)insurance industry exposure data standard arose from the lack of such an existing standard for Oasis 
 based models. Exposure data is the starting point for catastrophe risk analysis, and without such a standard in place it is 
@@ -62,6 +67,8 @@ OED can support :ref:`property`, :ref:`liability` and :ref:`cyber` classes of bu
 Property
 ********
 
+----
+
 The OED format for property comprises of four input files:
 
 * **Location (loc)**
@@ -80,6 +87,8 @@ spreadsheet <https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExpos
 
 Location ('loc') Import File
 ############################
+
+----
 
 This file contains details relating to each location such as the value and type of asset (including primary and secondary 
 modifiers), geographical information, the perils covered and the financial structures within the insurance contract relating 
@@ -138,6 +147,8 @@ field that contains no data and so, most OED location input files will contain f
 Account (acc) Import File
 #########################
 
+----
+
 The account file contains details of the policies and accounts that exist within the import portfolios. Most of the fields 
 in this file relate to financial structures, including special conditions.
 
@@ -160,6 +171,8 @@ mandatory to use a field that contains no data and so, most OED account input fi
 |
 Reinsurance Info (RIinfo) Import File
 #####################################
+
+----
 
 The reinsurance info file contains details of the reinsurance contracts that relate to the underlying portfolios, accounts 
 and locations. There must be exactly one entry per reinsurance contract in this file. Any financial terms relating to 
@@ -188,6 +201,8 @@ reinsurance info file. However, it is not mandatory to use a field that contains
 Reinsurance Scope (RIscope) Import File
 #########################################
 
+----
+
 The reinsurance scope file contains details of two different but related pieces of information:
 
 * The scope of the reinsurance contract: i.e. which portfolios, accounts, locations are covered by a particular 
@@ -215,6 +230,8 @@ filtering for ‘ReinsScope'
 Liability
 *********
 
+----
+
 The current OED schema for liability is a first version with the aim that it develops as market adoption increases and paths 
 for development are suggested.
 
@@ -231,6 +248,8 @@ ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/ReadMe.md>`_.
 
 Cyber
 *****
+
+----
 
 Like liability, the OED schema for cyber is a first version with the aim it develops as market adoption increases. The cyber 
 modelling space is still in its infancy and is expected to develop relatively quickly so the OED is expected to develop in
@@ -249,6 +268,8 @@ blob/develop/OpenExposureData/Cyber/ReadMe.md>`_.
 
 Links for further information
 *****************************
+
+----
 
 Further information and community views of ODS can be found on the ODS website: `<https://oasislmf.org/open-data-standards>`_.
 

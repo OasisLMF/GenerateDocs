@@ -1,7 +1,6 @@
 Pytools
 =======
 
-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec 
-lorem neque, interdum in ipsum nec, finibus dictum velit. Ut eu 
-efficitur arcu, id aliquam erat. In sit amet diam gravida, imperdiet 
-tellus eu, gravida nisl.
+Pytools comprises the pythons equivalent of some of the :doc:`../../sections/ktools` components. These have been developed 
+to take advantage of python libraries dedicated to large compute efficiency to make running the oasis workflow more 
+performant and reliable.

@@ -1,20 +1,22 @@
 ORD - Open Results Data
 =======================
 
-|
 On this page:
+-------------
 
 * :ref:`intro_ORD`
 * :ref:`tables`
 * :ref:`summary_levels_example`
 * :ref:`links_ORD`
 
-
+|
 
 .. _intro_ORD:
 
 Introduction
-------------
+************
+
+----
 
 ORD was initially developed during the Lloyd's Lab innovation project (Cohort 3) in 2019, by a working group led by Oasis, 
 that focussed on constructing model agnostic results formats and appropriate data formats. These model outputs cover an 
@@ -33,6 +35,8 @@ Listed below are the different result tables.
 
 Tables in the ORD format
 ************************
+
+----
 
 .. csv-table::
     :header: "Table", "Acronym", "Description", "Currently in Oasis"
@@ -66,6 +70,8 @@ summaries and multi-way summaries. The way such complexity is represented in ORD
 
 ORD summary levels example
 **************************
+
+----
 
     Consider an analysis run where the following output summaries are selected:
 
@@ -109,6 +115,8 @@ ORD summary levels example
 
 Links for further information
 *****************************
+
+----
 
 More information about tables can be found `here <https://github.com/OasisLMF/ODS_OpenResultsData/blob/main/Docs
 /ORD_Data_Spec.xlsx>`_, as well as example tables of results, and more information on ORD descriptions can be found 
