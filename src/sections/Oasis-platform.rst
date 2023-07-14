@@ -22,6 +22,8 @@ On this page:
 Introduction
 ************
 
+----
+
 The Oasis Loss Modelling Framework provides an open source platform for developing, deploying and executing catastrophe 
 models. It uses a full simulation engine and makes no restrictions on the modelling approach. Models are packaged in a 
 standard format and the components can be from any source, such as model vendors, academic and research groups. The 
@@ -42,7 +44,9 @@ platform provides:
 
 Installing Oasis
 ****************
-|
+
+----
+
 Oasis Installation Guide: Windows 10 OS
 #######################################
 
@@ -61,6 +65,8 @@ Oasis Installation Guide: Linux based OS
 
 Platform architecture
 *********************
+
+----
 
 A schematic of the Oasis Platform architecture is shown in the diagram below, and the components are described in the following table:
 
@@ -89,6 +95,8 @@ A schematic of the Oasis Platform architecture is shown in the diagram below, an
 
 Hard Scaling
 ************
+
+----
 
 The typical computation in oasis follows a split-apply-combine strategy, with the following modules:
 
@@ -131,6 +139,8 @@ To overcome those limitation we are putting in place new approach.
 Weak Scaling
 ************
 
+----
+
 All of the components are packaged as Docker images.
 Docker-compose can be used to deploy the system on one or more physical servers.
 You can therefore increase the throughput of analysis by
@@ -144,6 +154,8 @@ provisioning more calculation servers and deploying more Analysis Worker images.
 
 Development approach
 ********************
+
+----
 
 1. We build open source software. This allows the community to directly
    review and critique our code and methodologies, and to contribute
@@ -175,6 +187,8 @@ Development approach
 
 Technology stack
 ****************
+
+----
 
 **Using**
 

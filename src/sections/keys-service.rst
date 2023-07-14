@@ -14,7 +14,9 @@ On this page
 .. _intro_keys:
 
 Introduction
-------------
+************
+
+----
 
 The keys service in the Oasis Loss Modelling Framework is the process which is used to map exposure data (in OED format) 
 into the into the model specific keys required to execute analyses against that model in the core calculation kernel. This 
@@ -29,6 +31,8 @@ calculation kernel.
 High Level Overview
 ###################
 
+----
+
 At a high level, a keys service implementation should accept, as input, an OED Location file and return a JSON stream 
 including the oasis keys per location/coverage type/sub-peril, along with reasons for non-mapped 
 location/coverage-type/sub-peril combinations where they are outside of the remit of the model
@@ -41,6 +45,8 @@ location/coverage-type/sub-peril combinations where they are outside of the remi
 
 Return JSON specification
 #########################
+
+----
 
 The return JSON should subscribe to the following definition:
 
@@ -61,6 +67,8 @@ The return JSON should subscribe to the following definition:
 Perils Covered
 ##############
 
+----
+
 It is the responsibility of the keys service to identify the exposures in the input location file are to be modelled. 
 Included in this definition is the identification of risks by perils covered. The keys service implementation should use 
 the “LocPerilsCovered” field in the input location OED file to identify and filter out those locations which are covered by 
@@ -72,6 +80,8 @@ not be assigned an areaperil id value.
 
 Coverage Type
 ##############
+
+----
 
 The coverage type field returned in the JSON stream should comply to the Oasislmf standard supported coverage types:
 
@@ -87,6 +97,8 @@ The coverage type field returned in the JSON stream should comply to the Oasislm
 
 Status
 ######
+
+----
 
 The status returned by the keys service should comply with the accepted status values included in the oasislmf package. 
 These accepted statuses are:
@@ -116,6 +128,8 @@ wither successful or not.
 Messages
 ########
 
+----
+
 A free text message can be returned with the keys service return JSON. This message should be used to describe the reason 
 for no oasis key being assigned (e.g. location is outside of model domain) and should be concise while clear enough for a 
 user to understand the issue. Messages only need to be returned with one of the fail statuses.
@@ -124,6 +138,8 @@ user to understand the issue. Messages only need to be returned with one of the 
 
 Best Practice
 #############
+
+----
 
 The following list details the expectations from the keys service implementation:
 
@@ -156,6 +172,8 @@ The following list details the expectations from the keys service implementation
 Interface for Keys lookup
 -------------------------
 
+----
+
 The Keys look up process interface now has a new generic interface in order to reduce the amount of code needed to define 
 and run a keys look up process.
 
@@ -168,6 +186,8 @@ Setup
 
 Basic execution
 ***************
+
+----
 
 This section goes through step by step on how to run a basic model.
 
@@ -293,6 +313,8 @@ field is not wiped at the end of the process.
 Built-in functions
 ##################
 
+----
+
 |
 
 * **combine**
@@ -395,6 +417,8 @@ Config
 Lookup config file
 ******************
 
+----
+
 If we are to define a basic config file we can so with the following:
 
 .. code-block:: JSON
@@ -447,6 +471,8 @@ If we are to define a basic config file we can so with the following:
 General config file 
 *******************
 
+----
+
 The general config file has to have to following parameters:
 
 * **analysis_settings_json:** This points to a analysis settings config file 
@@ -474,6 +500,8 @@ The general config file has to have to following parameters:
 
 Analysis settings config file
 *****************************
+
+----
 
 A general analysis settings config file has the following layout:
 
@@ -508,6 +536,8 @@ A general analysis settings config file has the following layout:
 
 Custom lookup
 #############
+
+----
 
 On top of allowing user to set their own steps to create a lookup, Oasis builtin lookup provide a easy way to add your own 
 custom functions if more complex behaviour are needed.

@@ -17,7 +17,9 @@ On this package
 .. _intro_ktools:
 
 Introduction
-------------
+************
+
+----
 
 The in-memory solution for the Oasis Kernel is called the kernel tools or “ktools”. ktools is an independent “specification” 
 of a set of processes which means that it defines the processing architecture and data structures. The framework is 
@@ -33,6 +35,8 @@ in `README.md <https://github.com/OasisLMF/ktools/blob/develop/README.md>`_.
 
 Background
 **********
+
+----
 
 The Kernel performs the core Oasis calculations of computing effective damageability distributions, Monte-Carlo sampling of 
 ground up loss, the financial module calculations, which apply insurance policy terms and conditions to the sampled losses, 
@@ -63,6 +67,8 @@ including facultative reinsurance, quota share, surplus share, per risk and cata
 Architecture
 ************
 
+----
+
 The Kernel is provided as a toolkit of components (“ktools”) which can be invoked at the command line. Each component is a 
 separately compiled executable with a binary data stream of inputs and/or outputs.
 
@@ -79,6 +85,8 @@ number of processes in a script file appropriate to the operating system.
 Language
 ********
 
+----
+
 The components can be written in any language as long as the data structures of the binary streams are adhered to. The 
 current set of components have been written in POSIX-compliant C++. This means that they can be compiled in Linux and 
 Windows using the latest GNU compiler toolchain.
@@ -89,6 +97,8 @@ Windows using the latest GNU compiler toolchain.
 
 Components
 **********
+
+----
 
 The components in the Reference Model can be summarized as follows:
 
@@ -113,6 +123,8 @@ The components in the Reference Model can be summarized as follows:
 Usage
 *****
 
+----
+
 Standard piping syntax can be used to invoke the components at the command line. It is the same syntax in Windows DOS, 
 Linux terminal or Cygwin (a Linux emulator for Windows). For example the following command invokes eve, getmodel, gulcalc, 
 fmcalc, summarycalc and eltcalc, and exports an event loss table output to a csv file.
@@ -132,6 +144,8 @@ md/Workflows.md>`_.
 
 Links for more information
 **************************
+
+----
 
 More information on ktools can be found in the GitHub repository on:
 

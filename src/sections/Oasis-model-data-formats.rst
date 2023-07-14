@@ -19,6 +19,8 @@ On this page
 Overview
 ********
 
+----
+
 A model in Oasis is made up of a hazard module and a vulnerability module. These modules relate to each other via a common 
 intensity metric and relate to exposure data via a set of abstract keys: **areaperil_id** and **vulnerability_id**.
 
@@ -30,6 +32,8 @@ intensity metric and relate to exposure data via a set of abstract keys: **areap
 
 Hazard Module
 *************
+
+----
 
 The Hazard Module in Oasis is centered on the Footprint file which describes the interaction of Events with Area- Perils, 
 giving a probability distribution of Intensity for each combination.
@@ -62,6 +66,8 @@ The main concepts here are:
 Vulnerability Module
 ********************
 
+----
+
 The Vulnerability Module in Oasis is centered on the **Vulnerability** file which describes the interaction of 
 **Intensities** with **Vulnerability types**, giving a probability distribution of **Damage Ratio** for each combination.
 
@@ -91,6 +97,8 @@ represents that vulnerability function.
 Occurrences
 ***********
 
+----
+
 The final part of the model data definition in Oasis is the Occurrence file. This file details the occurrences of events 
 over time and is used in time based outputs such as Average Annual Loss and Loss Exceedance Curves. An optional extension 
 to the Occurrence file is the Periods file which allows a weighting to be placed on occurrences.
@@ -107,6 +115,8 @@ to the Occurrence file is the Periods file which allows a weighting to be placed
 
 Putting it all together
 ***********************
+
+----
 
 Now that we have the hazard module, the vulnerability module and the occurrence definitions, we can put them all together 
 across a common intensity bin definition to create a complete representation of a model in Oasis.

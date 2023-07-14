@@ -8,13 +8,15 @@ methodology, the financial module, and the results formats available including O
 Sections
 --------
 
+----
+
 :doc:`OED - Open Exposure Data <../../sections/OED>`
 
 :doc:`Analysis Settings <../../sections/analysis-settings>`
 
 :doc:`Oasis UI <../../sections/Oasis-UI>`
 
-:doc:`Sampling Methodology <../../sections/sampling-methodology>`
+.. :doc:`Sampling Methodology <../../sections/sampling-methodology>`
 
 :doc:`Financial Module <../../sections/financial-module>`
 

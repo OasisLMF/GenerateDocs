@@ -1,6 +1,8 @@
 Introduction:
 =============
 
+----
+
 * **What is Oasis**: The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
   It is also a community that seeks to unlock and change the world around catastrophe modelling to better understand risk in insurance and beyond. 
   While its development is largely driven by the global (re-)insurance community, it seeks to provide tools and utility to all.
@@ -14,6 +16,8 @@ Introduction:
 Overview
 --------
 
+----
+
 .. figure:: images/oasis_ecosystem.jpg
     :alt: Oasis Ecosystem
 
@@ -23,6 +27,8 @@ Overview
 
 Our main users are:
 *******************
+
+----
 
 **Model developers**, who build, test and publish the risk models. 
 They are typically scientists or software developers, working in a risk modelling company or academia.
@@ -37,6 +43,8 @@ This would also cover government and third sector users.
 
 Our software components are:
 ****************************
+
+----
 
 **Oasis Platform** is a catastrophe modelling system that encompasses a set of data standards; an API; and tools and components for building and running models.
 This is the core part of Oasis underpinning the other components and is where most of the domain specific code and performance optimization is required.
@@ -75,15 +83,14 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/camel.rst
     sections/deployment.rst
     sections/disaggregation.rst
-    sections/errors.rst
     sections/financial-module.rst
-    sections/git-repos.rst
     sections/keys-service.rst
     sections/ktools.rst
     sections/model-data-library.rst
     sections/model-development-kit.rst
     sections/model-providers.rst
     sections/model-settings.rst
+    sections/modelling-methodology.rst
     sections/Oasis-evaluation.rst
     sections/Oasis-file-formats.rst
     sections/Oasis-model-data-formats.rst
@@ -97,7 +104,12 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/OED.rst
     sections/ORD.rst
     sections/post-loss-amplification.rst
-    sections/pre-analysis-adjustment.rst
     sections/pytools.rst
     sections/results.rst
     sections/SaaS-providers.rst
+  
+
+.. 
+  sections to be populated: sections/pre-analysis-adjustments.rst, sections/sampling-methodology.rst, sections/errors.rst
+
+  

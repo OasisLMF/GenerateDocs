@@ -9,6 +9,8 @@ Platform.
 Sections
 --------
 
+----
+
 :doc:`Oasis Model Data Formats <../../sections/Oasis-model-data-formats>`
 
 :doc:`OED - Open Exposure Data <../../sections/OED>`

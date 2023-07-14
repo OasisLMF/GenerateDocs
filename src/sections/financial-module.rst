@@ -17,6 +17,8 @@ On this page
 Introduction
 ************
 
+----
+
 The Oasis framework supports a wide range of financial calculation. Outputs can be generated for three perspectives:
 
 * Ground-up: the underlying cost of loss,
@@ -33,6 +35,8 @@ Exposure is uploaded in the OED exposure format. See `here <https://github.com/s
 
 Direct insurance support
 ************************
+
+----
 
 Any combination of coverage, combined, site, sublimit or “special conditions” and policy terms
 
@@ -52,6 +56,8 @@ Step policies
 
 Reinsurance support
 *******************
+
+----
 
 Facultative
 

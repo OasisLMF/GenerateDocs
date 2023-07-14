@@ -16,6 +16,8 @@ On this page
 Exposures
 *********
 
+----
+
 Exposure data is also represented in an abstracted form in Oasis. The individual exposed coverages are depicted as integer 
 **“items”** where an item is a location, peril, coverage type combination. Item is the lowest level of exposure representation 
 in Oasis terminology. Each item will have an areaperil_id to represent its position in the geography of the model and a 
@@ -39,6 +41,8 @@ value (TIV) is stored at this level in the data representation of exposure again
 
 Financial Module
 ****************
+
+----
 
 Financial terms and conditions are also represented in an abstracted manner in Oasis using three main files:
 
@@ -76,6 +80,8 @@ lower levels split out to higher levels, they must aggregate through the levels.
 Summary Level Files
 *******************
 
+----
+
 Finally, there are two files that define how any outputs are aggregated:
 
 * GUL Summary Xref defines how coverage ids should be aggregated in any Ground Up Loss outputs.
@@ -95,6 +101,8 @@ Finally, there are two files that define how any outputs are aggregated:
 
 Putting it all together
 ***********************
+
+----
 
 The diagram below shows how the different exposure data files should fit together:
 

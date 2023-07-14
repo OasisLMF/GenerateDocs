@@ -8,6 +8,8 @@ available SaaS and support providers and handling common errors.
 Sections
 --------
 
+----
+
 :doc:`Oasis Platform <../../sections/Oasis-platform>`
 
 :doc:`API <../../sections/API>`
@@ -18,6 +20,6 @@ Sections
 
 :doc:`SaaS Providers <../../sections/SaaS-providers>`
 
-:doc:`Error Handling <../../sections/errors>`
+.. :doc:`Error Handling <../../sections/errors>`
 
 :doc:`Camel <../../sections/camel>`

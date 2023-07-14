@@ -1,8 +1,8 @@
 ODS Tools
 =========
 
-|
 On this page:
+-------------
 
 * :ref:`intro_ODS_Tools`
 * :ref:`analysis_settings`
@@ -10,12 +10,14 @@ On this page:
 * :ref:`installation`
 * :ref:`links_ODS_Tools`
 
-
+|
 
 .. _intro_ODS_Tools:
 
 Introduction
-------------
+************
+
+----
 
 ODS Tools is a Python package designed to manage :doc:`../../sections/ODS` data, and ensure that this is complying with the 
 :doc:`../../sections/ODS` schema. This package is designed to be compatible with Oasis files, but can operate independently  
@@ -35,6 +37,8 @@ ODS tools comprises primarily of two parts:
 Management of analysis settings
 ********************************
 
+----
+
 ODS Tools manages two settings files: ``model_settings.json`` and ``analysis_settings.json``. These are used in both the 
 Platform and MDK for running models.
 
@@ -52,6 +56,8 @@ Platform and MDK for running models.
 
 Management of exposure data
 ****************************
+
+----
 
 This part of ODS Tools is to manage OED data through an ELT step. ELT is crucial as it checks the incoming data and makes 
 sure it's in the correct format. This is achieved through several functionalities:
@@ -85,6 +91,8 @@ More information of these capabilities can be found `here <https://github.com/Oa
 Installation and Application
 ****************************
 
+----
+
 ODS Tools can be installed via pip by running the following command:
 
 .. code-block:: python 
@@ -109,6 +117,8 @@ Example :
 
 Links for further information
 *****************************
+
+----
 
 Further information on ODS Tools can be found `here <https://github.com/OasisLMF/
 ODS_Tools/blob/master/README.md>`_.

@@ -18,6 +18,8 @@ On this page
 Introduction
 ************
 
+----
+
 Oasis is a detailed loss modelling platform, meaning that it is most suited to modelling individual buildings with known 
 locations and vulnerability attributes. However, exposure data can be aggregated, low resolution or missing key attributes. 
 This is particularly true in the developing world - a key focus of the Oasis model library.
@@ -28,14 +30,14 @@ together determine the effective damage distribution per event in the analysis. 
 vulnerability_id might be valid and produce a different distribution and therefore different losses. The question is what 
 general features can Oasis provide to capture this uncertainty in the modelling process?
 
-
-
 |
 
 .. _how_it_works_disaggregation:
 
 How it works
 ************
+
+----
 
 Currently in the Oasis platform, as of August 2022, exposure must be converted into detailed data, one building per row in 
 the location file, before being imported into the platform for analysis. This can be done outside of the system, or the 
@@ -59,6 +61,8 @@ uncertainty that we are aware of.
 
 Handling of location uncertainty - single risk
 ##############################################
+
+----
 
 If the geographical location of an exposure known at a lower resolution than the model’s hazard footprint (which typically 
 requires street address or latitude-longitude precision) then whether it can be modelled or not depends on the model. Each 
@@ -115,6 +119,7 @@ for an event, which proxies the uncertainty of the precise location.
 Handling of vulnerability attribute uncertainty – single risk
 #############################################################
 
+----
 
 Vulnerability attributes that determine the damage response to a given level of hazard intensity in a vulnerability module 
 are typically peril, coverage type, occupancy and/or construction type. There is a long list of other data fields that are 
@@ -141,6 +146,8 @@ footprints are already very big and the increase in file size is relatively smal
 
 Aggregate exposures with known number of risks
 ##############################################
+
+----
 
 Aggregate exposures typically have imprecise geographical and vulnerability attribute information since each row represents 
 a collection of buildings, and therefore are subjected to the same single risk cases of uncertainty described above. The 
@@ -314,6 +321,8 @@ cell, and some of the cells would not have any TIV allocated to them.
 Single risks with multiple buildings
 ####################################
 
+----
+
 Sometimes an exposure that is classed as an individual risk under an insurance policy, for example, may have multiple 
 separate buildings that are in close geographical proximity. Examples of this type of exposure are a campus or caravan park. 
 In these cases it may be preferred to model the ground up losses for each individual structure as opposed to treating it as 
@@ -334,6 +343,9 @@ policy terms and conditions at the site level rather than the individual buildin
 
 Sampling and correlation
 ########################
+
+----
+
 In Oasis, locations may be sampled for damage per event independently, partially correlated or fully correlated. Some logic 
 must also be applied to disaggregated risks, and therefore some background on how Oasis handles correlation is a necessary 
 starting point.
@@ -381,6 +393,8 @@ entire portfolio.
 How correlation groups (group_ids) are assigned
 ###############################################
 
+----
+
 The grouping methodology consists of an outer grouping level by peril type, and an inner grouping level across coverages 
 and locations within each peril group
 
@@ -425,6 +439,8 @@ fields (those found in the kernel input files) may be used to specify groupings.
 Correlation factors
 ###################
 
+----
+
 The random numbers generated between groups within a peril correlation group will be independent unless the model provider 
 specifies a global correlation factor in model settings to apply correlation to the random numbers, using a one factor 
 gaussian copula model. A different correlation factor may be specified for each peril correlation group.
@@ -463,6 +479,8 @@ This particular correlation structure would be specified in model settings as fo
 User controls for correlation
 #############################
 
+----
+
 The user also has some controls over how damage is correlated for their portfolio.
 
 **1)** They can specify a grouping explicitly in the OED location file using the CorrelationGroup field. Whatever value is 
@@ -489,6 +507,9 @@ choose to fully correlated across locations as well as fully correlate coverages
 
 Requirements
 ************
+
+----
+
 Based on the feedback of the two subgroup meetings, we think the requirements for the disaggregation feature are as follows:
 
 |
@@ -549,6 +570,8 @@ To enable correlation to be specified differently between disaggregated risks th
 
 Proposals
 *********
+
+----
 
 **1. Single risk location uncertainty**
 
@@ -1045,6 +1068,8 @@ items:
 Default hazard and damage correlation behaviour in Oasis
 ########################################################
 
+----
+
 If not specified in model settings, the Oasis defaults will be to fully correlate hazard by OED location and site_id and to 
 fully correlate damage by OED location and disagg_id. This will result in the following behaviour in the following four 
 scenarios.
@@ -1066,6 +1091,8 @@ coverage_type_id as a field in the damage_group data settings.
 Assigning hazard group_id on a location-by-location basis
 #########################################################
 
+----
+
 The method above describes how to generate hazard group ids for all locations using global settings which specify the fields 
 to group by in the model settings json.
 
@@ -1083,6 +1110,8 @@ generation stage. However, this will be not be implemented unless a case is put 
 Repeatable loss requirement
 ###########################
 
+----
+
 Group ids are currently generated by OED fields in order to make the sampled losses for a particular exposure repeatable 
 across analyses, where the same exposure appears in different portfolios.
 
@@ -1099,6 +1128,8 @@ therefore the same sampled losses across analyses regardless of the position of 
 
 Related documents
 *****************
+
+----
 
 * `<https://github.com/OasisLMF/ktools/blob/disaggregation_test/docs/pdf/Disaggregation.pdf>`_ (original 2018 version)
 * `Worked_example_v2.xlsx <https://core-oasis.slack.com/files/U1HGUFV42/F05HBL7GL2C/worked_example_v2.xlsx?origin_team=T1H8LN4G5&origin_channel=D05GDF1QZ0V>`_

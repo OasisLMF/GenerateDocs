@@ -77,11 +77,13 @@ different levels of preparation. Please download the list of models below, or ge
 
 Get to know our Model Providers and Partners
 ********************************************
- 
-|
+
+----
 
 MODEL PROVIDERS
 ###############
+
+----
 
 |
  
@@ -223,6 +225,8 @@ research, analysis and solutions to build safe and resilient communities.
 
 PARTNERS
 ########
+
+----
 
 |
 
