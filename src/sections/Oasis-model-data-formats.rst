@@ -10,8 +10,6 @@ On this page
 * :ref:`occurrences_data_formats`
 * :ref:`together_data_formats`
 
-
-
 |
 
 .. _overview_data_formats:
@@ -23,8 +21,6 @@ Overview
 
 A model in Oasis is made up of a hazard module and a vulnerability module. These modules relate to each other via a common 
 intensity metric and relate to exposure data via a set of abstract keys: **areaperil_id** and **vulnerability_id**.
-
-
 
 |
 
@@ -41,6 +37,15 @@ giving a probability distribution of Intensity for each combination.
 |
 .. image:: ../images/data_formats_1.png
    :width: 600
+   :align: center
+|
+
+The schematic below is an example from the `ParisWindstormModel <https://github.com/OasisLMF/ParisWindstormModel>`_ and shows how 
+the hazard module files are mapped:
+
+|
+.. image:: ../images/model_files_hazard.png
+   :width: 800
    :align: center
 |
 
@@ -74,6 +79,15 @@ The Vulnerability Module in Oasis is centered on the **Vulnerability** file whic
 |
 .. image:: ../images/data_formats_2.png
    :width: 600
+   :align: center
+|
+
+The schematic below shows how the vulnerability module files are mapped in the `ParisWindstormModel 
+<https://github.com/OasisLMF/ParisWindstormModel>`_ example:
+
+|
+.. image:: ../images/model_files_vulnerability.png
+   :width: 800
    :align: center
 |
 
@@ -124,6 +138,14 @@ across a common intensity bin definition to create a complete representation of 
 |
 .. image:: ../images/data_formats_4.png
    :width: 600
+   :align: center
+|
+
+The schematic below shows how the hazard module files and the vulnerability module files are connected together.
+
+|
+.. image:: ../images/model_files_together.png
+   :width: 800
    :align: center
 |
 

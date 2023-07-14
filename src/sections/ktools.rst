@@ -147,7 +147,8 @@ Links for more information
 
 ----
 
-More information on ktools can be found in the GitHub repository on:
+More information on ktools can be found in the `ktools GitHub repository <https://github.com/OasisLMF/ktools/tree/develop#readme>`_ 
+on:
 
 1. `Introduction <https://github.com/OasisLMF/ktools/blob/develop/docs/md/Introduction.md>`_
 

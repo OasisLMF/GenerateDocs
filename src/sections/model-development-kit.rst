@@ -8,9 +8,14 @@ Introduction
 
 Catastrophe models are generally made up of three modules: 
 
-• The hazard module which represents the event catalogues
-• The vulnerability module which describes the damage caused by the events
-• And the Exposure module which maps the items at risk into the model
+• The **hazard module** which represents the event catalogues
+• The **vulnerability module** which describes the damage caused by the events
+• The **Exposure module** which maps the items at risk into the model
+
+.. image:: ../images/Oasis_modules.png
+    :width: 400
+    :align: center
+    :alt: Oasis modules
 
 These modules of are usually developed independently by people with the relevant expertise, and then brought together to be 
 calibrated and validated, eventually forming a complete catastrophe model. However, it’s rare that the resulting catastrophe 
