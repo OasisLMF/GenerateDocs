@@ -13,14 +13,25 @@ https://github.com/OasisLMF/ODS_Tools/blob/develop/ods_tools/data/analysis_setti
 
 ----
 
+Analysis Settings
+-----------------
+
+``analysis_settings`` requires ``model_supplier_id``, ``model_name_id``, ``model_settings``, ``gul_output``, and ``gul_summaries``.
+
+.. jsonschema:: https://raw.githubusercontent.com/OasisLMF/ODS_Tools/main/ods_tools/data/analysis_settings_schema.json
+    :hide_key: /**/definitions
+|
+
 Ouput Summaries
 ---------------
 
-.. jsonschema:: https://raw.githubusercontent.com/OasisLMF/ODS_Tools/main/ods_tools/data/analysis_settings_schema.json#/properties
+``output_summaries`` only requires ``id``.
+
+.. jsonschema:: https://raw.githubusercontent.com/OasisLMF/ODS_Tools/main/ods_tools/data/analysis_settings_schema.json#/definitions/output_summaries
 
 ----
 
-``output_summaries`` only requires ``id``
+|
 
 ----
 
