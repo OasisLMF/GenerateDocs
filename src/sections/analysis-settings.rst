@@ -13,8 +13,8 @@ https://github.com/OasisLMF/ODS_Tools/blob/develop/ods_tools/data/analysis_setti
 
 ----
 
-Analysis Settings
------------------
+``analysis_settings``
+---------------------
 
 ``analysis_settings`` requires ``model_supplier_id``, ``model_name_id``, ``model_settings``, ``gul_output``, and ``gul_summaries``.
 
@@ -22,8 +22,8 @@ Analysis Settings
     :hide_key: /**/definitions
 |
 
-Ouput Summaries
----------------
+``/output_summaries``
+*********************
 
 ``output_summaries`` only requires ``id``.
 
