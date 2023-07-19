@@ -89,7 +89,7 @@ model for a small area of the UK.The data is mocked up to illustrate the Oasis d
 meant to be a usable risk model.
 
 There are three main components to a catastrophe risk model deployed in Oasis. A fuller discussion of the components of a 
-hazard model can be found in :ref:`what_is_a_catastrophe_model`.
+hazard model can be found in :doc:`modelling-methodology`.
 
 **Hazard footprint data: **
     This holds the hazard intensity data for each event in the stochastic event set. The hazard intensity footprint is

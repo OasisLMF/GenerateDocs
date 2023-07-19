@@ -40,7 +40,7 @@ example deployment. Running the install script from this repository automates in
 User Interface and example PiWind model.
 
 The **Oasis API** is the components of the Oasis platform that manages all the elements of the plaform that are required to 
-build, run, and test models. The diagram below shows how the **Oasis API** sits behind the :doc:`Oasis UI`, that you use to 
+build, run, and test models. The diagram below shows how the **Oasis API** sits behind the :doc:`Oasis-UI`, that you use to 
 operate your catastrophe models.
 
 *Oasis docker componets*:

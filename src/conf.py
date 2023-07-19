@@ -64,6 +64,7 @@ extensions = [
     # 'm2r',
     # 'autoapi.extension',
     # 'recommonmark'
+    'sphinx-jsonschema',
 ]
 
 autoapi_dirs = [
@@ -116,6 +117,13 @@ html_title = "Oasis LMF Documentation"
 html_css_files = [
     'https://fonts.googleapis.com/css?family=Raleway',
 ]
+
+
+# -- Options for JSON table output in settings sections -------------------------------------------------
+
+jsonschema_options = {
+    'lift_title': False,
+}
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
