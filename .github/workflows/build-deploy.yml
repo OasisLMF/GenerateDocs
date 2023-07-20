@@ -29,5 +29,5 @@ jobs:
         uses: JamesIves/github-pages-deploy-action@v4
         with:
           folder: build/html
-          repository-name: OasisLMF.github.io
+          repository-name: OasisLMF/OasisLMF.github.io
           token: ${{ secrets.BUILD_DEPLOY_TOKEN }}
