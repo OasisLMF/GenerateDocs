@@ -99,7 +99,7 @@ github.com/OasisLMF/OasisAzureDeployment/blob/master/README.md#5-Deploy-without-
 github.com/OasisLMF/OasisAzureDeployment/blob/master/README.md#7-Troubleshooting>`_, and it answers some additional 
 `questions about the design <https://github.com/OasisLMF/OasisAzureDeployment/blob/master/README.md#8-Questions-about-design>`_.
 
-`LINK <https://github.com/OasisLMF/OasisAzureDeployment/blob/master/README.md#8-Questions-about-design>`_ - Oasis implmentation of Microsoft Azure.
+More information can be found `here <https://github.com/OasisLMF/OasisAzureDeployment/blob/master/README.md#8-Questions-about-design>`_.
 
 |
 
@@ -115,13 +115,13 @@ details <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/
 `keycloak <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/charts/README.md#keycloak>`_, and how to 
 access `help scripts <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/charts/README.md#help-scripts>`_.
 
-`LINK <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/charts/README.md#helm-and-customization>`_ - how to implement Kubernetes.
+More information can be found `here <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/charts/README.md#helm-and-customization>`_.
 
 |
 
 3. How to deploy and manage the Oasis platform on a `Kubernetes <https://kubernetes.io/docs/concepts/overview/>`_ cluster.
 
-`LINK <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/README.md>`_ - how to deploy and manage the Oasis platform on a Kubernetes cluster.
+More information can be found `here <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/README.md>`_.
 
 |
 
@@ -130,4 +130,4 @@ access `help scripts <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.
 This application controls the number of workers in a kubernetes cluster based on analyses currently running, worker 
 deployments available and autoscaling configuration for each worker deployment.
 
-`LINK <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/worker-controller/README.md>`_ - Oasis Worker Controller.
+More information can be found `here <https://github.com/OasisLMF/OasisPlatform/blob/platform-2.0/kubernetes/worker-controller/README.md>`_.
