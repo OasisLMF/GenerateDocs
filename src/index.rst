@@ -63,6 +63,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :caption: Home:
 
     home/introduction.rst
+    Oasis GitHub <https://github.com/OasisLMF>
     home/git-repo.rst
     home/FAQs.rst
 
