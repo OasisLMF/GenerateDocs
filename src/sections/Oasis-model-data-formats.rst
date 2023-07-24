@@ -20,7 +20,7 @@ Overview
 ----
 
 A model in Oasis is made up of a hazard module and a vulnerability module. These modules relate to each other via a common 
-intensity metric and relate to exposure data via a set of abstract keys: **areaperil_id** and **vulnerability_id**.
+intensity metric and relate to exposure data via a set of abstract keys: ``areaperil_id`` and ``vulnerability_id``.
 
 |
 
@@ -52,12 +52,12 @@ the hazard module files are mapped:
 The main concepts here are:
 
 * **Area Peril**: This is an abstract representation of an area for a particular peril. The can be anything – i.e. cells in a 
-  grid, polygons, variable resolution grids, point values, administrative regions (e.g. postcodes), etc. The **areaperil_id** 
+  grid, polygons, variable resolution grids, point values, administrative regions (e.g. postcodes), etc. The ``areaperil_id`` 
   is the key here and needs to be an integer value but what it actually represents doesn’t matter for the Oasis calculation.
 
 * **Event**: Again, this is an abstract representation of an actual event (either synthetic or historic) that affects a 
   number of area-perils. This can be a flood, a windstorm, an earthquake, etc. – it doesn’t make a difference in Oasis terms. 
-  Again, the **event_id** is the key here and this is simply an integer value that represents that event.
+  Again, the ``event_id`` is the key here and this is simply an integer value that represents that event.
 
 * **Intensity**: The intensity represents a discretised, abstracted set of intensity measures that are specific to the 
   peril (or perils) represented by the events
@@ -94,11 +94,11 @@ The schematic below shows how the vulnerability module files are mapped in the `
 The main concepts here are:
 
 * **Intensity**: The intensity represents a discretised, abstracted set of intensity measures that are specific to the peril 
-(or perils) represented by the events
+  (or perils) represented by the events
 
 * **Vulnerability Dictionary**: Again, this is an abstract representation of various vulnerability functions. These can be 
-as sophisticated as required for the model. The vulnerability_id is the key here and this is simply an integer value that 
-represents that vulnerability function.
+  as sophisticated as required for the model. The vulnerability_id is the key here and this is simply an integer value that 
+  represents that vulnerability function.
 
 * **Damage**: The Damage represents a discretised, abstracted set of damage ratios.
 
