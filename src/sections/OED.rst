@@ -50,7 +50,7 @@ The OED also provides companies with a starting point for implementing a model-d
 repository, which is strategically beneficial as it prevents firms being locked in to any one particular model developer.
 
 Although OED is designed to work well with Oasis based models, the scope of OED is wider than Oasis. For example, financial 
-fields exist in OED which are not yet implemented in Oasis and secondary modifiers that exist in OED which are not currently 
+fields exist in OED which are not yet implemented in Oasis, and secondary modifiers exist in OED which are not currently 
 used by any Oasis based model. However, Oasis LMF continue to expand the scope of their `FM <https://github.com/OasisLMF/
 ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/FinancialModule.md#L4>`_ with the aim to support as much 
 of the OED functionality as possible. An in depth overview of the OED can be found `here <https://github.com/OasisLMF/
@@ -154,7 +154,7 @@ in this file relate to financial structures, including special conditions.
 
 This file is always required when modelling for insured (or gross) losses.
 
-An account may contain multiple policies and typically, each row will represent one policy. However, for cases with policy 
+An account may contain multiple policies and typically each row will represent one policy. However, for cases with policy 
 level financial structures that vary by peril or where a policy contains multiple special conditions, one policy may have 
 multiple rows in the account file. 
 

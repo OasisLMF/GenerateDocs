@@ -43,6 +43,8 @@ PiWind
 This is the original test model in Oasis and is an example of a multi-peril model implementation representing ficticious 
 events with wind and flood affecting the Town of Melton Mowbray in England.
 
+More information on this model can be found here: :ref:`piwind_models`
+
 ----
 
 PiWind Complex Model
@@ -91,7 +93,7 @@ meant to be a usable risk model.
 There are three main components to a catastrophe risk model deployed in Oasis. A fuller discussion of the components of a 
 hazard model can be found in :doc:`modelling-methodology`.
 
-**Hazard footprint data: **
+**Hazard footprint data:**
     This holds the hazard intensity data for each event in the stochastic event set. The hazard intensity footprint is
     defined on a model specific geospatial grid, and each grid cell is assigned a unique identifier.Note that a model may 
     cover multiple perils, each with a different overlaid area peril grid. For example, a hurricane model will usually 

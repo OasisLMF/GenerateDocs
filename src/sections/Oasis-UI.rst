@@ -5,11 +5,11 @@ On this page:
 -------------
 
 * :ref:`intro_UI`
-* :ref:`walkthrough`
-* :ref:`bitesize`
+* :ref:`walkthrough_UI`
+* :ref:`bitesize_UI`
+* :ref:`risk_metrics_UI`
+* :ref:`output_reports_UI`
 * :ref:`git_repos_UI`
-* :ref:`risk_metrics`
-
 
 
 |
@@ -28,7 +28,7 @@ and a shorter “bitesize” version capturing the major components of the proce
 
 
 |
-.. _walkthrough:
+.. _walkthrough_UI:
 
 UI Demo Video - Walkthrough
 ***************************
@@ -39,7 +39,7 @@ UI Demo Video - Walkthrough
 
 
 |
-.. _bitesize:
+.. _bitesize_UI:
 
 UI Demo Video - bitesize
 ************************
@@ -50,17 +50,9 @@ UI Demo Video - bitesize
 
 
 |
-.. _git_repos_UI:
 
-GitHub repository
-*****************
 
-----
-
-`OasisUI GitHub repository <https://github.com/OasisLMF/OasisUI#readme>`_.
-
-|
-.. _risk_metrics:
+.. _risk_metrics_UI:
 
 Risk metrics
 ************
@@ -98,7 +90,8 @@ By Perspective:
     * Ground up
     * Insured loss
 
-|
+
+.. _output_reports_UI:
 
 Output Reports
 **************
@@ -108,42 +101,52 @@ Output Reports
 The following screenshot shows the suite of output reports that can be generated from the UI. 
 Multiple reports can be generated for each summary level:
 
+|
 .. figure:: /images/Multiple_Outputs_2.png
     :alt: Oasis UI analysis summary
     :width: 600
+    :align: center
 |
 
 Customising Plots
-*****************
-
-----
+#################
 
 The following screenshot shows how the user can custom their own result plots before exporting for reporting purposes:
 
+|
 .. figure:: /images/Summary_Plots.png
     :alt: Oasis UI analysis summary
     :width: 600
+    :align: center
 |
 
 Exposure and Loss Maps
-**********************
-
-----
+######################
 
 Risk level exposure and losses can be visualised on a map as shown below:
 
+|
 .. figure:: /images/Exposure_Map.png
     :alt: Oasis UI analysis summary
     :width: 600
+    :align: center
 |
 .. figure:: /images/Loss_map_zoomed_in.png
     :alt: Oasis UI analysis summary
     :width: 600
+    :align: center
 |
   
 
 
+.. _git_repos_UI:
 
+GitHub repository
+*****************
+
+----
+
+More information about the Oasis UI can be found in the `GitHub repository <https://github.com/OasisLMF/OasisUI#readme>`_.
 
 
 
