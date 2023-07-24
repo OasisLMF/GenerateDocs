@@ -26,7 +26,7 @@ and exposure management across all classes of business.
 
 ODS is key to ensuring continued data consistency, transparency, collaboration, and scalability for the cat modelling 
 community. This one consistent data format enables a significant reduction in  required efforts and cost when using 
-multiple models from various providers
+multiple models from various providers.
 
 The ODS is primarily comprised of two parts: 
 
