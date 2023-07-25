@@ -26,6 +26,7 @@ user-defined outputs, which are extensively customisable, catering for most user
 intuitive to use, and demonstration videos can be found below. There is an extended training video with voice instructions 
 and a shorter “bitesize” version capturing the major components of the process.
 
+The UI was designed primarily for model evaluations and to perform testing, rather than for core in/reinsurer portfolio rollups.
 
 |
 .. _walkthrough_UI:
@@ -60,15 +61,15 @@ Risk metrics
 ----
 
 The Oasis UI enables the user to generate multiple output reports for several summary levels and perspectives in a single 
-run. The Oasis kernel is a Monte-Carlo simulation engine and allows users to specify the number of samples to run.  The 
-number of samples required to achieve convergence will vary depending on the model and portfolio, as well as the required 
-outputs.
+run. The Oasis kernel is a Monte-Carlo simulation that randomly samples the loss distribution. The number of samples is defined 
+by the user and the level of convergence achieved across that sample set will vary depending on the model, portfolio, and as the 
+required outputs.
 
 There are two types of statistical outputs that can be delivered in the reports:
     * Numerically integrated – meaning the loss statistic is calculated directly from the underlying probability 
-      distribution of loss by numerical integration
+      distribution of loss.
     * Sample statistic – meaning the probability distributions of loss are sampled many times and the loss statistic is 
-      calculated from the samples
+      calculated from that set of samples.
 
 The list of available reports are as follows:
     * Sampled losses
@@ -90,6 +91,9 @@ By Perspective:
     * Ground up
     * Insured loss
 
+:doc:`Open Results Data (ORD) <../../sections/ORD>` tables can be selected and exported from the UI. More details of ORD can be 
+found :doc:`here <../../sections/ORD>`
+
 
 .. _output_reports_UI:
 
@@ -98,8 +102,8 @@ Output Reports
 
 ----
 
-The following screenshot shows the suite of output reports that can be generated from the UI. 
-Multiple reports can be generated for each summary level:
+The user can generate an extensive suite of output reports for any exposure attribute, multiple summary levels and financial 
+perspectives directly from the UI.
 
 |
 .. figure:: /images/Multiple_Outputs_2.png
@@ -111,7 +115,7 @@ Multiple reports can be generated for each summary level:
 Customising Plots
 #################
 
-The following screenshot shows how the user can custom their own result plots before exporting for reporting purposes:
+The user can customise their own result plots in the UI and export them for reporting purposes:
 
 |
 .. figure:: /images/Summary_Plots.png

@@ -26,7 +26,7 @@ and exposure management across all classes of business.
 
 ODS is key to ensuring continued data consistency, transparency, collaboration, and scalability for the cat modelling 
 community. This one consistent data format enables a significant reduction in  required efforts and cost when using 
-multiple models from various providers.
+multiple models from various providers and transferring data around the market.
 
 The ODS is primarily comprised of two parts: 
 
@@ -38,11 +38,11 @@ Open Exposure Data (OED) refers to the standard format for exposure data going i
 current in the catastrophe modelling community.
 
 .. note::
-    **It's important to know that ODS is NOT an Oasis standard, but an initiative developed by the market for the market.**
-
-
+    **It's important to know that ODS is NOT an Oasis standardand and is not owned by a single entity for commercial benefit. ODS 
+    is an initiative developed by the market for the market.**
 
 |
+
 .. _structure:
 
 ODS structure with Oasis
@@ -109,6 +109,11 @@ ODS_OpenExposureData/tree/develop/Docs>`_ but a schematic of the overview is sho
 A **Technical Working Group (TWG)** maintains and updates the assets that define the data standards. Although the TWG has a few 
 core members from Oasis LMF and Nasdaq, it's dynamic and involves users from the community who have proposed the updates or 
 changes.
+
+Suggestions for updates and feedback should be submitted via a GitHub issue on the respective repos where the community can 
+review and comment to ensure all communications remain transparent. OED issues can be submitted here:
+
+https://github.com/OasisLMF/ODS_OpenExposureData/issues
 
 
 

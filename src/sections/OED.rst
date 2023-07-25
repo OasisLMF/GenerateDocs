@@ -21,10 +21,9 @@ Introduction
 ----
 
 Open Exposure Data (OED) is a standard that provides the industry with a robust, open, and transparent data format with the 
-aim to deliver a common framework for encoding, transmitting, and interpreting data. The results of this is seamless 
-integration and collaboration between all models that adopt the standard. By adhering to OED, model providers can achieve 
-efficient and effective data exchange and model users have a clear format that can be applied to any model, enabling 
-data-driven processes and furthering interoperability between systems.
+aim to deliver a common framework for encoding, transmitting, and interpreting data. The aim of OED is to improve interoperability 
+between platforms and models and to reduce frictional costs by significantly decreasing data processing efforts and supporting 
+more efficient cross-model analytics.
 
 
 |
@@ -41,10 +40,9 @@ impossible to give users guidance and documentation on how to prepare their inpu
 within Oasis based modelling platforms.
 
 The `Oasis financial model (FM) <https://github.com/OasisLMF/ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/
-FinancialModule.md#L4>`_ enables a wide variety of model developers to use one consistent financial model: it is a 
-key part of the utility of the Oasis framework. However, it is important that financial fields in the exposure data 
-correspond well with the financial model to enable the full scope of the financial model to be used. The OED has been 
-designed from the outset to work well with, and enable the full functionality of, the Oasis FM.
+FinancialModule.md#L4>`_ enables a wide variety of model developers to use one consistent financial model: it is a key part of 
+the utility of the Oasis framework. However, it is important that financial fields in the exposure data are populated correctly 
+so they can be interpreted accurately in the FM.
 
 The OED also provides companies with a starting point for implementing a model-developer-independent exposure data 
 repository, which is strategically beneficial as it prevents firms being locked in to any one particular model developer.
@@ -90,7 +88,7 @@ Location ('loc') Import File
 
 ----
 
-This file contains details relating to each location such as the value and type of asset (including primary and secondary 
+The ``location`` file contains details relating to each location such as the value and type of asset (including primary and secondary 
 modifiers), geographical information, the perils covered and the financial structures within the insurance contract relating 
 to the location.
 
@@ -140,7 +138,7 @@ The full set of fields in a location import file can be found by filtering on â€
 blob/develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. 
 
 There are over 200 potential fields that could be used within the location file. However, it is not mandatory to use a 
-field that contains no data and so, most OED location input files will contain far fewer than 200 columns. 
+field that is not populated. 
 
 
 |
@@ -149,7 +147,7 @@ Account (acc) Import File
 
 ----
 
-The account file contains details of the policies and accounts that exist within the import portfolios. Most of the fields 
+The ``account`` file contains details of the policies and accounts that exist within the import portfolios. Most of the fields 
 in this file relate to financial structures, including special conditions.
 
 This file is always required when modelling for insured (or gross) losses.
@@ -164,8 +162,8 @@ The full set of fields in an account import file can be found by filtering on â€
 Input Fields' sheet within the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/blob/
 develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. 
 
-Similarly to the loc file, there are over 200 potential fields that could be used within the account file, but it is not 
-mandatory to use a field that contains no data and so, most OED account input files will contain far fewer than 200 columns. 
+Similarly, to the loc file, there are over 200 potential fields that could be used within the account file and it is not mandatory 
+to use a field that is not populated. 
 
 
 |
@@ -174,7 +172,7 @@ Reinsurance Info (RIinfo) Import File
 
 ----
 
-The reinsurance info file contains details of the reinsurance contracts that relate to the underlying portfolios, accounts 
+The ``reinsurance info`` file contains details of the reinsurance contracts that relate to the underlying portfolios, accounts 
 and locations. There must be exactly one entry per reinsurance contract in this file. Any financial terms relating to 
 reinsurance contracts should be entered in this file with the exception of the **CededPercent** for a surplus treaty (which 
 should be entered in the reinsurance scope file).
@@ -203,12 +201,12 @@ Reinsurance Scope (RIscope) Import File
 
 ----
 
-The reinsurance scope file contains details of two different but related pieces of information:
+The ``reinsurance scope`` file contains details of two different but related pieces of information:
 
 * The scope of the reinsurance contract: i.e. which portfolios, accounts, locations are covered by a particular 
   reinsurance contract.
 
-* The CededPercent for a surplus treaty: which can vary for each risk covered by the treaty.
+* The **CededPercent** for a surplus treaty: which can vary for each risk covered by the treaty.
 
 More information on the two points above are discussed `here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/
 OpenExposureData/3_OED_Import_Format.rst>`_, and more information on reinsurance within the OED can be found in `document 7 

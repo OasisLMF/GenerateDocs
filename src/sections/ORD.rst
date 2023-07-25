@@ -22,10 +22,9 @@ ORD was initially developed during the Lloyd's Lab innovation project (Cohort 3)
 that focussed on constructing model agnostic results formats and appropriate data formats. These model outputs cover an 
 extensive suite of results that can be isolated by aspects of the exposure data, financial and statistical perspectives.
 
-Like :doc:`../../sections/OED`, the purpose of ORD is to ensure model outputs 
-are consistent, transparent, and model agnostic. The ORD package is intended to contain the outputs of all current 
-catastrophe models and to be extensible to cope with future requirements that may arise. The ORD outputs come in the form 
-of results tables that capture all the possible data that a model could produce.
+Like :doc:`OED <../../sections/OED>`, the purpose of ORD is to ensure model outputs are consistent, transparent, and model 
+agnostic. The ORD package is intended to contain the outputs of all current catastrophe models and to be extensible to cope with 
+future developments. The ORD outputs are results tables that capture all of the possible data that a model could produce.
 
 Listed below are the different result tables.
 
