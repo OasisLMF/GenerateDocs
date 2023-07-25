@@ -9,7 +9,7 @@ from ods_tools.oed.setting_schema import ModelSettingSchema, AnalysisSettingSche
 
 # Locations
 MODEL_SETTINGS_SCHEMA = './schema/model_settings/model_schema.json'
-ANALYSIS_SETTING_SCHEMA = './schema/v1/oasis-platform-schema.json'
+ANALYSIS_SETTING_SCHEMA = './schema/analysis_settings/analysis_schema.json'
 PLAT_V1_SCHEMA = './schema/v1/oasis-platform-schema.json'
 PLAT_V2_SCHEMA = './schema/v2/oasis-platform-schema.json'
 
