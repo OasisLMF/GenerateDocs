@@ -110,9 +110,12 @@ build_args = [
     [PLAT_V2_SCHEMA, '--output', 'build/html/schema/v2/index.html'],
 ]
 
+# https://redocly.com/docs/api-reference-docs/configuration/theming/
+theme_args = ['--theme.openapi.fontFamily', 'Raleway']
+
 for redoc_build in build_args:
-    print("Running docker: " + " ".join(docker_basecmd + redoc_build))
-    result = subprocess.run(docker_basecmd + redoc_build, capture_output=True, text=True)
+    print("Running docker: " + " ".join(docker_basecmd + redoc_build + theme_args))
+    result = subprocess.run(docker_basecmd + redoc_build + theme_args, capture_output=True, text=True)
     print("Standard Output:")
     print(result.stdout)
 
