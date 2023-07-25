@@ -15,3 +15,6 @@ docutils
 furo
 sphinxcontrib-youtube
 virtualenv
+
+requests
+ods-tools
