@@ -104,10 +104,10 @@ write_json(PLAT_V2_SCHEMA, plat_2_schema)
 docker_basecmd = ['docker', 'run', '--rm', '-v', f'{os.getcwd()}:/spec', "--user", f"{os.getuid()}", 'redocly/cli', 'build-docs']
 
 build_args = [
-    [MODEL_SETTINGS_SCHEMA, '--output', 'build/html/model_settings.html'],
-    [ANALYSIS_SETTING_SCHEMA, '--output', 'build/html/analysis_settings.html'],
-    [PLAT_V1_SCHEMA, '--output', 'build/html/platform_1.html'],
-    [PLAT_V2_SCHEMA, '--output', 'build/html/platform_2.html'],
+    [MODEL_SETTINGS_SCHEMA, '--output', 'build/html/schema/model_settings/index.html'],
+    [ANALYSIS_SETTING_SCHEMA, '--output', 'build/html/schema/analysis_settings/index.html'],
+    [PLAT_V1_SCHEMA, '--output', 'build/html/schema/v1/index.html'],
+    [PLAT_V2_SCHEMA, '--output', 'build/html/schema/v2/index.html'],
 ]
 
 for redoc_build in build_args:
