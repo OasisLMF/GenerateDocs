@@ -66,9 +66,14 @@ set -e
     cd $DIR_BASE
     make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
 
+# Update JSON specs 
+    ./update-redoc.py
+
 # Create TAR
     if [[ ! -d "$DIR_BASE/output/" ]]; then 
         mkdir $DIR_BASE/output/
     fi 
     tar -czvf oasis_docs.tar.gz -C build/html/ .
     mv oasis_docs.tar.gz $DIR_BASE/output/
+
+

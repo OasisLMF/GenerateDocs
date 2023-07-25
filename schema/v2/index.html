@@ -19,7 +19,7 @@
     <script src="https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js"> </script>
     <script>
     // Fetch and patch spec file
-    fetch('https://oasislmf.github.io/OasisPlatform/v2/oasis-platform-schema.json')
+    fetch('./oasis-platform-schema.json')
       .then(res => res.json())
       .then(spec => {
         // Update Logo
@@ -30,7 +30,7 @@
         spec['openapi'] = "3.0.0";
 
         // Insert description
-        fetch('https://oasislmf.github.io/OasisPlatform/v2/description.md')
+        fetch('./description.md')
         .then(res => res.text())
         .then(markdown => {
           // Assign the fetched Markdown content to spec.description
