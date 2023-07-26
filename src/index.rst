@@ -9,7 +9,7 @@ Introduction:
   For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
 * **How the documentation is structured**: This documentation is broken down into 4 main areas: Model developers, Model 
-  users, Installing and developing Oasis, and Supporting and Oasis model deployment. Thees are the different use cases that 
+  users, Installing and developing Oasis, and Supporting and Oasis model deployment. These are the different use cases that 
   are detailed in this documentation. By selecting your use case, the relevant information can be accessed.
 
 |
@@ -83,6 +83,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :caption: Sections:
 
     sections/analysis-settings.rst
+    analysis_settings_test <https://oasislmf.github.io/PreviewDocs/pr-preview/pr-10/schema/analysis_settings/index.html>
     sections/API.rst
     sections/camel.rst
     sections/deployment.rst
