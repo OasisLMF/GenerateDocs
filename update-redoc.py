@@ -84,8 +84,8 @@ plat_1_desc = read_file('./schema/v1/description.md').decode()
 
 plat_1_schema['info']['description'] = plat_1_desc
 plat_1_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
-del plat_1_schema['swagger']
-plat_1_schema['openapi'] = "3.0.0"
+#del plat_1_schema['swagger']
+#plat_1_schema['openapi'] = "3.0.0"
 write_json(PLAT_V1_SCHEMA, plat_1_schema)
 
 
@@ -95,8 +95,8 @@ plat_2_desc = read_file('./schema/v2/description.md').decode()
 
 plat_2_schema['info']['description'] = plat_2_desc
 plat_2_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
-del plat_2_schema['swagger']
-plat_2_schema['openapi'] = "3.0.0"
+#del plat_2_schema['swagger']
+#plat_2_schema['openapi'] = "3.0.0"
 write_json(PLAT_V2_SCHEMA, plat_2_schema)
 
 
