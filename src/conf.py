@@ -70,7 +70,7 @@ autoapi_dirs = [
 autoapi_add_toctree_entry = False
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates/page.html']
+templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -106,20 +106,13 @@ pygments_style = 'friendly'
 # a list of builtin themes.
 #
 html_theme = 'furo'
-html_logo = 'images/OASIS_LMF_COLOUR.png'
+# html_logo = 'images/OASIS_LMF_COLOUR.png'
 # html_static_path = ['_static']
 html_title = "Oasis LMF Documentation"
 
 html_css_files = [
     'https://fonts.googleapis.com/css?family=Raleway',
 ]
-
-
-# -- Options for JSON table output in settings sections -------------------------------------------------
-
-jsonschema_options = {
-    'lift_title': False,
-}
 
 
 # Theme options are theme-specific and customize the look and feel of a theme
