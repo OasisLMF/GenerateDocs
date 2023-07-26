@@ -19,7 +19,7 @@ required, scaled up to run on a cluster.
 Docker support is the main requirement for running the platform. A Linux
 based installation is the main focus of this example deployment. Running
 the install script from this repository automates install process of the
-OasisPlatform API v1, User Interface and example PiWind model.
+**OasisPlatform API v1**, User Interface and example PiWind model.
 
 The **Oasis API** is the components of the Oasis platform that manages
 all the elements of the plaform that are required to build, run, and
@@ -34,7 +34,7 @@ your catastrophe models.
 
 # API deployment in the Oasis Enterprise Platform
 
-The **Oasis Enterprise Platform** is an open source
+The **Oasis Enterprise Platform** is supported by the **OasisPlatform API v2**, and is an open source
 [Kubernetes](https://kubernetes.io/docs/concepts/overview/) based, cloud
 computing cluster, which is deployable in [Microsoft Azure](https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-azure/) via 
 [Helm charts](https://helm.sh/docs/topics/charts/) and [Bicep scripts](https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-script-bicep)
@@ -53,3 +53,14 @@ This includes detailed walkthorughs on:
 1.  Oasis implementation of [Microsoft Azure](https://azure.microsoft.com/en-gb/resources/cloud-computing-dictionary/what-is-azure/).
 2.  How to implement [Kubernetes](https://kubernetes.io/docs/concepts/overview/).
 3.  How to deploy and manage the Oasis platform on a [Kubernetes](https://kubernetes.io/docs/concepts/overview/) cluster.
+
+# Oasis API v2 schema
+
+A full json schema for the available options in the v2 API file can be found here:
+
+https://github.com/OasisLMF/OasisPlatform/releases/download/2.2.0/openapi-schema-2.2.0.json
+
+This is useful for more technical users who are looking to create their own UI or integrate Oasis with an existing system. The v2 schema hierarchy is shown in `json` format in right column of the page. An interactive version of the schema, with descriptions and examples, can be found below:
+
+***NOTE:***
+***This link may not be the most up to date version of the schema. Please check what the latest version of OasisPlatform is, and amend the link accordingly.***
