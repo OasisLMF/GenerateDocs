@@ -55,15 +55,12 @@ extensions = [
     'sphinx.ext.viewcode',
     'sphinx.ext.githubpages',
     'sphinxcontrib.httpdomain',
-    # 'sphinxcontrib.autohttp.flask',
-    # 'sphinxcontrib.autohttp.flaskqref',
     'sphinx-jsonschema',
     'nbsphinx',
     'sphinx.ext.mathjax',
     "sphinxcontrib.youtube",
-    # 'm2r',
     # 'autoapi.extension',
-    # 'recommonmark'
+    'sphinx-jsonschema',
 ]
 
 autoapi_dirs = [
@@ -73,7 +70,7 @@ autoapi_dirs = [
 autoapi_add_toctree_entry = False
 
 # Add any paths that contain templates here, relative to this directory.
-templates_path = ['_templates/layout.html']
+templates_path = ['_templates']
 
 # The suffix(es) of source filenames.
 # You can specify multiple suffix as a list of string:
@@ -109,8 +106,8 @@ pygments_style = 'friendly'
 # a list of builtin themes.
 #
 html_theme = 'furo'
-html_logo = 'images/OASIS_LMF_COLOUR.png'
-html_static_path = ['_static']
+# html_logo = 'images/OASIS_LMF_COLOUR.png'
+# html_static_path = ['_static']
 html_title = "Oasis LMF Documentation"
 
 html_css_files = [
@@ -123,10 +120,6 @@ html_css_files = [
 # documentation.
 #
 html_theme_options = {
-    'logo_only': True,
-    'display_version': False,
-    'logo_link': '<https://github.com/OasisLMF>',
-
     "footer_icons": [
         {
             "name": "GitHub",

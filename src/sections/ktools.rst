@@ -27,7 +27,7 @@ implemented as a set of components called the “reference model” which can th
 needs.
 
 The code can be compiled in Linux, POSIX-compliant Windows and native Windows. The installation instructions can be found 
-in `README.md <https://github.com/OasisLMF/ktools/blob/develop/README.md>`_.
+`here <https://github.com/OasisLMF/ktools/blob/develop/README.md>`_.
 
 |
 

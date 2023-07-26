@@ -12,6 +12,7 @@ Introduction:
   users, Installing and developing Oasis, and Supporting and Oasis model deployment. Thees are the different use cases that 
   are detailed in this documentation. By selecting your use case, the relevant information can be accessed.
 
+|
 
 Overview
 --------
@@ -23,7 +24,7 @@ Overview
 
     Oasis Ecosystem
 
-
+|
 
 Our main users are:
 *******************
@@ -39,7 +40,7 @@ This would also cover government and third sector users.
 
 **Enterprise risk systems** at insurance or reinsurance organizations, where Oasis risk models will be integrated using APIs into pricing and portfolio management workflows.
 
-
+|
 
 Our software components are:
 ****************************
@@ -58,11 +59,14 @@ It is designed with a model developer or academic user in mind, who are likely t
 **Oasis Model Library** is a hosted catalogue for Oasis models, hosted in AWS. 
 It allows regression of the models after updates to the Oasis Platform code, and validation of model operation and scalability within a hosted Oasis Platform.
 
+----
+
 .. toctree::
     :titlesonly:
     :caption: Home:
 
     home/introduction.rst
+    Oasis GitHub <https://github.com/OasisLMF>
     home/git-repo.rst
     home/FAQs.rst
 

@@ -27,7 +27,7 @@ The Oasis framework supports a wide range of financial calculation. Outputs can 
 
 * Net loss: the insured loss net of reinsurance  recoveries.
 
-Exposure is uploaded in the OED exposure format. See `here <https://github.com/simplitium/oed>`_ for full details.
+Exposure is uploaded in the :doc:`OED <../../sections/OED>` exposure format. See `here <https://github.com/simplitium/oed>`_ for full details.
 
 |
 

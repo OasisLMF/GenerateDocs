@@ -15,5 +15,6 @@ docutils
 furo
 sphinxcontrib-youtube
 virtualenv
+sphinx-jsonschema==1.19.1
 requests
 ods-tools

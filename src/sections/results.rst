@@ -762,7 +762,7 @@ For each SummaryId and EventId, the sample mean and standard deviation is calcul
 summarycalc stream and output to file. The analytical mean is also output as a seperate record, differentiated by a 
 'SampleType' field. Variations of the exposure value are also output (see below for details).
 
-.. _QELT:
+|
 
 * **QELT**
 
@@ -916,7 +916,7 @@ in the summarycalc stream and output to file. The analytical mean is also output
 For each Period, EventId and SummaryId, this report provides the probability and the corresponding loss quantile computed 
 from the samples. The list of probabilities is provided in the quantile.bin file.
 
-See :ref:`QELT` for the method of computing the loss quantiles.
+See QELT for the method of computing the loss quantiles.
 
 |
 

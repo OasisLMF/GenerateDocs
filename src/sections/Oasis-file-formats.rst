@@ -20,13 +20,13 @@ Exposures
 
 Exposure data is also represented in an abstracted form in Oasis. The individual exposed coverages are depicted as integer 
 **“items”** where an item is a location, peril, coverage type combination. Item is the lowest level of exposure representation 
-in Oasis terminology. Each item will have an areaperil_id to represent its position in the geography of the model and a 
-vulnerability_id to identify the type of exposure that it is. The item file also includes a “group_id” field which is used 
-for correlation across items in the oasis calculation. Items with the same group_id will be subject to the same random 
+in Oasis terminology. Each item will have an ``areaperil_id`` to represent its position in the geography of the model and a 
+``vulnerability_id`` to identify the type of exposure that it is. The item file also includes a ``group_id`` field which is used 
+for correlation across items in the oasis calculation. Items with the same ``group_id`` will be subject to the same random 
 number when sampling the effective damage distribution during the simulation calculation.
 
 One or many items can form a **“coverage”** which is a location, coverage-type combination in Oasis terms. The total insured 
-value (TIV) is stored at this level in the data representation of exposure against the **“coverage_id”**.
+value (TIV) is stored at this level in the data representation of exposure against the ``coverage_id``.
 
 |
 .. image:: ../images/file_formats_1.png
@@ -54,7 +54,7 @@ Financial terms and conditions are also represented in an abstracted manner in O
   conditions
 
 The final file in the Financial Module is the FM Xref which is used to connect the 3 core financial module files to the 
-output summary files (see later).
+output summary files.
 
 |
 .. image:: ../images/file_formats_2.png

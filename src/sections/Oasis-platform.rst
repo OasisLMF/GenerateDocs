@@ -117,12 +117,12 @@ server with more processors. Scale up for large models and/or large portfolios.
 
 Our performance testing has shown it provides good hard-scaling on single machine from
 1 to 16 processors.
-However above this, gain from adding processors start to decrease
+However above this, gain from adding processors starts to decrease
 and are even negative past 32 processors.
-This is mainly due to the relative slowness of fmcalc compare to gulcalc that is stopping gulcalc
+This is mainly due to the relative slowness of fmcalc compared to gulcalc that is stopping gulcalc
 and slowing fmcalc by having too many context switches.
 
-To overcome those limitation we are putting in place new approach.
+To overcome these limitations we are putting in place new approach.
 
 - gul-fm load balancer (next release) that will split events out of the gul further
   and increase fmcalc parallelization.

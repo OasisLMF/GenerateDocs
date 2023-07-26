@@ -20,9 +20,11 @@ Introduction
 ----
 
 ODS Tools is a Python package designed to manage :doc:`../../sections/ODS` data, and ensure that this is complying with the 
-:doc:`../../sections/ODS` schema. This package is designed to be compatible with Oasis files, but can operate independently  
-with any :doc:`../../sections/ODS` data. It includes a range of tools for working with Oasis data files, including loading, 
-conversion, and validation. This package is in accordance with :doc:`../../sections/ODS`. 
+:doc:`ODS <../../sections/ODS>` schema. It includes a range of tools for working with Oasis data files, including loading, 
+conversion, and validation. This package is in accordance with :doc:`ODS <../../sections/ODS>`. 
+
+As a separate service, the package include functionality to manage :doc:`../../sections/model-settings` and 
+:doc:`../../sections/analysis-settings` that are used to perform an analysis.
 
 ODS tools comprises primarily of two parts:
 
@@ -45,9 +47,9 @@ Platform and MDK for running models.
 * ``analysis_settings.json`` is the main user input. This is used to configure execution options, selected output reports,
   and (depending on the model) lookup and keys generation.
 
-* ``model_settings.json`` presents all valid inputs set in an analysis_settings.json (along with some default values 
-  if no input is given). The intended use pf this is that a UI, such as OasisUI, picks up the available options and render 
-  them as widgets and input fields to generate an analysis_settings.json file.
+* ``model_settings.json`` presents all valid inputs set in an ``analysis_settings.json`` (along with some default values 
+  if no input is given). The intended use of this is that a UI, such as OasisUI, picks up the available options and render 
+  them as widgets and input fields to generate an ``analysis_settings.json`` file.
 
 
 |
@@ -95,17 +97,21 @@ Installation and Application
 
 ODS Tools can be installed via pip by running the following command:
 
+|
 .. code-block:: python 
 
     pip install ods-tools
+|
 
 Once installed, ODS Tools can be used utilised via the command line interface to quickly convert oed files.
 
 Example :
 
+|
 .. code-block:: python 
 
     ods_tools convert --location path_to_location_file --path output folder
+|
 
 .. note::
     See ``ods_tools convert --help`` for more options.
