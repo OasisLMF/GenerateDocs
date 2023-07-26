@@ -30,79 +30,39 @@ def write_json(file, data):
     with open(file, mode='w') as f:
         json.dump(data, f)
 
-
-#def copy_files(src, dst):
-#    for root, dirs, files in os.walk(src):
-#        rel_dir = os.path.relpath(root, src)
-#        dst_dir = os.path.join(dst, rel_dir)
-#
-#        if not os.path.exists(dst_dir):
-#            os.makedirs(dst_dir)
-#
-#        for file in files:
-#            src_file = os.path.join(root, file)
-#            dst_file = os.path.join(dst_dir, file)
-#            shutil.copy2(src_file, dst_file)
-
-"""
-        spec.info['x-logo'] = { url: "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" };
-
-        // Switch schema type
-        delete spec.swagger
-        spec['openapi'] = "3.0.0";
-
-        // Insert description
-        fetch('./description.md')
-"""
-
+def patch_schema(base_schema, version, description):
+    base_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
+    base_schema['info']['description'] = description
+    base_schema['info']['version'] = version
+    return base_schema
 
 ## Patch model settings schema
 model_schema = ModelSettingSchema().schema
 model_desc = read_file('./schema/model_settings/description.md').decode()
 model_temp = json.loads(read_file('./schema/model_settings/redoc_template.json'))
-
-model_temp['info']['description'] = model_desc
-model_temp['info']['version'] = ods_tools.__version__
-model_temp['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
 model_temp['definitions']['ModelParameters'] = model_schema
-write_json(MODEL_SETTINGS_SCHEMA, model_temp)
+write_json(MODEL_SETTINGS_SCHEMA, patch_schema(model_temp, ods_tools.__version__, model_desc))
 
 ## Patch analysis Settings schema
 analysis_schema = AnalysisSettingSchema().schema
 analysis_desc = read_file('./schema/analysis_settings/description.md').decode()
 analysis_temp = json.loads(read_file('./schema/analysis_settings/redoc_template.json'))
-
-analysis_temp['info']['description'] = analysis_desc
-analysis_temp['info']['version'] = ods_tools.__version__
-analysis_temp['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
 analysis_temp['definitions']['AnalysisSettings'] = analysis_schema
-write_json(ANALYSIS_SETTING_SCHEMA, analysis_temp)
+write_json(ANALYSIS_SETTING_SCHEMA, patch_schema(analysis_temp, ods_tools.__version__, analysis_desc))
 
-
+# Patch Platform 1 schmea
 plat_1_schema = requests.get(PLAT_V1_URL).json()
 plat_1_desc = read_file('./schema/v1/description.md').decode()
+write_json(PLAT_V1_SCHEMA, patch_schema(plat_1_schema, PLAT_V1_VER ,plat_1_desc))
 
-plat_1_schema['info']['description'] = plat_1_desc
-plat_1_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
-#del plat_1_schema['swagger']
-#plat_1_schema['openapi'] = "3.0.0"
-write_json(PLAT_V1_SCHEMA, plat_1_schema)
-
-
-
-plat_2_schema = requests.get(PLAT_V1_URL).json()
+# Patch Platform 2 schema
+plat_2_schema = requests.get(PLAT_V2_URL).json()
 plat_2_desc = read_file('./schema/v2/description.md').decode()
+write_json(PLAT_V2_SCHEMA, patch_schema(plat_2_schema, PLAT_V2_VER ,plat_2_desc))
 
-plat_2_schema['info']['description'] = plat_2_desc
-plat_2_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
-#del plat_2_schema['swagger']
-#plat_2_schema['openapi'] = "3.0.0"
-write_json(PLAT_V2_SCHEMA, plat_2_schema)
-
-
-
+# Docker build arguments
 docker_basecmd = ['docker', 'run', '--rm', '-v', f'{os.getcwd()}:/spec', "--user", f"{os.getuid()}", 'redocly/cli', 'build-docs']
-
+theme_args = ['--theme.openapi.fontFamily', 'Raleway'] # https://redocly.com/docs/api-reference-docs/configuration/theming/
 build_args = [
     [MODEL_SETTINGS_SCHEMA, '--output', 'build/html/schema/model_settings/index.html'],
     [ANALYSIS_SETTING_SCHEMA, '--output', 'build/html/schema/analysis_settings/index.html'],
@@ -110,14 +70,13 @@ build_args = [
     [PLAT_V2_SCHEMA, '--output', 'build/html/schema/v2/index.html'],
 ]
 
-# https://redocly.com/docs/api-reference-docs/configuration/theming/
-theme_args = ['--theme.openapi.fontFamily', 'Raleway']
-
+# Run docker build
 for redoc_build in build_args:
-    print("Running docker: " + " ".join(docker_basecmd + redoc_build + theme_args))
-    result = subprocess.run(docker_basecmd + redoc_build + theme_args, capture_output=True, text=True)
+    exec_docker_cmd = docker_basecmd + redoc_build + theme_args
+    print("Running docker: " + " ".join(exec_docker_cmd))
+
+    result = subprocess.run(exec_docker_cmd, capture_output=True, text=True)
     print("Standard Output:")
     print(result.stdout)
-
     print("\nStandard Error:")
     print(result.stderr)
