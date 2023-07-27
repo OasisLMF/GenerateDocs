@@ -82,8 +82,10 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :titlesonly:
     :caption: Sections:
 
-    sections/analysis-settings.rst
-    analysis_settings_test <https://oasislmf.github.io/PreviewDocs/pr-preview/pr-10/schema/analysis_settings/index.html>
+    sections/analysis_settings
+    sections/model_settings
+    sections/platform_1
+    sections/platform_2
     sections/API.rst
     sections/camel.rst
     sections/deployment.rst
@@ -113,9 +115,8 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/releases.rst
     sections/results.rst
     sections/SaaS-providers.rst
-  
-
+    sections/test-settings.rst
+    
 .. 
   sections to be populated: sections/pre-analysis-adjustments.rst, sections/sampling-methodology.rst, sections/errors.rst
 
-  

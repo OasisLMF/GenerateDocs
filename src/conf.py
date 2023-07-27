@@ -61,6 +61,7 @@ extensions = [
     "sphinxcontrib.youtube",
     # 'autoapi.extension',
     'sphinx-jsonschema',
+    'sphinxcontrib.redoc',
 ]
 
 autoapi_dirs = [
@@ -224,6 +225,48 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
+
+# -- Redoc ------------------------------------------------------------------
+
+redoc = [
+    {
+        'name': 'Analysis Settings',
+        'page': 'sections/analysis_settings',
+        'spec': 'schema/analysis_settings.json',
+        'embed': True,
+    },
+    {
+        'name': 'Model Settings',
+        'page': 'sections/model_settings',
+        'spec': 'schema/model_settings.json',
+        'embed': True,
+    },
+    {
+        'name': 'Platform 1 API',
+        'page': 'sections/platform_1',
+        'spec': 'schema/platform-1.json',
+        'embed': True,
+    },
+    {
+        'name': 'Platform 2 API',
+        'page': 'sections/platform_2',
+        'spec': 'schema/platform-2.json',
+        'embed': True,
+    },
+]
+    # Example, note: a placeholder rst file is needed matching 'page' with just a title
+    #{
+    #    'name': 'Example API',
+    #    'page': 'example/index',
+    #    'spec': 'http://example.com/openapi.yml',
+    #    'opts': {
+    #        'lazy': False,
+    #        'nowarnings': False,
+    #        'nohostname': False,
+    #        'required-props-first': True,
+    #        'expand-responses': ["200", "201"],
+    #    }
+    #},
 
 # -- Extension configuration -------------------------------------------------
 

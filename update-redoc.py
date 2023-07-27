@@ -10,10 +10,10 @@ from os import path
 from ods_tools.oed.setting_schema import ModelSettingSchema, AnalysisSettingSchema
 
 # Locations
-MODEL_SETTINGS_SCHEMA = './schema/model_settings/model_schema.json'
-ANALYSIS_SETTING_SCHEMA = './schema/analysis_settings/analysis_schema.json'
-PLAT_V1_SCHEMA = './schema/v1/oasis-platform-schema.json'
-PLAT_V2_SCHEMA = './schema/v2/oasis-platform-schema.json'
+MODEL_SETTINGS_SCHEMA = './src/schema/model_settings.json'
+ANALYSIS_SETTING_SCHEMA = './src/schema/analysis_settings.json'
+PLAT_V1_SCHEMA = './src/schema/platform-1.json'
+PLAT_V2_SCHEMA = './src/schema/platform-2.json'
 
 # urls
 PLAT_V1_VER = '1.8.0'
@@ -60,23 +60,23 @@ plat_2_schema = requests.get(PLAT_V2_URL).json()
 plat_2_desc = read_file('./schema/v2/description.md').decode()
 write_json(PLAT_V2_SCHEMA, patch_schema(plat_2_schema, PLAT_V2_VER ,plat_2_desc))
 
-# Docker build arguments
-docker_basecmd = ['docker', 'run', '--rm', '-v', f'{os.getcwd()}:/spec', "--user", f"{os.getuid()}", 'redocly/cli', 'build-docs']
-theme_args = ['--theme.openapi.fontFamily', 'Raleway'] # https://redocly.com/docs/api-reference-docs/configuration/theming/
-build_args = [
-    [MODEL_SETTINGS_SCHEMA, '--output', 'build/html/schema/model_settings/index.html'],
-    [ANALYSIS_SETTING_SCHEMA, '--output', 'build/html/schema/analysis_settings/index.html'],
-    [PLAT_V1_SCHEMA, '--output', 'build/html/schema/v1/index.html'],
-    [PLAT_V2_SCHEMA, '--output', 'build/html/schema/v2/index.html'],
-]
-
-# Run docker build
-for redoc_build in build_args:
-    exec_docker_cmd = docker_basecmd + redoc_build + theme_args
-    print("Running docker: " + " ".join(exec_docker_cmd))
-
-    result = subprocess.run(exec_docker_cmd, capture_output=True, text=True)
-    print("Standard Output:")
-    print(result.stdout)
-    print("\nStandard Error:")
-    print(result.stderr)
+## Docker build arguments
+#docker_basecmd = ['docker', 'run', '--rm', '-v', f'{os.getcwd()}:/spec', "--user", f"{os.getuid()}", 'redocly/cli', 'build-docs']
+#theme_args = ['--theme.openapi.fontFamily', 'Raleway'] # https://redocly.com/docs/api-reference-docs/configuration/theming/
+#build_args = [
+#    [MODEL_SETTINGS_SCHEMA, '--output', 'build/html/schema/model_settings/index.html'],
+#    [ANALYSIS_SETTING_SCHEMA, '--output', 'build/html/schema/analysis_settings/index.html'],
+#    [PLAT_V1_SCHEMA, '--output', 'build/html/schema/v1/index.html'],
+#    [PLAT_V2_SCHEMA, '--output', 'build/html/schema/v2/index.html'],
+#]
+#
+## Run docker build
+#for redoc_build in build_args:
+#    exec_docker_cmd = docker_basecmd + redoc_build + theme_args
+#    print("Running docker: " + " ".join(exec_docker_cmd))
+#
+#    result = subprocess.run(exec_docker_cmd, capture_output=True, text=True)
+#    print("Standard Output:")
+#    print(result.stdout)
+#    print("\nStandard Error:")
+#    print(result.stderr)

@@ -62,12 +62,12 @@ set -e
     #    exit 1
     #fi 
 
+# Update JSON specs 
+    ./update-redoc.py
+
 # Build docs
     cd $DIR_BASE
     make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
-
-# Update JSON specs 
-    ./update-redoc.py
 
 # Create TAR
     if [[ ! -d "$DIR_BASE/output/" ]]; then 
