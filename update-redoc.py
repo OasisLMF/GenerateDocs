@@ -38,26 +38,26 @@ def patch_schema(base_schema, version, description):
 
 ## Patch model settings schema
 model_schema = ModelSettingSchema().schema
-model_desc = read_file('./schema/model_settings/description.md').decode()
-model_temp = json.loads(read_file('./schema/model_settings/redoc_template.json'))
+model_desc = read_file('./redoc/model_settings/description.md').decode()
+model_temp = json.loads(read_file('./redoc/model_settings/redoc_template.json'))
 model_temp['definitions']['ModelParameters'] = model_schema
 write_json(MODEL_SETTINGS_SCHEMA, patch_schema(model_temp, ods_tools.__version__, model_desc))
 
 ## Patch analysis Settings schema
 analysis_schema = AnalysisSettingSchema().schema
-analysis_desc = read_file('./schema/analysis_settings/description.md').decode()
-analysis_temp = json.loads(read_file('./schema/analysis_settings/redoc_template.json'))
+analysis_desc = read_file('./redoc/analysis_settings/description.md').decode()
+analysis_temp = json.loads(read_file('./redoc/analysis_settings/redoc_template.json'))
 analysis_temp['definitions']['AnalysisSettings'] = analysis_schema
 write_json(ANALYSIS_SETTING_SCHEMA, patch_schema(analysis_temp, ods_tools.__version__, analysis_desc))
 
 # Patch Platform 1 schmea
 plat_1_schema = requests.get(PLAT_V1_URL).json()
-plat_1_desc = read_file('./schema/v1/description.md').decode()
+plat_1_desc = read_file('./redoc/v1/description.md').decode()
 write_json(PLAT_V1_SCHEMA, patch_schema(plat_1_schema, PLAT_V1_VER ,plat_1_desc))
 
 # Patch Platform 2 schema
 plat_2_schema = requests.get(PLAT_V2_URL).json()
-plat_2_desc = read_file('./schema/v2/description.md').decode()
+plat_2_desc = read_file('./redoc/v2/description.md').decode()
 write_json(PLAT_V2_SCHEMA, patch_schema(plat_2_schema, PLAT_V2_VER ,plat_2_desc))
 
 ## Docker build arguments
