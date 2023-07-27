@@ -115,7 +115,6 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/releases.rst
     sections/results.rst
     sections/SaaS-providers.rst
-    sections/test-settings.rst
     
 .. 
   sections to be populated: sections/pre-analysis-adjustments.rst, sections/sampling-methodology.rst, sections/errors.rst
