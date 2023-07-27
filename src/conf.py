@@ -60,7 +60,6 @@ extensions = [
     'sphinx.ext.mathjax',
     "sphinxcontrib.youtube",
     # 'autoapi.extension',
-    'sphinx-jsonschema',
     'sphinxcontrib.redoc',
 ]
 
