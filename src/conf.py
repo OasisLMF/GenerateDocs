@@ -227,19 +227,21 @@ texinfo_documents = [
 
 
 # -- Redoc ------------------------------------------------------------------
-
+#
+#redoc_uri = 'https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js'
+redoc_uri = 'https://cdn.redoc.ly/redoc/v2.0.0/bundles/redoc.standalone.js'
 redoc = [
     {
         'name': 'Analysis Settings',
         'page': 'sections/analysis_settings',
         'spec': 'schema/analysis_settings.json',
-        'embed': True,
+        'embed': False,
     },
     {
         'name': 'Model Settings',
         'page': 'sections/model_settings',
         'spec': 'schema/model_settings.json',
-        'embed': True,
+        'embed': False,
     },
     {
         'name': 'Platform 1 API',
