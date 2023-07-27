@@ -173,7 +173,15 @@ The user can specify the correlation group directly for each location in the inp
     "Port1", "Acc1", "Loc3", "2"
     "Port1", "Acc1", "Loc4", "2"
 
-This will override the system default behvaiour for generating the group_id, and the rule provided in the data settings for the model, if specified.
+This will override the system default behaviour for generating the group_id, and the rule provided in the data settings for the model, if specified.
+
+**Correlation groups assigned by CorrelationGroup field**
+
+.. image:: ../images/correlation3.png
+   :width: 600
+
+|
+
 
 |
 
