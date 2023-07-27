@@ -60,6 +60,7 @@ extensions = [
     'sphinx.ext.mathjax',
     "sphinxcontrib.youtube",
     # 'autoapi.extension',
+    'sphinxcontrib.redoc',
 ]
 
 autoapi_dirs = [
@@ -223,6 +224,50 @@ texinfo_documents = [
      'Miscellaneous'),
 ]
 
+
+# -- Redoc ------------------------------------------------------------------
+#
+#redoc_uri = 'https://cdn.jsdelivr.net/npm/redoc@next/bundles/redoc.standalone.js'
+redoc_uri = 'https://cdn.redoc.ly/redoc/v2.0.0/bundles/redoc.standalone.js'
+redoc = [
+    {
+        'name': 'Analysis Settings',
+        'page': 'sections/analysis_settings',
+        'spec': 'schema/analysis_settings.json',
+        'embed': False,
+    },
+    {
+        'name': 'Model Settings',
+        'page': 'sections/model_settings',
+        'spec': 'schema/model_settings.json',
+        'embed': False,
+    },
+    {
+        'name': 'Platform 1 API',
+        'page': 'sections/platform_1',
+        'spec': 'schema/platform-1.json',
+        'embed': True,
+    },
+    {
+        'name': 'Platform 2 API',
+        'page': 'sections/platform_2',
+        'spec': 'schema/platform-2.json',
+        'embed': True,
+    },
+]
+    # Example, note: a placeholder rst file is needed matching 'page' with just a title
+    #{
+    #    'name': 'Example API',
+    #    'page': 'example/index',
+    #    'spec': 'http://example.com/openapi.yml',
+    #    'opts': {
+    #        'lazy': False,
+    #        'nowarnings': False,
+    #        'nohostname': False,
+    #        'required-props-first': True,
+    #        'expand-responses': ["200", "201"],
+    #    }
+    #},
 
 # -- Extension configuration -------------------------------------------------
 
