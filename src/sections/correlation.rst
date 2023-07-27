@@ -9,7 +9,7 @@ On this page
 * :ref:`features_by_version`
 * :ref:`features_1.15.x`
 * :ref:`features_1.15.5`
-* :ref:`features_1.27.0`
+* :ref:`features_1.27.x`
 * :ref:`features_1.27.2`
 
 
@@ -24,7 +24,7 @@ Introduction
 This section covers the options in Oasis for modelling correlation in secondary uncertainty, or correlation in the modelled severity of loss given
 an event. 
 
-Correlation is modelled at the most detailed level in Oasis for all models.  The correlated ground up losses are aggregated as they are passed through the financial terms so that all of the downstream financial perspective capture this correlation.
+Correlation is modelled at the most detailed level in Oasis for all models.  The correlated ground up losses are aggregated as they are passed through the financial terms so that all of the downstream financial perspectives capture this correlation.
 
 The methods of correlating losses can vary by model depending on which of the features are used. Users can also control correlation settings for their portfolio.
 
@@ -39,7 +39,7 @@ Sources of correlation
 
 There is correlation in the hazard intensity that multiple exposures will experience. The closer they are to each other, the more likely it is that they will experience similar hazard intensities.  The relationship between the distance between exposures and the level of hazard correlation will depend on the peril being modelled.  Catastrophe modellers define the geographical resolution of area in their footprint carefully in order to represent the spatial variability of hazard intensity for the peril.
 
-A second source of correlation is in the level of damage given the force of hazard intensity. This arises because of buildings that are close to each other of similar construction can have the same vulnerabilities to damage.
+A second source of correlation is in the level of damage given the force of hazard intensity. This arises because buildings that are close to each other of similar construction can have the same vulnerabilities to damage.
 
 The combination of hazard intensity and damage correlation leads to more extreme losses across a portfolio which is of primary concern to a risk carrier.  It does not change the mean ground up loss, but leads to more extreme losses at higher return periods. 
 
@@ -62,25 +62,25 @@ These can be summarized as follows;
     *   User override using CorrelationGroup field in OED
 *  1.15.5 and later
     *   User override using an OED field list
-*   1.27.0 and later
+*  1.27.0 and later
     *   Separate hazard and damage sampling (full monte carlo sampling). 
     *   Partial correlation for damage. 
     *   Separate groupings for hazard correlation.  
-*   1.27.2 and later
+*  1.27.2 and later
     *   Partial correlation for hazard
 
 |
 
 .. _features_1.15.x:
 
-Features in OasisLMF 1.15x
-##########################
+Features in OasisLMF 1.15.x
+###########################
 
 ----
 
 **Group correlation for damage**
 
-In Oasis, each exposure at risk is assigned a number ‘group_id’ which is its correlation group.  
+In Oasis, each exposure at risk is assigned a ‘group_id’ which is its correlation group.  
 
 •   When exposures have the same group_id, damage will be sampled with full correlation. 
 •   When exposures have different group_ids, damage will be sampled independently.  
@@ -89,7 +89,7 @@ To find out how the correlated and independent sampling works, please see the �
 
 The three illustrated exposures have different group_ids assigned and would all be sampled independently.
 
-**Three exposures with different correlation groups assigned**
+**Three exposures with independent correlation groups**
 
 .. image:: ../images/correlation1.png
    :width: 600
@@ -98,7 +98,7 @@ The three illustrated exposures have different group_ids assigned and would all 
 
 Each location in the OED location file is assigned a unique group_id.  This is the system default behaviour for all models.
 
-The group_id is indexed based on unique values of the input OED location fields that uniquely define a location, as illustrated below.  
+The group_id is generated automatically based on unique values of the input OED location fields that uniquely define a location, as illustrated in the table.  
 
 .. csv-table::
     :header: "PortNumber", "AccNumber", "LocNumber"
@@ -107,7 +107,7 @@ The group_id is indexed based on unique values of the input OED location fields 
     "Port1", "Acc1", "Loc2"
     "Port1", "Acc1", "Loc3"
 
-Under this setting, multiple coverages at each location will be damaged with full correlation, because the group_id is defined at the site level.
+Under this setting, multiple coverages at each location will be damaged with full correlation, because the group_id is defined at the location level.
 
 **Model specification of correlation groups**
 
@@ -122,7 +122,7 @@ The setting illustrated below is equivalent to the system default: that group_id
 .. code-block:: JSON
 
     "data_settings": {
-    "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber"] }
+    "group_fields": ["PortNumber", "AccNumber", "LocNumber"] }
     }
 |
 
@@ -133,7 +133,7 @@ A modeller can use other OED fields to define the groups, and/or internal Oasis 
 .. code-block:: JSON
 
     "data_settings": {
-    "damage_group_fields": ["areaperil_id"] }
+    "group_fields": ["areaperil_id"] }
     }
 
 |
@@ -149,15 +149,31 @@ The two locations in the cell on the left would be assigned the same group_id an
 
 |
 
-The modeller can combine OED fields with internal Oasis fields.  In this example, the inclusion of the 'coverage_type_id' field means that not only will locations be damaged independently, but all coverages at a location will be damaged independently.
+The modeller can combine OED fields with internal Oasis fields.  In the next example, the inclusion of the 'coverage_type_id' field means that not only will locations be damaged independently, but all coverages at a location will be damaged independently.
 
 ``Model_settings.json``
 
 .. code-block:: JSON
 
     "data_settings": {
-    "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber","coverage_type_id"] }
+    "group_fields": ["PortNumber", "AccNumber", "LocNumber","coverage_type_id"] }
     }
+
+|
+
+**User override using CorrelationGroup field in OED**
+
+The user can specify the correlation group directly for each location in the input OED file.
+
+.. csv-table::
+    :header: "PortNumber", "AccNumber", "LocNumber", "CorrelationGroup"
+
+    "Port1", "Acc1", "Loc1", "1"
+    "Port1", "Acc1", "Loc2", "1"
+    "Port1", "Acc1", "Loc3", "2"
+    "Port1", "Acc1", "Loc4", "2"
+
+This will override the system default behvaiour for generating the group_id, and the rule provided in the data settings for the model, if specified.
 
 |
 
@@ -167,6 +183,7 @@ Features in OasisLMF 1.15.5
 ###########################
 
 ----
+
 
 .. _features_1.27.x:
 
