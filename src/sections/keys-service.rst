@@ -42,6 +42,10 @@ location/coverage-type/sub-peril combinations where they are outside of the remi
    :align: center
 |
 
+However, this is not strictly true anymore. Keys service can return a csv stream **OR** a JSON stream. **The default 
+is to return csv**, as this form is more efficient and practical.
+
+|
 
 Return JSON specification
 #########################
@@ -311,7 +315,7 @@ field is not wiped at the end of the process.
 .. _built_in_functions_keys:
 
 Built-in functions
-##################
+******************
 
 ----
 
@@ -410,12 +414,12 @@ All non match column present in ``id_columns`` will be set to -1
 .. _config_keys:
 
 Config
-######
+******
 
 |
 
 Lookup config file
-******************
+##################
 
 ----
 
@@ -469,7 +473,7 @@ If we are to define a basic config file we can so with the following:
 |
 
 General config file 
-*******************
+###################
 
 ----
 
@@ -499,7 +503,7 @@ The general config file has to have to following parameters:
 |
 
 Analysis settings config file
-*****************************
+#############################
 
 ----
 
@@ -535,7 +539,7 @@ A general analysis settings config file has the following layout:
 |
 
 Custom lookup
-#############
+*************
 
 ----
 
