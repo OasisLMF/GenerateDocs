@@ -15,11 +15,20 @@
 			"name": "analysis_settings",
 			"x-displayName": "Analysis Settings Schema",
 			"description": "<SchemaDefinition schemaRef=\"#/definitions/AnalysisSettings\" />"
+		},
+		{
+			"name": "landing_page_link",
+			"x-displayName": "Back to landing page",
+			"externalDocs": {
+				"url": "http://oasislmf.github.io/",
+				"description": "Click here to go back to the landing page"
+			}
 		}
 	],
 	"x-tagGroups": [{
 		"name": "JSON Schema",
 		"tags": [
+			"landing_page_link",
 			"analysis_settings"
 		]
 	}],
