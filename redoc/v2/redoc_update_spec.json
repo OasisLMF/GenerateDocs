@@ -1,4 +1,18 @@
 {
-    "tags": [],
-    "x-tagGroups": []
+    "tags": [
+       {
+            "name": "landing_page_link",
+            "x-displayName": "Back to landing page",
+            "externalDocs": {
+                "url": "http://oasislmf.github.io/",
+                "description": "Click here to go back to the landing page"
+            }
+        }
+    ],
+    "x-tagGroups": [
+        "name": "Links",
+        "tags": [
+			"landing_page_link"
+		]
+    ]
 }
