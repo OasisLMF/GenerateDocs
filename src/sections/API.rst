@@ -22,6 +22,18 @@ found `here <http://api.oasislmfdev.org/swagger/>`_. An evaluation version of th
 using the `Oasis evaluation repository <https://github.com/OasisLMF/OasisEvaluation>`_. This includes a Jupyter notebook 
 that illustrates the basic operation of the API, using the Python API client.
 
+The API schemas can be found here:
+
+:doc:`../sections/platform_1`
+
+:doc:`../sections/platform_2`
+
+This is useful for more technical users who are looking to create their own UI or integrate Oasis with an existing 
+system. The v1 schema hierarchy is shown in json format in right column of the page. An interactive version of the 
+schema, with descriptions and examples, can be found below:
+
+
+
 |
 
 .. _oasis_api:
