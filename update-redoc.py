@@ -30,10 +30,15 @@ def write_json(file, data):
     with open(file, mode='w') as f:
         json.dump(data, f)
 
-def patch_schema(base_schema, version, description):
+def patch_schema(base_schema, version, description, inject_json=None):
     base_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
     base_schema['info']['description'] = description
     base_schema['info']['version'] = version
+
+    #
+    if inject_json:
+        for key in inject_json:
+            base_schema[key] = inject_json[key]
     return base_schema
 
 ## Patch model settings schema
@@ -53,12 +58,14 @@ write_json(ANALYSIS_SETTING_SCHEMA, patch_schema(analysis_temp, ods_tools.__vers
 # Patch Platform 1 schmea
 plat_1_schema = requests.get(PLAT_V1_URL).json()
 plat_1_desc = read_file('./redoc/v1/description.md').decode()
-write_json(PLAT_V1_SCHEMA, patch_schema(plat_1_schema, PLAT_V1_VER ,plat_1_desc))
+plat_1_inject = json.loads(read_file('./redoc/v1/redoc_update_spec.json'))
+write_json(PLAT_V1_SCHEMA, patch_schema(plat_1_schema, PLAT_V1_VER, plat_1_desc, inject_json=plat_1_inject))
 
 # Patch Platform 2 schema
 plat_2_schema = requests.get(PLAT_V2_URL).json()
 plat_2_desc = read_file('./redoc/v2/description.md').decode()
-write_json(PLAT_V2_SCHEMA, patch_schema(plat_2_schema, PLAT_V2_VER ,plat_2_desc))
+plat_2_inject = json.loads(read_file('./redoc/v2/redoc_update_spec.json'))
+write_json(PLAT_V2_SCHEMA, patch_schema(plat_2_schema, PLAT_V2_VER ,plat_2_desc, inject_json=plat_2_inject))
 
 ## Docker build arguments
 #docker_basecmd = ['docker', 'run', '--rm', '-v', f'{os.getcwd()}:/spec', "--user", f"{os.getuid()}", 'redocly/cli', 'build-docs']
