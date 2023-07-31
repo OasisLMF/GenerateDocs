@@ -48,7 +48,7 @@
 	"x-tagGroups": [
         {
             "name": "Access Control",
-            "tags": ["healthcheck, access_token, refresh_token"]
+            "tags": ["healthcheck", "access_token", "refresh_token"]
 
         },    
         {

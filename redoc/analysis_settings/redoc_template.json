@@ -25,14 +25,12 @@
 			}
 		}
 	],
-	"x-tagGroups": [{
-		"name": "JSON Schema",
-		"tags": [
-			"landing_page_link",
-			"analysis_settings"
-		]
-	}],
-
+	"x-tagGroups": [
+        {
+            "name": "JSON Schema",
+            "tags": ["landing_page_link", "analysis_settings"]
+        }
+    ],
 	"definitions": {
 		"AnalysisSettings": {}
 	}
