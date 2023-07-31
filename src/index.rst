@@ -83,9 +83,6 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :caption: Sections:
 
     sections/analysis_settings
-    sections/model_settings
-    sections/platform_1
-    sections/platform_2
     sections/API.rst
     sections/camel.rst
     sections/correlation.rst
@@ -97,7 +94,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/model-data-library.rst
     sections/model-development-kit.rst
     sections/model-providers.rst
-    sections/model-settings.rst
+    sections/model_settings
     sections/modelling-methodology.rst
     sections/Oasis-evaluation.rst
     sections/Oasis-file-formats.rst
@@ -111,11 +108,14 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/ODS.rst
     sections/OED.rst
     sections/ORD.rst
+    sections/platform_1
+    sections/platform_2
     sections/post-loss-amplification.rst
     sections/pytools.rst
     sections/releases.rst
     sections/results.rst
     sections/SaaS-providers.rst
+    sections/versioning.rst
     
 .. 
   sections to be populated: sections/pre-analysis-adjustments.rst, sections/sampling-methodology.rst, sections/errors.rst
