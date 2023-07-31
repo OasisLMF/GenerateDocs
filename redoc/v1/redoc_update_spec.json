@@ -9,10 +9,10 @@
             }
         }
     ],
-    "x-tagGroups": [
-        "name": "Links",
-        "tags": [
-			"landing_page_link"
-		]
+	"x-tagGroups": [
+        {
+            "name": "Links",
+            "tags": ["landing_page_link"]
+        }
     ]
 }
