@@ -7,9 +7,58 @@
                 "url": "http://oasislmf.github.io/",
                 "description": "Click here to go back to the landing page"
             }
-        }
+        },
+        {
+            "name": "healthcheck",
+            "description": ""
+        },   
+        {
+            "name": "access_token",
+            "description": ""
+        },   
+        {
+            "name": "refresh_token",
+            "description": ""
+        },   
+        {
+            "name": "oed_peril_codes",
+            "description": ""
+        },   
+        {
+            "name": "server_info",
+            "description": ""
+        },   
+        {
+            "name": "models",
+            "description": ""
+        },   
+        {
+            "name": "portfolios",
+            "description": ""
+        },
+        {
+            "name": "analyses",
+            "description": ""
+        },   
+        {
+            "name": "data_files",
+            "description": ""
+        }   
     ],
 	"x-tagGroups": [
+        {
+            "name": "Access Control",
+            "tags": ["healthcheck, access_token, refresh_token"]
+
+        },    
+        {
+            "name": "Server Information",
+            "tags": ["server_info", "oed_peril_codes"]
+        },    
+        {
+            "name": "General",
+            "tags": ["models", "portfolios", "analyses", "data_files"]
+        },    
         {
             "name": "Links",
             "tags": ["landing_page_link"]
