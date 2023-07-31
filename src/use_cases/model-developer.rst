@@ -19,9 +19,9 @@ Sections
 
 :doc:`MDK - Model Development Kit <../../sections/model-development-kit>`
 
-:doc:`Model Settings <../../sections/model-settings>`
+:doc:`Model Settings <../../sections/model_settings>`
 
-:doc:`Analysis Settings <../../sections/analysis-settings>`
+:doc:`Analysis Settings <../../sections/analysis_settings>`
 
 :doc:`Results <../../sections/results>`
 
