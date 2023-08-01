@@ -1,13 +1,11 @@
-OasisLMF GitHub
-===============
+GitHub reposistories
+====================
 
 The OasisLMF GitHub can be found here: https://github.com/OasisLMF.
 
-----
+|
 
-
-This OasisLMF GitHub currently hosts these reposistories:
-*********************************************************
+**The OasisLMF GitHub currently hosts these reposistories:**
 
 ----
 

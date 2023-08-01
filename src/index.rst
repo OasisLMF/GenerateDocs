@@ -9,9 +9,10 @@ Introduction:
   For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
 * **How the documentation is structured**: This documentation is broken down into 4 main areas: Model developers, Model 
-  users, Installing and developing Oasis, and Supporting and Oasis model deployment. Thees are the different use cases that 
+  users, Installing and developing Oasis, and Supporting and Oasis model deployment. These are the different use cases that 
   are detailed in this documentation. By selecting your use case, the relevant information can be accessed.
 
+|
 
 Overview
 --------
@@ -23,7 +24,7 @@ Overview
 
     Oasis Ecosystem
 
-
+|
 
 Our main users are:
 *******************
@@ -39,7 +40,7 @@ This would also cover government and third sector users.
 
 **Enterprise risk systems** at insurance or reinsurance organizations, where Oasis risk models will be integrated using APIs into pricing and portfolio management workflows.
 
-
+|
 
 Our software components are:
 ****************************
@@ -58,11 +59,14 @@ It is designed with a model developer or academic user in mind, who are likely t
 **Oasis Model Library** is a hosted catalogue for Oasis models, hosted in AWS. 
 It allows regression of the models after updates to the Oasis Platform code, and validation of model operation and scalability within a hosted Oasis Platform.
 
+----
+
 .. toctree::
     :titlesonly:
     :caption: Home:
 
     home/introduction.rst
+    Oasis GitHub <https://github.com/OasisLMF>
     home/git-repo.rst
     home/FAQs.rst
 
@@ -78,9 +82,10 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :titlesonly:
     :caption: Sections:
 
-    sections/analysis-settings.rst
+    sections/analysis_settings
     sections/API.rst
     sections/camel.rst
+    sections/correlation.rst
     sections/deployment.rst
     sections/disaggregation.rst
     sections/financial-module.rst
@@ -89,7 +94,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/model-data-library.rst
     sections/model-development-kit.rst
     sections/model-providers.rst
-    sections/model-settings.rst
+    sections/model_settings
     sections/modelling-methodology.rst
     sections/Oasis-evaluation.rst
     sections/Oasis-file-formats.rst
@@ -103,14 +108,15 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/ODS.rst
     sections/OED.rst
     sections/ORD.rst
+    sections/platform_1
+    sections/platform_2
     sections/post-loss-amplification.rst
     sections/pytools.rst
     sections/releases.rst
     sections/results.rst
     sections/SaaS-providers.rst
-  
-
+    sections/versioning.rst
+    
 .. 
   sections to be populated: sections/pre-analysis-adjustments.rst, sections/sampling-methodology.rst, sections/errors.rst
 
-  

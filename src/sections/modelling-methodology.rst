@@ -19,7 +19,7 @@ What is a catastrophe model
 
 Catastrophe models are used extensively in the (re)insurance industry to estimate expected losses from natural disasters. 
 Catastrophe models output loss exceedance curves (LECs), i.e. a probability distribution of losses that will be sustained by 
-an insurance company in any given year, together with an annual average loss (AAL) and standard deviation.
+an insurance company in any given year, together with an annual average loss (AAL) and standard deviation. 
 Given the paucity in historical losses for extreme events from which to build actuarial based models, catastrophe models 
 take a bottom-up approach from scientific first principles to estimate the risk. 
 
@@ -34,8 +34,8 @@ The anatomy of a typical catastrophe model is shown below:
 
 The first task is to generate an event set representative of all possible events that may occur, along with their intensity 
 and probability across a long-enough time period to encapsulate a comprehensive distribution of even the most extreme events. 
-A 10,000 year simulation is often used.The goal is not to recreate the last 10,000 years of history, but to simulate 10,000 
-years of activity equivalent to current conditions.Each event has a probability of occurrence within the simulated time 
+A 10,000 year simulation is often used. The goal is not to recreate the last 10,000 years of history, but to simulate 10,000 
+years of activity equivalent to current conditions. Each event has a probability of occurrence within the simulated time 
 period. Models often employ a “boiling down” process to optimise the run-times of their models by combining very similar 
 events together, including their probability of occurrence. This maintains the representativeness of the ultimate event set 
 to be consistent with the original event set in terms of losses and the geographical distribution of loss, but is faster 
@@ -45,7 +45,7 @@ For each event a hazard footprint will be generated, which calculates an appropr
 damage at each point in a grid across the entire area effected by an event. For example, this is may be the maximum 3-second 
 peak gust experienced at every location by a windstorm during the course of that windstorm. Time-stepping models are used 
 which simulate the storm and its windfield say every 15 minutes throughout the entire lifecycle of the storm, which may be 
-many hours in duration.Topography, surface roughness, soil and geological information must all be taken into account, as 
+many hours in duration. Topography, surface roughness, soil and geological information must all be taken into account, as 
 the model is representing the hazard at the surface of the ground. The maximum peak-gust windspeed experienced is stored as 
 the “hazard footprint” provided by a catastrophe model.
 
@@ -90,18 +90,18 @@ Simulation methodology
 
 The Oasis kernel provides a robust loss simulation engine for catastrophe modelling.Insurance practitioners are used to 
 dealing with losses arising from events. These losses are numbers, not distributions. Policy terms are applied to the 
-losses individually and then aggregated and further conditions or reinsurances applied.Oasis takes the same perspective, 
-which is to generate individual losses from the probability distributions.The way to achieve this is random sampling called 
+losses individually and then aggregated and further conditions or reinsurances applied. Oasis takes the same perspective, 
+which is to generate individual losses from the probability distributions. The way to achieve this is random sampling called 
 “Monte-Carlo” sampling from the use of random numbers, as if from a roulette wheel, to solve equations that are otherwise 
 intractable.
 
-Modelled and empirical intensities and damage responses can show significant uncertainty, Sometimes this uncertainty is 
-multi-modal, meaning that there can be different peaks of behaviour rather than just a single central behaviour.Moreover, 
+Modelled and empirical intensities and damage responses can show significant uncertainty. Sometimes this uncertainty is 
+multi-modal, meaning that there can be different peaks of behaviour rather than just a single central behaviour. Moreover, 
 the definition of the source insured interest characteristics, such as location or occupancy or construction, can be 
 imprecise. The associated values for event intensities and consequential damages can therefore be varied and their 
 uncertainty can be represented in general as probability distributions rather than point values. The design of Oasis 
 therefore makes no assumptions about the probability distributions and instead treats all probability distributions as 
-probability masses in discrete bins.This includes closed interval point bins such as the values [0,0] for no damage and 
+probability masses in discrete bins. This includes closed interval point bins such as the values [0,0] for no damage and 
 [1,1] for total damage. 
 
 The simulation approach taken by the Oasis calculation kernel computes a single cumulative distribution function (CDF) for 

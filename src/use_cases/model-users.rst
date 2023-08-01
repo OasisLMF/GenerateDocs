@@ -12,7 +12,7 @@ Sections
 
 :doc:`OED - Open Exposure Data <../../sections/OED>`
 
-:doc:`Analysis Settings <../../sections/analysis-settings>`
+:doc:`Analysis Settings <../../sections/analysis_settings>`
 
 :doc:`Oasis UI <../../sections/Oasis-UI>`
 
