@@ -43,7 +43,7 @@ Release Schedule
   the new version number, so on release 1.28.0 the code base is copied to a branch ``backports/1.28.x`` where backported features 
   and fixes are applied.
 
-* **After 2023** - Starting from 2023, we will transition to a yearly release cycle for our stable versions. Each year, we will 
+* **After 2023** - From 2024, we will transition to a yearly release cycle for our stable versions. Each year, we will 
   release a new stable version with additional features.
 
 A full, detailed list of the changes from each release can be found `here <https://github.com/OasisLMF/OasisLMF/releases>`_.
