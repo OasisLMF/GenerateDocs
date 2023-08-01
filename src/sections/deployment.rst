@@ -48,8 +48,8 @@ Single user / smaller company
 ----
 
 A single users / smaller companies are advised to install the **Oasis package** for building, testing, and validating models. 
-This is a more traditional approach to model development than the :doc:`model-development-kit`; instead of interracting 
-with the command line, the platform is accessible via the :doc:`Oasis-UI` as well as a suite of APIs.
+This is a more traditional approach to model development than the :doc:`MDK <model-development-kit>`; instead of interracting 
+with the command line, the platform is accessible via the :doc:`Oasis-UI`, as well as a suite of APIs.
 
 The platform is Docker-based and so can operate on which ever operating system you use: Windows, Max, or Linux. Once 
 installed, the package can run models on any scale that you or your company desires; whether that is on a laptop, server, or 
@@ -85,14 +85,13 @@ Larger company
 
 ----
 
-Larger companies with more users and more needs in regards to volume of runs (ie. hundreds of analyses per week), then we 
-advise our **Oasis Enterprise Platform**. This platform uses a a piece of technology called Google's Kubernetes 
-orchestration engine to distribute workloads over many many workers, effectively allowing  you to spin up lots of instances 
-andbreak large jobs up into lots and lots of small jobs and run them at scale. This enables analyses to be completed much 
-cheaper and more efficently.
+For larger companies with more users and more needs in regards to volume of runs (ie. hundreds of analyses per week), we 
+advise our **Oasis Enterprise Platform**. This platform uses Google's Kubernetes orchestration engine to distribute workloads 
+over many many workers, effectively allowing you to spin up lots of instances and break large jobs up into lots of small 
+jobs to run them at scale. This enables analyses to be completed much cheaper and more efficently.
 
-The **Oasis Enterprise Platform** is an open source `kubernetes <https://kubernetes.io/docs/concepts/overview/>`_ based, 
-cloud computing cluster, which is deployable in `microsoft azure <https://azure.microsoft.com/en-gb/resources/
+The **Oasis Enterprise Platform** is an open source `Kubernetes <https://kubernetes.io/docs/concepts/overview/>`_ based, 
+cloud computing cluster, which is deployable in `Microsoft Azure <https://azure.microsoft.com/en-gb/resources/
 cloud-computing-dictionary/what-is-azure/>`_ via `Helm charts <https://helm.sh/docs/topics/charts/>`_ and `Bicep scripts 
 <https://learn.microsoft.com/en-us/azure/azure-resource-manager/bicep/deployment-script-bicep>`_ to setup the Azure cloud 
 services. The diagram below sets out the **Oasis Enterprise Platform** architecture:
@@ -111,9 +110,9 @@ This platform is something that would be run on a server or in the cloud; it is 
 Example implementations of the Oasis Enterprise Platform are availible in Microsoft Azure. More information about this can 
 be found in the `OasisAzureDeployment Github repository <https://github.com/OasisLMF/OasisAzureDeployment>`_.
 
-The :doc:`Oasis-UI` is compatible with this system, however, the advise approach is to use the API layer to systematically
-integrate this with your existing systems.This will enable you to then pass in exposure data and analysis requirements to 
-extract the model results.
+The :doc:`Oasis-UI` is compatible with this system, however, the advised approach is to use the API layer to systematically
+integrate this with your existing systems. This will enable you to then pass in exposure data and analysis requirements to 
+extract model results.
 
 
 |
@@ -139,7 +138,6 @@ additonal functionalilty boyond the :doc:`Oasis-UI`, such has the UI hosted by N
 
 |
 
-Companies offering this service include the likes of Nasdaq NRMC, 
-Xceedance, and Impact Forecasting Elements. More information about SaaS and the companies can be found in the 
-:doc:`SaaS-providers` section.
+Companies offering this service include the likes of Nasdaq NRMC, Xceedance, and Impact Forecasting Elements. More 
+information about SaaS and the companies can be found in the :doc:`SaaS-providers` section.
 

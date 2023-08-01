@@ -17,7 +17,7 @@ Catastrophe models are generally made up of three modules:
     :align: center
     :alt: Oasis modules
 
-These modules of are usually developed independently by people with the relevant expertise, and then brought together to be 
+These modules are usually developed independently by people with the relevant expertise, and then brought together to be 
 calibrated and validated, eventually forming a complete catastrophe model. However, it’s rare that the resulting catastrophe 
 model is ready for immediate deployment and use because the model development and deployment systems are often quite 
 different. This can lead to an often complex and lengthy process to convert the new model into a deployable set of assets, 

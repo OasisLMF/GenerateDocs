@@ -62,6 +62,9 @@ set -e
     #    exit 1
     #fi 
 
+# Update JSON specs 
+    ./update-redoc.py
+
 # Build docs
     cd $DIR_BASE
     make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
@@ -72,3 +75,5 @@ set -e
     fi 
     tar -czvf oasis_docs.tar.gz -C build/html/ .
     mv oasis_docs.tar.gz $DIR_BASE/output/
+
+

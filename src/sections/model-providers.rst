@@ -1,8 +1,9 @@
 Model Providers
 ===============
 
-Over 100 models from 21 different providers will be delivered to Oasis, some subject to market demand. Models are at 
-different levels of preparation. Please download the list of models below, or get in touch for details.
+Over 100 models from 21 different providers will be delivered to Oasis, some subject to market demand. These models are at 
+different levels of preparation. To view the full list of availible models, please download the list of models below, or get in 
+touch for details at info@oasislmf.org.
 
 `Download - List of models available on the Oasis platform <https://oasislmf.org/download_file/force/477/229>`_
 
