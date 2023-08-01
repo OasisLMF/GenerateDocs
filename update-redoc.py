@@ -31,7 +31,7 @@ def write_json(file, data):
         json.dump(data, f)
 
 def patch_schema(base_schema, version, description):
-    base_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png" }
+    base_schema['info']['x-logo'] = { "url": "https://oasislmf.github.io/_images/OASIS_LMF_COLOUR.png" }
     base_schema['info']['description'] = description
     base_schema['info']['version'] = version
     return base_schema
