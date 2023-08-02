@@ -7,10 +7,8 @@ On this page
 * :ref:`intro_correlation`
 * :ref:`sources_of_correlation`
 * :ref:`features_by_version`
-* :ref:`features_1.15.x`
-* :ref:`features_1.15.5`
-* :ref:`features_1.27.x`
-* :ref:`features_1.27.2`
+* :ref:`available_1.15`
+* :ref:`available_1.27`
 
 
 |
@@ -37,11 +35,15 @@ Sources of correlation
 
 ----
 
-There is correlation in the hazard intensity that multiple exposures will experience. The closer they are to each other, the more likely it is that they will experience similar hazard intensities.  The relationship between the distance between exposures and the level of hazard correlation will depend on the peril being modelled.  Catastrophe modellers define the geographical resolution of area in their footprint carefully in order to represent the spatial variability of hazard intensity for the peril.
+In large catastrophes, there is a tendency for losses across multiple locations to be correlated, meaning relatively high losses across locations or low losses across locations tend to occur together. The correlation is stronger the closer together the exposures are located. 
 
-A second source of correlation is in the level of damage given the force of hazard intensity. This arises because buildings that are close to each other of similar construction can have the same vulnerabilities to damage.
+Two main reasons why this would be the case for buildings situated close together are;
 
-The combination of hazard intensity and damage correlation leads to more extreme losses across a portfolio which is of primary concern to a risk carrier.  It does not change the mean ground up loss, but leads to more extreme losses at higher return periods. 
+*   They experience similar a hazard intensity in an event; flood depth, windspeed etc.
+*   They have similar vulnerability characteristics (such as being built by the same developer) and similar modes of failure/types of damage given the hazard intensity.
+
+Correlation increases the range of potential claims at a portfolio level and particularly for large, rare events, a model can significantly underestimate uncertainty and extreme losses if this correlation is not captured. It is therefore desirable to allow modellers and users the ability to express views on the degree of spatial correlation in Oasis so that the effect on portfolio risk can be explored.
+
 
 |
 
@@ -56,25 +58,23 @@ There are several options in Oasis to represent correlation, and more features h
 
 These can be summarized as follows;
 
-*  1.15.x and later 
+*  1.15 and later 
     *   Group correlation for damage
     *   Model specification of correlation groups
     *   User override using CorrelationGroup field in OED
-*  1.15.5 and later
-    *   User override using an OED field list
-*  1.27.0 and later
+    *   User override using an OED field list parameter
+*  1.27 and later
     *   Separate hazard and damage sampling (full monte carlo sampling). 
     *   Partial correlation for damage. 
     *   Separate groupings for hazard correlation.  
-*  1.27.2 and later
     *   Partial correlation for hazard
 
 |
 
-.. _features_1.15.x:
+.. _available_1.15:
 
-Features in OasisLMF 1.15.x
-###########################
+Available in OasisLMF 1.15
+##########################
 
 ----
 
@@ -182,27 +182,36 @@ This will override the system default behaviour for generating the group_id, and
 
 |
 
+**User override using OED field list parameter**
+
+Rather than specifying each correlation group_id location by location, the user can instead specify a field list to generate the correlation groups.  This can be any combination of OED location fields.  Each unique set of values for the specified fields will be assigned a unique group_id.
+
+For instance, if "PostalCode" was chosen as the grouping field, then the group_ids might be assigned as follows.  Locations 3 and 4 are located in the same postcode, and they would be assigned the same group_id.
+
+.. csv-table::
+    :header: "PortNumber", "AccNumber", "LocNumber", "PostalCode", "group_id"
+
+    "Port1", "Acc1", "Loc1", "SR3 5LX","1"
+    "Port1", "Acc1", "Loc2", "SR3 5LY", "2"
+    "Port1", "Acc1", "Loc3", "SR3 5LZ", "3"
+    "Port1", "Acc1", "Loc4", "SR3 5LZ", "3"
+
+The OED field list can be specified in the oasislmf settings using the **group_id_cols** parameter, as follows;
+
+``oasislmf.json``
+
+.. code-block:: JSON
+
+   {
+    "group_id_cols": ["PostalCode"]
+    }
 
 |
 
-.. _features_1.15.5:
+.. _available_1.27:
 
-Features in OasisLMF 1.15.5
-###########################
-
-----
-
-
-.. _features_1.27.x:
-
-Features in OasisLMF 1.27.x
-###########################
+Available in OasisLMF 1.27
+#########################
 
 ----
 
-.. _features_1.27.2:
-
-Features in OasisLMF 1.27.2
-###########################
-
-----
