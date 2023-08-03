@@ -115,6 +115,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/releases.rst
     sections/results.rst
     sections/SaaS-providers.rst
+    sections/sampling-methodology.rst
     sections/versioning.rst
     
 .. 
