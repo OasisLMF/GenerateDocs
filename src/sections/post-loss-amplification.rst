@@ -54,6 +54,9 @@ The uplift factor is applied after the GUL calculation and is it's own module. T
 gulpy or gulmc...or complex model wrapper implementations. However, if elements from the logic can be inherited by gulpy/gulmc to 
 improve performance, this is also an option.
 
+An example toy model with post loss amplification is availible to use from `here <https://github.com/OasisLMF/
+OasisModels/tree/develop/PiWindPostLossAmplification>`.
+
 |
 
 .. _file_format_pla:
