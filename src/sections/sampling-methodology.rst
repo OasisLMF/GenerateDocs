@@ -77,7 +77,7 @@ For each item, the values of areaperil_id and vulnerability_id determine the dam
 
 
 |
-.. _inputs:
+.. _random_number_seeding:
 
 Random number seeding
 *********************
