@@ -50,6 +50,12 @@ More information on this model can be found here: :ref:`piwind_models`
 PiWind Absolute Damage
 **********************
 
+This model expands upon the PiWind model with the absolute damage option. This option allows model providers to include 
+absolute damage amounts rather than damage factors in the damage bin dictionary. If the damage factors are less than or 
+equal to 1 in the damage bin dictionary, the factor will be applied as normal during the loss calculation, by applying the 
+sampled damage factor to the TIV to give a simulated loss; but with absolute damage factors, where the factor is greater 
+than 1, the TIV is not used in the calculation at all, but rather the absolute damage is applied as the loss.
+
 ----
 
 PiWind Complex Model
