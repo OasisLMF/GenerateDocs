@@ -23,8 +23,8 @@ ODS Tools is a Python package designed to manage :doc:`../../sections/ODS` data,
 :doc:`ODS <../../sections/ODS>` schema. It includes a range of tools for working with Oasis data files, including loading, 
 conversion, and validation. This package is in accordance with :doc:`ODS <../../sections/ODS>`. 
 
-As a separate service, the package include functionality to manage :doc:`../../sections/model-settings` and 
-:doc:`../../sections/analysis-settings` that are used to perform an analysis.
+As a separate service, the package include functionality to manage :doc:`../../sections/model_settings` and 
+:doc:`../../sections/analysis_settings` that are used to perform an analysis.
 
 ODS tools comprises primarily of two parts:
 

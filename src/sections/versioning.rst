@@ -90,6 +90,5 @@ This page lists what features were released with each verion.
 * The Group ids can now be set by the following internal oasis fields 'item_id', 'peril_id', 'coverage_id', and 
   'coverage_type_id'
 * Added validation for unsupported special conditions
-* 
 
 |

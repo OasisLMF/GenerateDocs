@@ -76,6 +76,8 @@ give rise to inflated and/or deflated costs depending on that specific situation
 losses produced by the GUL calculation component are multiplied by post loss amplification factors, by the component 
 plapy.
 
+----
+
 PiWind Single Peril
 *******************
 
@@ -102,7 +104,7 @@ PiWind - toy model
 Oasis has developed a toy model, PiWind, available `here <https://github.com/OasisLMF/OasisPiWind>`_. PiWind is a wind storm 
 model for a small area of the UK. The data is mocked up to illustrate the Oasis data formats and functionality, and is not 
 meant to be a usable risk model. The PiWind toy model is availible to use from `here <https://github.com/OasisLMF/
-OasisModels/tree/develop/PiWind>`.
+OasisModels/tree/develop/PiWind>`_.
 
 There are three main components to a catastrophe risk model deployed in Oasis. A fuller discussion of the components of a 
 hazard model can be found in :doc:`modelling-methodology`.
