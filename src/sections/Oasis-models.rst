@@ -28,12 +28,16 @@ This is a single event model which allows users to apply deterministic losses to
 in the OED location file. It is similar to the ``exposure`` feature in the oasislmf package, but can be deployed as a model in 
 it's own right to model deterministic losses which can then be passed through the Oasis financial module.
 
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/DeterministicModel>`_.
+
 ----
 
 Paris Windstorm
 ****************
 
 This is very small, single peril model used for demonstration of how to build a simple model in Oasis.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/ParisWindstorm>`_.
 
 ----
 
@@ -42,6 +46,8 @@ PiWind
 
 This is the original test model in Oasis and is an example of a multi-peril model implementation representing ficticious 
 events with wind and flood affecting the Town of Melton Mowbray in England.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWind>`_.
 
 More information on this model can be found here: :ref:`piwind_models`
 
@@ -56,6 +62,8 @@ equal to 1 in the damage bin dictionary, the factor will be applied as normal du
 sampled damage factor to the TIV to give a simulated loss; but with absolute damage factors, where the factor is greater 
 than 1, the TIV is not used in the calculation at all, but rather the absolute damage is applied as the loss.
 
+This model is availible to use from `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindAbsoluteDamage>`_.
+
 ----
 
 PiWind Complex Model
@@ -64,6 +72,8 @@ PiWind Complex Model
 This is a version of the PiWind model which uses the complex model integreation approach to generate ground up losses in a 
 custoim module, which then sits in the workflow and replaces the standard ground up loss calculation from Oasis.
 
+This model is availible to use from `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindComplexModel>`_.
+
 ----
 
 PiWind Postcode
@@ -71,6 +81,8 @@ PiWind Postcode
 
 This is a variant of the original PiWind model designed for running exposures whose locations are known at postcode level 
 rather than by latitude and longitude. This model demonstrates the disaggregation features of Oasis.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindPostcode>`_.
 
 ----
 
@@ -82,6 +94,8 @@ give rise to inflated and/or deflated costs depending on that specific situation
 losses produced by the GUL calculation component are multiplied by post loss amplification factors, by the component 
 plapy.
 
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindPostLossAmplification>`_.
+
 ----
 
 PiWind Single Peril
@@ -90,14 +104,12 @@ PiWind Single Peril
 This is a simplified variant of the original PiWind model which has single peril (wind only) and would be a good basis for 
 a single peril model in Oasis.
 
-|
-
-.. note::
-    More information about these models can be found `here <https://github.com/OasisLMF/OasisModels/tree/develop>`_.
-
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindSinglePeril>`_.
 
 ----
 
+.. note::
+    More information about these models can be found `here <https://github.com/OasisLMF/OasisModels/tree/develop>`_.
 |
 
 .. _piwind_models:

@@ -30,6 +30,12 @@ together determine the effective damage distribution per event in the analysis. 
 vulnerability_id might be valid and produce a different distribution and therefore different losses. The question is what 
 general features can Oasis provide to capture this uncertainty in the modelling process?
 
+Our toy model `PiWind Postcode <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindPostcode>`_ demonstrates the 
+disaggregation features of Oasis. This model is availible to use from `here 
+<https://github.com/OasisLMF/OasisModels/tree/develop/PiWindPostcode>`_.
+
+
+
 |
 
 .. _how_it_works_disaggregation:
