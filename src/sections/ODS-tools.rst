@@ -103,7 +103,7 @@ ODS Tools can be installed via pip by running the following command:
     pip install ods-tools
 |
 
-Once installed, ODS Tools can be used utilised via the command line interface to quickly convert oed files.
+Once installed, ODS Tools can be used via the command line interface to quickly convert oed files.
 
 Example :
 
