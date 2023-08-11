@@ -90,6 +90,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/deployment.rst
     sections/disaggregation.rst
     sections/financial-module.rst
+    sections/geocoding.rst
     sections/keys-service.rst
     sections/ktools.rst
     sections/model-data-library.rst
