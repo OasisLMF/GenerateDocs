@@ -112,6 +112,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/platform_1
     sections/platform_2
     sections/post-loss-amplification.rst
+    sections/pre-analysis-adjustments.rst
     sections/pytools.rst
     sections/releases.rst
     sections/results.rst
