@@ -19,7 +19,7 @@ Overview
 
 ----
 
-.. figure:: images/oasis_ecosystem.jpg
+.. figure:: images/oasis_ecosystem_new.png
     :alt: Oasis Ecosystem
 
     Oasis Ecosystem
