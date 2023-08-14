@@ -98,6 +98,18 @@ This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tr
 
 ----
 
+PiWind Post Pre Analysis
+************************
+
+This model builds upon the original PiWind model with a pre-analysis adjustment hook. This step allows the user to modify input 
+files before they are processed in the analysis. This functionality is utilised by this model by implementing an external geocoder: 
+this checks the location data before it is analysed for any addresses that are missing OED location data. If an address is found t
+o be incomplete, it is geocoded to fill these gaps.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindPreAnalysis>`_.
+
+----
+
 PiWind Single Peril
 *******************
 
