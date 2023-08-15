@@ -91,10 +91,9 @@ OasisAzureDeployment can be used to manage, deploy, run, monitor, and configure 
 
 * `OasisEvaluation <https://github.com/OasisLMF/OasisEvaluation>`_
 
-The Oasis Evalutaion repository can be use to spin up an Oasis enviroment to quickly and efficiently run and test models.
-The Oasis Platform release now includes a full API for operating catastrophe models and a general consolidation of the 
-platform architecture. Windows SQL server is no longer a strict requirement. The platform can be run via docker containers 
-on a single machine or, if required, scaled up to run on a cluster.
+The OasisEvaluation repository provides a streamlined way to run the Oasis stack in multi-container environment using 
+docker-compose. This is intended for locally testing the OasisPlatform 1 with a toy model example OasisPiWind, via the Web UI 
+OasisUI.
 
 ----
 
