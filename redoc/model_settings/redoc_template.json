@@ -5,7 +5,7 @@
 		"description": "<TEXT HERE>",
 		"version": "<ODS_VERSION>",
 		"x-logo": {
-			"url": "https://oasislmf.github.io/_static/OASIS_LMF_COLOUR.png",
+			"url": "https://oasislmf.github.io/_images/OASIS_LMF_COLOUR.png",
 			"backgroundColor": "#FFFFFF",
 			"altText": "OasisLMF logo"
 		}

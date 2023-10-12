@@ -19,7 +19,7 @@ Overview
 
 ----
 
-.. figure:: images/oasis_ecosystem.jpg
+.. figure:: images/oasis_ecosystem_new.png
     :alt: Oasis Ecosystem
 
     Oasis Ecosystem
@@ -82,6 +82,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     :titlesonly:
     :caption: Sections:
 
+    sections/absolute-damage.rst
     sections/analysis_settings
     sections/API.rst
     sections/camel.rst
@@ -89,6 +90,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/deployment.rst
     sections/disaggregation.rst
     sections/financial-module.rst
+    sections/geocoding.rst
     sections/keys-service.rst
     sections/ktools.rst
     sections/model-data-library.rst
@@ -111,12 +113,14 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/platform_1
     sections/platform_2
     sections/post-loss-amplification.rst
+    sections/pre-analysis-adjustments.rst
     sections/pytools.rst
     sections/releases.rst
     sections/results.rst
     sections/SaaS-providers.rst
+    sections/sampling-methodology.rst
     sections/versioning.rst
     
 .. 
-  sections to be populated: sections/pre-analysis-adjustments.rst, sections/sampling-methodology.rst, sections/errors.rst
+  sections to be populated: sections/pre-analysis-adjustments.rst, sections/errors.rst, sections/complex-model.rst
 
