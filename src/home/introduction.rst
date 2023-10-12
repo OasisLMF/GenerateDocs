@@ -19,7 +19,7 @@ Overview
 
 ----
 
-.. figure:: ../images/oasis_ecosystem.jpg
+.. figure:: ../images/oasis_ecosystem_new.png
     :alt: Oasis Ecosystem
 
     Oasis Ecosystem
@@ -59,44 +59,3 @@ It is designed with a model developer or academic user in mind, who are likely t
 
 **Oasis Model Library** is a hosted catalogue for Oasis models, hosted in AWS. 
 It allows regression of the models after updates to the Oasis Platform code, and validation of model operation and scalability within a hosted Oasis Platform.
-
-
-..
-    This doesn't really work - gets messy having an index inside of the same index
-..    
-    .. toctree::
-        :titlesonly:
-        :caption: Home:
-
-        introduction.rst
-        git-repo.rst
-        FAQs.rst
-
-    .. toctree::
-        :titlesonly:
-        :caption: Use Cases:
-
-        ../use_cases/model-developer
-        ../use_cases/model-users
-        ../use_cases/installing-deploying-Oasis
-
-    .. toctree::
-        :titlesonly:
-        :caption: Sections:
-
-        ../sections/API.rst
-        ../sections/deployment.rst
-        ../sections/errors.rst
-        ../sections/financial-module.rst
-        ../sections/keys-service.rst
-        ../sections/ktools-pytools.rst
-        ../sections/Oasis-evaluation.rst
-        ../sections/Oasis-model-data-formats.rst
-        ../sections/Oasis-models.rst
-        ../sections/Oasis-platform.rst
-        ../sections/Oasis-UI.rst
-        ../sections/Oasis-workflow.rst
-        ../sections/OasisLMF-package.rst
-        ../sections/OED.rst
-        ../sections/options.rst
-        ../ sections/results.rst

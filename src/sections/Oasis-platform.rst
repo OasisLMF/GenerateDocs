@@ -7,8 +7,8 @@ On this page:
 * :ref:`introduction_platform`
 * :ref:`installing_oasis`
 * :ref:`platform_architecture`
-* :ref:`hard_scaling`
-* :ref:`weak_scaling`
+* :ref:`single_server`
+* :ref:`horizontal_scaling`
 * :ref:`development_approach`
 * :ref:`technology_stack`
 
@@ -36,28 +36,6 @@ platform provides:
   ktools)
 
 * Toolkit for developing, testing and deploying catastrophe models (Oasis Model Development Toolkit)
-
-
-
-|
-.. _installing_oasis:
-
-Installing Oasis
-****************
-
-----
-
-Oasis Installation Guide: Windows 10 OS
-#######################################
-
-..  youtube:: SxRt5E-Y5Sw
-
-|
-Oasis Installation Guide: Linux based OS
-########################################
-
-..  youtube:: OFLTpGGEM10
-
 
 
 |
@@ -91,10 +69,10 @@ A schematic of the Oasis Platform architecture is shown in the diagram below, an
 
 
 |
-.. _hard_scaling:
+.. _single_server:
 
-Hard Scaling
-************
+Single server deployment (Platform 1)
+*************************************
 
 ----
 
@@ -126,27 +104,31 @@ To overcome these limitations we are putting in place new approach.
 
 - gul-fm load balancer (next release) that will split events out of the gul further
   and increase fmcalc parallelization.
-- Oasis at scale (in test) will provide to the Oasis platform a way to split events
-  on a cluster using celery with the ability to auto-scale depending on the workload size.
-  (see detail at: https://github.com/OasisLMF/OasisAtScaleEvaluation)
-
-
-
 
 |
-.. _weak_scaling:
-
-Weak Scaling
-************
+.. _horizontal_scaling:
+Kubernetes deployment (Platform 2)
+**********************************
 
 ----
+The second iteration of the OasisPlatform provides helm charts to deploy oasis to a Kubernetes cluster. 
+For details on deploying to an Azure environment see: https://github.com/OasisLMF/OasisAzureDeployment
 
-All of the components are packaged as Docker images.
-Docker-compose can be used to deploy the system on one or more physical servers.
-You can therefore increase the throughput of analysis by
-provisioning more calculation servers and deploying more Analysis Worker images.
+This allows for horizontal scaling across multiple nodes in a cluster by breaking a catastrophe analysis into to several sub-tasks, where each ``chunk`` is a batch of 
+events batches split by ``eve``. These all run in parallel across all running nodes in a worker pool, which are combined in a final step to correlate output results. 
+
+.. figure:: /images/plat2_arch.png
+    :alt: Platform 2 architecture
+
+The Kubernetes installation adds three new oasis components. 
 
 
+.. csv-table::
+    :header: "Component", "Description", "Technology"
+
+    "oasis-task-controller", "handles analysis chunking based on chunking options set for a model.", "Custom Python code"
+    "oasis-websocket", "publishes messages to an auto-scaling component that controls the size of worker pool nodes", "Django Channels, Redis"
+    "oasis-worker-controller", "scales up and down the number of running VMs in a worker pool", "Custom Python code"
 
 
 |
@@ -193,14 +175,13 @@ Technology stack
 **Using**
 
 ========================  ===============================================================================
-Python 3.6                General system programming and tools.
+Python 3                  General system programming and tools.
 C++ 11                    Simulation and analytics kernel.
 Docker                    Deployment of Oasis Platform and UI.
-Ubuntu 18.04 LTS          Development servers and base Docker image.
+Ubuntu LTS                Base Docker images.
 AWS                       Cloud infrastructure for Oasis Model Library and Oasis Platform deployment.
-Jenkins 2 & BlueOcean     Continuous integration.
+Github Actions            Continuous integration.
 Django                    Web service framework.
-Apache                    Web server.
 Terraform                 Infrastructure automation.
 Sphinx                    Code documentation generation.
 RShiny                    Application framework build on R.
