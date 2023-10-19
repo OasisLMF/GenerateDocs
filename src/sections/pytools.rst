@@ -176,6 +176,14 @@ argument, e.g:
 
 |
 
+Or to specify the use of gulpy in oasislmf json settings;
+
+.. code-block:: JSON
+
+    "gulpy": true
+
+|
+
 On a real windstorm model these are the execution times:
 
 .. code-block:: sh
@@ -203,6 +211,25 @@ draws a sample of the hazard intensity, and then draws an independent sample of 
 corresponding to the hazard intensity sample.
 
 ``gulmc`` was first introduced in oasislmf v1.27.0 and is ready for production usage from oasislmf v ``1.28.0`` onwards.
+
+
+As of oasislmf version 1.27.0 ``gulmc`` is not used by default in the oasislmf MDK but it can be used by passing the ``--gulmc`` 
+argument, e.g:
+
+.. code-block:: sh
+
+    # using gulpy                 # using gulmc
+    oasislmf model run              oasislmf model run --gulmc
+
+|
+
+Or to specify the use of gulmc in oasislmf json settings;
+
+.. code-block:: JSON
+
+    "gulmc": true
+
+|
 
 This document summarizes the changes introduced with ``gulmc`` with respect to ``gulpy``.
 
@@ -390,11 +417,11 @@ Aggregate vulnerability functions are defined using two new tables, to be stored
     100003,8
     100003,9
 
-* a `weights` table that specifies weights for each of the individual vulnerability functions in all ``areaperil_id``: 
+* a `weights` table that specifies a measure of concentration 'count' to calculate relative weights for each of the individual vulnerability functions in all ``areaperil_id``: 
 
 .. code-block:: csv
 
-    areaperil_id,vulnerability_id,weight
+    areaperil_id,vulnerability_id,count
     54,1,138
     54,2,224
     54,3,194
@@ -411,7 +438,8 @@ Aggregate vulnerability functions are defined using two new tables, to be stored
 |
 
 items.csv (use only two aggregate vulnerability ids):
-.. code-block::
+
+.. code-block:: csv
 
     item_id,coverage_id,areaperil_id,vulnerability_id,group_id
     1,1,154,8,833720067

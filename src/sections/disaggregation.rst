@@ -59,12 +59,12 @@ These can be summarized as follows;
 Available in OasisLMF 1.15
 ##########################
 
+----
 
 **Pre-analysis hooks**
 
-
-For versions of OasisLMF before 1.28, aggregate exposure must be converted into detailed data, one building per row in 
-the location file, before being imported into the platform for analysis. This can be done outside of the system, or the 
+For versions of OasisLMF before 1.28, aggregate exposure data must be converted into detailed data, one building per row in 
+the location file, before being imported into the platform for analysis. This can be done outside of the system or the 
 model developer, as part of the Oasis model assets, may provide a pre-analysis routine to generate a modified OED location 
 file from an input OED location file which splits aggregate risk records into detailed risk records.
 
@@ -94,7 +94,7 @@ See the pre-analysis hooks section for more information about how to use them.
 If the geographical location of an exposure known at a lower resolution than the model’s hazard footprint (which typically 
 requires street address or latitude-longitude precision) then whether it can be modelled or not depends on the model. Each 
 Oasis model will specify a list of geographical fields required for modelling. This could be just the latitude-longitude 
-point, or it could be latitude- longitude point and/or postal code, etc, because hazard data is normally provided at a very 
+point, or it could be latitude-longitude point and/or postal code, etc, because hazard data is normally provided at a very 
 detailed level, depending on the peril in question.
 
 Geocoding may be performed to find the coordinates for the exposure as a pre-import step, but this is unlikely to improve 
@@ -118,6 +118,7 @@ grid by binning the hazard values of the 9 grid cells.
 
 .. image:: ../images/Uniform_binning_of_intensity_to_aggregate_cell_level.png
    :width: 600
+
 |
 
 
@@ -133,6 +134,7 @@ where the buildings are concentrated.
 
 .. image:: ../images/Weighted_binning_of_intensity_to_aggregate_cell_level.png
    :width: 600
+
 |
 
 The weighting can further be based on some measure of building density within each small grid. These binned distributions 
@@ -179,17 +181,18 @@ vulnerability curves to an Oasis vulnerability module (e.g. one for every postco
 a bigger issue for the vulnerability module than it is to append aggregate footprints to the detailed footprint, where the detailed 
 footprints are already very big and the increase in file size is relatively small.
 
-Oasis has implemented on-the-fly blending of vulnerability damage distributions for missing risk attributes, to remove the necessity the pre-calculate and store area-based vulnerability curves.  This requires the model provider to prepare two extra model files;
+Oasis has implemented on-the-fly blending of vulnerability damage distributions for missing risk attributes, to remove the necessity to pre-calculate and store area-based vulnerability curves.  This requires the model provider to prepare two extra model files;
 
 * **aggregate_vulnerability** - this defines a new range of vulnerability ids identifying different mixtures of unknown attributes 'aggregate_vulnerability_id' and maps them to the vulnerability_ids for known risk attributes. This is a small file as it is area-independent.
 
-* **weights** - for each areaperil in the model, this defines the list of vulnerability_ids for known risk attributes (not aggregate_vulnerability_ids) that are present and a 'count' column contains any value that represent the relative weighting of that vulnerability_id for each areaperil_id. This can be a very large file.
+* **weights** - for each areaperil in the model, this defines the list of vulnerability_ids for known risk attributes (i.e. not aggregate_vulnerability_ids) that are present. A third 'count' field stores any measure of exposure concentration such as population, sum insured or other economic measure.  It is used to derive relative weights for weighting the damage probability distributions contained within the vulnerability file for the vulnerability_ids present for each areaperil_id. This can be a very large file.
 
 The model provider must also include the set of aggregate vulnerability ids in the vulnerability dictionary along with their risk attributes (which will be a mixture of known and unknown attributes) so that exposures may be matched to them during the keys lookup process.
 
-Wherever exposures are matched with an aggregate_vulnerability_id in the keys lookup process, a dynamic weighting of the damage distributions for known attributes in the kernel is invoked during the model execution. The weighting is based on the data provided in the new model files.
+Wherever exposures are matched with an aggregate_vulnerability_id in the keys lookup process, a dynamic weighting of the damage distributions for known attributes in the kernel is invoked during the model execution. The weighting is based on the 'count' data provided in the weights file.
 
 The model files can be in csv or binary format. The data structures with example data are as follows;
+
 |
 
 aggregate_vulnerability:
@@ -223,27 +226,7 @@ weights;
 
 The areaperil_id column can include areaperil_ids for 'aggregate' footprints if provided in the hazard footprint.
 
-An excel worked example demonstrating the calculation is available on request.
-
-**Usage settings**
-
-|
-It is necessary to use the gulmc calculation module to use this feature as it is not supported in the gulpy calculation module.
-
-In oasislmf json settings, this is how to specify the calculation module options;
-
-|
-
-``oasislmf.json``
-
-.. code-block:: JSON
-
-    "modelpy": true,
-    "gulmc": true,
-    "gulpy": false
-|
-
-As long as the extra model files are provided in the same directory as the standard model files in the Oasis environment, there are no other settings needed to trigger the calculation. It will be invoked automatically if aggregate vulnerability ids are present in the kernel exposure input files.
+It is necessary to use the gulmc calculation module to use this feature. For more details please see :doc:`Pytools gulmc <pytools>`
 
 |  
 
@@ -318,23 +301,20 @@ When the number of buildings in the OED input location file is greater than 1, t
 1) The row represents a single site of multiple buildings, such as a campus or caravan park.
 2) The row represents aggregate exposure, i.e. multiple separate risks/sites of a similar risk type and geographical location.
 
+Although the ground up loss modelling treatment is the same for both cases, it is necessary to distinguish between the two due to:
+
+* The classification of a multi-building site as a single risk from the perspective of the insurer and the application of policy terms and conditions at the site level rather than the individual building level.
+
+* The closer proximity of the individual buildings, leading to potentially stronger correlation in hazard and damage
 
 The IsAggregate field in the OED location file can be used to distinguish between these two uses of the NumberOfBuildings field
 
-* IsAggregate = 0 (default) means that the row represents a single site with multiple buildings.
-* IsAggregate = 1 means that the row represents aggregate data.
+1) IsAggregate = 0 (default) means that the row represents a single site with multiple buildings.
+2) IsAggregate = 1 means that the row represents aggregate data.
 
-In both cases it may be preferred to model the ground up losses for each individual structure as opposed to treating a multi-building single site as 
-one building, particularly for very localized perils such as flood.  However, the insurance policy terms in the latter case will generally be applicable at the site level, so that ground up losses should be aggregated back up to the site level before policy ‘location’ level deductibles and limits are applied 
-(all the financial fields that begin with 'Loc').
+In both cases ground up losses will be modelled for each individual building.  However, for campus sites the insurance policy terms will generally be applicable at the site level, so that ground up losses should be aggregated back up to the site level before policy ‘location’ level deductibles and limits are applied (all the financial fields that begin with 'Loc'). 
 
-Although the ground up loss modelling treatment is the same for both cases, it is necessary to distinguish between the two due to:
-
-**a.** The classification of a multi-building site as a single risk from the perspective of the insurer and the application of 
-policy terms and conditions at the site level rather than the individual building level.
-
-**b.** The closer proximity of the individual buildings, leading to potentially stronger correlation in hazard and damage
-
+For aggregate data, location financial terms are treated the same as TIV, they are split and applied to each disaggregated risk.
 
 Here are the six possible combinations of NumberOfBuildings and IsAggregate, and how each is interpreted in Oasis;
 
@@ -370,31 +350,23 @@ The disaggregation and financial terms treatment for each case are as follows;
 
 Monetary financial deductibles and limits are split equally by the number of buildings for case 2 to be applied to each subrisk in the financial calculations.  Percentage deductibles and limits are unchanged and apply to each subrisk. 
 
-There is also a difference between cases in how disaggregated risks are grouped for the purposes of correlating hazard and damage in the ground up loss calculation. 
+The calculation logic is driven directly from the user input location data on a record by record basis, depending on which of the six cases above it matches.  There is no command switch to stop the number of risks disaggregation from occurring.
 
-The model provider can control this through the model settings json and more guidance can be found in the correlation section.
+It is necessary to use the gulmc calculation module to use this feature. For more details please see :doc:`Pytools gulmc <pytools>`
+
+**Correlation of disaggregated risks**
+
+There is also a difference between the two IsAggregate cases in how disaggregated risks are grouped for the purposes of correlating hazard and damage in the ground up loss calculation. 
+
+The model provider can control this through the model settings json.
 
 In case it is not specified, the default setting in Oasis is to fully correlate the subrisks for campus sites in case 3 (same correlation group id is assigned) and to make the subrisks for aggregate data independent in case 2 (different correlation group_id per subrisk).
 
-**Usage settings**
+For more details on model provider controls for correlation, please see :doc:`Correlation <correlation>`
 
-|
 
-It is necessary to use the gulmc calculation module to use number of risks and financial terms disaggregation as they are not supported in the gulpy calculation module.
 
-In oasislmf json settings, this is how to specify the calculation module options;
 
-|
 
-``oasislmf.json``
-
-.. code-block:: JSON
-
-    "modelpy": true,
-    "gulmc": true,
-    "gulpy": false
-|
-
-The calculation logic is driven directly from the user input location data on a record by record basis, depending on which of the six cases above it matches.  
 
 
