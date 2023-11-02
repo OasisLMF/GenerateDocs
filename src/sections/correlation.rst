@@ -7,9 +7,9 @@ On this page
 * :ref:`intro_correlation`
 * :ref:`sources_of_correlation`
 * :ref:`features_by_version`
-* :ref:`available_1.15`
-* :ref:`available_1.27`
-
+* :ref:`available_1.15_correlation`
+* :ref:`available_1.27_correlation`
+* :ref:`available_1.28_correlation`
 
 |
 .. _intro_correlation:
@@ -64,15 +64,17 @@ These can be summarized as follows;
     *   User override using CorrelationGroup field in OED
     *   User override using an OED field list parameter
 *  1.27 and later
+    *   Changes to correlation settings
     *   Peril correlation groups
     *   Partial correlation for damage
-    *   Separate groupings for hazard correlation
-    *   Separate hazard and damage sampling (full monte carlo sampling). 
-    *   Partial correlation for hazard
-
+*  1.28 and later
+    *   Separate hazard and damage sampling
+    *   Group correlation for hazard intensity
+    *   Partial correlation for hazard intensity
+    *   Correlation groups for disaggregated risks
 |
 
-.. _available_1.15:
+.. _available_1.15_correlation:
 
 Available in OasisLMF 1.15
 ##########################
@@ -81,14 +83,14 @@ Available in OasisLMF 1.15
 
 **Group correlation for damage**
 
-In Oasis, each exposure at risk is assigned a ‘group_id’ which is its correlation group.  
+In Oasis, each row in the input location file representing an exposure location is assigned a ‘group_id’ which is its correlation group.  
 
-•   When exposures have the same group_id, damage will be sampled with full correlation. 
-•   When exposures have different group_ids, damage will be sampled independently.  
+•   When exposure locations have the same group_id, damage will be sampled with full correlation. 
+•   When exposure locations have different group_ids, damage will be sampled independently.  
 
-To find out how the correlated and independent sampling works, please see the Sampling Methodology section.
+To find out how the correlated and independent sampling works, please see the :doc:`Sampling Methodology <sampling-methodology>` section.
 
-The three illustrated exposures have different group_ids assigned and would all be sampled independently.
+The three illustrated exposure locations have different group_ids assigned and would all be sampled independently.
 
 **Three exposures with independent correlation groups**
 
@@ -97,11 +99,9 @@ The three illustrated exposures have different group_ids assigned and would all 
 
 |
 
-Note that the locations illustrated may be impacted by the same or similar hazard intensity values per event, depending on the model's footprint. Where there is a single intensity value per model cell in the footprint (this is generally the case), it is only the correlation in damage given the hazard intensity that is being specified using the group_id. 
-
 **Default settings**
 
-Each location in the OED location file is assigned a unique group_id.  This is the system default behaviour for all models.
+Each exposure location in the OED location file is assigned a unique group_id.  This is the system default behaviour for all models.
 
 The group_id is generated automatically based on unique values of the input OED location fields that uniquely define a location, as illustrated in the table.  
 
@@ -112,11 +112,11 @@ The group_id is generated automatically based on unique values of the input OED 
     "Port1", "Acc1", "Loc2"
     "Port1", "Acc1", "Loc3"
 
-Multiple coverages at each location will be damaged with full correlation, because the group_id is defined at the location level and is the same number for all coverages.
+Multiple coverages at each location will be damaged with full correlation, because the group_id is defined at the location level and is the same value for all coverages.
 
 **Model specification of correlation groups**
 
-The model provider can optionally specify a rule for setting the group_id for a particular model in the model_settings json.  These are called the data settings.
+The model provider can optionally specify a rule for setting the group_id for a particular model in the model_settings json.  These are called the **data settings**.
 
 The setting illustrated below is equivalent to the system default: that group_ids are assigned based on unique locations defined by the OED fields.
 
@@ -126,10 +126,11 @@ The setting illustrated below is equivalent to the system default: that group_id
 
 .. code-block:: JSON
 
-    "data_settings": {
-    "group_fields": ["PortNumber", "AccNumber", "LocNumber"] }
+    {
+        "data_settings": {
+        "group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        }
     }
-|
 
 A modeller can use other OED fields to define the groups, and/or internal Oasis fields such as the areaperil_id.
 
@@ -137,11 +138,11 @@ A modeller can use other OED fields to define the groups, and/or internal Oasis 
 
 .. code-block:: JSON
 
-    "data_settings": {
-    "group_fields": ["areaperil_id"] }
+    {
+        "data_settings": {
+        "group_fields": ["areaperil_id"]
+        }
     }
-
-|
 
 This data setting would result in all locations with the same areaperil_id (located in the same hazard model grid cell) being assigned the same group_id.
 
@@ -160,11 +161,11 @@ The modeller can combine OED fields with internal Oasis fields.  In the next exa
 
 .. code-block:: JSON
 
-    "data_settings": {
-    "group_fields": ["PortNumber", "AccNumber", "LocNumber","coverage_type_id"] }
+    {
+        "data_settings": {
+        "group_fields": ["PortNumber", "AccNumber", "LocNumber","coverage_type_id"]
+        }
     }
-
-|
 
 **User override using CorrelationGroup field in OED**
 
@@ -189,7 +190,7 @@ This will override the system default behaviour for generating the group_id, and
 
 **User override using OED field list parameter**
 
-Rather than specifying each correlation group_id location by location, the user can instead specify a field list to generate the correlation groups.  This can be any combination of OED location fields.  Each unique set of values for the specified fields will be assigned a unique group_id.
+Rather than specifying each correlation group_id location by location, the user can instead specify a field list to generate the correlation groups.  This can be any combination of OED location file fields.  Each unique set of values for the specified fields will be assigned a unique group_id.
 
 For instance, if "PostalCode" was chosen as the grouping field, then the group_ids might be assigned as follows.  Locations 3 and 4 are located in the same postcode, and they would be assigned the same group_id.
 
@@ -207,34 +208,63 @@ The OED field list can be specified in the oasislmf settings using the **group_i
 
 .. code-block:: JSON
 
-   {
-    "group_id_cols": ["PostalCode"]
+    {
+        "group_id_cols": ["PostalCode"]
     }
 
-|
-
-.. _available_1.27:
+.. _available_1.27_correlation:
 
 Available in OasisLMF 1.27
 ##########################
 
-New correlation features were introduced in release 1.27 in 2022.  This meant breaking changes in the format of the model settings file, and an alternative runtime calculation option 'gulmc' which is required for some of the features explained below.  
+----
+
+New correlation features were introduced in OasisLMF 1.27 in 2022.  This meant changes to the **group_fields** parameter of data settings in the model settings json file and the oasislmf **group_id_col** override parameter, and an alternative ground up loss sampling option **gulmc**.  
+
+Although gulmc is introduced in OasisLMF 1.27, production use is recommended from OasisLMF 1.28. See :ref:`gulmc-pytools` for further details. The extra correlation features for separate hazard and damage sampling are explained in :ref:`available_1.28_correlation` below.
 
 The correlation functionality described here is available to use for any standard Oasis model. Complex models that use bespoke correlation methodologies can continue to be used as before, or the new functionality could be incorporated within the complex model wrapper by the model provider. 
 
-|
+
+**Changes to correlation settings**
+
+In data_settings in the model settings json, the **group_fields** parameter in version 1.15 has been changed to **damage_group_fields**. 
+
+Example:
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        }
+    }
+
+In the oasislmf settings, the **group_id_cols** parameter has been changed to **damage_group_id_cols**. 
+
+Example:
+
+``oasislmf.json``
+
+.. code-block:: JSON
+
+    {
+        "damage_group_id_cols": ["PostalCode"]
+    }
 
 **Peril correlation groups**
 
-There can be multiple hazards in an event which can give rise to loss. There may be the same peril type, for example flooding from different sources such as river flood / heavy rainfall, or there may be completely different perils and types of damage (e.g. high wind speeds causing roof damage, and flooding causing ground floor damage). 
+There can be multiple hazards in an event which can give rise to damage, and loss. There may be the same peril type, for example flooding from different sources such as river flood / heavy rainfall, or there may be completely different perils and types of damage (e.g. high wind speeds causing roof damage, and flooding causing ground floor damage). 
 
 In previous versions of Oasis, all peril damage at a location has been treated as fully correlated. 
 
-There are now two options; model developers can group the same peril types together to fully correlate them at a location, or treat damage from different peril types (e.g. wind and flood) as independent. 
+There are now two options; model developers can group the same peril types together to fully correlate them at a location, or independently sample damage from different peril types (e.g. wind and flood). 
 
-A peril correlation group number (an integer) can be specified in the lookup settings of the model settings file. This is done for each single peril code used by the model. If peril codes are assigned the same peril correlation group, it means that damage will be fully correlated for those peril codes at each location.   
+A peril correlation group integer can be specified in the lookup settings of the model settings file. This is done for each single peril code used by the model. If peril codes are assigned the same peril correlation group, it means that damage will be fully correlated for those peril codes at each location.   
 
-Here is an example of independent peril damage for a model using two single peril codes;
+Here is an example of independent peril damage at each exposure location for a model using two single peril codes;
 
 |
 
@@ -242,50 +272,49 @@ Here is an example of independent peril damage for a model using two single peri
 
 .. code-block:: JSON
 
-    "lookup_settings":{
-        "supported_perils":[
-           {"id": "WSS", "desc": "Single Peril: Storm Surge", "peril_correlation_group": 1},
-           {"id": "WTC", "desc": "Single Peril: Tropical Cyclone", "peril_correlation_group": 2},
-           {"id": "WW1", "desc": "Group Peril: Windstorm with storm surge"},
-           {"id": "WW2", "desc": "Group Peril: Windstorm w/o storm surge"}
-        ]
-    },
+    {
+        "lookup_settings":{
+            "supported_perils":[
+               {"id": "WSS", "desc": "Single Peril: Storm Surge", "peril_correlation_group": 1},
+               {"id": "WTC", "desc": "Single Peril: Tropical Cyclone", "peril_correlation_group": 2},
+               {"id": "WW1", "desc": "Group Peril: Windstorm with storm surge"},
+               {"id": "WW2", "desc": "Group Peril: Windstorm w/o storm surge"}]
+        }
+    }
 
-|
-
-The second example groups two single peril codes together in one peril correlation group, meaning that damage will be fully correlated at a location.
+The second example groups two single peril codes together in one peril correlation group, meaning that damage will be fully correlated at each exposure location.
 
 ``Model_settings.json``
 
 .. code-block:: JSON
 
-    "lookup_settings":{
-        "supported_perils":[
-           {"id": "ORF", "desc": "Single Peril: Fluvial Flood", "peril_correlation_group": 1},
-           {"id": "OSF", "desc": "Single Peril: Pluvial Flood", "peril_correlation_group": 1},
-           {"id": "OO1", "desc": "Group Peril: All Flood perils"}
-        ]
-    },
+    {
+        "lookup_settings":{
+            "supported_perils":[
+               {"id": "ORF", "desc": "Single Peril: Fluvial Flood", "peril_correlation_group": 1},
+               {"id": "OSF", "desc": "Single Peril: Pluvial Flood", "peril_correlation_group": 1},
+               {"id": "OO1", "desc": "Group Peril: All Flood perils"}
+            ]
+        }
+    }
 
-|
+This feature only defines whether peril damage is correlated or independent at each exposure location, and the behaviour is the same for all locations.  
 
-This feature only defines whether peril damage is correlated or independent at a location, and the behaviour is the same for all locations.  
-
-Correlation in  damage between locations is still governed by the group correlation feature of 1.15. If locations share the same group_id across locations, then the damage will be 100% correlated, for each peril correlation group.  
-
-The partial damage correlation feature described below has been introduced to enable a finer degree of control of damage correlation across locations.
+Correlation in damage *between* locations is still governed by the group correlation feature of OasisLMF 1.15. If different exposure locations share the same group_id locations, then the damage will be 100% correlated, for each peril correlation group.  
 
 |
 
 **Partial damage correlation**
 
-A global damage correlation factor can be specified by the model provider to define how damage should be correlated across locations for each event.  One factor may be specified for each peril correlation group.  This enables correlation in damage for perils that occur in the same event but have different spatial variability in hazard intensity to be specified separately.
+In addition to the damage group feature, a partial damage correlation feature has been introduced to OasisLMF 1.27 to enable a finer degree of control of damage correlation across locations. Peril correlation groups as described above must be defined to use this feature.
+
+A global damage correlation factor can be optionally specified by the model provider to define how damage should be correlated *across* damage groups for each event.  One factor may be specified for each peril correlation group.  This enables correlation in damage for perils that occur in the same event but have different spatial variability in hazard intensity to be specified separately.
 
 The global correlation factor is a number between 0 and 1, where 0 means no correlation and 1 means 100% correlation.  The higher the correlation factor, the greater the tendancy that damage will be consistently low or high across the portfolio with each sample.  When losses are summed to the portfolio level, this leads to a wider range of loss outcomes for the portfolio, per event, and greater extreme losses.
 
 The correlation factor works together with the group correlation functionality. Locations with the same group_id will still have 100% damage correlation, but locations with different group_ids will have partially correlated damage rather than fully independent damage.  
 
-This means that the decision of how group_ids are assigned and the global correlation factor must be made together by the model provider.
+This means that the decision of how group_ids are assigned in model settings and the global correlation factor must be made together by the model provider.
 
 |
 
@@ -296,7 +325,7 @@ This means that the decision of how group_ids are assigned and the global correl
 
 |
 
-The correlation factor is specified in a new 'correlation_settings' section of the model settings file.
+The correlation factor is specified in a new **correlation_settings** section of the model settings file.
 
 The example illustrated above would be specified using: 
 
@@ -310,44 +339,208 @@ The example illustrated above would be specified using:
 
 .. code-block:: JSON
 
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        },
 
-    "data_settings": {
-    "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber"] }
-    },
+        "lookup_settings":{
+            "supported_perils":[
+               {"id": "OSF", "desc": "Single Peril: Pluvial Flood", "peril_correlation_group": 1}
+            ]
+        },
 
-    "lookup_settings":{
-        "supported_perils":[
-           {"id": "OSF", "desc": "Single Peril: Pluvial Flood", "peril_correlation_group": 1}
-        ]
-    },
+        "correlation_settings": [
+              {"peril_correlation_group":  1, "damage_correlation_value":  "0.4"}
+            ]
+    }
 
-    "correlation_settings": [
-          {"peril_correlation_group":  1, "damage_correlation_value":  "0.4"}
-        ]
+In this example, each exposure location will receive a unique damage group_id, and all exposure locations will be damaged with 40% correlation for each sample, for every event. 
 
 |
 
-Note there is a breaking change in the data_settings parameter **group_fields** which has been changed to **damage_group_fields** in 1.27.
+.. _available_1.28_correlation:
 
-|
+Available in OasisLMF 1.28
+##########################
+
+----
 
 **Separate hazard and damage sampling**
 
-(TO DO)
+Under the effective damageability sampling method, which was the only sampling method until OasisLMF 1.27, the damage distribution represents a combination of hazard intensity uncertainty (when present in the hazard footprint) and conditional damage uncertainty.  
+
+When considering correlation of loss between locations, it was thought to be more intuitive to model correlation in these two sources of uncertainty separately. 
+
+An alternative methodology 'full Monte Carlo sampling' has been introduced in OasisLMF 1.27, implemented in the 'gulmc' component of pytools, which is to sample an intensity bin from the hazard uncertainty distribution first, and then to sample damage second. This makes it possible to apply different correlation assumptions for hazard uncertainty (where present) and conditional damage uncertainty. 
+
+For models which do not have hazard uncertainty in the footprint, there is no difference between the effective damage distribution and the conditional damage distribution contained within the vulnerability files, i.e. all uncertainty is damage uncertainty. Therefore there no benefit in using gulmc and it is recommended to continue using the effective damageability method and the group correlation methods for damage as in previous versions. 
+
+gulmc is recommended for production use in OasisLMF 1.28.  It can continue to be used in effective damageability mode for models with no hazard intensity uncertainty with unchanged damage group and correlation settings.  The oasislmf settings for this use case is as follows.
+
+
+``oasislmf.json``
+
+.. code-block:: JSON
+
+    {
+        "gulmc": true,
+        "gulmc_effective_damageability": true
+    }
+
+For models which have hazard intensity uncertainty in the footprint, gulmc can be used to perform separate sampling of hazard intensity and conditional damage, and also to apply correlation assumptions to the sampling of hazard separately to those applied to conditional damage. The oasislmf settings for this use case is as follows.
+
+``oasislmf.json``
+
+.. code-block:: JSON
+
+    {
+        "gulmc": true
+    }
+
+**Group correlation for hazard intensity**
+
+Where there is hazard intensity uncertainty in the footprint, the modeller may want to control how hazard intensity is sampled for locations that are spatially close. 
+
+For instance, there may be two locations which belong to the same spatial grid (identified by the modeller's areaperil_id) and which may experience similar hazard intensity. 
+
+The modeller can specify how exposure locations can be grouped for full hazard intensity correlation as well as, but separately from, damage using the **hazard_group_fields** parameter in data settings in the model settings json.  The listed fields determine how hazard group_ids are generated across locations for the sampling of hazard intensity in the full Monte Carlo sampling method. Those locations with the same hazard group_id will have the same hazard intensity bin sampled (100% correlation).
+
+
+**Example 1**  
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber"],
+        "hazard_group_fields": ["areaperil_id"]
+        }
+    }
+
+Exposure locations in the same spatial grid, represented here by areaperil_id, will have the same hazard intensity bin sampled, but conditional damage will be sampled independently.  The coverages at each location will be sampled with 100% correlation for both hazard and conditional damage.
 
 |
 
-**Separate groupings for hazard correlation**
+**Example 2**  
 
-(TO DO)
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber", "coverage_type_id"],
+        "hazard_group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        }
+    }
+
+Each exposure location will have independently sampled hazard intensity. The coverages of an exposure location will have the same hazard intensity bin sampled but will have independently sampled conditional damage.
+
+|
+
+**Example 3**  
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber", "coverage_type_id"],
+        "hazard_group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        },
+
+        "lookup_settings":{
+            "supported_perils":[
+               {"id": "OSF", "desc": "Single Peril: Pluvial Flood", "peril_correlation_group": 1}
+            ]
+        },
+
+        "correlation_settings": [
+              {"peril_correlation_group":  1, "damage_correlation_value":  "0.4"}
+            ]
+    }
+
+With the same damage and hazard group settings as Example 2, we can add a global correlation factor for damage (along with its peril correlation group). Rather than the exposure location coverages damage being sampled independently across the portfolio, all exposure location coverages across the portfolio can be sampled with 40% correlation for damage.
 
 |
 
 **Partial hazard correlation**
 
-(TO DO)
+In exactly the same way that damage can be sampled with partial correlation across all of the defined damage groups, it is also possible to sample hazard intensity with partial correlation across the defined hazard groups.  This correlates the sampling of hazard intensity of hazard groups across the portfolio when using the full Monte Carlo sampling method.
+
+**Example 4**
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber", "coverage_type_id"],
+        "hazard_group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        },
+
+        "lookup_settings":{
+            "supported_perils":[
+               {"id": "OSF", "desc": "Single Peril: Pluvial Flood", "peril_correlation_group": 1}
+            ]
+        },
+
+        "correlation_settings": [
+              {"peril_correlation_group":  1, "damage_correlation_value": 0.4, "hazard_correlation_value": 0.2}
+            ]
+    }
+
+With the same settings as Example 3 above, we can add a global correlation factor for hazard. Instead of independent hazard intensity sampling between hazard groups (each group being one exposure location) hazard intensity will be sampled with 20% correlation between hazard groups.
 
 |
 
-----
+**Example 5**
 
+For multi-peril models, peril correlation groups can enable the specification of different global correlation factors per peril.  The different peril group ids by peril type in this example make sampled peril hazard intensity and peril damage independent at each exposure location.  
+
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber"],
+        "hazard_group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        },
+
+        "lookup_settings":{
+            "supported_perils":[
+               {"id": "WSS", "desc": "Single Peril: Storm Surge", "peril_correlation_group": 1},
+               {"id": "WTC", "desc": "Single Peril: Tropical Cyclone", "peril_correlation_group": 2}
+               ]
+        },
+
+        "correlation_settings": [
+              {"peril_correlation_group":  1, "damage_correlation_value": 0.4, "hazard_correlation_value": 0},
+              {"peril_correlation_group":  2, "damage_correlation_value": 0.4, "hazard_correlation_value": 0.2}
+            ]
+    }
+
+With these settings, damage and hazard groups are the same, representing each exposure location. There is no hazard intensity correlation between locations for Storm Surge, and 20% hazard intensity correlation for wind intensity across all locations. Conditional damage correlation is 40% across all locations separately for either peril type (but can have different correlation factors too). 
+
+|
+
+**Correlation groups for disaggregated risks**
+
+OasisLMF 1.28 supports disaggregation of exposure locations when the **NumberOfBuildings** value is greater than 1. This means that one exposure location is split into multiple locations for the purposes of ground up loss sampling and financial module calculations.
+
+The **IsAggregate** field is used to determine how damage group_ids are assigned if there are no damage group settings specified.
+
+* When IsAggregate = 1, meaning the exposure location represents aggregate risks, different damage group_ids are assigned to disaggregated risks of the exposure location.
+* When IsAggregate = 0, meaning the exposure location represents a multi-building single site, the same damage group_id is assigned to dissaggregated risks of the exposure location.
+
+Hazard groups are not required to be assigned in general, therefore these should be controlled by the data settings in the model settings json if required. 
+
+For more information about disaggregation functionality, please see :doc:`Disaggregation <disaggregation>`.
