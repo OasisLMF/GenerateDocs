@@ -87,7 +87,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/API.rst
     sections/camel.rst
     sections/correlation.rst
-    sections/currecny_conversion.rst
+    sections/currency_conversion.rst
     sections/deployment.rst
     sections/disaggregation.rst
     sections/financial-module.rst
