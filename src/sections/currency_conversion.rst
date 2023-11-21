@@ -33,13 +33,11 @@ Oasis LMF supports csv file (compressed or not) or a parquet file where they wil
 The file is referenced using a JSON configuration file with the `--currency_conversion_json` flag :
 
 .. code-block:: json
-
-{
-    "currency_conversion_type": "DictBasedCurrencyRates",
-    "source_type": "csv",
-    "file_path": "tests/inputs/roe.csv"
-}
-
+ {
+     "currency_conversion_type": "DictBasedCurrencyRates",
+     "source_type": "csv",
+     "file_path": "tests/inputs/roe.csv"
+ }
 |
 
 ("source_type": "parquet" if parquet file is used)
@@ -47,12 +45,10 @@ The file is referenced using a JSON configuration file with the `--currency_conv
 The expected format is (roe being a float in parquet format):
 
 .. code-block:: csv
-
-cur_from,cur_to,roe
-USD,GBP,0.85
-USD,EUR,0.95
-GBP,EUR,1.12
-
+ cur_from,cur_to,roe
+ USD,GBP,0.85
+ USD,EUR,0.95
+ GBP,EUR,1.12
 |
 
 Rate can also be passed directly in currency_conversion_json with type `dict`
@@ -60,16 +56,14 @@ ex:
 
 
 .. code-block:: json
-
-{
-    "currency_conversion_type": "DictBasedCurrencyRates",
-    "source_type": "dict",
-    "currency_rates": [["USD", "GBP", 0.85],
-                       ["USD", "EUR", 0.95],
-                       ["GBP", "EUR", 1.12]
-                      ]
-}
-
+ {
+     "currency_conversion_type": "DictBasedCurrencyRates",
+     "source_type": "dict",
+     "currency_rates": [["USD", "GBP", 0.85],
+                        ["USD", "EUR", 0.95],
+                        ["GBP", "EUR", 1.12]
+                       ]
+ }
 |
 
 When looking for a key pair, DictBasedCurrencyRates checks first for the key pair (cur1, cur2) then for (cur2, cur1).
@@ -93,12 +87,10 @@ to perform the conversion. A date may be specified in ISO 8601 format (YYYY-MM-D
 currency_conversion_json:
 
 .. code-block:: json
-
-{
-  "currency_conversion_type": "FxCurrencyRates",
-  "datetime": "2018-10-10"
-}
-
+ {
+   "currency_conversion_type": "FxCurrencyRates",
+   "datetime": "2018-10-10"
+ }
 |
 
 
@@ -123,9 +115,7 @@ MDK
 To run the currency conversion as part of the MDK then, the user should use a command as follows:
 
 .. code-block:: sh
-
-oasislmf model run --config oasislmf.json --currency-conversion-json currency_settings.json --reporting-currency GBP
-
+ oasislmf model run --config oasislmf.json --currency-conversion-json currency_settings.json --reporting-currency GBP
 |
 
 
