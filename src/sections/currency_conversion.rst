@@ -123,7 +123,10 @@ To run the currency conversion as part of the MDK then, the user should use a co
 
 .. code-block:: sh
 
-    oasislmf model run --config oasislmf.json --currency-conversion-json currency_settings.json --reporting-currency GBP
+    oasislmf model run 
+        --config oasislmf.json 
+        --currency-conversion-json currency_settings.json 
+        --reporting-currency GBP
 
 |
 
