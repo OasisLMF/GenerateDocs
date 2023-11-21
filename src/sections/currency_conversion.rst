@@ -47,7 +47,6 @@ note, you should use ``"source_type": "parquet"`` if parquet file is used
 The expected format is (roe being a float in parquet format):
 
 .. csv-table::
-
    :header: cur_from,cur_to,roe
 
     USD,GBP,0.85
