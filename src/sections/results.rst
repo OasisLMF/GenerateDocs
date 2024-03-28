@@ -18,6 +18,8 @@ On this page
     * :ref:`ordleccalc_ORD_results`
     * :ref:`aalcalc_ORD_results`
 * :ref:`output_file_naming_conventions`
+    * :ref:`standard_outputs`
+    * :ref:`ord_outputs`
 | 
 
 
@@ -1373,6 +1375,7 @@ Where each of perspective, summary level, output type and file extension are spe
 
 **Output type** will depend on the outputs requested in the analysis settings file according to the following mappings
 
+.. _standard_outputs:
 **Standard Outputs:**
 
 +------------------------------+------------------------------+-----------------------------------------+
@@ -1407,6 +1410,7 @@ Where each of perspective, summary level, output type and file extension are spe
 
 |
 
+.. _ord_outputs:
 **ORD Outputs:**
 
 +--------------------------+------------------+------------------------+
