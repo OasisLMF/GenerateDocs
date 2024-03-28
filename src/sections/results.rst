@@ -17,7 +17,7 @@ On this page
     * :ref:`pltcalc_ORD_results`
     * :ref:`ordleccalc_ORD_results`
     * :ref:`aalcalc_ORD_results`
-
+* :ref:`output_file_naming_conventions`
 | 
 
 
@@ -1353,4 +1353,60 @@ zero weight will not contribute any losses to the AAL.
 
 This feature will be invoked automatically if the periods.bin file is present in the input directory.
 
-|
+.. _output_file_naming_conventions:
+Output File Naming Conventions
+*************
+
+The output calculations in oasislmf will produce output files which will follow a specific naming convention. All output files will be named in the following way:
+
+{perspective} _ S{summary level} _ {output type}.{file extension}
+
+Where each of perspective, summary level, output type and file extension are specified in the analysis settings file, which is also provided with the output files for reference.
+
+**Perspective** will be one of the following:
+
+- gul – ground up loss
+- il – insured loss
+- ri – losses net of reinsurance
+
+**Summary Level** will be an integer and taken from the “id” item in the analysis settings file for the requested outputs
+
+**Output type** will depend on the outputs requested in the analysis settings file according to the following mapping
+
+
+Output Category | Analysis settings name | Output file type | Example file name
+-- | -- | -- | --
+standard   outputs | aalcalc | aalcalc | gul_S1_aalcalc.csv
+  | aalcalcmeanonly | aalcalcmeanonly | gul_S1_aalcalcmeanonly.csv
+  | eltcalc | eltcalc | gul_S1_eltcalc.csv
+  | leccalc/full_uncertainty_aep | leccalc_full_uncertainty_aep | gul_S1_leccalc_full_uncertainty_aep.csv
+  | leccalc/full_uncertainty_oep | leccalc_full_uncertainty_oep | gul_S1_leccalc_full_uncertainty_oep.csv
+  | leccalc/sample_mean_aep | leccalc_sample_mean_aep | gul_S1_leccalc_sample_mean_aep.csv
+  | leccalc/sample_mean_oep | leccalc_sample_mean_oep | gul_S1_leccalc_sample_mean_oep.csv
+  | leccalc/wheatsheaf_aep | leccalc_wheatsheaf_aep | gul_S1_leccalc_wheatsheaf_aep.csv
+  | leccalc/wheatsheaf_oep | leccalc_wheatsheaf_oep | gul_S1_leccalc_wheatsheaf_oep.csv
+  | leccalc/wheatsheaf_mean_aep | leccalc_wheatsheaf_mean_aep | gul_S1_leccalc_wheatsheaf_mean_aep.csv
+  | leccalc/wheatsheaf_mean_oep | leccalc_wheatsheaf_mean_oep | gul_S1_leccalc_wheatsheaf_mean_oep.csv
+  | pltcalc | pltcalc | gul_S1_pltcalc.csv
+  | summarycalc | summarycalc | gul_S1_summarycalc.csv
+ord   outputs | alt_meanonly | altmeanonly | gul_S1_altmeanonly.csv
+  | alt_period | palt | gul_S1_palt.csv
+  | elt_moment | melt | gul_S1_melt.csv
+  | elt_quantile | qelt | gul_S1_qelt.csv
+  | ept_full_uncertainty_aep | ept | gul_S1_ept.csv
+  | ept_full_uncertainty_oep   |  |
+  | ept_mean_sample_aep |   |  
+  | ept_mean_sample_oep |   |  
+  | ept_per_sample_mean_aep |   |  
+  | ept_per_sample_mean_oep |   |  
+  | plt_moment | mplt | gul_S1_mplt.csv
+  | plt_quantile | qplt | gul_S1_qplt.csv
+  | plt_sample | splt | gul_S1_splt.csv
+  | psept_aep | psept | gul_S1_psept.csv
+  | psept_oep |   |  
+
+**Extension** can be .csv or .parquet, depending on the selection in the analysis settings file
+
+**Summary-info File**: In addition to the requested output files, a summary-info file will be produced for each perspective-level combination to allow mapping from the summary_id values in the output file(s) back to the original OED field combinations requested
+
+
