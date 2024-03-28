@@ -1375,7 +1375,7 @@ Where each of perspective, summary level, output type and file extension are spe
 
 **Standard Outputs:**
 .. csv-table::
-    :header: "Output Category", "Analysis Settings Name", "Output File Type", "Example File Name"
+    :header: "Analysis Settings Name", "Output File Type", "Example File Name"
 
     "aalcalc","aalcalc","gul_S1_aalcalc.csv"
     "aalcalcmeanonly","aalcalcmeanonly","gul_S1_aalcalcmeanonly.csv"
@@ -1393,7 +1393,7 @@ Where each of perspective, summary level, output type and file extension are spe
 
 **ORD Outputs:**
 .. csv-table::
-    :header: "Output Category", "Analysis Settings Name", "Output File Type", "Example File Name"
+    :header: "Analysis Settings Name", "Output File Type", "Example File Name"
     
     "alt_meanonly","altmeanonly","gul_S1_altmeanonly.csv"
     "alt_period","palt","gul_S1_palt.csv"
