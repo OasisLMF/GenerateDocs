@@ -1417,6 +1417,42 @@ Where each of perspective, summary level, output type and file extension are spe
 
 |
 
++--------------------------+------------------+------------------------+
+| Analysis Settings Name   | Output File Type | Example File Name      |
++==========================+==================+========================+
+| alt_meanonly             | altmeanonly      | gul_S1_altmeanonly.csv |
++--------------------------+------------------+------------------------+
+| alt_period               | palt             | gul_S1_palt.csv        |
++--------------------------+------------------+------------------------+
+| elt_moment               | melt             | gul_S1_melt.csv        |
++--------------------------+------------------+------------------------+
+| elt_quantile             | qelt             | gul_S1_qelt.csv        |
++--------------------------+------------------+------------------------+
+| ept_full_uncertainty_aep | ept              | gul_S1_ept.csv         |
++--------------------------+                  |                        |
+| ept_full_uncertainty_oep |                  |                        |
++--------------------------+                  |                        |
+| ept_mean_sample_aep      |                  |                        |
++--------------------------+                  |                        |
+| ept_mean_sample_oep      |                  |                        |
++--------------------------+                  |                        |
+| ept_per_sample_mean_aep  |                  |                        |
++--------------------------+                  |                        |
+| ept_per_sample_mean_oep  |                  |                        |
++--------------------------+------------------+------------------------+
+| plt_moment               | mplt             | gul_S1_mplt.csv        |
++--------------------------+------------------+------------------------+
+| plt_quantile             | qplt             | gul_S1_qplt.csv        |
++--------------------------+------------------+------------------------+
+| plt_sample               | splt             | gul_S1_splt.csv        |
++--------------------------+------------------+------------------------+
+| psept_aep                | psept            | gul_S1_psept.csv       |
++--------------------------+                  |                        |
+| psept_oep                |                  |                        |
++--------------------------+------------------+------------------------+
+
+|
+
 **Extension** can be .csv or .parquet, depending on the selection in the analysis settings file. Note, parquet output format is supported for ORD outputs only
 
 **Summary-info File**: In addition to the requested output files, a summary-info file will be produced for each perspective-level combination to allow mapping from the summary_id values in the output file(s) back to the original OED field combinations requested
