@@ -1356,8 +1356,11 @@ zero weight will not contribute any losses to the AAL.
 This feature will be invoked automatically if the periods.bin file is present in the input directory.
 
 .. _output_file_naming_conventions:
+
 Output File Naming Conventions
-*************
+---------------------
+
+----
 
 The output calculations in oasislmf will produce output files which will follow a specific naming convention. All output files will be named in the following way:
 
