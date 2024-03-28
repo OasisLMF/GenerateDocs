@@ -1391,6 +1391,8 @@ Where each of perspective, summary level, output type and file extension are spe
     "pltcalc","pltcalc","gul_S1_pltcalc.csv"
     "summarycalc","summarycalc","gul_S1_summarycalc.csv"
 
+|
+
 **ORD Outputs:**
 .. csv-table::
     :header: "Analysis Settings Name", "Output File Type", "Example File Name"
@@ -1410,6 +1412,8 @@ Where each of perspective, summary level, output type and file extension are spe
     "plt_sample","splt","gul_S1_splt.csv"
     "psept_aep","psept","gul_S1_psept.csv"
     "psept_oep","",""
+
+|
 
 **Extension** can be .csv or .parquet, depending on the selection in the analysis settings file. Note, parquet output format is supported for ORD outputs only
 
