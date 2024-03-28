@@ -1376,7 +1376,9 @@ Where each of perspective, summary level, output type and file extension are spe
 **Output type** will depend on the outputs requested in the analysis settings file according to the following mappings
 
 .. _standard_outputs:
-**Standard Outputs:**
+
+Standard Outputs
+*************
 
 +------------------------------+------------------------------+-----------------------------------------+
 | Analysis Settings Name       | Output File Type             | Example File Name                       |
@@ -1411,7 +1413,9 @@ Where each of perspective, summary level, output type and file extension are spe
 |
 
 .. _ord_outputs:
-**ORD Outputs:**
+
+ORD Outputs
+*************
 
 +--------------------------+------------------+------------------------+
 | Analysis Settings Name   | Output File Type | Example File Name      |
