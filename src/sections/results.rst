@@ -1374,6 +1374,7 @@ Where each of perspective, summary level, output type and file extension are spe
 **Output type** will depend on the outputs requested in the analysis settings file according to the following mappings
 
 **Standard Outputs:**
+
 .. csv-table::
     :header: "Analysis Settings Name", "Output File Type", "Example File Name"
 
@@ -1391,10 +1392,10 @@ Where each of perspective, summary level, output type and file extension are spe
     "pltcalc", "pltcalc", "gul_S1_pltcalc.csv"
     "summarycalc", "summarycalc", "gul_S1_summarycalc.csv"
 
-
 |
 
 **ORD Outputs:**
+
 .. csv-table::
     :header: "Analysis Settings Name", "Output File Type", "Example File Name"
     
