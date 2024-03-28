@@ -1375,47 +1375,39 @@ Where each of perspective, summary level, output type and file extension are spe
 
 **Standard Outputs:**
 
-.. csv-table::
-    :header: "Analysis Settings Name", "Output File Type", "Example File Name"
-
-    "aalcalc", "aalcalc", "gul_S1_aalcalc.csv"
-    "aalcalcmeanonly", "aalcalcmeanonly", "gul_S1_aalcalcmeanonly.csv"
-    "eltcalc", "eltcalc", "gul_S1_eltcalc.csv"
-    "leccalc/full_uncertainty_aep", "leccalc_full_uncertainty_aep", "gul_S1_leccalc_full_uncertainty_aep.csv"
-    "leccalc/full_uncertainty_oep", "leccalc_full_uncertainty_oep", "gul_S1_leccalc_full_uncertainty_oep.csv"
-    "leccalc/sample_mean_aep", "leccalc_sample_mean_aep", "gul_S1_leccalc_sample_mean_aep.csv"
-    "leccalc/sample_mean_oep", "leccalc_sample_mean_oep", "gul_S1_leccalc_sample_mean_oep.csv"
-    "leccalc/wheatsheaf_aep", "leccalc_wheatsheaf_aep", "gul_S1_leccalc_wheatsheaf_aep.csv"
-    "leccalc/wheatsheaf_oep", "leccalc_wheatsheaf_oep", "gul_S1_leccalc_wheatsheaf_oep.csv"
-    "leccalc/wheatsheaf_mean_aep", "leccalc_wheatsheaf_mean_aep", "gul_S1_leccalc_wheatsheaf_mean_aep.csv"
-    "leccalc/wheatsheaf_mean_oep", "leccalc_wheatsheaf_mean_oep", "gul_S1_leccalc_wheatsheaf_mean_oep.csv"
-    "pltcalc", "pltcalc", "gul_S1_pltcalc.csv"
-    "summarycalc", "summarycalc", "gul_S1_summarycalc.csv"
++------------------------------+------------------------------+-----------------------------------------+
+| Analysis Settings Name       | Output File Type             | Example File Name                       |
++==============================+==============================+=========================================+
+| aalcalc                      | aalcalc                      | gul_S1_aalcalc.csv                      |
++------------------------------+------------------------------+-----------------------------------------+
+| aalcalcmeanonly              | aalcalcmeanonly              | gul_S1_aalcalcmeanonly.csv              |
++------------------------------+------------------------------+-----------------------------------------+
+| eltcalc                      | eltcalc                      | gul_S1_eltcalc.csv                      |
++------------------------------+------------------------------+-----------------------------------------+
+| leccalc/full_uncertainty_aep | leccalc_full_uncertainty_aep | gul_S1_leccalc_full_uncertainty_aep.csv |
++------------------------------+------------------------------+-----------------------------------------+
+| leccalc/full_uncertainty_oep | leccalc_sample_mean_oep      | gul_S1_leccalc_full_uncertainty_oep.csv |
++------------------------------+------------------------------+-----------------------------------------+
+| leccalc/sample_mean_aep      | leccalc_sample_mean_aep      | gul_S1_leccalc_sample_mean_aep.csv      |
++------------------------------+------------------------------+-----------------------------------------+
+| leccalc/sample_mean_oep      | leccalc_wheatsheaf_aep       | gul_S1_leccalc_sample_mean_oep.csv      |
++------------------------------+------------------------------+-----------------------------------------+
+| leccalc/wheatsheaf_aep       | leccalc_wheatsheaf_aep       | gul_S1_leccalc_wheatsheaf_aep           |
++------------------------------+------------------------------+-----------------------------------------+
+| leccalc/wheatsheaf_oep       | leccalc_wheatsheaf_oep       | gul_S1_leccalc_wheatsheaf_mean_oep      |
++------------------------------+------------------------------+-----------------------------------------+                       |
+| leccalc/wheatsheaf_mean_aep  | leccalc_wheatsheaf_mean_aep  | gul_S1_leccalc_wheatsheaf_mean_aep      |
++------------------------------+------------------------------+-----------------------------------------+
+| leccalc/wheatsheaf_mean_oep  | leccalc_wheatsheaf_mean_oep  | gul_S1_leccalc_wheatsheaf_mean_oep.csv  |
++------------------------------+------------------------------+-----------------------------------------+
+| pltcalc                      | pltcalc                      | gul_S1_pltcalc.csv                      |
++------------------------------+------------------------------+-----------------------------------------+
+| summarycalc                  | summarycalc                  | gul_S1_summarycalc.csv                  |
++------------------------------+------------------------------+-----------------------------------------+
 
 |
 
 **ORD Outputs:**
-
-.. csv-table::
-    :header: "Analysis Settings Name", "Output File Type", "Example File Name"
-    
-    "alt_meanonly", "altmeanonly", "gul_S1_altmeanonly.csv"
-    "alt_period", "palt", "gul_S1_palt.csv"
-    "elt_moment", "melt", "gul_S1_melt.csv"
-    "elt_quantile", "qelt", "gul_S1_qelt.csv"
-    "ept_full_uncertainty_aep", "ept", "gul_S1_ept.csv"
-    "ept_full_uncertainty_oep", "", ""
-    "ept_mean_sample_aep", "", ""
-    "ept_mean_sample_oep", "", ""
-    "ept_per_sample_mean_aep", "", ""
-    "ept_per_sample_mean_oep", "", ""
-    "plt_moment", "mplt", "gul_S1_mplt.csv"
-    "plt_quantile", "qplt", "gul_S1_qplt.csv"
-    "plt_sample", "splt", "gul_S1_splt.csv"
-    "psept_aep", "psept", "gul_S1_psept.csv"
-    "psept_oep", "", ""
-
-|
 
 +--------------------------+------------------+------------------------+
 | Analysis Settings Name   | Output File Type | Example File Name      |
