@@ -19,3 +19,4 @@ sphinx-jsonschema==1.19.1
 requests
 ods-tools
 sphinxcontrib-redoc
+lxml_html_clean
