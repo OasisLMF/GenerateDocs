@@ -56,7 +56,7 @@ extensions = [
     'sphinx.ext.githubpages',
     'sphinxcontrib.httpdomain',
     'sphinx-jsonschema',
-    'nbsphinx',
+    #'nbsphinx',
     'sphinx.ext.mathjax',
     "sphinxcontrib.youtube",
     # 'autoapi.extension',

@@ -2,7 +2,8 @@ sphinx
 sphinx-autobuild
 sphinxcontrib-httpdomain
 sphinx-jsonschema
-nbsphinx
+#nbsphinx
+lxml[html_clean]
 sphinx_rtd_theme
 recommonmark
 m2r
