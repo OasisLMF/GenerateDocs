@@ -114,7 +114,16 @@ Example :
 |
 
 ODS Tools can also be used to transform location and account data from other formats to OED and vice versa,
-depenting on the mapping files provided. For more information on this, see `here <https://link/to/odtf/docs>`_.
+depenting on the mapping files provided. For more information on this, see here: :doc:`../sections/odtf`.
+
+Example :
+
+|
+.. code-block:: python 
+
+    ods_tools transform --config-file configuration.yaml
+|
+
 
 .. note::
     See ``ods_tools convert --help`` and ``ods_tools transform --help`` for more options.
