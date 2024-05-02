@@ -114,7 +114,7 @@ Example :
 |
 
 ODS Tools can also be used to transform location and account data from other formats to OED and vice versa,
-depenting on the mapping files provided. For more information on this, see here: :doc:`../sections/odtf`.
+depenting on the mapping files provided. For more information on this, see here: :doc:`../sections/ODTF`.
 
 Example :
 

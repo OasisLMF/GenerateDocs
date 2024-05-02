@@ -109,6 +109,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
     sections/OasisLMF-package.rst
     sections/ODS-tools.rst
     sections/ODS.rst
+    sections/ODTF.rst
     sections/OED.rst
     sections/ORD.rst
     sections/platform_1
