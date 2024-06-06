@@ -1400,11 +1400,11 @@ Standard Outputs
 +------------------------------+------------------------------+-----------------------------------------+
 | leccalc/sample_mean_oep      | leccalc_wheatsheaf_aep       | gul_S1_leccalc_sample_mean_oep.csv      |
 +------------------------------+------------------------------+-----------------------------------------+
-| leccalc/wheatsheaf_aep       | leccalc_wheatsheaf_aep       | gul_S1_leccalc_wheatsheaf_aep           |
+| leccalc/wheatsheaf_aep       | leccalc_wheatsheaf_aep       | gul_S1_leccalc_wheatsheaf_aep.csv       |
 +------------------------------+------------------------------+-----------------------------------------+
-| leccalc/wheatsheaf_oep       | leccalc_wheatsheaf_oep       | gul_S1_leccalc_wheatsheaf_mean_oep      |
+| leccalc/wheatsheaf_oep       | leccalc_wheatsheaf_oep       | gul_S1_leccalc_wheatsheaf_oep.csv       |
 +------------------------------+------------------------------+-----------------------------------------+
-| leccalc/wheatsheaf_mean_aep  | leccalc_wheatsheaf_mean_aep  | gul_S1_leccalc_wheatsheaf_mean_aep      |
+| leccalc/wheatsheaf_mean_aep  | leccalc_wheatsheaf_mean_aep  | gul_S1_leccalc_wheatsheaf_mean_aep.csv  |
 +------------------------------+------------------------------+-----------------------------------------+
 | leccalc/wheatsheaf_mean_oep  | leccalc_wheatsheaf_mean_oep  | gul_S1_leccalc_wheatsheaf_mean_oep.csv  |
 +------------------------------+------------------------------+-----------------------------------------+
