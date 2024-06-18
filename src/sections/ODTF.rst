@@ -67,7 +67,34 @@ See, e.g., this `example configuration file <https://github.com/OasisLMF/ODS_Too
 The configuration file contains a list of transformations to run (currently loc for location and acc for account data).
 Each transformation includes name and version of the input and output formats, the (optional) batch size, and the paths to the input (extractor) and output (loader) files.
 
+To connect to a database, the extractor should include the database connection details. For example:
 
+|
+.. code-block:: yaml
+
+    transformations:
+      loc: # Transformation name
+        input_format:
+          name: Cede_Location
+          version: 10.0.0
+        output_format:
+          name: OED_Location
+          version: 3.0.2
+        runner:
+          batch_size: 150000 # Number of rows to process in a single batch
+        extractor:
+          options:
+            path: postgres # if path is not a file, specify which type database to connect to
+            host: localhost
+            database: database-name
+            port: 5432
+            user: user
+            password: password
+            sql_statement: ./sql/cede_location.sql # Path to the SQL file
+        loader:
+          options:
+            path: ./oed_location_1000.csv # Path to the output file
+            quoting: minimal
 
 
 **Input data**
@@ -76,7 +103,10 @@ The input data should be in the format that you want to transform from. For exam
 File types supported:
 .csv
 
-
+Database connections supported:
+mssql
+postgres
+sqlite
 
 
 **Mapping file**
