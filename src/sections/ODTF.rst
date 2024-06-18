@@ -112,7 +112,7 @@ sqlite
 **SQL statement**
 
 If the input data is in a database, the extractor should include the path to an SQL file containing the query to extract (and, if necessary, rename) the data.
-For example, see this `example SQL file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/examples/sql/cede_location.sql`_.
+For example, see this `example SQL file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/examples/sql/cede_location.sql>`_.
 
 **Mapping file**
 
