@@ -67,7 +67,7 @@ See, e.g., this `example configuration file <https://github.com/OasisLMF/ODS_Too
 The configuration file contains a list of transformations to run (currently loc for location and acc for account data).
 Each transformation includes name and version of the input and output formats, the (optional) batch size, and the paths to the input (extractor) and output (loader) files.
 
-To connect to a database, the extractor should include the database connection details. For example:
+To connect to a database, the extractor should include the database connection details. For example, see this `example configuration file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/examples/example_config_db.yaml>`_:
 
 |
 .. code-block:: yaml
@@ -83,11 +83,11 @@ To connect to a database, the extractor should include the database connection d
         runner:
           batch_size: 150000 # Number of rows to process in a single batch
         extractor:
+          type: mssql # other options are 'postgres' and 'sqlite'. Assumes a file if not specified
           options:
-            path: postgres # if path is not a file, specify which type database to connect to
             host: localhost
-            database: database-name
-            port: 5432
+            database: AIRExposure_CEDE
+            port: 1433
             user: user
             password: password
             sql_statement: ./sql/cede_location.sql # Path to the SQL file
@@ -108,6 +108,11 @@ mssql
 postgres
 sqlite
 
+
+**SQL statement**
+
+If the input data is in a database, the extractor should include the path to an SQL file containing the query to extract (and, if necessary, rename) the data.
+For example, see this `example SQL file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/examples/sql/cede_location.sql`_.
 
 **Mapping file**
 
