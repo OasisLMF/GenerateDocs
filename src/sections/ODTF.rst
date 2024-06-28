@@ -7,6 +7,7 @@ On this page:
 
 * :ref:`intro_ODTF`
 * :ref:`inputs`
+* :ref:`simplified transformation`
 * :ref:`use`
 * :ref:`validation`
 
@@ -29,7 +30,6 @@ As of :doc:`../sections/ODS-tools` 3.2.3, we support conversions between AIR Ced
 
 Inputs
 ************
-
 
 
 For a transformation to run, the necessary input files should be present.
@@ -125,6 +125,25 @@ Only the transformations involving columns present in the input file will be run
 
 For example, see the `Cede-OED mapping file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/data/mappings/mapping_loc_Cede-OED.yaml>`_
 
+
+----
+
+.. _simplified transformation:
+
+Simplified transformation
+************
+
+A simplified version can be used to transform data without the need for a configuration file. The simplified version can be run directly from the command line.
+
+For example, to transform data from AIR Cede to OED, the following command can be used:
+
+.. code-block:: bash
+
+    ods_tools transform --format air-oed --input-file input.csv --output-file output.csv
+
+
+The command will run the transformation using the default configuration for the specified formats (to select a specific version, a specific batch size for large transformations, or a database connection a configuration file will be necessary).
+Currently supported formats are: air-oed, oed-air.
 
 
 ----
