@@ -7,6 +7,7 @@ On this page:
 
 * :ref:`intro_ODTF`
 * :ref:`inputs`
+* :ref:`simplified transformation`
 * :ref:`use`
 * :ref:`validation`
 
@@ -29,7 +30,6 @@ As of :doc:`../sections/ODS-tools` 3.2.3, we support conversions between AIR Ced
 
 Inputs
 ************
-
 
 
 For a transformation to run, the necessary input files should be present.
@@ -67,7 +67,34 @@ See, e.g., this `example configuration file <https://github.com/OasisLMF/ODS_Too
 The configuration file contains a list of transformations to run (currently loc for location and acc for account data).
 Each transformation includes name and version of the input and output formats, the (optional) batch size, and the paths to the input (extractor) and output (loader) files.
 
+To connect to a database, the extractor should include the database connection details. For example, see this `example configuration file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/examples/example_config_db.yaml>`_:
 
+|
+.. code-block:: yaml
+
+    transformations:
+      loc: # Transformation name
+        input_format:
+          name: Cede_Location
+          version: 10.0.0
+        output_format:
+          name: OED_Location
+          version: 3.0.2
+        runner:
+          batch_size: 150000 # Number of rows to process in a single batch
+        extractor:
+          type: mssql # other options are 'postgres' and 'sqlite'. Assumes a file if not specified
+          options:
+            host: localhost
+            database: AIRExposure_CEDE
+            port: 1433
+            user: user
+            password: password
+            sql_statement: ./sql/cede_location.sql # Path to the SQL file
+        loader:
+          options:
+            path: ./oed_location_1000.csv # Path to the output file
+            quoting: minimal
 
 
 **Input data**
@@ -76,8 +103,16 @@ The input data should be in the format that you want to transform from. For exam
 File types supported:
 .csv
 
+Database connections supported:
+mssql
+postgres
+sqlite
 
 
+**SQL statement**
+
+If the input data is in a database, the extractor should include the path to an SQL file containing the query to extract (and, if necessary, rename) the data.
+For example, see this `example SQL file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/examples/sql/cede_location.sql>`_.
 
 **Mapping file**
 
@@ -90,6 +125,25 @@ Only the transformations involving columns present in the input file will be run
 
 For example, see the `Cede-OED mapping file <https://github.com/OasisLMF/ODS_Tools/blob/main/ods_tools/odtf/data/mappings/mapping_loc_Cede-OED.yaml>`_
 
+
+----
+
+.. _simplified transformation:
+
+Simplified transformation
+************
+
+A simplified version can be used to transform data without the need for a configuration file. The simplified version can be run directly from the command line.
+
+For example, to transform data from AIR Cede to OED, the following command can be used:
+
+.. code-block:: bash
+
+    ods_tools transform --format air-oed --input-file input.csv --output-file output.csv
+
+
+The command will run the transformation using the default configuration for the specified formats (to select a specific version, a specific batch size for large transformations, or a database connection a configuration file will be necessary).
+Currently supported formats are: air-oed, oed-air.
 
 
 ----
