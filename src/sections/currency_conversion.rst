@@ -63,7 +63,7 @@ ex:
 
     {
         "currency_conversion_type": "DictBasedCurrencyRates",
-        "source_type": "dict",
+        "source_type": "list",
         "currency_rates": [
             ["USD", "GBP", 0.85],
             ["USD", "EUR", 0.95],
