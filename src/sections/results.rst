@@ -1011,7 +1011,7 @@ losses.
 In the Oasis kernel the methodology is Monte Carlo sampling from damage distributions, which results in several samples 
 (realisations) of an event loss for every event in the model's catalogue. The event losses are assigned to a year timeline 
 and the years are rank ordered by loss. The method of computing the percentiles is by taking the ratio of the frequency of 
-years with a loss exceeding a given threshold over the total number of years.
+years with a loss equal to or exceeding a given threshold over the total number of years.
 
 The OasisLMF approach gives rise to five variations of calculation of these statistics:
 

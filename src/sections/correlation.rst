@@ -537,22 +537,7 @@ With these settings, damage and hazard groups are the same, representing each ex
 
 OasisLMF 1.28 supports disaggregation of exposure locations when the **NumberOfBuildings** value is greater than 1. This means that one exposure location is split into multiple locations for the purposes of ground up loss sampling and financial module calculations.
 
-The default behaviour is that disaggregated risks will be fully correlated if not otherwise specified in model settings, ie correlation groups are defined as each original location.
-
-|
-
-.. _available_2.3_correlation:
-
-Available in OasisLMF 2.3
-##########################
-
-----
-
-**Correlation groups for disaggregated risks**
-
-OasisLMF 2.3 adds support for additional internal fields, **building_id** and **risk_id**, to be used in data_settings to control how disaggregated risks are correlated.
-
-The default behaviour is that disaggregated risks will be fully correlated if not otherwise specified in model settings, ie correlation groups are defined as each original location.
+The default behaviour is that disaggregated risks will be fully correlated for both hazard and damage if not otherwise specified in model settings using the internal Oasis fields **building_id** or **risk_id** in data settings.
 
 |
 
