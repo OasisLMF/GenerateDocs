@@ -10,7 +10,6 @@ On this page
 * :ref:`available_1.15_correlation`
 * :ref:`available_1.27_correlation`
 * :ref:`available_1.28_correlation`
-* :ref:`available_2.3_correlation`
 
 |
 .. _intro_correlation:
