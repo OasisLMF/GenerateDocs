@@ -536,11 +536,97 @@ With these settings, damage and hazard groups are the same, representing each ex
 
 OasisLMF 1.28 supports disaggregation of exposure locations when the **NumberOfBuildings** value is greater than 1. This means that one exposure location is split into multiple locations for the purposes of ground up loss sampling and financial module calculations.
 
-The **IsAggregate** field is used to determine how damage group_ids are assigned if there are no damage group settings specified.
+The default behaviour is that disaggregated risks will be fully correlated for both hazard and damage if not otherwise specified in model settings using the internal Oasis fields **building_id** or **risk_id** in data settings.
 
-* When IsAggregate = 1, meaning the exposure location represents aggregate risks, different damage group_ids are assigned to disaggregated risks of the exposure location.
-* When IsAggregate = 0, meaning the exposure location represents a multi-building single site, the same damage group_id is assigned to dissaggregated risks of the exposure location.
+|
 
-Hazard groups are not required to be assigned in general, therefore these should be controlled by the data settings in the model settings json if required. 
+**Default correlation group settings**
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber"],
+        "hazard_group_fields": ["PortNumber", "AccNumber", "LocNumber"]
+        },
+
+The fields building_id or risk_id, in addition to 'PortNumber, AccNumber, LocNumber' may be used to make disaggregated risks uncorrelated for either damage, or hazard, or both.
+
+* building_id is a index counter of disaggregated risks for each original location, regardless if the original location represents aggregate data (IsAggregate=1) or a multi-building single location (IsAggregate=0).  Adding building_id to data settings will result in uncorrelated disaggregated risks in both cases.
+
+* risk_id takes the same value as building_id for aggregate risks (IsAggregate=1) but is different for multi-building single locations (IsAggregate=0) where it takes the value of 1. Adding risk_id to data settings will result in uncorrelated disaggregated risks for the IsAggregate=1 case, but fully correlated disaggregated risks for the IsAggregate=0 case.
+
+Some usage examples in model_settings are given below;
+
+|
+
+**Example 1**
+
+Uncorrelated damage for disaggregated risks in all cases:
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber","building_id"]
+        },
+
+|
+
+**Example 2**
+
+Uncorrelated damage for aggregate risks, fully correlated damage for multi-building single locations:
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber","risk_id"]
+        },
+
+|
+
+**Example 3**
+
+Correlation in hazard intensity is not applicable for many models and in these cases does not need to be specified. When it is modelled, however, it may be specified differently to damage. 
+
+Uncorrelated hazard in all cases, fully correlated damage for multi-building single locations:
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber","risk_id"],
+        "hazard_group_fields": ["PortNumber", "AccNumber", "LocNumber","building_id"]
+        },
+
+|
+
+**Example 4**
+
+If correlation factors are also specified in correlation_settings, then partial correlation is applied to the uncorrelated disaggregated risks in the same way as it does between locations.
+
+20% partially correlated damage for disaggregated risks in all cases:
+
+``Model_settings.json``
+
+.. code-block:: JSON
+
+    {
+        "data_settings": {
+        "damage_group_fields": ["PortNumber", "AccNumber", "LocNumber","building_id"]
+        },
+
+        "correlation_settings": [
+              {"peril_correlation_group":  1, "damage_correlation_value": 0.2, "hazard_correlation_value": 0}
+            ]
 
 For more information about disaggregation functionality, please see :doc:`Disaggregation <disaggregation>`.
