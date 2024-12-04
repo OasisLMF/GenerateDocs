@@ -1,6 +1,5 @@
 #!/bin/bash
 
-
 GH_TOKEN=$1
 DIR_BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 DIR_ENV=$DIR_BASE/venv
