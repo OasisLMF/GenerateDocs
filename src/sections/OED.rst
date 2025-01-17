@@ -79,8 +79,7 @@ The fields in each file and their corresponding data type are described in the â
 spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/releases/latest>`_. 
 
 .. note::
-    Detailed documentation for the OED input files can be found `here
-   <https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/3_OED_Import_Format.rst>`_.
+    Detailed documentation for the OED input files can be found `here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/3_OED_Import_Format.rst>`_.
 |
 
 Location ('loc') Import File
@@ -127,8 +126,8 @@ separately, this would be represented in the location input file as shown below:
 
 |
 
-The field names in the examples above are described further in `documents 4, 5 and 6 <https://github.com/OasisLMF/
-OpenDataStandards/tree/main/OpenExposureData>`_.
+The field names in the examples above are described further in `documents 4, 5
+and 6 <https://github.com/OasisLMF/ODS_OpenExposureData/tree/main/Docs>`_.
 
 The minimum fields required in a location file are **LocNumber, AccNumber, PortNumber, CountryCode, LocPerilsCovered, 
 LocCurrency, BuildingTIV, ContentsTIV, BITIV, OtherTIV**.
