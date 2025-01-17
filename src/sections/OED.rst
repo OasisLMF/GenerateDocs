@@ -52,7 +52,7 @@ fields exist in OED which are not yet implemented in Oasis, and secondary modifi
 used by any Oasis based model. However, Oasis LMF continue to expand the scope of their `FM <https://github.com/OasisLMF/
 ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/FinancialModule.md#L4>`_ with the aim to support as much 
 of the OED functionality as possible. An in depth overview of the OED can be found `here <https://github.com/OasisLMF/
-ODS_OpenExposureData/blob/develop/OpenExposureData/2_OED_Overview.rst>`_.
+ODS_OpenExposureData/blob/main/Docs/2_OED_Overview.rst>`_.
 
 OED can support :ref:`property`, :ref:`liability` and :ref:`cyber` classes of business.
 
@@ -76,11 +76,11 @@ The OED format for property comprises of four input files:
 
 Together, these four files efficiently and practically represent exposure data that can be interpreted by a catastrophe model. 
 The fields in each file and their corresponding data type are described in the ‘OED Input Fields’ tab in the `OED Data Spec 
-spreadsheet <https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs>`_. 
+spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/releases/latest>`_. 
 
 .. note::
-    Detailed documentation for the OED input files can be found `here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/
-    develop/OpenExposureData/3_OED_Import_Format.rst>`_.
+    Detailed documentation for the OED input files can be found `here
+   <https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/3_OED_Import_Format.rst>`_.
 |
 
 Location ('loc') Import File
@@ -128,14 +128,14 @@ separately, this would be represented in the location input file as shown below:
 |
 
 The field names in the examples above are described further in `documents 4, 5 and 6 <https://github.com/OasisLMF/
-OpenDataStandards/tree/master/OpenExposureData>`_.
+OpenDataStandards/tree/main/OpenExposureData>`_.
 
 The minimum fields required in a location file are **LocNumber, AccNumber, PortNumber, CountryCode, LocPerilsCovered, 
 LocCurrency, BuildingTIV, ContentsTIV, BITIV, OtherTIV**.
 
 The full set of fields in a location import file can be found by filtering on ‘Loc’ in the 'Input File' column of the 
-'OED Input Fields' sheet within the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/
-blob/develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. 
+'OED Input Fields' sheet within the `Open Exposure Data Spec spreadsheet
+<https://github.com/OasisLMF/ODS_OpenExposureData/releases/latest/download/OpenExposureData_Spec.xlsx>`_. 
 
 There are over 200 potential fields that could be used within the location file. However, it is not mandatory to use a 
 field that is not populated. 
@@ -159,8 +159,8 @@ multiple rows in the account file.
 The minimum fields required in an account file are **AccNumber**, **AccCurrency, PolNumber, PortNumber, PolPerilsCovered**.
 
 The full set of fields in an account import file can be found by filtering on ‘Acc’ in the 'Input File' column of the 'OED 
-Input Fields' sheet within the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/blob/
-develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. 
+Input Fields' sheet within the `Open Exposure Data Spec spreadsheet
+<https://github.com/OasisLMF/ODS_OpenExposureData/releases/latest/download/OpenExposureData_Spec.xlsx>`_. 
 
 Similarly, to the loc file, there are over 200 potential fields that could be used within the account file and it is not mandatory 
 to use a field that is not populated. 
@@ -190,9 +190,10 @@ risk level terms. A facultative contract, a quota share treaty or even a catastr
 thus require a risk level to be defined. 
 
 The full set of fields in a reinsurance info import file can be found by filtering on ‘ReinsInfo’ in the 'Input File' 
-column of the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/
-OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. There are over 20 potential fields that could be used within the 
-reinsurance info file. However, it is not mandatory to use a field that contains no data.
+column of the `Open Exposure Data Spec spreadsheet
+<https://github.com/OasisLMF/ODS_OpenExposureData/releases/latest/download/OpenExposureData_Spec.xlsx>`_.
+There are over 20 potential fields that could be used within the reinsurance
+info file. However, it is not mandatory to use a field that contains no data.
 
 
 |
@@ -208,16 +209,17 @@ The ``reinsurance scope`` file contains details of two different but related pie
 
 * The **CededPercent** for a surplus treaty: which can vary for each risk covered by the treaty.
 
-More information on the two points above are discussed `here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/
-OpenExposureData/3_OED_Import_Format.rst>`_, and more information on reinsurance within the OED can be found in `document 7 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/7_OED_Reinsurance.rst>`_.
+More information on the two points above are discussed `here
+<https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/3_OED_Import_Format.rst>`_,
+and more information on reinsurance within the OED can be found in `document 8
+<https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/8_OED_Reinsurance.rst>`_.
 
 The scope of what a reinsurance contract applies to is defined by the ten ‘filter fields’ available in the reinsurance 
 scope file: **PortNumber, AccNumber, PolNumber, LocGroup, LocNumber, CedantName, ProducerName, LOB, CountryCode, ReinsTag.**
 
 However, the minimum fields required are: **ReinsNumber**, at least one of the ten filter fields, and **CededPercent** for 
 surplus treaties. A full list of the reinsurance variables can be found in the `Open Exposure Data Spec spreadsheet 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_ by 
+<https://github.com/OasisLMF/ODS_OpenExposureData/releases/latest/download/OpenExposureData_Spec.xlsx>`_ by 
 filtering for ‘ReinsScope'
 
 
@@ -236,8 +238,8 @@ for development are suggested.
 A full, detailed list of the liability data fields with addition information of the fields can be found `here 
 <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/Docs/OExD_Liabs_DataFields.csv>`_.
 
-More information about ODS Liability can be found in the `GitHub repository <https://github.com/OasisLMF/
-ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/ReadMe.md>`_.
+More information about ODS Liability can be found in the `GitHub repository
+<https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/Liability/ReadMe.md>`_.
 
 
 
@@ -256,8 +258,8 @@ parallel to be appropriate for cyber data capture and modelling requirements.
 Detailed documentation for the OED cyber documentation can be found `Open Exposure Data Spec spreadsheet 
 <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Cyber/Docs/OED_Cyber_Data_Spec_v1.0.0.xlsx>`_.
 
-More information about ODS Cyber can be found in the `GitHub repository <https://github.com/OasisLMF/ODS_OpenExposureData/
-blob/develop/OpenExposureData/Cyber/ReadMe.md>`_.
+More information about ODS Cyber can be found in the `GitHub repository
+<https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/Cyber/ReadMe.md>`_.
 
 
 
@@ -273,6 +275,6 @@ Further information and community views of ODS can be found on the ODS website: 
 
 The GitHub repository for OED can be found `here <https://github.com/OasisLMF/ODS_OpenExposureData>`_.
 
-Also available is documentation on `OED currency support <https://github.com/OasisLMF/OasisLMF/blob/master/docs/
-OED_currency_support.md>`_ and `OED validation guidelines <https://github.com/OasisLMF/OasisLMF/blob/master/docs/
+Also available is documentation on `OED currency support <https://github.com/OasisLMF/OasisLMF/blob/main/docs/
+OED_currency_support.md>`_ and `OED validation guidelines <https://github.com/OasisLMF/OasisLMF/blob/main/docs/
 OED_validation_guidelines.md>`_.
