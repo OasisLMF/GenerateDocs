@@ -234,8 +234,8 @@ Liability
 The current OED schema for liability is a first version with the aim that it develops as market adoption increases and paths 
 for development are suggested.
 
-A full, detailed list of the liability data fields with addition information of the fields can be found `here 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/Docs/OExD_Liabs_DataFields.csv>`_.
+A full, detailed list of the liability data fields with addition information of the fields can be found `here
+<https://github.com/OasisLMF/ODS_OpenExposureData/tree/main/OpenExposureData>`_.
 
 More information about ODS Liability can be found in the `GitHub repository
 <https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/Liability/ReadMe.md>`_.
@@ -254,8 +254,8 @@ Like liability, the OED schema for cyber is a first version with the aim it deve
 modelling space is still in its infancy and is expected to develop relatively quickly so the OED is expected to develop in
 parallel to be appropriate for cyber data capture and modelling requirements. 
 
-Detailed documentation for the OED cyber documentation can be found `Open Exposure Data Spec spreadsheet 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Cyber/Docs/OED_Cyber_Data_Spec_v1.0.0.xlsx>`_.
+Detailed documentation for the OED cyber documentation can be found `here
+<https://github.com/OasisLMF/ODS_OpenExposureData/tree/main/OpenExposureData>`_.
 
 More information about ODS Cyber can be found in the `GitHub repository
 <https://github.com/OasisLMF/ODS_OpenExposureData/blob/main/Docs/Cyber/ReadMe.md>`_.
