@@ -105,207 +105,205 @@ The following table details the OED fields and how they are interpreted into the
 shows which OED fields are supported byt the Oasis Financial Module, and which version they were introduced in if not from
 the start.
 
+.. csv-table::
+    :header: "File Name","Input Field Name","Type & Description","Coverage Type ID","FM Level Name","FM Level","FM Term Type","FM Term Group ID","Deductible Type","Supported in Oasis"
 
-|+-----------+------------------------+-----------------------------------------------------------------------------------------------+------------------+---------------+----------+----------------+------------------+-----------------+--------------------+
-| File Name | Input Field Name       | Type & Description                                                                            | Coverage Type ID | FM Level Name | FM Level | FM Term Type   | FM Term Group ID | Deductible Type | Supported in Oasis |
-+===========+========================+===============================================================================================+==================+===============+==========+================+==================+=================+====================+
-| Loc       | LocDed1Building        | Location building deductible                                                                  | 1                | SiteCoverage  | 1        | Deductible     | 1                | B               | Yes                |
-| Loc       | LocDedCode1Building    | Location building deductible code                                                             | 1                | SiteCoverage  | 1        | DeductibleCode | 1                |                 | Yes                |
-| Loc       | LocDedType1Building    | Location building deductible type                                                             | 1                | SiteCoverage  | 1        | DeductibleType | 1                |                 | Yes                |
-| Loc       | LocLimit1Building      | Location building limit                                                                       | 1                | SiteCoverage  | 1        | Limit          | 1                |                 | Yes                |
-| Loc       | LocLimitCode1Building  | Location building limit code                                                                  | 1                | SiteCoverage  | 1        | LimitCode      | 1                |                 | Yes                |
-| Loc       | LocLimitType1Building  | Location building limit type                                                                  | 1                | SiteCoverage  | 1        | LimitType      | 1                |                 | Yes                |
-| Loc       | LocMaxDed1Building     | Location maximum building deductible                                                          | 1                | SiteCoverage  | 1        | DeductibleMax  | 1                | MA              | Yes                |
-| Loc       | LocMinDed1Building     | Location minimum building deductible                                                          | 1                | SiteCoverage  | 1        | DeductibleMin  | 1                | MI              | Yes                |
-| Loc       | LocDed2Other           | Location other building deductible                                                            | 2                | SiteCoverage  | 1        | Deductible     | 2                | B               | Yes                |
-| Loc       | LocDedCode2Other       | Location other building deductible code                                                       | 2                | SiteCoverage  | 1        | DeductibleCode | 2                |                 | Yes                |
-| Loc       | LocDedType2Other       | Location other building deductible type                                                       | 2                | SiteCoverage  | 1        | DeductibleType | 2                |                 | Yes                |
-| Loc       | LocLimit2Other         | Location other building limit                                                                 | 2                | SiteCoverage  | 1        | Limit          | 2                |                 | Yes                |
-| Loc       | LocLimitCode2Other     | Location other building limit code                                                            | 2                | SiteCoverage  | 1        | LimitCode      | 2                |                 | Yes                |
-| Loc       | LocLimitType2Other     | Location other building limit type                                                            | 2                | SiteCoverage  | 1        | LimitType      | 2                |                 | Yes                |
-| Loc       | LocMaxDed2Other        | Location maximum other building deductible                                                    | 2                | SiteCoverage  | 1        | DeductibleMax  | 2                | MA              | Yes                |
-| Loc       | LocMinDed2Other        | Location minimum other building deductible                                                    | 2                | SiteCoverage  | 1        | DeductibleMin  | 2                | MI              | Yes                |
-| Loc       | LocDed3Contents        | Location contents deductible                                                                  | 3                | SiteCoverage  | 1        | Deductible     | 3                | B               | Yes                |
-| Loc       | LocDedCode3Contents    | Location contents deductible code                                                             | 3                | SiteCoverage  | 1        | DeductibleCode | 3                |                 | Yes                |
-| Loc       | LocDedType3Contents    | Location contents deductible type                                                             | 3                | SiteCoverage  | 1        | DeductibleType | 3                |                 | Yes                |
-| Loc       | LocLimit3Contents      | Location contents limit                                                                       | 3                | SiteCoverage  | 1        | Limit          | 3                |                 | Yes                |
-| Loc       | LocLimitCode3Contents  | Location contents limit code                                                                  | 3                | SiteCoverage  | 1        | LimitCode      | 3                |                 | Yes                |
-| Loc       | LocLimitType3Contents  | Location contents limit type                                                                  | 3                | SiteCoverage  | 1        | LimitType      | 3                |                 | Yes                |
-| Loc       | LocMaxDed3Contents     | Location maximum contents deductible                                                          | 3                | SiteCoverage  | 1        | DeductibleMax  | 3                | MA              | Yes                |
-| Loc       | LocMinDed3Contents     | Location minimum contents deductible                                                          | 3                | SiteCoverage  | 1        | DeductibleMin  | 3                | MI              | Yes                |
-| Loc       | LocDed4BI              | Location BI deductible                                                                        | 4                | SiteCoverage  | 1        | Deductible     | 4                | B               | Yes                |
-| Loc       | LocDedCode4BI          | Location BI Deductible Code                                                                   | 4                | SiteCoverage  | 1        | DeductibleCode | 4                |                 | Yes                |
-| Loc       | LocDedType4BI          | Location BI Deductible Type                                                                   | 4                | SiteCoverage  | 1        | DeductibleType | 4                |                 | Yes                |
-| Loc       | LocLimit4BI            | Location BI limit                                                                             | 4                | SiteCoverage  | 1        | Limit          | 4                |                 | Yes                |
-| Loc       | LocLimitCode4BI        | Location BI limit code                                                                        | 4                | SiteCoverage  | 1        | LimitCode      | 4                |                 | Yes                |
-| Loc       | LocLimitType4BI        | Location BI limit type                                                                        | 4                | SiteCoverage  | 1        | LimitType      | 4                |                 | Yes                |
-| Loc       | LocMaxDed4BI           | Location maximum bi deductible                                                                | 4                | SiteCoverage  | 1        | DeductibleMax  | 4                | MA              | Yes                |
-| Loc       | LocMinDed4BI           | Location minimum bi deductible                                                                | 4                | SiteCoverage  | 1        | DeductibleMin  | 4                | MI              | Yes                |
-| Loc       | LocDed5PD              | Location PD deductible                                                                        | [1, 2, 3]        | SitePD        | 2        | Deductible     | 1                | B               | Yes                |
-| Loc       | LocDedCode5PD          | Location PD deductible code                                                                   | [1, 2, 3]        | SitePD        | 2        | DeductibleCode | 1                |                 | Yes                |
-| Loc       | LocDedType5PD          | Location PD deductible type                                                                   | [1, 2, 3]        | SitePD        | 2        | DeductibleType | 1                |                 | Yes                |
-| Loc       | LocLimit5PD            | Location PD limit                                                                             | [1, 2, 3]        | SitePD        | 2        | Limit          | 1                |                 | Yes                |
-| Loc       | LocLimitCode5PD        | Location PD limit code                                                                        | [1, 2, 3]        | SitePD        | 2        | LimitCode      | 1                |                 | Yes                |
-| Loc       | LocLimitType5PD        | Location PD limit type                                                                        | [1, 2, 3]        | SitePD        | 2        | LimitType      | 1                |                 | Yes                |
-| Loc       | LocMaxDed5PD           | Location maximum PD deductible                                                                | [1, 2, 3]        | SitePD        | 2        | DeductibleMax  | 1                | MA              | Yes                |
-| Loc       | LocMinDed5PD           | Location minimum PD deductible                                                                | [1, 2, 3]        | SitePD        | 2        | DeductibleMin  | 1                | MI              | Yes                |
-| Loc       | LocDed6All             | Location site deductible                                                                      | [1, 2, 3, 4]     | SiteAll       | 3        | Deductible     | 1                | B               | Yes                |
-| Loc       | LocDedCode6All         | Location blanket deductible code                                                              | [1, 2, 3, 4]     | SiteAll       | 3        | DeductibleCode | 1                |                 | Yes                |
-| Loc       | LocDedType6All         | Location blanket deductible type                                                              | [1, 2, 3, 4]     | SiteAll       | 3        | DeductibleType | 1                |                 | Yes                |
-| Loc       | LocLimit6All           | Location site limit                                                                           | [1, 2, 3, 4]     | SiteAll       | 3        | Limit          | 1                |                 | Yes                |
-| Loc       | LocLimitCode6All       | Location site limit code                                                                      | [1, 2, 3, 4]     | SiteAll       | 3        | LimitCode      | 1                |                 | Yes                |
-| Loc       | LocLimitType6All       | Location site limit type                                                                      | [1, 2, 3, 4]     | SiteAll       | 3        | LimitType      | 1                |                 | Yes                |
-| Loc       | LocMaxDed6All          | Location maximum blanket deductible                                                           | [1, 2, 3, 4]     | SiteAll       | 3        | DeductibleMax  | 1                | MA              | Yes                |
-| Loc       | LocMinDed6All          | Location minimum blanket deductible                                                           | [1, 2, 3, 4]     | SiteAll       | 3        | DeductibleMin  | 1                | MI              | Yes                |
-| Acc       | CondDed1Building       | Special condition building deductible                                                         | 1                | CondCoverage  | 4        | Deductible     | 1                | B               | From v1.28.4       |
-| Acc       | CondDedCode1Building   | Special condition building deductible code                                                    | 1                | CondCoverage  | 4        | DeductibleCode | 1                |                 | From v1.28.4       |
-| Acc       | CondDedType1Building   | Special condition building deductible type                                                    | 1                | CondCoverage  | 4        | DeductibleType | 1                |                 | From v1.28.4       |
-| Acc       | CondLimit1Building     | Special condition building limit                                                              | 1                | CondCoverage  | 4        | Limit          | 1                |                 | From v1.28.4       |
-| Acc       | CondLimitCode1Building | Special condition building limit code                                                         | 1                | CondCoverage  | 4        | LimitCode      | 1                |                 | From v1.28.4       |
-| Acc       | CondLimitType1Building | Special condition building limit type                                                         | 1                | CondCoverage  | 4        | LimitType      | 1                |                 | From v1.28.4       |
-| Acc       | CondMaxDed1Building    | Special condition maximum building deductible                                                 | 1                | CondCoverage  | 4        | DeductibleMax  | 1                | MA              | From v1.28.4       |
-| Acc       | CondMinDed1Building    | Special condition minimum building deductible                                                 | 1                | CondCoverage  | 4        | DeductibleMin  | 1                | MI              | From v1.28.4       |
-| Acc       | CondDed2Other          | Special condition other building deductible                                                   | 2                | CondCoverage  | 4        | Deductible     | 2                | B               | From v1.28.4       |
-| Acc       | CondDedCode2Other      | Special condition other building deductible code                                              | 2                | CondCoverage  | 4        | DeductibleCode | 2                |                 | From v1.28.4       |
-| Acc       | CondDedType2Other      | Special condition other building deductible type                                              | 2                | CondCoverage  | 4        | DeductibleType | 2                |                 | From v1.28.4       |
-| Acc       | CondLimit2Other        | Special condition other building limit                                                        | 2                | CondCoverage  | 4        | Limit          | 2                |                 | From v1.28.4       |
-| Acc       | CondLimitCode2Other    | Special condition other building limit code                                                   | 2                | CondCoverage  | 4        | LimitCode      | 2                |                 | From v1.28.4       |
-| Acc       | CondLimitType2Other    | Special condition other building limit type                                                   | 2                | CondCoverage  | 4        | LimitType      | 2                |                 | From v1.28.4       |
-| Acc       | CondMaxDed2Other       | Special condition maximum other building deductible                                           | 2                | CondCoverage  | 4        | DeductibleMax  | 2                | MA              | From v1.28.4       |
-| Acc       | CondMinDed2Other       | Special condition minimum other building deductible                                           | 2                | CondCoverage  | 4        | DeductibleMin  | 2                | MI              | From v1.28.4       |
-| Acc       | CondDed3Contents       | Special condition contents deductible                                                         | 3                | CondCoverage  | 4        | Deductible     | 3                | B               | From v1.28.4       |
-| Acc       | CondDedCode3Contents   | Special condition contents deductible code                                                    | 3                | CondCoverage  | 4        | DeductibleCode | 3                |                 | From v1.28.4       |
-| Acc       | CondDedType3Contents   | Special condition contents deductible type                                                    | 3                | CondCoverage  | 4        | DeductibleType | 3                |                 | From v1.28.4       |
-| Acc       | CondLimit3Contents     | Special condition contents limit                                                              | 3                | CondCoverage  | 4        | Limit          | 3                |                 | From v1.28.4       |
-| Acc       | CondLimitCode3Contents | Special condition contents limit code                                                         | 3                | CondCoverage  | 4        | LimitCode      | 3                |                 | From v1.28.4       |
-| Acc       | CondLimitType3Contents | Special condition contents limit type                                                         | 3                | CondCoverage  | 4        | LimitType      | 3                |                 | From v1.28.4       |
-| Acc       | CondMaxDed3Contents    | Special condition maximum contents deductible                                                 | 3                | CondCoverage  | 4        | DeductibleMax  | 3                | MA              | From v1.28.4       |
-| Acc       | CondMinDed3Contents    | Special condition minimum contents deductible                                                 | 3                | CondCoverage  | 4        | DeductibleMin  | 3                | MI              | From v1.28.4       |
-| Acc       | CondDed4BI             | Special condition BI deductible                                                               | 4                | CondCoverage  | 4        | Deductible     | 4                | B               | From v1.28.4       |
-| Acc       | CondDedCode4BI         | Special condition BI deductible code                                                          | 4                | CondCoverage  | 4        | DeductibleCode | 4                |                 | From v1.28.4       |
-| Acc       | CondDedType4BI         | Special condition BI deductible type                                                          | 4                | CondCoverage  | 4        | DeductibleType | 4                |                 | From v1.28.4       |
-| Acc       | CondLimit4BI           | Special condition BI limit                                                                    | 4                | CondCoverage  | 4        | Limit          | 4                |                 | From v1.28.4       |
-| Acc       | CondLimitCode4BI       | Special condition BI limit code                                                               | 4                | CondCoverage  | 4        | LimitCode      | 4                |                 | From v1.28.4       |
-| Acc       | CondLimitType4BI       | Special condition BI limit type                                                               | 4                | CondCoverage  | 4        | LimitType      | 4                |                 | From v1.28.4       |
-| Acc       | CondMaxDed4BI          | Special condition maximum BI deductible                                                       | 4                | CondCoverage  | 4        | DeductibleMax  | 4                | MA              | From v1.28.4       |
-| Acc       | CondMinDed4BI          | Special condition minimum BI deductible                                                       | 4                | CondCoverage  | 4        | DeductibleMin  | 4                | MI              | From v1.28.4       |
-| Acc       | CondDed5PD             | Special condition PD deductible                                                               | [1, 2, 3]        | CondPD        | 5        | Deductible     | 1                | B               | From v1.28.4       |
-| Acc       | CondDedCode5PD         | Special condition PD deductible code                                                          | [1, 2, 3]        | CondPD        | 5        | DeductibleCode | 1                |                 | From v1.28.4       |
-| Acc       | CondDedType5PD         | Special condition PD deductible type                                                          | [1, 2, 3]        | CondPD        | 5        | DeductibleType | 1                |                 | From v1.28.4       |
-| Acc       | CondLimit5PD           | Special condition PD limit                                                                    | [1, 2, 3]        | CondPD        | 5        | Limit          | 1                |                 | From v1.28.4       |
-| Acc       | CondLimitCode5PD       | Special condition PD limit code                                                               | [1, 2, 3]        | CondPD        | 5        | LimitCode      | 1                |                 | From v1.28.4       |
-| Acc       | CondLimitType5PD       | Special condition PD limit type                                                               | [1, 2, 3]        | CondPD        | 5        | LimitType      | 1                |                 | From v1.28.4       |
-| Acc       | CondMaxDed5PD          | Special condition maximum PD deductible                                                       | [1, 2, 3]        | CondPD        | 5        | DeductibleMax  | 1                | MA              | From v1.28.4       |
-| Acc       | CondMinDed5PD          | Special condition minimum PD deductible                                                       | [1, 2, 3]        | CondPD        | 5        | DeductibleMin  | 1                | MI              | From v1.28.4       |
-| Acc       | CondDed6All            | Special condition blanket deductible                                                          | [1, 2, 3, 4]     | CondAll       | 6        | Deductible     | 1                | B               | Yes                |
-| Acc       | CondDedCode6All        | Special condition blanket deductible code                                                     | [1, 2, 3, 4]     | CondAll       | 6        | DeductibleCode | 1                |                 | Yes                |
-| Acc       | CondDedType6All        | Special condition blanket deductible type                                                     | [1, 2, 3, 4]     | CondAll       | 6        | DeductibleType | 1                |                 | Yes                |
-| Acc       | CondLimit6All          | Special condition blanket limit                                                               | [1, 2, 3, 4]     | CondAll       | 6        | Limit          | 1                |                 | Yes                |
-| Acc       | CondLimitCode6All      | Special condition blanket limit code                                                          | [1, 2, 3, 4]     | CondAll       | 6        | LimitCode      | 1                |                 | Yes                |
-| Acc       | CondLimitType6All      | Special condition blanket limit type                                                          | [1, 2, 3, 4]     | CondAll       | 6        | LimitType      | 1                |                 | Yes                |
-| Acc       | CondMaxDed6All         | Special condition maximum blanket deductible                                                  | [1, 2, 3, 4]     | CondAll       | 6        | DeductibleMax  | 1                | MA              | Yes                |
-| Acc       | CondMinDed6All         | Special condition minimum blanket deductible                                                  | [1, 2, 3, 4]     | CondAll       | 6        | DeductibleMin  | 1                | MI              | Yes                |
-| Acc       | PolDed1Building        | Policy building deductible                                                                    | 1                | PolCoverage   | 7        | Deductible     | 1                | B               | From v1.26.1       |
-| Acc       | PolDedCode1Building    | Policy building deductible code                                                               | 1                | PolCoverage   | 7        | DeductibleCode | 1                |                 | From v1.26.1       |
-| Acc       | PolDedType1Building    | Policy building deductible type                                                               | 1                | PolCoverage   | 7        | DeductibleType | 1                |                 | From v1.26.1       |
-| Acc       | PolLimit1Building      | Policy building limit                                                                         | 1                | PolCoverage   | 7        | Limit          | 1                |                 | From v1.26.1       |
-| Acc       | PolLimitCode1Building  | Policy building limit code                                                                    | 1                | PolCoverage   | 7        | LimitCode      | 1                |                 | From v1.26.1       |
-| Acc       | PolLimitType1Building  | Policy building limit type                                                                    | 1                | PolCoverage   | 7        | LimitType      | 1                |                 | From v1.26.1       |
-| Acc       | PolMaxDed1Building     | Policy maximum building deductible                                                            | 1                | PolCoverage   | 7        | DeductibleMax  | 1                | MA              | From v1.26.1       |
-| Acc       | PolMinDed1Building     | Policy minimum building deductible                                                            | 1                | PolCoverage   | 7        | DeductibleMin  | 1                | MI              | From v1.26.1       |
-| Acc       | PolDed2Other           | Policy other building deductible                                                              | 2                | PolCoverage   | 7        | Deductible     | 2                | B               | From v1.26.1       |
-| Acc       | PolDedCode2Other       | Policy other building deductible code                                                         | 2                | PolCoverage   | 7        | DeductibleCode | 2                |                 | From v1.26.1       |
-| Acc       | PolDedType2Other       | Policy other building deductible type                                                         | 2                | PolCoverage   | 7        | DeductibleType | 2                |                 | From v1.26.1       |
-| Acc       | PolLimit2Other         | Policy other building limit                                                                   | 2                | PolCoverage   | 7        | Limit          | 2                |                 | From v1.26.1       |
-| Acc       | PolLimitCode2Other     | Policy other building limit code                                                              | 2                | PolCoverage   | 7        | LimitCode      | 2                |                 | From v1.26.1       |
-| Acc       | PolLimitType2Other     | Policy other building limit type                                                              | 2                | PolCoverage   | 7        | LimitType      | 2                |                 | From v1.26.1       |
-| Acc       | PolMaxDed2Other        | Policy maximum other building deductible                                                      | 2                | PolCoverage   | 7        | DeductibleMax  | 2                | MA              | From v1.26.1       |
-| Acc       | PolMinDed2Other        | Policy minimum other building deductible                                                      | 2                | PolCoverage   | 7        | DeductibleMin  | 2                | MI              | From v1.26.1       |
-| Acc       | PolDed3Contents        | Policy contents deductible                                                                    | 3                | PolCoverage   | 7        | Deductible     | 3                | B               | From v1.26.1       |
-| Acc       | PolDedCode3Contents    | Policy contents deductible code                                                               | 3                | PolCoverage   | 7        | DeductibleCode | 3                |                 | From v1.26.1       |
-| Acc       | PolDedType3Contents    | Policy contents deductible type                                                               | 3                | PolCoverage   | 7        | DeductibleType | 3                |                 | From v1.26.1       |
-| Acc       | PolLimit3Contents      | Policy contents limit                                                                         | 3                | PolCoverage   | 7        | Limit          | 3                |                 | From v1.26.1       |
-| Acc       | PolLimitCode3Contents  | Policy contents limit code                                                                    | 3                | PolCoverage   | 7        | LimitCode      | 3                |                 | From v1.26.1       |
-| Acc       | PolLimitType3Contents  | Policy contents limit type                                                                    | 3                | PolCoverage   | 7        | LimitType      | 3                |                 | From v1.26.1       |
-| Acc       | PolMaxDed3Contents     | Policy maximum contents deductible                                                            | 3                | PolCoverage   | 7        | DeductibleMax  | 3                | MA              | From v1.26.1       |
-| Acc       | PolMinDed3Contents     | Policy minimum contents deductible                                                            | 3                | PolCoverage   | 7        | DeductibleMin  | 3                | MI              | From v1.26.1       |
-| Acc       | PolDed4BI              | Policy BI deductible                                                                          | 4                | PolCoverage   | 7        | Deductible     | 4                | B               | From v1.26.1       |
-| Acc       | PolDedCode4BI          | Policy BI deductible code                                                                     | 4                | PolCoverage   | 7        | DeductibleCode | 4                |                 | From v1.26.1       |
-| Acc       | PolDedType4BI          | Policy BI deductible type                                                                     | 4                | PolCoverage   | 7        | DeductibleType | 4                |                 | From v1.26.1       |
-| Acc       | PolLimit4BI            | Policy BI limit                                                                               | 4                | PolCoverage   | 7        | Limit          | 4                |                 | From v1.26.1       |
-| Acc       | PolLimitCode4BI        | Policy BI limit code                                                                          | 4                | PolCoverage   | 7        | LimitCode      | 4                |                 | From v1.26.1       |
-| Acc       | PolLimitType4BI        | Policy BI limit type                                                                          | 4                | PolCoverage   | 7        | LimitType      | 4                |                 | From v1.26.1       |
-| Acc       | PolMaxDed4BI           | Policy maximum BI deductible                                                                  | 4                | PolCoverage   | 7        | DeductibleMax  | 4                | MA              | From v1.26.1       |
-| Acc       | PolMinDed4BI           | Policy minimum BI deductible                                                                  | 4                | PolCoverage   | 7        | DeductibleMin  | 4                | MI              | From v1.26.1       |
-| Acc       | PolDed5PD              | Policy PD deductible                                                                          | [1, 2, 3]        | PolPD         | 8        | Deductible     | 1                | B               | From v1.26.1       |
-| Acc       | PolDedCode5PD          | Policy PD deductible code                                                                     | [1, 2, 3]        | PolPD         | 8        | DeductibleCode | 1                |                 | From v1.26.1       |
-| Acc       | PolDedType5PD          | Policy PD deductible type                                                                     | [1, 2, 3]        | PolPD         | 8        | DeductibleType | 1                |                 | From v1.26.1       |
-| Acc       | PolLimit5PD            | Policy PD limit                                                                               | [1, 2, 3]        | PolPD         | 8        | Limit          | 1                |                 | From v1.26.1       |
-| Acc       | PolLimitCode5PD        | Policy PD limit code                                                                          | [1, 2, 3]        | PolPD         | 8        | LimitCode      | 1                |                 | From v1.26.1       |
-| Acc       | PolLimitType5PD        | Policy PD limit type                                                                          | [1, 2, 3]        | PolPD         | 8        | LimitType      | 1                |                 | From v1.26.1       |
-| Acc       | PolMaxDed5PD           | Policy maximum PD deductible                                                                  | [1, 2, 3]        | PolPD         | 8        | DeductibleMax  | 1                | MA              | From v1.26.1       |
-| Acc       | PolMinDed5PD           | Policy minimum PD deductible                                                                  | [1, 2, 3]        | PolPD         | 8        | DeductibleMin  | 1                | MI              | From v1.26.1       |
-| Acc       | PolDed6All             | Policy blanket deductible                                                                     | [1, 2, 3, 4]     | PolAll        | 9        | Deductible     | 1                | B               | Yes                |
-| Acc       | PolDedCode6All         | Policy blanket deductible code                                                                | [1, 2, 3, 4]     | PolAll        | 9        | DeductibleCode | 1                |                 | Yes                |
-| Acc       | PolDedType6All         | Policy blanket deductible type                                                                | [1, 2, 3, 4]     | PolAll        | 9        | DeductibleType | 1                | B               | Yes                |
-| Acc       | PolLimit6All           | Policy blanket limit                                                                          | [1, 2, 3, 4]     | PolAll        | 9        | Limit          | 1                |                 | Yes                |
-| Acc       | PolLimitCode6All       | Policy blanket limit code (annual aggregate only)                                             | [1, 2, 3, 4]     | PolAll        | 9        | LimitCode      | 1                |                 | Yes                |
-| Acc       | PolLimitType6All       | Policy blanket limit type                                                                     | [1, 2, 3, 4]     | PolAll        | 9        | LimitType      | 1                |                 | Yes                |
-| Acc       | PolMaxDed6All          | Policy maximum blanket deductible                                                             | [1, 2, 3, 4]     | PolAll        | 9        | DeductibleMax  | 1                | MA              | Yes                |
-| Acc       | PolMinDed6All          | Policy minimum blanket deductible                                                             | [1, 2, 3, 4]     | PolAll        | 9        | DeductibleMin  | 1                | MI              | Yes                |
-| Acc       | LayerAttachment        | Policy layer attachment point (always treated as amount)                                      |                  | PolLayer      | 10       | Attachment     | 1                |                 | Yes                |
-| Acc       | LayerLimit             | Policy layer limit (always treated as amount)                                                 |                  | PolLayer      | 10       | Limit          | 1                |                 | Yes                |
-| Acc       | LayerParticipation     | Insurance company share of the policy layer. Values between 0 to 1 (e.g. 12% entered as 0.12) |                  | PolLayer      | 10       | Share          | 1                |                 | Yes                |
-| Acc       | AccDed6All             | Account blanket deductible                                                                    | [1, 2, 3, 4]     | AccAll        | 13       | Deductible     | 1                | B               | From v1.27.2       |
-| Acc       | AccDedCode6All         | Account blanket deductible code                                                               | [1, 2, 3, 4]     | AccAll        | 13       | DeductibleCode | 1                |                 | From v1.27.2       |
-| Acc       | AccDedType6All         | Account blanket deductible type                                                               | [1, 2, 3, 4]     | AccAll        | 13       | DeductibleType | 1                | B               | From v1.27.2       |
-| Acc       | AccLimit6All           | Account blanket limit                                                                         | [1, 2, 3, 4]     | AccAll        | 13       | Limit          | 1                |                 | From v1.27.2       |
-| Acc       | AccLimitCode6All       | Account blanket limit code                                                                    | [1, 2, 3, 4]     | AccAll        | 13       | LimitCode      | 1                |                 | From v1.27.2       |
-| Acc       | AccLimitType6All       | Account blanket limit type                                                                    | [1, 2, 3, 4]     | AccAll        | 13       | LimitType      | 1                |                 | From v1.27.2       |
-| Acc       | AccMaxDed6All          | Account maximum blanket deductible                                                            | [1, 2, 3, 4]     | AccAll        | 13       | DeductibleMax  | 1                | MA              | From v1.27.2       |
-| Acc       | AccMinDed6All          | Account minimum blanket deductible                                                            | [1, 2, 3, 4]     | AccAll        | 13       | DeductibleMin  | 1                | MI              | From v1.27.2       |
-| Acc       | AccParticipation       | Insurance company share of the account loss. Values between 0 to 1 (e.g. 12% entered as 0.12) |                  | AccAll        | 13       | Share          | 1                |                 | From v1.28.5       |
-| Acc       | AccDed1Building        | Account building deductible                                                                   | 1                | AccCoverage   | 11       | Deductible     | 1                | B               | No                 |
-| Acc       | AccDed2Other           | Account other building deductible                                                             | 2                | AccCoverage   | 11       | Deductible     | 2                | B               | No                 |
-| Acc       | AccDed3Contents        | Account contents deductible                                                                   | 3                | AccCoverage   | 11       | Deductible     | 3                | B               | No                 |
-| Acc       | AccDed4BI              | Account BI deductible                                                                         | 4                | AccCoverage   | 11       | Deductible     | 4                | B               | No                 |
-| Acc       | AccDed5PD              | Account PD deductible                                                                         | [1, 2, 3]        | AccPD         | 12       | Deductible     | 1                | B               | No                 |
-| Acc       | AccDedCode1Building    | Account building deductible code                                                              | 1                | AccCoverage   | 11       | DeductibleCode | 1                |                 | No                 |
-| Acc       | AccDedCode2Other       | Account other building deductible code                                                        | 2                | AccCoverage   | 11       | DeductibleCode | 2                |                 | No                 |
-| Acc       | AccDedCode3Contents    | Account contents deductible code                                                              | 3                | AccCoverage   | 11       | DeductibleCode | 3                |                 | No                 |
-| Acc       | AccDedCode4BI          | Account BI deductible code                                                                    | 4                | AccCoverage   | 11       | DeductibleCode | 4                |                 | No                 |
-| Acc       | AccDedCode5PD          | Account PD deductible code                                                                    | [1, 2, 3]        | AccPD         | 12       | DeductibleCode | 1                |                 | No                 |
-| Acc       | AccDedType1Building    | Account building deductible type                                                              | 1                | AccCoverage   | 11       | DeductibleType | 1                |                 | No                 |
-| Acc       | AccDedType2Other       | Account other building deductible type                                                        | 2                | AccCoverage   | 11       | DeductibleType | 2                |                 | No                 |
-| Acc       | AccDedType3Contents    | Account contents deductible type                                                              | 3                | AccCoverage   | 11       | DeductibleType | 3                |                 | No                 |
-| Acc       | AccDedType4BI          | Account BI deductible type                                                                    | 4                | AccCoverage   | 11       | DeductibleType | 4                |                 | No                 |
-| Acc       | AccDedType5PD          | Account PD deductible type                                                                    | [1, 2, 3]        | AccPD         | 12       | DeductibleType | 1                |                 | No                 |
-| Acc       | AccLimit1Building      | Account building limit                                                                        | 1                | AccCoverage   | 11       | Limit          | 1                |                 | No                 |
-| Acc       | AccLimit2Other         | Account other building limit                                                                  | 2                | AccCoverage   | 11       | Limit          | 2                |                 | No                 |
-| Acc       | AccLimit3Contents      | Account contents limit                                                                        | 3                | AccCoverage   | 11       | Limit          | 3                |                 | No                 |
-| Acc       | AccLimit4BI            | Account BI limit                                                                              | 4                | AccCoverage   | 11       | Limit          | 4                |                 | No                 |
-| Acc       | AccLimit5PD            | Account PD limit                                                                              | [1, 2, 3]        | AccPD         | 12       | Limit          | 1                |                 | No                 |
-| Acc       | AccLimitCode1Building  | Account building limit code                                                                   | 1                | AccCoverage   | 11       | LimitCode      | 1                |                 | No                 |
-| Acc       | AccLimitCode2Other     | Account other building limit code                                                             | 2                | AccCoverage   | 11       | LimitCode      | 2                |                 | No                 |
-| Acc       | AccLimitCode3Contents  | Account contents limit code                                                                   | 3                | AccCoverage   | 11       | LimitCode      | 3                |                 | No                 |
-| Acc       | AccLimitCode4BI        | Account BI limit code                                                                         | 4                | AccCoverage   | 11       | LimitCode      | 4                |                 | No                 |
-| Acc       | AccLimitCode5PD        | Account PD limit code                                                                         | [1, 2, 3]        | AccPD         | 12       | LimitCode      | 1                |                 | No                 |
-| Acc       | AccLimitType1Building  | Account building limit type                                                                   | 1                | AccCoverage   | 11       | LimitType      | 1                |                 | No                 |
-| Acc       | AccLimitType2Other     | Account other building limit type                                                             | 2                | AccCoverage   | 11       | LimitType      | 2                |                 | No                 |
-| Acc       | AccLimitType3Contents  | Account contents limit type                                                                   | 3                | AccCoverage   | 11       | LimitType      | 3                |                 | No                 |
-| Acc       | AccLimitType4BI        | Account BI limit type                                                                         | 4                | AccCoverage   | 11       | LimitType      | 4                |                 | No                 |
-| Acc       | AccLimitType5PD        | Account PD limit type                                                                         | [1, 2, 3]        | AccPD         | 12       | LimitType      | 1                |                 | No                 |
-| Acc       | AccMaxDed1Building     | Account maximum building deductible                                                           | 1                | AccCoverage   | 11       | DeductibleMax  | 1                | MA              | No                 |
-| Acc       | AccMaxDed2Other        | Account maximum other building deductible                                                     | 2                | AccCoverage   | 11       | DeductibleMax  | 2                | MA              | No                 |
-| Acc       | AccMaxDed3Contents     | Account maximum contents deductible                                                           | 3                | AccCoverage   | 11       | DeductibleMax  | 3                | MA              | No                 |
-| Acc       | AccMaxDed4BI           | Account maximum BI deductible                                                                 | 4                | AccCoverage   | 11       | DeductibleMax  | 4                | MA              | No                 |
-| Acc       | AccMaxDed5PD           | Account maximum PD deductible                                                                 | [1, 2, 3]        | AccPD         | 12       | DeductibleMax  | 1                | MA              | No                 |
-| Acc       | AccMinDed1Building     | Account minimum building deductible                                                           | 1                | AccCoverage   | 11       | DeductibleMin  | 1                | MI              | No                 |
-| Acc       | AccMinDed2Other        | Account minimum other building deductible                                                     | 2                | AccCoverage   | 11       | DeductibleMin  | 2                | MI              | No                 |
-| Acc       | AccMinDed3Contents     | Account minimum contents deductible                                                           | 3                | AccCoverage   | 11       | DeductibleMin  | 3                | MI              | No                 |
-| Acc       | AccMinDed4BI           | Account minimum BI deductible                                                                 | 4                | AccCoverage   | 11       | DeductibleMin  | 4                | MI              | No                 |
-| Acc       | AccMinDed5PD           | Account minimum PD deductible                                                                 | [1, 2, 3]        | AccPD         | 12       | DeductibleMin  | 1                | MI              | No                 |
-+-----------+------------------------+-----------------------------------------------------------------------------------------------+------------------+---------------+----------+----------------+------------------+-----------------+--------------------+
+    "Loc","LocDed1Building","Location building deductible","1","SiteCoverage","1","Deductible","1","B","Yes"
+    "Loc","LocDedCode1Building","Location building deductible code","1","SiteCoverage","1","DeductibleCode","1","","Yes"
+    "Loc","LocDedType1Building","Location building deductible type","1","SiteCoverage","1","DeductibleType","1","","Yes"
+    "Loc","LocLimit1Building","Location building limit","1","SiteCoverage","1","Limit","1","","Yes"
+    "Loc","LocLimitCode1Building","Location building limit code","1","SiteCoverage","1","LimitCode","1","","Yes"
+    "Loc","LocLimitType1Building","Location building limit type","1","SiteCoverage","1","LimitType","1","","Yes"
+    "Loc","LocMaxDed1Building","Location maximum building deductible","1","SiteCoverage","1","DeductibleMax","1","MA","Yes"
+    "Loc","LocMinDed1Building","Location minimum building deductible","1","SiteCoverage","1","DeductibleMin","1","MI","Yes"
+    "Loc","LocDed2Other","Location other building deductible","2","SiteCoverage","1","Deductible","2","B","Yes"
+    "Loc","LocDedCode2Other","Location other building deductible code","2","SiteCoverage","1","DeductibleCode","2","","Yes"
+    "Loc","LocDedType2Other","Location other building deductible type","2","SiteCoverage","1","DeductibleType","2","","Yes"
+    "Loc","LocLimit2Other","Location other building limit","2","SiteCoverage","1","Limit","2","","Yes"
+    "Loc","LocLimitCode2Other","Location other building limit code","2","SiteCoverage","1","LimitCode","2","","Yes"
+    "Loc","LocLimitType2Other","Location other building limit type","2","SiteCoverage","1","LimitType","2","","Yes"
+    "Loc","LocMaxDed2Other","Location maximum other building deductible","2","SiteCoverage","1","DeductibleMax","2","MA","Yes"
+    "Loc","LocMinDed2Other","Location minimum other building deductible","2","SiteCoverage","1","DeductibleMin","2","MI","Yes"
+    "Loc","LocDed3Contents","Location contents deductible","3","SiteCoverage","1","Deductible","3","B","Yes"
+    "Loc","LocDedCode3Contents","Location contents deductible code","3","SiteCoverage","1","DeductibleCode","3","","Yes"
+    "Loc","LocDedType3Contents","Location contents deductible type","3","SiteCoverage","1","DeductibleType","3","","Yes"
+    "Loc","LocLimit3Contents","Location contents limit","3","SiteCoverage","1","Limit","3","","Yes"
+    "Loc","LocLimitCode3Contents","Location contents limit code","3","SiteCoverage","1","LimitCode","3","","Yes"
+    "Loc","LocLimitType3Contents","Location contents limit type","3","SiteCoverage","1","LimitType","3","","Yes"
+    "Loc","LocMaxDed3Contents","Location maximum contents deductible","3","SiteCoverage","1","DeductibleMax","3","MA","Yes"
+    "Loc","LocMinDed3Contents","Location minimum contents deductible","3","SiteCoverage","1","DeductibleMin","3","MI","Yes"
+    "Loc","LocDed4BI","Location BI deductible","4","SiteCoverage","1","Deductible","4","B","Yes"
+    "Loc","LocDedCode4BI","Location BI Deductible Code","4","SiteCoverage","1","DeductibleCode","4","","Yes"
+    "Loc","LocDedType4BI","Location BI Deductible Type","4","SiteCoverage","1","DeductibleType","4","","Yes"
+    "Loc","LocLimit4BI","Location BI limit","4","SiteCoverage","1","Limit","4","","Yes"
+    "Loc","LocLimitCode4BI","Location BI limit code","4","SiteCoverage","1","LimitCode","4","","Yes"
+    "Loc","LocLimitType4BI","Location BI limit type","4","SiteCoverage","1","LimitType","4","","Yes"
+    "Loc","LocMaxDed4BI","Location maximum bi deductible","4","SiteCoverage","1","DeductibleMax","4","MA","Yes"
+    "Loc","LocMinDed4BI","Location minimum bi deductible","4","SiteCoverage","1","DeductibleMin","4","MI","Yes"
+    "Loc","LocDed5PD","Location PD deductible","[1, 2, 3]","SitePD","2","Deductible","1","B","Yes"
+    "Loc","LocDedCode5PD","Location PD deductible code","[1, 2, 3]","SitePD","2","DeductibleCode","1","","Yes"
+    "Loc","LocDedType5PD","Location PD deductible type","[1, 2, 3]","SitePD","2","DeductibleType","1","","Yes"
+    "Loc","LocLimit5PD","Location PD limit","[1, 2, 3]","SitePD","2","Limit","1","","Yes"
+    "Loc","LocLimitCode5PD","Location PD limit code","[1, 2, 3]","SitePD","2","LimitCode","1","","Yes"
+    "Loc","LocLimitType5PD","Location PD limit type","[1, 2, 3]","SitePD","2","LimitType","1","","Yes"
+    "Loc","LocMaxDed5PD","Location maximum PD deductible","[1, 2, 3]","SitePD","2","DeductibleMax","1","MA","Yes"
+    "Loc","LocMinDed5PD","Location minimum PD deductible","[1, 2, 3]","SitePD","2","DeductibleMin","1","MI","Yes"
+    "Loc","LocDed6All","Location site deductible","[1, 2, 3, 4]","SiteAll","3","Deductible","1","B","Yes"
+    "Loc","LocDedCode6All","Location blanket deductible code","[1, 2, 3, 4]","SiteAll","3","DeductibleCode","1","","Yes"
+    "Loc","LocDedType6All","Location blanket deductible type","[1, 2, 3, 4]","SiteAll","3","DeductibleType","1","","Yes"
+    "Loc","LocLimit6All","Location site limit","[1, 2, 3, 4]","SiteAll","3","Limit","1","","Yes"
+    "Loc","LocLimitCode6All","Location site limit code","[1, 2, 3, 4]","SiteAll","3","LimitCode","1","","Yes"
+    "Loc","LocLimitType6All","Location site limit type","[1, 2, 3, 4]","SiteAll","3","LimitType","1","","Yes"
+    "Loc","LocMaxDed6All","Location maximum blanket deductible","[1, 2, 3, 4]","SiteAll","3","DeductibleMax","1","MA","Yes"
+    "Loc","LocMinDed6All","Location minimum blanket deductible","[1, 2, 3, 4]","SiteAll","3","DeductibleMin","1","MI","Yes"
+    "Acc","CondDed1Building","Special condition building deductible","1","CondCoverage","4","Deductible","1","B","From v1.28.4"
+    "Acc","CondDedCode1Building","Special condition building deductible code","1","CondCoverage","4","DeductibleCode","1","","From v1.28.4"
+    "Acc","CondDedType1Building","Special condition building deductible type","1","CondCoverage","4","DeductibleType","1","","From v1.28.4"
+    "Acc","CondLimit1Building","Special condition building limit","1","CondCoverage","4","Limit","1","","From v1.28.4"
+    "Acc","CondLimitCode1Building","Special condition building limit code","1","CondCoverage","4","LimitCode","1","","From v1.28.4"
+    "Acc","CondLimitType1Building","Special condition building limit type","1","CondCoverage","4","LimitType","1","","From v1.28.4"
+    "Acc","CondMaxDed1Building","Special condition maximum building deductible","1","CondCoverage","4","DeductibleMax","1","MA","From v1.28.4"
+    "Acc","CondMinDed1Building","Special condition minimum building deductible","1","CondCoverage","4","DeductibleMin","1","MI","From v1.28.4"
+    "Acc","CondDed2Other","Special condition other building deductible","2","CondCoverage","4","Deductible","2","B","From v1.28.4"
+    "Acc","CondDedCode2Other","Special condition other building deductible code","2","CondCoverage","4","DeductibleCode","2","","From v1.28.4"
+    "Acc","CondDedType2Other","Special condition other building deductible type","2","CondCoverage","4","DeductibleType","2","","From v1.28.4"
+    "Acc","CondLimit2Other","Special condition other building limit","2","CondCoverage","4","Limit","2","","From v1.28.4"
+    "Acc","CondLimitCode2Other","Special condition other building limit code","2","CondCoverage","4","LimitCode","2","","From v1.28.4"
+    "Acc","CondLimitType2Other","Special condition other building limit type","2","CondCoverage","4","LimitType","2","","From v1.28.4"
+    "Acc","CondMaxDed2Other","Special condition maximum other building deductible","2","CondCoverage","4","DeductibleMax","2","MA","From v1.28.4"
+    "Acc","CondMinDed2Other","Special condition minimum other building deductible","2","CondCoverage","4","DeductibleMin","2","MI","From v1.28.4"
+    "Acc","CondDed3Contents","Special condition contents deductible","3","CondCoverage","4","Deductible","3","B","From v1.28.4"
+    "Acc","CondDedCode3Contents","Special condition contents deductible code","3","CondCoverage","4","DeductibleCode","3","","From v1.28.4"
+    "Acc","CondDedType3Contents","Special condition contents deductible type","3","CondCoverage","4","DeductibleType","3","","From v1.28.4"
+    "Acc","CondLimit3Contents","Special condition contents limit","3","CondCoverage","4","Limit","3","","From v1.28.4"
+    "Acc","CondLimitCode3Contents","Special condition contents limit code","3","CondCoverage","4","LimitCode","3","","From v1.28.4"
+    "Acc","CondLimitType3Contents","Special condition contents limit type","3","CondCoverage","4","LimitType","3","","From v1.28.4"
+    "Acc","CondMaxDed3Contents","Special condition maximum contents deductible","3","CondCoverage","4","DeductibleMax","3","MA","From v1.28.4"
+    "Acc","CondMinDed3Contents","Special condition minimum contents deductible","3","CondCoverage","4","DeductibleMin","3","MI","From v1.28.4"
+    "Acc","CondDed4BI","Special condition BI deductible","4","CondCoverage","4","Deductible","4","B","From v1.28.4"
+    "Acc","CondDedCode4BI","Special condition BI deductible code","4","CondCoverage","4","DeductibleCode","4","","From v1.28.4"
+    "Acc","CondDedType4BI","Special condition BI deductible type","4","CondCoverage","4","DeductibleType","4","","From v1.28.4"
+    "Acc","CondLimit4BI","Special condition BI limit","4","CondCoverage","4","Limit","4","","From v1.28.4"
+    "Acc","CondLimitCode4BI","Special condition BI limit code","4","CondCoverage","4","LimitCode","4","","From v1.28.4"
+    "Acc","CondLimitType4BI","Special condition BI limit type","4","CondCoverage","4","LimitType","4","","From v1.28.4"
+    "Acc","CondMaxDed4BI","Special condition maximum BI deductible","4","CondCoverage","4","DeductibleMax","4","MA","From v1.28.4"
+    "Acc","CondMinDed4BI","Special condition minimum BI deductible","4","CondCoverage","4","DeductibleMin","4","MI","From v1.28.4"
+    "Acc","CondDed5PD","Special condition PD deductible","[1, 2, 3]","CondPD","5","Deductible","1","B","From v1.28.4"
+    "Acc","CondDedCode5PD","Special condition PD deductible code","[1, 2, 3]","CondPD","5","DeductibleCode","1","","From v1.28.4"
+    "Acc","CondDedType5PD","Special condition PD deductible type","[1, 2, 3]","CondPD","5","DeductibleType","1","","From v1.28.4"
+    "Acc","CondLimit5PD","Special condition PD limit","[1, 2, 3]","CondPD","5","Limit","1","","From v1.28.4"
+    "Acc","CondLimitCode5PD","Special condition PD limit code","[1, 2, 3]","CondPD","5","LimitCode","1","","From v1.28.4"
+    "Acc","CondLimitType5PD","Special condition PD limit type","[1, 2, 3]","CondPD","5","LimitType","1","","From v1.28.4"
+    "Acc","CondMaxDed5PD","Special condition maximum PD deductible","[1, 2, 3]","CondPD","5","DeductibleMax","1","MA","From v1.28.4"
+    "Acc","CondMinDed5PD","Special condition minimum PD deductible","[1, 2, 3]","CondPD","5","DeductibleMin","1","MI","From v1.28.4"
+    "Acc","CondDed6All","Special condition blanket deductible","[1, 2, 3, 4]","CondAll","6","Deductible","1","B","Yes"
+    "Acc","CondDedCode6All","Special condition blanket deductible code","[1, 2, 3, 4]","CondAll","6","DeductibleCode","1","","Yes"
+    "Acc","CondDedType6All","Special condition blanket deductible type","[1, 2, 3, 4]","CondAll","6","DeductibleType","1","","Yes"
+    "Acc","CondLimit6All","Special condition blanket limit","[1, 2, 3, 4]","CondAll","6","Limit","1","","Yes"
+    "Acc","CondLimitCode6All","Special condition blanket limit code","[1, 2, 3, 4]","CondAll","6","LimitCode","1","","Yes"
+    "Acc","CondLimitType6All","Special condition blanket limit type","[1, 2, 3, 4]","CondAll","6","LimitType","1","","Yes"
+    "Acc","CondMaxDed6All","Special condition maximum blanket deductible","[1, 2, 3, 4]","CondAll","6","DeductibleMax","1","MA","Yes"
+    "Acc","CondMinDed6All","Special condition minimum blanket deductible","[1, 2, 3, 4]","CondAll","6","DeductibleMin","1","MI","Yes"
+    "Acc","PolDed1Building","Policy building deductible","1","PolCoverage","7","Deductible","1","B","From v1.26.1"
+    "Acc","PolDedCode1Building","Policy building deductible code","1","PolCoverage","7","DeductibleCode","1","","From v1.26.1"
+    "Acc","PolDedType1Building","Policy building deductible type","1","PolCoverage","7","DeductibleType","1","","From v1.26.1"
+    "Acc","PolLimit1Building","Policy building limit","1","PolCoverage","7","Limit","1","","From v1.26.1"
+    "Acc","PolLimitCode1Building","Policy building limit code","1","PolCoverage","7","LimitCode","1","","From v1.26.1"
+    "Acc","PolLimitType1Building","Policy building limit type","1","PolCoverage","7","LimitType","1","","From v1.26.1"
+    "Acc","PolMaxDed1Building","Policy maximum building deductible","1","PolCoverage","7","DeductibleMax","1","MA","From v1.26.1"
+    "Acc","PolMinDed1Building","Policy minimum building deductible","1","PolCoverage","7","DeductibleMin","1","MI","From v1.26.1"
+    "Acc","PolDed2Other","Policy other building deductible","2","PolCoverage","7","Deductible","2","B","From v1.26.1"
+    "Acc","PolDedCode2Other","Policy other building deductible code","2","PolCoverage","7","DeductibleCode","2","","From v1.26.1"
+    "Acc","PolDedType2Other","Policy other building deductible type","2","PolCoverage","7","DeductibleType","2","","From v1.26.1"
+    "Acc","PolLimit2Other","Policy other building limit","2","PolCoverage","7","Limit","2","","From v1.26.1"
+    "Acc","PolLimitCode2Other","Policy other building limit code","2","PolCoverage","7","LimitCode","2","","From v1.26.1"
+    "Acc","PolLimitType2Other","Policy other building limit type","2","PolCoverage","7","LimitType","2","","From v1.26.1"
+    "Acc","PolMaxDed2Other","Policy maximum other building deductible","2","PolCoverage","7","DeductibleMax","2","MA","From v1.26.1"
+    "Acc","PolMinDed2Other","Policy minimum other building deductible","2","PolCoverage","7","DeductibleMin","2","MI","From v1.26.1"
+    "Acc","PolDed3Contents","Policy contents deductible","3","PolCoverage","7","Deductible","3","B","From v1.26.1"
+    "Acc","PolDedCode3Contents","Policy contents deductible code","3","PolCoverage","7","DeductibleCode","3","","From v1.26.1"
+    "Acc","PolDedType3Contents","Policy contents deductible type","3","PolCoverage","7","DeductibleType","3","","From v1.26.1"
+    "Acc","PolLimit3Contents","Policy contents limit","3","PolCoverage","7","Limit","3","","From v1.26.1"
+    "Acc","PolLimitCode3Contents","Policy contents limit code","3","PolCoverage","7","LimitCode","3","","From v1.26.1"
+    "Acc","PolLimitType3Contents","Policy contents limit type","3","PolCoverage","7","LimitType","3","","From v1.26.1"
+    "Acc","PolMaxDed3Contents","Policy maximum contents deductible","3","PolCoverage","7","DeductibleMax","3","MA","From v1.26.1"
+    "Acc","PolMinDed3Contents","Policy minimum contents deductible","3","PolCoverage","7","DeductibleMin","3","MI","From v1.26.1"
+    "Acc","PolDed4BI","Policy BI deductible","4","PolCoverage","7","Deductible","4","B","From v1.26.1"
+    "Acc","PolDedCode4BI","Policy BI deductible code","4","PolCoverage","7","DeductibleCode","4","","From v1.26.1"
+    "Acc","PolDedType4BI","Policy BI deductible type","4","PolCoverage","7","DeductibleType","4","","From v1.26.1"
+    "Acc","PolLimit4BI","Policy BI limit","4","PolCoverage","7","Limit","4","","From v1.26.1"
+    "Acc","PolLimitCode4BI","Policy BI limit code","4","PolCoverage","7","LimitCode","4","","From v1.26.1"
+    "Acc","PolLimitType4BI","Policy BI limit type","4","PolCoverage","7","LimitType","4","","From v1.26.1"
+    "Acc","PolMaxDed4BI","Policy maximum BI deductible","4","PolCoverage","7","DeductibleMax","4","MA","From v1.26.1"
+    "Acc","PolMinDed4BI","Policy minimum BI deductible","4","PolCoverage","7","DeductibleMin","4","MI","From v1.26.1"
+    "Acc","PolDed5PD","Policy PD deductible","[1, 2, 3]","PolPD","8","Deductible","1","B","From v1.26.1"
+    "Acc","PolDedCode5PD","Policy PD deductible code","[1, 2, 3]","PolPD","8","DeductibleCode","1","","From v1.26.1"
+    "Acc","PolDedType5PD","Policy PD deductible type","[1, 2, 3]","PolPD","8","DeductibleType","1","","From v1.26.1"
+    "Acc","PolLimit5PD","Policy PD limit","[1, 2, 3]","PolPD","8","Limit","1","","From v1.26.1"
+    "Acc","PolLimitCode5PD","Policy PD limit code","[1, 2, 3]","PolPD","8","LimitCode","1","","From v1.26.1"
+    "Acc","PolLimitType5PD","Policy PD limit type","[1, 2, 3]","PolPD","8","LimitType","1","","From v1.26.1"
+    "Acc","PolMaxDed5PD","Policy maximum PD deductible","[1, 2, 3]","PolPD","8","DeductibleMax","1","MA","From v1.26.1"
+    "Acc","PolMinDed5PD","Policy minimum PD deductible","[1, 2, 3]","PolPD","8","DeductibleMin","1","MI","From v1.26.1"
+    "Acc","PolDed6All","Policy blanket deductible","[1, 2, 3, 4]","PolAll","9","Deductible","1","B","Yes"
+    "Acc","PolDedCode6All","Policy blanket deductible code","[1, 2, 3, 4]","PolAll","9","DeductibleCode","1","","Yes"
+    "Acc","PolDedType6All","Policy blanket deductible type","[1, 2, 3, 4]","PolAll","9","DeductibleType","1","B","Yes"
+    "Acc","PolLimit6All","Policy blanket limit","[1, 2, 3, 4]","PolAll","9","Limit","1","","Yes"
+    "Acc","PolLimitCode6All","Policy blanket limit code (annual aggregate only)","[1, 2, 3, 4]","PolAll","9","LimitCode","1","","Yes"
+    "Acc","PolLimitType6All","Policy blanket limit type","[1, 2, 3, 4]","PolAll","9","LimitType","1","","Yes"
+    "Acc","PolMaxDed6All","Policy maximum blanket deductible","[1, 2, 3, 4]","PolAll","9","DeductibleMax","1","MA","Yes"
+    "Acc","PolMinDed6All","Policy minimum blanket deductible","[1, 2, 3, 4]","PolAll","9","DeductibleMin","1","MI","Yes"
+    "Acc","LayerAttachment","Policy layer attachment point (always treated as amount)","","PolLayer","10","Attachment","1","","Yes"
+    "Acc","LayerLimit","Policy layer limit (always treated as amount)","","PolLayer","10","Limit","1","","Yes"
+    "Acc","LayerParticipation","Insurance company share of the policy layer. Values between 0 to 1 (e.g. 12% entered as 0.12)","","PolLayer","10","Share","1","","Yes"
+    "Acc","AccDed6All","Account blanket deductible","[1, 2, 3, 4]","AccAll","13","Deductible","1","B","From v1.27.2"
+    "Acc","AccDedCode6All","Account blanket deductible code","[1, 2, 3, 4]","AccAll","13","DeductibleCode","1","","From v1.27.2"
+    "Acc","AccDedType6All","Account blanket deductible type","[1, 2, 3, 4]","AccAll","13","DeductibleType","1","B","From v1.27.2"
+    "Acc","AccLimit6All","Account blanket limit","[1, 2, 3, 4]","AccAll","13","Limit","1","","From v1.27.2"
+    "Acc","AccLimitCode6All","Account blanket limit code","[1, 2, 3, 4]","AccAll","13","LimitCode","1","","From v1.27.2"
+    "Acc","AccLimitType6All","Account blanket limit type","[1, 2, 3, 4]","AccAll","13","LimitType","1","","From v1.27.2"
+    "Acc","AccMaxDed6All","Account maximum blanket deductible","[1, 2, 3, 4]","AccAll","13","DeductibleMax","1","MA","From v1.27.2"
+    "Acc","AccMinDed6All","Account minimum blanket deductible","[1, 2, 3, 4]","AccAll","13","DeductibleMin","1","MI","From v1.27.2"
+    "Acc","AccParticipation","Insurance company share of the account loss. Values between 0 to 1 (e.g. 12% entered as 0.12)","","AccAll","13","Share","1","","From v1.28.5"
+    "Acc","AccDed1Building","Account building deductible","1","AccCoverage","11","Deductible","1","B","No"
+    "Acc","AccDed2Other","Account other building deductible","2","AccCoverage","11","Deductible","2","B","No"
+    "Acc","AccDed3Contents","Account contents deductible","3","AccCoverage","11","Deductible","3","B","No"
+    "Acc","AccDed4BI","Account BI deductible","4","AccCoverage","11","Deductible","4","B","No"
+    "Acc","AccDed5PD","Account PD deductible","[1, 2, 3]","AccPD","12","Deductible","1","B","No"
+    "Acc","AccDedCode1Building","Account building deductible code","1","AccCoverage","11","DeductibleCode","1","","No"
+    "Acc","AccDedCode2Other","Account other building deductible code","2","AccCoverage","11","DeductibleCode","2","","No"
+    "Acc","AccDedCode3Contents","Account contents deductible code","3","AccCoverage","11","DeductibleCode","3","","No"
+    "Acc","AccDedCode4BI","Account BI deductible code","4","AccCoverage","11","DeductibleCode","4","","No"
+    "Acc","AccDedCode5PD","Account PD deductible code","[1, 2, 3]","AccPD","12","DeductibleCode","1","","No"
+    "Acc","AccDedType1Building","Account building deductible type","1","AccCoverage","11","DeductibleType","1","","No"
+    "Acc","AccDedType2Other","Account other building deductible type","2","AccCoverage","11","DeductibleType","2","","No"
+    "Acc","AccDedType3Contents","Account contents deductible type","3","AccCoverage","11","DeductibleType","3","","No"
+    "Acc","AccDedType4BI","Account BI deductible type","4","AccCoverage","11","DeductibleType","4","","No"
+    "Acc","AccDedType5PD","Account PD deductible type","[1, 2, 3]","AccPD","12","DeductibleType","1","","No"
+    "Acc","AccLimit1Building","Account building limit","1","AccCoverage","11","Limit","1","","No"
+    "Acc","AccLimit2Other","Account other building limit","2","AccCoverage","11","Limit","2","","No"
+    "Acc","AccLimit3Contents","Account contents limit","3","AccCoverage","11","Limit","3","","No"
+    "Acc","AccLimit4BI","Account BI limit","4","AccCoverage","11","Limit","4","","No"
+    "Acc","AccLimit5PD","Account PD limit","[1, 2, 3]","AccPD","12","Limit","1","","No"
+    "Acc","AccLimitCode1Building","Account building limit code","1","AccCoverage","11","LimitCode","1","","No"
+    "Acc","AccLimitCode2Other","Account other building limit code","2","AccCoverage","11","LimitCode","2","","No"
+    "Acc","AccLimitCode3Contents","Account contents limit code","3","AccCoverage","11","LimitCode","3","","No"
+    "Acc","AccLimitCode4BI","Account BI limit code","4","AccCoverage","11","LimitCode","4","","No"
+    "Acc","AccLimitCode5PD","Account PD limit code","[1, 2, 3]","AccPD","12","LimitCode","1","","No"
+    "Acc","AccLimitType1Building","Account building limit type","1","AccCoverage","11","LimitType","1","","No"
+    "Acc","AccLimitType2Other","Account other building limit type","2","AccCoverage","11","LimitType","2","","No"
+    "Acc","AccLimitType3Contents","Account contents limit type","3","AccCoverage","11","LimitType","3","","No"
+    "Acc","AccLimitType4BI","Account BI limit type","4","AccCoverage","11","LimitType","4","","No"
+    "Acc","AccLimitType5PD","Account PD limit type","[1, 2, 3]","AccPD","12","LimitType","1","","No"
+    "Acc","AccMaxDed1Building","Account maximum building deductible","1","AccCoverage","11","DeductibleMax","1","MA","No"
+    "Acc","AccMaxDed2Other","Account maximum other building deductible","2","AccCoverage","11","DeductibleMax","2","MA","No"
+    "Acc","AccMaxDed3Contents","Account maximum contents deductible","3","AccCoverage","11","DeductibleMax","3","MA","No"
+    "Acc","AccMaxDed4BI","Account maximum BI deductible","4","AccCoverage","11","DeductibleMax","4","MA","No"
+    "Acc","AccMaxDed5PD","Account maximum PD deductible","[1, 2, 3]","AccPD","12","DeductibleMax","1","MA","No"
+    "Acc","AccMinDed1Building","Account minimum building deductible","1","AccCoverage","11","DeductibleMin","1","MI","No"
+    "Acc","AccMinDed2Other","Account minimum other building deductible","2","AccCoverage","11","DeductibleMin","2","MI","No"
+    "Acc","AccMinDed3Contents","Account minimum contents deductible","3","AccCoverage","11","DeductibleMin","3","MI","No"
+    "Acc","AccMinDed4BI","Account minimum BI deductible","4","AccCoverage","11","DeductibleMin","4","MI","No"
+    "Acc","AccMinDed5PD","Account minimum PD deductible","[1, 2, 3]","AccPD","12","DeductibleMin","1","MI","No"
 
 
 .. _RI_support_FM:
