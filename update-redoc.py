@@ -16,10 +16,9 @@ PLAT_V1_SCHEMA = './src/schema/platform-1.json'
 PLAT_V2_SCHEMA = './src/schema/platform-2.json'
 
 # urls
-PLAT_V1_VER = '1.8.0'
-PLAT_V2_VER = '2.2.0'
-PLAT_V1_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_V1_VER}/openapi-schema-{PLAT_V1_VER}.json"
-PLAT_V2_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_V2_VER}/openapi-schema-{PLAT_V2_VER}.json"
+PLAT_VER = '2.4.4'
+PLAT_V1_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_VER}/v1-openapi-schema-{PLAT_VER}.json"
+PLAT_V2_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_VER}/v2-openapi-schema-{PLAT_VER}.json"
 
 
 def read_file(file):
@@ -53,12 +52,12 @@ write_json(ANALYSIS_SETTING_SCHEMA, patch_schema(analysis_temp, ods_tools.__vers
 # Patch Platform 1 schmea
 plat_1_schema = requests.get(PLAT_V1_URL).json()
 plat_1_desc = read_file('./redoc/v1/description.md').decode()
-write_json(PLAT_V1_SCHEMA, patch_schema(plat_1_schema, PLAT_V1_VER ,plat_1_desc))
+write_json(PLAT_V1_SCHEMA, patch_schema(plat_1_schema, PLAT_VER ,plat_1_desc))
 
 # Patch Platform 2 schema
 plat_2_schema = requests.get(PLAT_V2_URL).json()
 plat_2_desc = read_file('./redoc/v2/description.md').decode()
-write_json(PLAT_V2_SCHEMA, patch_schema(plat_2_schema, PLAT_V2_VER ,plat_2_desc))
+write_json(PLAT_V2_SCHEMA, patch_schema(plat_2_schema, PLAT_VER ,plat_2_desc))
 
 ## Docker build arguments
 #docker_basecmd = ['docker', 'run', '--rm', '-v', f'{os.getcwd()}:/spec', "--user", f"{os.getuid()}", 'redocly/cli', 'build-docs']
