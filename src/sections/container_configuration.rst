@@ -3,7 +3,7 @@ Container Configuration
 
 .. _container_configuration:
 
-:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` | :doc:`appendices`
+:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution`
 
 There are two methods for setting configuration options on an oasis container. (1) by setting a shell environment variable on the container. (2) by adjusting a conf.ini file within the container.
 
@@ -104,13 +104,47 @@ Storage Related Options
    "PORTFOLIO_PARQUET_STORAGE", "Boolean", "False", "If True, all portfolio CSV files uploaded will be automatically compressed and stored in Parquet format."
    "STORAGE_TYPE", "String", "shared-fs", "Defines the backend storage solution. Valid values are 'S3' (AWS S3), 'AZURE' (Azure Blob Storage), or 'shared-fs' (a common file system accessible by containers)."
 
-**If STORAGE_TYPE is 'S3'**:
+**If STORAGE_TYPE is 'S3', the following options are valid:**
 
-See :ref:`appendix_s3_options` for the complete list of AWS S3 configuration options.
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
 
-**If STORAGE_TYPE is 'AZURE'**:
+   "AWS_ACCESS_KEY_ID", "String", "None", "Your AWS access key ID. Required for S3 authentication."
+   "AWS_SECRET_ACCESS_KEY", "String", "None", "Your AWS secret access key. Required for S3 authentication."
+   "AWS_STORAGE_BUCKET_NAME", "String", "None", "The name of the S3 bucket where files will be stored."
+   "AWS_DEFAULT_ACL", "String", "private", "The default Access Control List (ACL) to apply to uploaded objects (e.g., 'private', 'public-read')."
+   "AWS_S3_CUSTOM_DOMAIN", "String", "None", "A custom domain to use for accessing S3 objects (e.g., cdn.example.com)."
+   "AWS_S3_ENDPOINT_URL", "String", "None", "Custom endpoint URL for S3, useful for S3-compatible storage solutions (e.g., MinIO)."
+   "AWS_LOCATION", "String", "None", "The base path or directory within the S3 bucket where files will be stored."
+   "AWS_S3_REGION_NAME", "String", "us-east-1", "The AWS region name for your S3 bucket (e.g., eu-west-2)."
+   "AWS_LOG_LEVEL", "String", "INFO", "Logging level for AWS S3 operations (e.g., DEBUG, INFO, WARNING, ERROR)."
+   "AWS_QUERYSTRING_AUTH", "Boolean", "True", "If True, generated URLs for S3 objects will include query string authentication."
+   "AWS_QUERYSTRING_EXPIRE", "Integer", "3600", "The expiration time in seconds for signed S3 URLs."
+   "AWS_SHARED_BUCKET", "String", "None", "(Inferred) Specifies a shared S3 bucket name if multiple components access the same shared storage."
 
-See :ref:`appendix_azure_options` for the complete list of Azure Blob Storage configuration options.
+**If STORAGE_TYPE is 'AZURE', the following options are valid:**
+
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "AZURE_ACCOUNT_NAME", "String", "None", "Your Azure Storage account name. Required for Azure Blob Storage."
+   "AZURE_ACCOUNT_KEY", "String", "None", "Your Azure Storage account key. Required for Azure Blob Storage."
+   "AZURE_CONTAINER", "String", "None", "The name of the Azure Blob Storage container where files will be stored."
+   "AZURE_LOCATION", "String", "None", "The base path or virtual directory within the Azure container where files will be stored."
+   "AZURE_SHARED_CONTAINER", "String", "None", "(Inferred) Specifies a shared Azure container name if multiple components access the same shared storage."
+   "AZURE_OVERWRITE_FILES", "Boolean", "False", "If True, uploaded files will overwrite existing files with the same name in Azure Blob Storage."
+   "AZURE_LOG_LEVEL", "String", "INFO", "Logging level for Azure Blob Storage operations."
+   "AZURE_SSL", "Boolean", "True", "If True, secure SSL connections will be used for Azure Blob Storage."
+   "AZURE_UPLOAD_MAX_CONN", "Integer", "2", "The maximum number of concurrent connections to use for Azure Blob uploads."
+   "AZURE_CONNECTION_TIMEOUT_SECS", "Integer", "20", "The timeout in seconds for Azure Blob Storage connections."
+   "AZURE_BLOB_MAX_MEMORY_SIZE", "Integer", "2097152", "The maximum memory in bytes to use when buffering data for Azure blobs."
+   "AZURE_URL_EXPIRATION_SECS", "Integer", "3600", "The expiration time in seconds for generated shared access signature (SAS) URLs for Azure blobs."
+   "AZURE_CONNECTION_STRING", "String", "None", "A full Azure Storage connection string. Can be used as an alternative to AZURE_ACCOUNT_NAME and AZURE_ACCOUNT_KEY."
+   "AZURE_TOKEN_CREDENTIAL", "String", "None", "(Inferred) A token credential for authentication with Azure Blob Storage, typically for OAuth/Managed Identity."
+   "AZURE_CACHE_CONTROL", "String", "None", "Value for the Cache-Control header on uploaded Azure blobs."
+   "AZURE_OBJECT_PARAMETERS", "JSON/String", "None", "(Inferred) Additional parameters to apply to Azure blob objects on upload, typically as a JSON string."
 
 Server Database (DB) Options
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
@@ -136,13 +170,27 @@ Authentication Options
 
    "API_AUTH_TYPE", "String", "simple_jwt", "Defines the API authentication mechanism. Valid values are 'keycloak' or 'simple_jwt'."
 
-**If API_AUTH_TYPE is 'keycloak'**:
+**If API_AUTH_TYPE is 'keycloak', the following options are valid:**
 
-See :ref:`appendix_keycloak_options` for the complete list of Keycloak configuration options.
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
 
-**If API_AUTH_TYPE is 'simple_jwt'**:
+   "OIDC_CLIENT_NAME", "String", "None", "The client ID registered with the Keycloak (OpenID Connect) server."
+   "OIDC_CLIENT_SECRET", "String", "None", "The client secret for the Keycloak (OpenID Connect) client."
+   "OIDC_ENDPOINT", "String", "None", "The base URL of the Keycloak (OpenID Connect) server's discovery endpoint (e.g., https://keycloak.example.com/realms/myrealm/.well-known/openid-configuration)."
 
-See :ref:`appendix_simplejwt_options` for the complete list of Simple JWT configuration options.
+**If API_AUTH_TYPE is 'simple_jwt', the following options are valid:**
+
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "ACCESS_TOKEN_LIFETIME", "String", "1h (1 hour)", "The duration for which access tokens are valid before expiring. Examples: 1h, 15m, 30s."
+   "REFRESH_TOKEN_LIFETIME", "String", "2days (2 days)", "The duration for which refresh tokens are valid. Used to obtain new access tokens. Examples: 2days, 1w."
+   "ROTATE_REFRESH_TOKENS", "Boolean", "True", "If True, a new refresh token will be issued each time a refresh token is used, invalidating the old one. Enhances security."
+   "BLACKLIST_AFTER_ROTATION", "Boolean", "True", "If True, used refresh tokens are added to a blacklist, preventing their reuse after rotation."
+   "SIGNING_KEY", "String", "SECRET_KEY", "The key used for signing JWT tokens. If not explicitly set, Django's SECRET_KEY will be used. **Should be a strong, unique secret.**"
 
 Worker Container Configuration Options
 --------------------------------------
@@ -176,7 +224,15 @@ Worker Paths
 
 These options define file locations within the worker container for models, configuration, and run data.
 
-See :ref:`appendix_worker_paths` for the complete list of worker path configuration options.
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "MODEL_SETTINGS_FILE", "String", "/home/worker/model/meta-data/model_settings.json", "The absolute path to the model_settings.json meta file, containing model-specific configuration."
+   "OASISLMF_CONFIG", "String", "/home/worker/model/oasislmf.json", "The absolute path to the oasislmf.json configuration file, used by the OASIS LMF library."
+   "MODEL_DATA_DIRECTORY", "String", "/home/worker/model", "The absolute path to the directory containing model data."
+   "BASE_RUN_DIR", "String", "/tmp/run", "The base directory where temporary run files and results are stored during task execution."
+   "TASK_LOG_DIR", "String", "/var/log/oasis/tasks", "The directory where specific logs for individual tasks executed by the worker are stored."
 
 Debug Options
 ^^^^^^^^^^^^
@@ -195,14 +251,27 @@ V2 Mode Only Options
 
 These options are only relevant and applied when RUN_MODE is set to 'v2'.
 
-See :ref:`appendix_v2_options` for the complete list of V2 mode configuration options.
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "KEEP_LOCAL_DATA", "Boolean", "False", "If True, the worker will retain local temporary data generated during task execution after the task completes."
+   "KEEP_REMOTE_DATA", "Boolean", "False", "If True, the worker will retain remote data (e.g., in object storage) generated during task execution after the task completes."
+   "FAIL_ON_REDELIVERY", "Boolean", "True", "A safeguard mechanism. If True, the worker checks if a task has been previously attempted. If a task has been redelivered (attempted multiple times, e.g., 3 times), it will mark the task as failed."
 
 V1 Mode Only Options
 ^^^^^^^^^^^^^^^^^^^^
 
 These options are only relevant and applied when RUN_MODE is set to 'v1'.
 
-See :ref:`appendix_v1_options` for the complete list of V1 mode configuration options.
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "KEEP_RUN_DIR", "Boolean", "False", "If True, the temporary run directories created for tasks will not be deleted after the task completes, remaining within the container."
+   "LOCK_FILE", "String", "/tmp/tmp_lock_file", "The absolute path to a lock file used to prevent multiple jobs from executing concurrently on the same machine/worker instance."
+   "LOCK_TIMEOUT_IN_SECS", "Integer", "None", "The maximum time in seconds to wait for the LOCK_FILE to become available before a task gives up trying to acquire the lock."
+   "LOCK_RETRY_COUNTDOWN_IN_SECS", "Integer", "None", "The time in seconds to wait before retrying to acquire the LOCK_FILE if it is currently held."
 
 Storage Related Options
 ^^^^^^^^^^^^^^^^^^^^^^^
@@ -215,7 +284,41 @@ These options configure the worker's ability to interact with various storage ba
 
    "STORAGE_TYPE", "String", "shared-fs", "Defines the backend storage solution. Valid values are 'S3' (AWS S3), 'AZURE' (Azure Blob Storage), or 'shared-fs' (a common file system accessible by containers)."
 
-For detailed S3 and Azure configuration options, see :ref:`appendix_s3_options` and :ref:`appendix_azure_options` respectively.
+**If STORAGE_TYPE is 'S3', the following options are valid:**
+
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "AWS_ACCESS_KEY_ID", "String", "None", "Your AWS access key ID. Required for S3 authentication."
+   "AWS_SECRET_ACCESS_KEY", "String", "None", "Your AWS secret access key. Required for S3 authentication."
+   "AWS_BUCKET_NAME", "String", "None", "The name of the S3 bucket where files will be stored or retrieved by the worker."
+   "AWS_SHARED_BUCKET", "String", "None", "(Inferred) Specifies a shared S3 bucket name if multiple components access the same shared storage."
+   "AWS_LOCATION", "String", "None", "The base path or directory within the S3 bucket where worker-related files are stored."
+   "AWS_QUERYSTRING_EXPIRE", "Integer", "3600", "The expiration time in seconds for signed S3 URLs generated by the worker."
+   "AWS_QUERYSTRING_AUTH", "Boolean", "True", "If True, generated URLs for S3 objects will include query string authentication."
+   "AWS_LOG_LEVEL", "String", "INFO", "Logging level for AWS S3 operations performed by the worker."
+
+**If STORAGE_TYPE is 'AZURE', the following options are valid:**
+
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "AZURE_ACCOUNT_NAME", "String", "None", "Your Azure Storage account name. Required for Azure Blob Storage."
+   "AZURE_ACCOUNT_KEY", "String", "None", "Your Azure Storage account key. Required for Azure Blob Storage."
+   "AZURE_CONTAINER", "String", "None", "The name of the Azure Blob Storage container where files will be stored or retrieved by the worker."
+   "AZURE_LOCATION", "String", "None", "The base path or virtual directory within the Azure container where worker-related files are stored."
+   "AZURE_SHARED_CONTAINER", "String", "None", "(Inferred) Specifies a shared Azure container name if multiple components access the same shared storage."
+   "AZURE_LOG_LEVEL", "String", "INFO", "Logging level for Azure Blob Storage operations performed by the worker."
+   "AZURE_SSL", "Boolean", "True", "If True, secure SSL connections will be used for Azure Blob Storage."
+   "AZURE_UPLOAD_MAX_CONN", "Integer", "2", "The maximum number of concurrent connections to use for Azure Blob uploads."
+   "AZURE_CONNECTION_TIMEOUT_SECS", "Integer", "20", "The timeout in seconds for Azure Blob Storage connections."
+   "AZURE_URL_EXPIRATION_SECS", "Integer", "3600", "The expiration time in seconds for generated shared access signature (SAS) URLs for Azure blobs."
+   "AZURE_CONNECTION_STRING", "String", "None", "A full Azure Storage connection string. Can be used as an alternative to AZURE_ACCOUNT_NAME and AZURE_ACCOUNT_KEY."
+   "AZURE_TOKEN_CREDENTIAL", "String", "None", "(Inferred) A token credential for authentication with Azure Blob Storage, typically for OAuth/Managed Identity."
+   "AZURE_CACHE_CONTROL", "String", "None", "Value for the Cache-Control header on uploaded Azure blobs."
+   "AZURE_OBJECT_PARAMETERS", "JSON/String", "None", "(Inferred) Additional parameters to apply to Azure blob objects on upload, typically as a JSON string."
 
 Celery Configuration Options
 ----------------------------

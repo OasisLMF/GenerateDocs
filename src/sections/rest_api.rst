@@ -3,7 +3,7 @@ The Oasis REST API
 
 .. _rest_api:
 
-:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` | :doc:`appendices`
+:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` 
 
 The **Oasis** **REST API** (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services. It defines a standardized way for different software applications to communicate with each other over the internet. At its core, are standard HTTP methods (like GET, POST, PUT, DELETE) to perform operations on resources, which are typically identified by unique URLs. This architectural style emphasizes stateless client-server communication.
 

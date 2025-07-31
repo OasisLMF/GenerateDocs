@@ -3,7 +3,7 @@ Distributed Execution and Scaling
 
 .. _distributed_execution:
 
-:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` | :doc:`appendices`
+:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution`
 
 This section details the two primary execution modes – 'Single Server' (``run_mode = v1``) and 'Distributed' (``run_mode = v2``) – for our software's core workflows. Both modes consistently involve two distinct stages: 'file preparation' and 'losses generation'. The fundamental difference between these modes lies in the sophisticated orchestration of tasks using Celery.
 

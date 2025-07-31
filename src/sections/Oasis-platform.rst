@@ -1,5 +1,5 @@
-OasisPlatform Documentation
-==========================
+Oasis Platform
+==============
 
 .. toctree::
    :maxdepth: 2
@@ -10,7 +10,6 @@ OasisPlatform Documentation
    container_configuration
    rest_api
    distributed_execution
-   appendices
 
 Indices and tables
 ==================
