@@ -10,6 +10,7 @@ Oasis Platform
    container_configuration
    rest_api
    distributed_execution
+   distributed_configuration
 
 Indices and tables
 ==================

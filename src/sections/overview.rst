@@ -3,7 +3,7 @@ Overview
 
 .. _introduction:
 
-:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution`
+:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` | :doc:`distributed_configuration`
 
 Introduction
 ------------

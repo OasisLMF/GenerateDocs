@@ -3,7 +3,7 @@ Platform Architecture
 
 .. _platform_architecture:
 
-:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution`
+:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` | :doc:`distributed_configuration`
 
 There is flexibility within the provided tech stack, which is intended to be viewed as a **recommendation** rather than definitive. On the cloud computing side, this is intended to **avoid vendor lock-in** and ensure the platform remains as **portable as possible**, allowing you to deploy OasisLMF across various cloud providers without being tied to a single ecosystem.
 

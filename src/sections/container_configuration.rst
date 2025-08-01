@@ -3,7 +3,7 @@ Container Configuration
 
 .. _container_configuration:
 
-:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution`
+:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` | :doc:`distributed_configuration`
 
 There are two methods for setting configuration options on an oasis container. (1) by setting a shell environment variable on the container. (2) by adjusting a conf.ini file within the container.
 
