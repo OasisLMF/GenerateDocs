@@ -3,7 +3,7 @@ The Oasis REST API
 
 .. _rest_api:
 
-:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution` 
+:doc:`overview` | :doc:`platform_architecture` | :doc:`container_configuration` | :doc:`rest_api` | :doc:`distributed_execution`
 
 The **Oasis** **REST API** (Representational State Transfer Application Programming Interface) is a set of rules and conventions for building and interacting with web services. It defines a standardized way for different software applications to communicate with each other over the internet. At its core, are standard HTTP methods (like GET, POST, PUT, DELETE) to perform operations on resources, which are typically identified by unique URLs. This architectural style emphasizes stateless client-server communication.
 
@@ -25,6 +25,14 @@ Within Swagger UI, you will find three distinct routes for accessing the API:
 * ``<site domain>/api/`` This route provides a comprehensive view, listing all endpoints available in both the ``/v1/`` and ``/v2/`` API versions.
 
 On each release of the Oasis Platform, all three of these API versions are published as OpenAPI specification files and attached to the corresponding GitHub release page for download
+
+
+.. figure:: /images/platform_img_2.png
+    :alt: Oasis platform release assest (github)
+    :width: 700
+    :align: center
+|
+
 
 OASIS API Models
 ----------------
@@ -65,6 +73,14 @@ The run_mode selects execution workflow:
 * This mode is designed for scaled, high-throughput, and production-grade distributed execution. It leverages advanced features of the OASIS platform, including task prioritization and dynamic worker scaling.
 * Celery Queue Name: Tasks for V2 models are dispatched to a Celery queue with a -v2 suffix: ``<supplier_id>-<model_id>-<version_id>-v2``
 * **Priority:** V2 queues are *priority queues*, supporting a priority range typically from 1 (lowest priority) to 10 (highest priority). This allows for critical tasks to be processed ahead of less urgent ones.
+
+
+.. figure:: /images/platform_img_3.png
+    :alt: RabbitMQ broker queues
+    :width: 700
+    :align: center
+|
+
 
 Mapping Model Resource to Celery Queue
 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -139,9 +155,13 @@ To achieve this, first retrieve the storage links of an existing portfolio: ``GE
 
 Then, when creating a new portfolio (``POST portfolios/``) or updating an existing one (``POST portfolios/{id}/storage_links/``), you can reference these internal file identifiers:
 
-.. code-block:: json
+
+.. code-block:: http
 
     POST portfolios/
+
+.. code-block:: json
+
     {
       "location_file": "0546911f2ea647cbad4895f28849f910.csv"
     }

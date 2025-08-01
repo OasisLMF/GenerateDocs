@@ -12,6 +12,14 @@ This generally applies to third party non-oasis components, like data storage so
 Oasis Components
 ----------------
 
+.. figure:: /images/platform_img_1.svg
+    :alt: Oasis platform Components diagram
+    :width: 700
+    :align: center
+|
+
+
+
 Purple Boxes: Worker Images
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
