@@ -25,12 +25,12 @@ conf.ini Location and Loading
 The canonical conf.ini file is located at OasisLMF/OasisPlatform/conf.ini within the OasisPlatform repository. This file provides the base configuration, but its effective path and how it's consumed differs based on the container type:
 
 * **Model Worker Images:**
-  
+
   * **Container Path:** /home/worker/conf.ini
   * **Integration:** Values from this conf.ini are loaded and directly influence the configuration within Celery's task processing files.
 
 * **Server Images (Django):**
-  
+
   * **Container Path:** /var/www/oasis/conf.ini
   * **Integration:** Values from this conf.ini are loaded into Django's settings.py configuration file, forming the application's core settings.
 
@@ -362,6 +362,15 @@ Celery Results DB connection Values: Applies to All Versions
 
 Celery concurrency and custom arguments
 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+The options below are aliases for celery options which control the resource usage of the worker containers.
+
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "OASIS_CELERY_WORKER_MAX_TASKS_PER_CHILD", "Integer", "1", "Maximum number of tasks a celery child process executes before it is replaced. See the celery config `worker_max_tasks_per_child <https://docs.celeryq.dev/en/latest/userguide/configuration.html#worker-max-tasks-per-child>`_ for more details."
+   "OASIS_CELERY_WORKER_MAX_MEMORY_PER_CHILD", "Integer", "None", "Maximum amount of resident memory in kilobytes that may be consumed by a celery child process before it is restarted. Restart occurs after the task on the child process has been completed. Corresponds to the celery config option `worker_max_memory_per_child <https://docs.celeryq.dev/en/latest/userguide/configuration.html#worker-max-memory-per-child>`_."
 
 The Following apply only to the worker images, and are not configurable from the conf.ini file
 
