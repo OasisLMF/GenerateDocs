@@ -34,17 +34,17 @@ touch for details at info@oasislmf.org.
 +-----------------------------------------------------------------+----------------------------------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+
 |`Charles Huyck <ckh@imagecatinc.com>`_                           | `Adam Podlaha <adam.podlaha@aonbenfield.com>`_                             | `Jane Toothill <Jane.Toothill@jbarisk.com>`_       | `Dag Lohmann <dag.lohmann@katrisk.com>`_            |
 +-----------------------------------------------------------------+----------------------------------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+
-| .. image:: ../images/Providers_logos/nasdaq_logo.png            | .. image:: ../images/OASIS_LMF_COLOUR.png                                  | .. image:: ../images/Providers_logos/PIK.jpg       | .. image:: ../images/Providers_logos/RF.png         |
+| .. image:: ../images/OASIS_LMF_COLOUR.png                       | .. image:: ../images/Providers_logos/PIK.jpg                               | .. image:: ../images/Providers_logos/RF.png        | .. image:: ../images/Providers_logos/SwissRe.jpg    |
 |    :width: 200 px                                               |    :width: 200 px                                                          |    :width: 200 px                                  |    :width: 200 px                                   |
-|    :target: `Nasdaq`_                                           |    :target: `Oasis`_                                                       |    :target: `PIK`_                                 |    :target: `RF`_                                   |
+|    :target: `Oasis`_                                            |    :target: `PIK`_                                                         |    :target: `RF`_                                  |    :target: `SwissRe`_                              |
+|-----------------------------------------------------------------+----------------------------------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+
+| `info <info@oasislmf.org>`_                                     | `Fred Hattermann <hattermann@pik-potsdam.de>`_                             | `Info <info@riskfrontiers.com>`_                   |`Beat Aeberhardt <beat_aeberhardt@swissre.com>`_     |
 +-----------------------------------------------------------------+----------------------------------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+
-|`James Lay <james.lay@nasdaq.com>`_                              | `info <info@oasislmf.org>`_                                                | `Fred Hattermann <hattermann@pik-potsdam.de>`_     | `Info <info@riskfrontiers.com>`_                    |
-+-----------------------------------------------------------------+----------------------------------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+
-| .. image:: ../images/Providers_logos/SwissRe.jpg                | .. image:: ../images/Providers_logos/UCL.png                               | .. image:: ../images/Providers_logos/wtw.png       | .. image:: ../images/Providers_logos/xceedance.png  |
+| .. image:: ../images/Providers_logos/UCL.png                    | .. image:: ../images/Providers_logos/Verisk_logo.png                       | .. image:: ../images/Providers_logos/wtw.png       | .. image:: ../images/Providers_logos/xceedance.png  |
 |    :width: 200 px                                               |    :width: 200 px                                                          |    :width: 200 px                                  |    :width: 200 px                                   |
-|    :target: `SwissRe`_                                          |    :target: `UCL`_                                                         |    :target: `wtw`_                                 |    :target: `xceedance`_                            |
+|    :target: `UCL`_                                              |    :target: `Verisk`_                                                      |    :target: `wtw`_                                 |    :target: `xceedance`_                            |
 +-----------------------------------------------------------------+----------------------------------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+
-|`Beat Aeberhardt <beat_aeberhardt@swissre.com>`_                 | `Prof Serge Guillas <s.guillas@ucl.ac.uk>`_                                | `Info <info@oasislmf.org>`_                        | `Justin Davies <justin.davies@xceedance.com>`_      |
+| `Prof Serge Guillas <s.guillas@ucl.ac.uk>`_                     |`James Lay <james.lay@verisk.com>`_                                         | `Info <info@oasislmf.org>`_                        | `Justin Davies <justin.davies@xceedance.com>`_      |
 +-----------------------------------------------------------------+----------------------------------------------------------------------------+----------------------------------------------------+-----------------------------------------------------+
 
 |
@@ -65,12 +65,12 @@ touch for details at info@oasislmf.org.
 .. _IF: https://www.aon.com/reinsurance/impact-forecasting/default
 .. _JBA: http://www.jbarisk.com/
 .. _katrisk: http://www.katrisk.com/
-.. _Nasdaq: https://www.simplitium.com/modex
 .. _Oasis: http://www.oasislmf.org/
 .. _PIK: https://www.pik-potsdam.de/pik-frontpage
 .. _RF: https://riskfrontiers.com/
 .. _SwissRe: http://www.swissre.com/
 .. _UCL: http://www.ucl.ac.uk/
+.. _Verisk: https://www.verisk.com/products/model-exchange/
 .. _wtw: https://www.wtwco.com/en-US
 .. _xceedance: https://xceedance.com/
 
@@ -231,17 +231,13 @@ PARTNERS
 
 |
 
-**Nasdaq**
+**Verisk**
 
-Powered by the Oasis Loss Modelling framework (LMF), all models provided on the Nasdaq Risk Modelling for Catastrophes 
-service follow industry standards, promoting model innovation and efficient deployment. 
+Powered by the Oasis Loss Modelling framework (LMF), all models provided on Verisk's Model Exchange 
+platform follow industry standards, promoting model innovation and efficient deployment. 
 
-1. Visit Nasdaq's `website <https://www.nasdaq.com/solutions/nasdaq-risk-modelling-for-catastrophes>`_ for more information. 
+Visit Verisk's `website <https://www.verisk.com/products/model-exchange/>`_ for more information. 
 
-2. `Article <https://www.nasdaq.com/articles/guy-carpenter-leverages-nasdaq-risk-modelling-for-catastrophes-to-assess-risk-exposure>`_ - Guy Carpenter Leverages Nasdaq Risk Modelling for Catastrophes to Assess Risk Exposure
-
-3. `3-min lightning Pitch <https://www.youtube.com/watch?v=XO2shzYw1w8&list=PLS9B14JFDHoTRrXq0Q5VIql7ORhjtavJL&index=1>`_
- 
 |
 
 **Xceedance**
