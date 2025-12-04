@@ -107,7 +107,7 @@ ODS_OpenExposureData/tree/develop/Docs>`_ but a schematic of the overview is sho
 |
 
 A **Technical Working Group (TWG)** maintains and updates the assets that define the data standards. Although the TWG has a few 
-core members from Oasis LMF and Nasdaq, it's dynamic and involves users from the community who have proposed the updates or 
+core members from Oasis LMF and Verisk, it's dynamic and involves users from the community who have proposed the updates or 
 changes.
 
 Suggestions for updates and feedback should be submitted via a GitHub issue on the respective repos where the community can 
