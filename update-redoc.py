@@ -7,7 +7,7 @@ import subprocess
 
 import ods_tools
 from os import path
-from ods_tools.oed.setting_schema import ModelSettingSchema, AnalysisSettingSchema
+from ods_tools.oed import AnalysisSettingHandler, ModelSettingHandler
 
 # Locations
 MODEL_SETTINGS_SCHEMA = './src/schema/model_settings.json'
@@ -16,7 +16,7 @@ PLAT_V1_SCHEMA = './src/schema/platform-1.json'
 PLAT_V2_SCHEMA = './src/schema/platform-2.json'
 
 # urls
-PLAT_VER = '2.4.4'
+PLAT_VER = '2.5.0'
 PLAT_V1_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_VER}/v1-openapi-schema-{PLAT_VER}.json"
 PLAT_V2_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_VER}/v2-openapi-schema-{PLAT_VER}.json"
 
@@ -36,14 +36,14 @@ def patch_schema(base_schema, version, description):
     return base_schema
 
 ## Patch model settings schema
-model_schema = ModelSettingSchema().schema
+model_schema = ModelSettingHandler.make().get_schema('model_settings_schema')
 model_desc = read_file('./redoc/model_settings/description.md').decode()
 model_temp = json.loads(read_file('./redoc/model_settings/redoc_template.json'))
 model_temp['definitions']['ModelParameters'] = model_schema
 write_json(MODEL_SETTINGS_SCHEMA, patch_schema(model_temp, ods_tools.__version__, model_desc))
 
 ## Patch analysis Settings schema
-analysis_schema = AnalysisSettingSchema().schema
+analysis_schema = AnalysisSettingHandler.make().get_schema('analysis_settings_schema')
 analysis_desc = read_file('./redoc/analysis_settings/description.md').decode()
 analysis_temp = json.loads(read_file('./redoc/analysis_settings/redoc_template.json'))
 analysis_temp['definitions']['AnalysisSettings'] = analysis_schema
