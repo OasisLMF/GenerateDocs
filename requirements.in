@@ -1,7 +1,7 @@
 sphinx<8.0.0
 sphinx-autobuild
 sphinxcontrib-httpdomain
-sphinx-jsonschema
+sphinx-jsonschema==1.19.1
 #nbsphinx
 lxml[html_clean]
 sphinx_rtd_theme
@@ -16,8 +16,6 @@ docutils
 furo
 sphinxcontrib-youtube
 virtualenv
-sphinx-jsonschema==1.19.1
-requests
-ods-tools
 sphinxcontrib-redoc
 lxml_html_clean
+ods-tools>=5.0.0
