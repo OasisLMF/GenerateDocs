@@ -16,7 +16,7 @@ PLAT_V1_SCHEMA = './src/schema/platform-1.json'
 PLAT_V2_SCHEMA = './src/schema/platform-2.json'
 
 # urls
-PLAT_VER = '2.5.0'
+PLAT_VER = '2.5.3'
 PLAT_V1_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_VER}/v1-openapi-schema-{PLAT_VER}.json"
 PLAT_V2_URL = f"https://github.com/OasisLMF/OasisPlatform/releases/download/{PLAT_VER}/v2-openapi-schema-{PLAT_VER}.json"
 
