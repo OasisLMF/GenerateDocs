@@ -369,24 +369,18 @@ A key aspect of how these sub-tasks operate is through the passing of configurat
     // Example 'params' dictionary (excerpt, as it can be very large)
     {
       "copy_model_data": false,
-      "ktools_num_processes": -1,
+      "kernel_num_processes": -1,
       "verbose": true,
       "gulmc_effective_damageability": false,
-      "ktools_legacy_stream": false,
       "lecpy": false,
       "model_run_dir": "/tmp/run/analysis-1_losses-416c11d653ef4ab485cbf1a5d7ac0c82/run-data",
       "chunk_log_location": "analysis-1_losses-416c11d653ef4ab485cbf1a5d7ac0c82/log-1.tar.gz",
       "results_path": "/tmp/run/analysis-1_losses-416c11d653ef4ab485cbf1a5d7ac0c82/results-data",
       // ... many more configuration parameters ...
-      "raw_output_locations": {
-        "gul_S1_summary-info.csv": "a84eda58b1a748e08a1cf4ff2ab28ccb.csv",
-        "il_S1_summary-info.csv": "90de5b79dd5f41a6aa9c62f28c07f7ea.csv",
-        // ... list of expected output files and their internal names ...
-      },
       // ... further parameters ...
       "analysis_settings_json": "/tmp/run/analysis-1_losses-416c11d653ef4ab485cbf1a5d7ac0c82/analysis_settings.json",
       "model_storage_json": null,
-      "ktools_alloc_rule_ri": 3,
+      "kernel_alloc_rule_ri": 3,
       "storage_subdir": "analysis-1_losses-416c11d653ef4ab485cbf1a5d7ac0c82",
       "output_location": "39f2b14528ec4d59bf129f58f453c57b.tar.gz"
     }

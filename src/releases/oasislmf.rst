@@ -3,371 +3,77 @@ OasisLMF Changelog
 
 .. start_latest_release
 
-`1.4.6`_
--------
-* Update to model_settings schema 
-* Fixes #452 - Check columns before grouping output
-* Fixes #451 - Error checking ktools runs for complex models
+`2.5.4`_
+---------
+* `#1940 <https://github.com/OasisLMF/OasisLMF/pull/1940>`_ - enhancement/profile check script
+* `#1942 <https://github.com/OasisLMF/OasisLMF/pull/1942>`_ - Fix brittle PolNumber backfill in IL input preparation
+* `#1947 <https://github.com/OasisLMF/OasisLMF/pull/1947>`_ - enhancement/conversion_tool_speed
+* `#1955 <https://github.com/OasisLMF/OasisLMF/pull/1955>`_ - Improved quadratic interpolation for robustness
+* `#1957 <https://github.com/OasisLMF/OasisLMF/pull/1957>`_ - Stochastic hazard dynamic footprint
+* `#1963 <https://github.com/OasisLMF/OasisLMF/pull/1963>`_ - Update API client for OIDC M2M
+* `#1964 <https://github.com/OasisLMF/OasisLMF/pull/1964>`_ - perf(gulmc): replace numba dicts with precomputed array-backed structures
+* `#1967 <https://github.com/OasisLMF/OasisLMF/pull/1967>`_ - Fix for stalled runs on V2 workers
+* `#1968 <https://github.com/OasisLMF/OasisLMF/pull/1968>`_ - Improve numerical stability in variance calculations
+* `#1969 <https://github.com/OasisLMF/OasisLMF/pull/1969>`_ - Improved bash error detection
+* `#1971 <https://github.com/OasisLMF/OasisLMF/pull/1971>`_ - Fix IL merge failure when layers sharing a CondTag mix %-TIV and flat terms
+* `#1973 <https://github.com/OasisLMF/OasisLMF/pull/1973>`_ - Add portfolio complexity metrics to oasislmf exposure run
+* `#1974 <https://github.com/OasisLMF/OasisLMF/pull/1974>`_ - Improve rtree builtin
+* `#1979 <https://github.com/OasisLMF/OasisLMF/pull/1979>`_ - Feature/hazard selection dynamic
+* `#1987 <https://github.com/OasisLMF/OasisLMF/pull/1987>`_ - fix/pytools-empty-inputs
+* `#1992 <https://github.com/OasisLMF/OasisLMF/pull/1992>`_ - Speed up summarypy read_buffer
+* `#1999 <https://github.com/OasisLMF/OasisLMF/pull/1999>`_ - fix/input_gen_status
 
 .. end_latest_release
 
-`1.4.5`_
--------
-* Fix for fm_programme mapping
-* Fix for IL files generation
-* Fix issue #439 - il summary groups
-* Reduce memory use in GUL inputs generation (#440)
-* Fix for api client - handle rotating refresh token
-* Feature/setting schemas (#438)
-* Update API client - add settings JSON endpoints (#444)
-* Add fully correlated option to MDK (#446)
-* Add dtype conversion and check for valid OED peril codes (#448)
-
-`1.4.4`_
--------
-* Hotfix - Added the run flag `--ktools-disable-guard` option for complex models & custom binaries 
-
-`1.4.3`_
--------
-* Added support for compressed file extensions
-* Fix docker kill error
-* Fix in IL inputs
-* Fix for multiprocessing lookup
-* Fix for summary info data types
-* Set IL alloc rule default to 3
-* Various fixes for CLI
-* Various fixes for ktools scripts
-
-`1.4.2`_
--------
-* Added Multi-process keys lookup
-* Updated API client
-* Added Verifying model files command 
-* Updated command line flags with backwards compatibility 
-
-`1.4.1`_
--------
-* Added bash autocomplete #386
-* Fix for exposure data types on lookup #387
-* Fix for non-OED fields in summary levels #377
-* Fix in Reinsurance Layer Logic #381
-* Refactor deterministic loss generation #371
-* Added bdist package for OSX #372
-* Added Allocation rule for Ground up loss #376
-
-`1.4.0`_
--------
-* Cookiecutter CLI integration - commands for creating simple and complex Oasis model projects/repositories from project templates
-* Extend calc. rules and FM test coverage
-* Various fixes in FM and data utils
-* Various fixes and updates for the API client module 
-* Add ktools static binary bdist_wheel to published package
-* Fix for Layer_id in file generation 
-* Performance improvment and fixes for the exposure summary reporting
-* Added optional `--summarise-exposure` flag for exposure report output
-* Added `exposure_summary_levels.json` file to inputs directory, lists valid OED columns to build summary groups
-* Added summary info files to output directory `gul_S1_summary-info.csv` which lists data for grouping summary_ids 
-* Ktools updated to v3.1.0
-
-`1.3.10`_
--------
-* Hotfix release - fix for models using custom lookups
-
-`1.3.9`_
--------
-* Updated validation and fixes for FM file generation  
-* Fixes for exposure-summary reporting 
-* Fixes for FM calc rule selection 
-
-`1.3.8`_
--------
-* Add FM support for processing types and codes for deductibles and limits
-* Improvements for complex model support and logging 
-* Update to summary sets for grouping results 
-* Exposure reporting added 
-* Fixes for Oasis files generation 
-* Updates to RI and Acceptance testing 
-* new sub-command `oasislmf exposure ..` for running and validating deterministic models 
-
-`1.3.7`_
--------
-* Hotfix - ktools-num-processes not read as int from CLI 
-
-`1.3.6`_
--------
-* Hotfix - Custom lookup issue in manager 
-
-`1.3.5`_
--------
-* Issue found in ktools `3.0.7` hotfix downgrade to `3.0.6` 
-
-`1.3.4`_
---------
-* Optimise FM/IL component (IL input items + input files generation)
-* Optimise Oasis files generation (GUL + IL input items + input files generation)
-* Upgrade data-related utilities
-* Update API client 
-* Fixes for windows compatibility 
-* Support for Python 2.7 Ends 
-
-`1.3.3`_
---------
-* Hotfix for GUL files generation  
-* Hotfix for lookup index generation
-* Hotfix for ktools bash script 
-
-`1.3.2`_
---------
-* Hotfix fix for analysis_settings custom model worker
-* Hotfix tweak for deterministic RI loss calculation
-
-`1.3.1`_
---------
-* Hotfix for path issue with the analysis_setttings file
-* Downgraded ktools from `3.0.6` to `3.0.5` fix pending in fmcalc
-
-`1.3.0`_
---------
-* Remove CSV file transformations from Oasis files generation - use OED source exposure directly
-* Integrate backend RI functionality with the CLI model subcommands - full RI losses can now be generated
-* Add new CLI subcommand for deterministic loss generation including direct and RI losses
-* Optimise FM component (13x speedup achieved)
-* Add support for custom complex models, python version of ground up losses `gulcalc.py`
-
-`1.2.8`_
---------
-* Hotfix for Ktools, version is now 3.0.5
-* Hotfix for API Client Upload timeout issue
-
-`1.2.7`_
---------
-* Hotfix in Generate-Losses command 
-
-`1.2.6`_
---------
-* Added Reinsurance to CLI
-* Added Ktools run options to CLI
-* Fix for Ktools Memory limits in Genbash
-
-`1.2.5`_
---------
-* Fix for setting Alloc Rule in genbash
-
-`1.2.4`_
---------
-* Fix for Windows 10 (Linux Sub-system), FIFO queues moved into `/tmp/<random>`
-* Fix for Reinsurance, Set RiskLevel = `SEL` as default when value is not set
-* Fix, calc rule for all positivedeductibles
-* Fixes for new API Client 
-* Added Deterministic loss generation
-* Added FM acceptance tests
-* Added Automated testing 
-
-`1.2.3`_
---------
-* Hotfix for Reinsurance required fields 
-* Dockerfile and run script for unittests 
-
-`1.2.2`_
---------
-* Added API client for OED API update 
-* New MDK commands to run the updated API client
-* Improved FM file generation testing
-* Fixes to scope filters to correctly handle account, policy and location combinations.
-* Added portfolio and location group scope filters.
-* Fixes to required fields and default values to match OED
-* Fixed binary file writing bug, corrupted tar output files
-
-
-`1.2.1`_
---------
-
-* Compatibility fix for new API worker 
-* Fix for Parsing config.json on MDK command line
-* Fix for Reinsurance
-* Add Reinsurance tests
-* Fix GUL item group IDs to index item loc. IDs
-
-`1.2.0`_
---------
-
-* Update concurrency utils - replace multiprocessing.Pool by billiard.Pool in multiprocessing wrapper (oasislmf.utils.concurrency.multiprocess) to fix a problem with Celery tasks unable to run applications which use processes or process pools created using the built-in multiprocessing package (https://github.com/celery/celery/issues/1709)
-* Add IL/FM support
-* Various optimisations, including to GUL items generation
-
-`1.1.27`_ (beta)
-----------------
-
-* Fix for installing ktools on mac OSX (3.0.1)
-* Fix for Reinsurance input file validation
-* Update Subcommand `oasislmf model generate-oasis-file` to use optional xml validation  
-* Update for unittest stability on CI/CD
-
-`1.1.26`_ (beta)
-----------------
-
-* Merge in reinsurance update from feature/reinsurance
-* Fix ktools install using pip instal editable mode `pip install -e ..`
-
-`1.1.25`_ (beta)
-----------------
-
-* Fix install issue with utils/keys_data.py - file removed as its no longer used.
-
-`1.1.24`_ (beta)
-----------------
-
-* Fix ordering of bulk lookup generation in base generic lookup - records should be generated as (loc. ID, peril ID, coverage type ID) combinations.
-
-`1.1.23`_ (beta)
-----------------
-
-* Performace update for exposure transforms `transform-source-to-canonical` and `transform-canonical-to-model`.
-* Validation of transform is now optional `--xsd-validation-file-path`, if no value is given this step is skipped.
-
-`1.1.22`_ (beta)
-----------------
-
-* Fix bug in coverage type matching of canonical items and keys items in the GUL items generator
-in the exposure manager
-
-`1.1.21`_ (beta)
-----------------
-
-* Enable lookup framework and exposure manager to support multi-peril and multi-coverage type models
-
-`1.1.20`_ (beta)
-----------------
-
-* Refactor lookup factory to be compatible with new lookup framework
-* Various enhancements to the peril areas index class, file index generation command and peril utils
-* Fix for installing pip package without building ktools if binaries exist in system path.
-
-`1.1.19`_ (beta)
-----------------
-
-* Fix string lowercasing of lookup config values in new lookup classes
-* Fix object pickling to account for Python major version when creating Rtree file index from areas file
-* Various fixes to arg parsing and logging in Rtree file index model subcommand class
-
-`1.1.18`_ (beta)
-----------------
-
-* Upgrade peril utils, including a custom Rtree index class for peril areas
-* Implement MDK model subcommand for writing Rtree file indexes for peril areas from peril area (area peril) files
-* Various fixes to the new lookup class framework
-
-
-`1.1.17`_ (beta)
-----------------
-
-* Fix list sorting in exposure manager to use explicit sort key
-
-`1.1.15`_ (beta)
-----------------
-
-* Add new lookup class framework in `keys` subpackage
-
-`1.1.14`_ (beta)
-----------------
-
-* Add MDK model subcommands for performing source -> canonical and canonical -> model file transformations
-* Python 3 compatibility fixes to replace map and filter statements everywhere by list comprehensions
-
-`1.1.13`_ (beta)
-----------------
-
-* Add performance improvement for exposure transforms 
-* Limit exposure validation messages to log level `DEBUG`
-
-`1.1.12`_ (beta)
-----------------
-
-* Add concurrency utils (threading + multiprocessing) to `utils` sub. pkg.
-
-`1.1.11`_ (beta)
-----------------
-
-* Hotfix for get_analysis_status - fixes issue in client api
-
-`1.1.10`_ (beta)
-----------------
-
-* Hotfix for utils INI file loading method - fix parsing of IP
-  strings
-
-`1.0.9`_ (beta)
----------------
-
-* Hotfix for JSON keys file writer in keys lookup factory - convert
-  JSON string to Unicode literal before writing to file
-
-`1.0.8`_ (beta)
----------------
-
-* Enable custom model execution parameters when running models
-
-`1.0.6`_ (beta)
----------------
-
-* Remove timestamped Oasis files from Oasis files generation pipeline
-
-`1.0.5`_ (beta)
----------------
-
-* Add keys error file generation method to keys lookup factory and make
-  exposures manager generate keys error files by default
-
-`1.0.1`_ (beta)
----------------
-
-* Add console logging
-
-.. _`1.4.6`:  https://github.com/OasisLMF/OasisLMF/compare/1.4.5...1.4.6
-.. _`1.4.5`:  https://github.com/OasisLMF/OasisLMF/compare/1.4.4...1.4.5
-.. _`1.4.4`:  https://github.com/OasisLMF/OasisLMF/compare/1.4.3...1.4.4
-.. _`1.4.3`:  https://github.com/OasisLMF/OasisLMF/compare/1.4.2...1.4.3
-.. _`1.4.2`:  https://github.com/OasisLMF/OasisLMF/compare/1.4.1...1.4.2
-.. _`1.4.1`:  https://github.com/OasisLMF/OasisLMF/compare/1.4.0...1.4.1
-.. _`1.4.0`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.10...1.4.0
-.. _`1.3.10`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.9...1.3.10
-.. _`1.3.9`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.8...1.3.9
-.. _`1.3.8`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.7...1.3.8
-.. _`1.3.7`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.6...1.3.7
-.. _`1.3.6`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.5...1.3.6
-.. _`1.3.5`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.4...1.3.5
-.. _`1.3.4`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.3...1.3.4
-.. _`1.3.3`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.2...1.3.3
-.. _`1.3.2`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.1...1.3.2
-.. _`1.3.1`:  https://github.com/OasisLMF/OasisLMF/compare/1.3.0...1.3.1
-.. _`1.3.0`:  https://github.com/OasisLMF/OasisLMF/compare/1.2.8...1.3.0
-.. _`1.2.8`:  https://github.com/OasisLMF/OasisLMF/compare/1.2.7...1.2.8
-.. _`1.2.7`:  https://github.com/OasisLMF/OasisLMF/compare/1.2.6...1.2.7
-.. _`1.2.6`:  https://github.com/OasisLMF/OasisLMF/compare/1.2.5...1.2.6
-.. _`1.2.5`:  https://github.com/OasisLMF/OasisLMF/compare/1.2.4...1.2.5
-.. _`1.2.4`:  https://github.com/OasisLMF/OasisLMF/compare/1.2.3...1.2.4
-.. _`1.2.3`:  https://github.com/OasisLMF/OasisLMF/compare/1.2.2...1.2.3
-.. _`1.2.2`:  https://github.com/OasisLMF/OasisLMF/compare/d6dbf25...master
-.. _`1.2.1`:  https://github.com/OasisLMF/OasisLMF/compare/f4d7390...master
-.. _`1.2.0`:  https://github.com/OasisLMF/OasisLMF/compare/ad91e2a...master
-.. _`1.1.27`: https://github.com/OasisLMF/OasisLMF/compare/ac4375e...master
-.. _`1.1.26`: https://github.com/OasisLMF/OasisLMF/compare/dac703e...master
-.. _`1.1.25`: https://github.com/OasisLMF/OasisLMF/compare/3a4b983...master
-.. _`1.1.24`: https://github.com/OasisLMF/OasisLMF/compare/8f94cab...master
-.. _`1.1.23`: https://github.com/OasisLMF/OasisLMF/compare/0577497...master
-.. _`1.1.22`: https://github.com/OasisLMF/OasisLMF/compare/bfeee86...master
-.. _`1.1.21`: https://github.com/OasisLMF/OasisLMF/compare/c04dc73...master
-.. _`1.1.20`: https://github.com/OasisLMF/OasisLMF/compare/fd31879...master
-.. _`1.1.19`: https://github.com/OasisLMF/OasisLMF/compare/5421b91...master
-.. _`1.1.18`: https://github.com/OasisLMF/OasisLMF/compare/da8fcba...master
-.. _`1.1.17`: https://github.com/OasisLMF/OasisLMF/compare/de90f11...master
-.. _`1.1.15`: https://github.com/OasisLMF/OasisLMF/compare/18b34b9...master
-.. _`1.1.14`: https://github.com/OasisLMF/OasisLMF/compare/f3e0ee8...master
-.. _`1.1.13`: https://github.com/OasisLMF/OasisLMF/compare/33f96fd...master
-.. _`1.1.12`: https://github.com/OasisLMF/OasisLMF/compare/5045ca2...master
-.. _`1.1.10`: https://github.com/OasisLMF/OasisLMF/compare/a969192...master
-.. _`1.0.9`:  https://github.com/OasisLMF/OasisLMF/compare/17c691b...master
-.. _`1.0.8`:  https://github.com/OasisLMF/OasisLMF/compare/8eeaeaf...master
-.. _`1.0.6`:  https://github.com/OasisLMF/OasisLMF/compare/9578398...master
-.. _`1.0.5`:  https://github.com/OasisLMF/OasisLMF/compare/c87c782...master
-.. _`1.0.1`:  https://github.com/OasisLMF/OasisLMF/compare/7de227d...master
+.. _`2.5.4`: https://github.com/OasisLMF/OasisLMF/compare/2.5.3...2.5.4
+
+`2.5.3`_
+---------
+* `#1903 <https://github.com/OasisLMF/OasisLMF/pull/1903>`_ - Remove pd from summarypy to save on memory usage
+* `#1920 <https://github.com/OasisLMF/OasisLMF/pull/1920>`_ - enhancement/lecpy_speed
+* `#1935 <https://github.com/OasisLMF/OasisLMF/pull/1935>`_ - enhancement/peril info from OEDSpec
+* `#1941 <https://github.com/OasisLMF/OasisLMF/pull/1941>`_ - Fix correct UTC timestamps in get_utctimestamp
+* `#1945 <https://github.com/OasisLMF/OasisLMF/pull/1945>`_ - Fix resource monitor for V2 worker runs
+* `#1948 <https://github.com/OasisLMF/OasisLMF/pull/1948>`_ - fix/nonzero default fm profile
+* `#1951 <https://github.com/OasisLMF/OasisLMF/pull/1951>`_ - fix/join-summary-info-bugs
+* `#1956 <https://github.com/OasisLMF/OasisLMF/pull/1956>`_ - fix: reduce memory usage in FootprintBin and skip footprint load when data_server active
+* `#1959 <https://github.com/OasisLMF/OasisLMF/pull/1959>`_ - API client: added option for disabled auth
+* `#1960 <https://github.com/OasisLMF/OasisLMF/pull/1960>`_ - Directly send port to gulmc gulpy and socket server
+
+.. _`2.5.3`: https://github.com/OasisLMF/OasisLMF/compare/2.5.2...2.5.3
+
+`2.5.2`_
+---------
+* `#1873 <https://github.com/OasisLMF/OasisLMF/pull/1873>`_ - Add docstrings and documentation to bash.py
+* `#1878 <https://github.com/OasisLMF/OasisLMF/pull/1878>`_ - Fix error handling and replaced row wise apply in loss computation
+* `#1898 <https://github.com/OasisLMF/OasisLMF/pull/1898>`_ - Add resource monitor for pytools processes
+* `#1899 <https://github.com/OasisLMF/OasisLMF/pull/1899>`_ - Add Numba JIT cache warmup to eliminate cold-start overhead
+* `#1902 <https://github.com/OasisLMF/OasisLMF/pull/1902>`_ - Add option to set analyses chunk size for API client
+* `#1913 <https://github.com/OasisLMF/OasisLMF/pull/1913>`_ - feat: Native Apple Silicon (macOS arm64) installation support
+* `#1919 <https://github.com/OasisLMF/OasisLMF/pull/1919>`_ - Optimize FootprintParquetDynamic for partitioned parquet
+* `#1923 <https://github.com/OasisLMF/OasisLMF/pull/1923>`_ - Add H3 hexagonal grid lookup to builtin keys server
+* `#1924 <https://github.com/OasisLMF/OasisLMF/pull/1924>`_ - fix: remove necessity for dummy layer with multiple cond peril
+* `#1930 <https://github.com/OasisLMF/OasisLMF/pull/1930>`_ - Set CRS to WGS84 on location coordinates
+
+.. _`2.5.2`: https://github.com/OasisLMF/OasisLMF/compare/2.5.1...2.5.2
+
+`2.5.1`_
+---------
+* `#1869 <https://github.com/OasisLMF/OasisLMF/pull/1869>`_ - perf: Optimize GULMC performance - 4.5% faster standard, 76% faster dynamic footprint
+* `#1876 <https://github.com/OasisLMF/OasisLMF/pull/1876>`_ - Write binary files directly, bypass CSV intermediary
+* `#1879 <https://github.com/OasisLMF/OasisLMF/pull/1879>`_ - fix/oidc_header_fix
+* `#1885 <https://github.com/OasisLMF/OasisLMF/pull/1889>`_ - Race condition fix with join-summary-info in generated bash script
+
+.. _`2.5.1`: https://github.com/OasisLMF/OasisLMF/compare/2.5.0...2.5.1
+
+`2.5.0`_
+---------
+* `#1811 <https://github.com/OasisLMF/OasisLMF/pull/1811>`_ - Add environment variables and coerce into integers
+* `#1813 <https://github.com/OasisLMF/OasisLMF/pull/1813>`_ - Fixed merging analyses computation_settings on the platform
+* `#1836 <https://github.com/OasisLMF/OasisLMF/pull/1836>`_ - Dynamic footprint initial implementation
+* `#1842 <https://github.com/OasisLMF/OasisLMF/pull/1842>`_ - GULMC: support for effective damageability and Full Monte Carlo modes
+* `#1848 <https://github.com/OasisLMF/OasisLMF/pull/1848>`_ - Add support for parquet keys files
+* `#1855 <https://github.com/OasisLMF/OasisLMF/pull/1855>`_ - Add OED schema version selection (--oed-schema-info)
+* `#1860 <https://github.com/OasisLMF/OasisLMF/pull/1860>`_ - Post-analysis hook support (run-postanalysis command)
+
+.. _`2.5.0`: https://github.com/OasisLMF/OasisLMF/compare/2.4.9...2.5.0

@@ -113,15 +113,59 @@ This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tr
 PiWind Single Peril
 *******************
 
-This is a simplified variant of the original PiWind model which has single peril (wind only) and would be a good basis for 
+This is a simplified variant of the original PiWind model which has single peril (wind only) and would be a good basis for
 a single peril model in Oasis.
 
 This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindSinglePeril>`_.
 
 ----
 
+PiWind Vulnerability Adjustments
+*********************************
+
+This model showcases how specific adjustments to the vulnerabilities can be introduced in the ``analysis_settings.json``
+file. Three adjustment methods are demonstrated: scaling vulnerability curves by a factor, replacing an entire
+vulnerability curve, and applying adjustments at aggregate level. See :doc:`vulnerability-adjustments` for full details.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindVulnerability>`_.
+
+----
+
+Dynamic Footprint
+*****************
+
+This is a version of the PiWind model which demonstrates the dynamic (stochastic) footprint feature. Instead of using
+pre-computed static hazard footprint files, the model generates footprint data dynamically per event at runtime using a
+custom footprint module. This approach is suited to models where the hazard field is generated programmatically or
+where stochastic hazard selection is required.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/DynamicFootprint>`_.
+
+----
+
+PiWind S3
+*********
+
+This variant of PiWind demonstrates running an Oasis model with model data stored on AWS S3. It contains the minimal
+set of configuration files and options required to use S3 as the model data backend via AWS credentials.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindS3>`_.
+
+----
+
+PiWind Azure
+************
+
+This variant of PiWind demonstrates running an Oasis model with model data stored on Azure Blob Storage. It contains
+the minimal configuration required to use Azure as the model data backend.
+
+This model is availible to use `here <https://github.com/OasisLMF/OasisModels/tree/develop/PiWindAzure>`_.
+
+----
+
 .. note::
     More information about these models can be found `here <https://github.com/OasisLMF/OasisModels/tree/develop>`_.
+
 |
 
 .. _piwind_models:

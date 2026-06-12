@@ -9,6 +9,7 @@ On this page:
 * :ref:`property`
 * :ref:`liability`
 * :ref:`cyber`
+* :ref:`marine`
 * :ref:`links_OED`
 
 |
@@ -39,22 +40,21 @@ based models. Exposure data is the starting point for catastrophe risk analysis,
 impossible to give users guidance and documentation on how to prepare their input data and enable appropriate validation 
 within Oasis based modelling platforms.
 
-The `Oasis financial model (FM) <https://github.com/OasisLMF/ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/
-FinancialModule.md#L4>`_ enables a wide variety of model developers to use one consistent financial model: it is a key part of 
+The `Oasis financial model (FM) <https://github.com/OasisLMF/ktools/blob/master/docs/md/FinancialModule.md>`_ enables a wide variety of model developers to use one consistent financial model: it is a key part of 
 the utility of the Oasis framework. However, it is important that financial fields in the exposure data are populated correctly 
 so they can be interpreted accurately in the FM.
 
 The OED also provides companies with a starting point for implementing a model-developer-independent exposure data 
 repository, which is strategically beneficial as it prevents firms being locked in to any one particular model developer.
 
-Although OED is designed to work well with Oasis based models, the scope of OED is wider than Oasis. For example, financial 
-fields exist in OED which are not yet implemented in Oasis, and secondary modifiers exist in OED which are not currently 
+Although OED is designed to work well with Oasis based models, the scope of OED is wider than Oasis. For example, financial
+fields exist in OED which are not yet implemented in Oasis, and secondary modifiers exist in OED which are not currently
 used by any Oasis based model. However, Oasis LMF continue to expand the scope of their `FM <https://github.com/OasisLMF/
-ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/FinancialModule.md#L4>`_ with the aim to support as much 
+ktools/blob/master/docs/md/FinancialModule.md>`_ with the aim to support as much
 of the OED functionality as possible. An in depth overview of the OED can be found `here <https://github.com/OasisLMF/
-ODS_OpenExposureData/blob/develop/OpenExposureData/2_OED_Overview.rst>`_.
+ODS_OpenExposureData/blob/develop/OpenExposureData/Docs/2_OED_Overview.rst>`_.
 
-OED can support :ref:`property`, :ref:`liability` and :ref:`cyber` classes of business.
+OED can support :ref:`property`, :ref:`liability`, :ref:`cyber`, and :ref:`marine` classes of business.
 
 
 
@@ -74,13 +74,17 @@ The OED format for property comprises of four input files:
 * **Reinsurance info (RIinfo)**
 * **Reinsurance scope (RIscope)**
 
-Together, these four files efficiently and practically represent exposure data that can be interpreted by a catastrophe model. 
-The fields in each file and their corresponding data type are described in the ‘OED Input Fields’ tab in the `OED Data Spec 
-spreadsheet <https://github.com/OasisLMF/OpenDataStandards/tree/master/OpenExposureData/Docs>`_. 
+Together, these four files efficiently and practically represent exposure data that can be interpreted by a catastrophe model.
+The fields in each file and their corresponding data type are described in the ``OEDInputFields.csv`` file in the
+`ODS_OpenExposureData repository <https://github.com/OasisLMF/ODS_OpenExposureData/tree/develop/OpenExposureData>`_.
+
+.. note::
+    As of OED v4.0.0, the specification is maintained in CSV format (``OEDInputFields.csv`` and associated code list CSVs)
+    rather than the earlier Excel spreadsheet format. Release artifacts still include downloadable Excel files for convenience.
 
 .. note::
     Detailed documentation for the OED input files can be found `here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/
-    develop/OpenExposureData/3_OED_Import_Format.rst>`_.
+    develop/OpenExposureData/Docs/3_OED_Import_Format.rst>`_.
 |
 
 Location ('loc') Import File
@@ -127,15 +131,15 @@ separately, this would be represented in the location input file as shown below:
 
 |
 
-The field names in the examples above are described further in `documents 4, 5 and 6 <https://github.com/OasisLMF/
-OpenDataStandards/tree/master/OpenExposureData>`_.
+The field names in the examples above are described further in the `ODS_OpenExposureData documentation
+<https://github.com/OasisLMF/ODS_OpenExposureData/tree/develop/OpenExposureData/Docs>`_.
 
 The minimum fields required in a location file are **LocNumber, AccNumber, PortNumber, CountryCode, LocPerilsCovered, 
 LocCurrency, BuildingTIV, ContentsTIV, BITIV, OtherTIV**.
 
 The full set of fields in a location import file can be found by filtering on ‘Loc’ in the 'Input File' column of the 
 'OED Input Fields' sheet within the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/
-blob/develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. 
+blob/develop/OpenExposureData/OEDInputFields.csv>`_. 
 
 There are over 200 potential fields that could be used within the location file. However, it is not mandatory to use a 
 field that is not populated. 
@@ -160,7 +164,7 @@ The minimum fields required in an account file are **AccNumber**, **AccCurrency,
 
 The full set of fields in an account import file can be found by filtering on ‘Acc’ in the 'Input File' column of the 'OED 
 Input Fields' sheet within the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/blob/
-develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. 
+develop/OpenExposureData/OEDInputFields.csv>`_. 
 
 Similarly, to the loc file, there are over 200 potential fields that could be used within the account file and it is not mandatory 
 to use a field that is not populated. 
@@ -191,7 +195,7 @@ thus require a risk level to be defined.
 
 The full set of fields in a reinsurance info import file can be found by filtering on ‘ReinsInfo’ in the 'Input File' 
 column of the `Open Exposure Data Spec spreadsheet <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/
-OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_. There are over 20 potential fields that could be used within the 
+OpenExposureData/OEDInputFields.csv>`_. There are over 20 potential fields that could be used within the 
 reinsurance info file. However, it is not mandatory to use a field that contains no data.
 
 
@@ -209,15 +213,15 @@ The ``reinsurance scope`` file contains details of two different but related pie
 * The **CededPercent** for a surplus treaty: which can vary for each risk covered by the treaty.
 
 More information on the two points above are discussed `here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/
-OpenExposureData/3_OED_Import_Format.rst>`_, and more information on reinsurance within the OED can be found in `document 7 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/7_OED_Reinsurance.rst>`_.
+OpenExposureData/Docs/3_OED_Import_Format.rst>`_, and more information on reinsurance within the OED can be found
+`here <https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Docs/8_OED_Reinsurance.rst>`_.
 
 The scope of what a reinsurance contract applies to is defined by the ten ‘filter fields’ available in the reinsurance 
 scope file: **PortNumber, AccNumber, PolNumber, LocGroup, LocNumber, CedantName, ProducerName, LOB, CountryCode, ReinsTag.**
 
 However, the minimum fields required are: **ReinsNumber**, at least one of the ten filter fields, and **CededPercent** for 
 surplus treaties. A full list of the reinsurance variables can be found in the `Open Exposure Data Spec spreadsheet 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Docs/OpenExposureData_Spec.xlsx>`_ by 
+<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/OEDInputFields.csv>`_ by 
 filtering for ‘ReinsScope'
 
 
@@ -230,14 +234,11 @@ Liability
 
 ----
 
-The current OED schema for liability is a first version with the aim that it develops as market adoption increases and paths 
-for development are suggested.
-
-A full, detailed list of the liability data fields with addition information of the fields can be found `here 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/Docs/OExD_Liabs_DataFields.csv>`_.
+OED provides support for liability classes of business. As of OED v4.0.0, liability fields are fully integrated into
+the main OED schema (``OEDInputFields.csv``) rather than being maintained as a separate specification.
 
 More information about ODS Liability can be found in the `GitHub repository <https://github.com/OasisLMF/
-ODS_OpenExposureData/blob/develop/OpenExposureData/Liability/ReadMe.md>`_.
+ODS_OpenExposureData/blob/develop/OpenExposureData/Docs/Liability/ReadMe.md>`_.
 
 
 
@@ -249,15 +250,25 @@ Cyber
 
 ----
 
-Like liability, the OED schema for cyber is a first version with the aim it develops as market adoption increases. The cyber 
-modelling space is still in its infancy and is expected to develop relatively quickly so the OED is expected to develop in
-parallel to be appropriate for cyber data capture and modelling requirements. 
-
-Detailed documentation for the OED cyber documentation can be found `Open Exposure Data Spec spreadsheet 
-<https://github.com/OasisLMF/ODS_OpenExposureData/blob/develop/OpenExposureData/Cyber/Docs/OED_Cyber_Data_Spec_v1.0.0.xlsx>`_.
+OED provides support for cyber classes of business. As of OED v4.0.0, cyber fields are fully integrated into the main
+OED schema (``OEDInputFields.csv``) rather than being maintained as a separate specification.
 
 More information about ODS Cyber can be found in the `GitHub repository <https://github.com/OasisLMF/ODS_OpenExposureData/
-blob/develop/OpenExposureData/Cyber/ReadMe.md>`_.
+blob/develop/OpenExposureData/Docs/Cyber/ReadMe.md>`_.
+
+|
+.. _marine:
+
+Marine Cargo
+************
+
+----
+
+OED includes support for Marine Cargo classes of business, integrated into the main OED schema from v4.0.0 onwards.
+Marine cargo fields follow the same four-file structure (Location, Account, ReinsInfo, ReinsScope) as property OED.
+
+More information about ODS Marine can be found in the `GitHub repository <https://github.com/OasisLMF/ODS_OpenExposureData/
+tree/develop/OpenExposureData>`_.
 
 
 
