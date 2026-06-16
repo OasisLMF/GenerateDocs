@@ -76,6 +76,9 @@ For remote model execution the ``api`` subcommand provides the following subcomm
 * ``api get``: retrieves results from a remote analysis
 * ``api delete``: deletes a remote analysis
 
+See :doc:`api-client` for a full guide, including authentication options, a step-by-step
+workflow, and advice on diagnosing platform-specific failures.
+
 For generating deterministic losses an ``exposure run`` subcommand is available:
 
 * ``exposure run``: generates deterministic losses (GUL, or GUL + IL, or GUL + IL + RIL)
