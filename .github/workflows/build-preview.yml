@@ -1,4 +1,4 @@
-name: Deploy PR previews
+name: Build PR preview
 
 on:
   pull_request:
@@ -10,26 +10,45 @@ on:
 
 concurrency: preview-${{ github.ref }}
 
-
 jobs:
-  deploy-preview:
+  build-preview:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
         uses: actions/checkout@v3
 
+      - name: Save PR metadata
+        run: |
+          echo "${{ github.event.number }}" > pr-number.txt
+          echo "${{ github.event.action }}" > pr-action.txt
+
+      - name: Upload PR metadata
+        uses: actions/upload-artifact@v4
+        with:
+          name: pr-metadata
+          path: |
+            pr-number.txt
+            pr-action.txt
+          retention-days: 1
+
       - name: Set up Python 3.11
+        if: github.event.action != 'closed'
         uses: actions/setup-python@v4
         with:
           python-version: '3.11'
-      - run: pip install -r requirements.txt
+
+      - name: Install dependencies
+        if: github.event.action != 'closed'
+        run: pip install -r requirements.txt
 
       - name: Build
+        if: github.event.action != 'closed'
         run: ./build.sh
 
-      - name: Deploy preview
-        uses: rossjrw/pr-preview-action@v1
+      - name: Upload build artifact
+        if: github.event.action != 'closed'
+        uses: actions/upload-artifact@v4
         with:
-          source-dir: ./build/html
-          deploy-repository: OasisLMF/PreviewDocs
-          token: ${{ secrets.BUILD_PREVIEW_TOKEN }}
+          name: preview-build
+          path: build/html
+          retention-days: 1

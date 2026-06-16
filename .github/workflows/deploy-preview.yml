@@ -1,0 +1,49 @@
+name: Deploy PR previews
+
+on:
+  workflow_run:
+    workflows:
+      - Build PR preview
+    types:
+      - completed
+
+jobs:
+  deploy-preview:
+    runs-on: ubuntu-22.04
+    if: github.event.workflow_run.conclusion == 'success'
+    steps:
+      - name: Download PR metadata
+        uses: actions/download-artifact@v4
+        with:
+          name: pr-metadata
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - name: Read PR metadata
+        id: meta
+        run: |
+          echo "pr_number=$(cat pr-number.txt)" >> $GITHUB_OUTPUT
+          ACTION=$(cat pr-action.txt)
+          if [ "$ACTION" = "closed" ]; then
+            echo "deploy_action=remove" >> $GITHUB_OUTPUT
+          else
+            echo "deploy_action=deploy" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Download build artifact
+        if: steps.meta.outputs.deploy_action == 'deploy'
+        uses: actions/download-artifact@v4
+        with:
+          name: preview-build
+          path: build/html
+          run-id: ${{ github.event.workflow_run.id }}
+          github-token: ${{ github.token }}
+
+      - name: Deploy preview
+        uses: rossjrw/pr-preview-action@v1
+        with:
+          source-dir: ./build/html
+          deploy-repository: OasisLMF/PreviewDocs
+          token: ${{ secrets.BUILD_PREVIEW_TOKEN }}
+          action: ${{ steps.meta.outputs.deploy_action }}
+          pr-number: ${{ steps.meta.outputs.pr_number }}
