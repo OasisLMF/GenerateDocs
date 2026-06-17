@@ -127,17 +127,17 @@ Any size company
 The final option is SaaS (Software as a Service), and is availible to any size company. This is a growing number of 
 third-party organisations that host and run models on your behalf. These companies offer various commercial services, 
 consultancy and full support with running models. Some of these companies also offer custom user interfaces that have 
-additonal functionalilty boyond the :doc:`Oasis-UI`, such has the UI hosted by Nasdaq:
+additonal functionalilty boyond the :doc:`Oasis-UI`, such has the UI hosted by Verisk's Model Exchange platform:
 
 |
 
-.. image:: ../images/Nasdaq_UI.png
+.. image:: ../images/ModelExchange_UI.png
     :width: 600
     :align: center
-    :alt: Nasdaq UI
+    :alt: Model Exchange UI
 
 |
 
-Companies offering this service include the likes of Nasdaq NRMC, Xceedance, and Impact Forecasting Elements. More 
+Companies offering this service include the likes of Verisk Model Exchange, Xceedance, and Impact Forecasting Elements. More 
 information about SaaS and the companies can be found in the :doc:`SaaS-providers` section.
 

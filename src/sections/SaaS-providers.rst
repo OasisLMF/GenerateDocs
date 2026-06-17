@@ -8,7 +8,7 @@ for in-house Oasis deployments.
 
 A few of these companies are listed below:
 
-* `Nasdaq NRMC <https://www.nasdaq.com/solutions/nasdaq-risk-modelling-for-catastrophes>`_
+* `Verisk Model Exchange <https://www.verisk.com/products/model-exchange/>`_
 * `Xceedance <https://xceedance.com/>`_
 * `Impact Forecasting Elements <https://www.aon.com/reinsurance/impact-forecasting/default>`_
 * `RMS IRP <https://www.rms.com/>`_
