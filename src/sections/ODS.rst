@@ -50,9 +50,9 @@ ODS structure with Oasis
 
 ----
 
-Oasis utilises ODS and continues to drive and support its development in collaboration with the community. Oasis LMF are 
-continuously expanding the ODS functionality they support on their platform, especially in their `financial module (FM) 
-<https://github.com/OasisLMF/ktools/blob/2ab2f9e864c2d77b91cc5c2ab1ced4a1aab0e595/docs/md/FinancialModule.md#L4>`_.
+Oasis utilises ODS and continues to drive and support its development in collaboration with the community. Oasis LMF are
+continuously expanding the ODS functionality they support on their platform, especially in their `financial module (FM)
+<https://github.com/OasisLMF/ktools/blob/master/docs/md/FinancialModule.md>`_.
 
 The diagram below highlights the proposed, long-term structure of ODS and all the key components. Interoperability is vital 
 to ensure efficient interaction across multiple databases, systems and external exposure management and data storage 

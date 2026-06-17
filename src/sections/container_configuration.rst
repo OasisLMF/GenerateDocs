@@ -153,7 +153,7 @@ Server Database (DB) Options
    :header: "Option Name", "Type", "Default", "Description"
    :widths: 20, 10, 15, 55
 
-   "DB_ENGINE", "String", "django.db.backends.postgresql_psycopg2", "The database backend engine (e.g., django.db.backends.postgresql_psycopg2, django.db.backends.mysql)."
+   "DB_ENGINE", "String", "django.db.backends.postgresql", "The database backend engine (e.g., django.db.backends.postgresql, django.db.backends.mysql)."
    "DB_HOST", "String", "localhost", "The hostname or IP address of the database server."
    "DB_PASS", "String", "None", "The password for the database user."
    "DB_USER", "String", "None", "The username for connecting to the database."
@@ -168,7 +168,7 @@ Authentication Options
    :header: "Option Name", "Type", "Default", "Description"
    :widths: 20, 10, 15, 55
 
-   "API_AUTH_TYPE", "String", "simple_jwt", "Defines the API authentication mechanism. Valid values are 'keycloak' or 'simple_jwt'."
+   "API_AUTH_TYPE", "String", "simple_jwt", "Defines the API authentication mechanism. Valid values are ``simple_jwt``, ``keycloak``, or ``disabled`` (disables all authentication — for internal/trusted deployments only)."
 
 **If API_AUTH_TYPE is 'keycloak', the following options are valid:**
 
@@ -217,7 +217,7 @@ Workflow Run Mode
    :header: "Option Name", "Type", "Default", "Description"
    :widths: 20, 10, 15, 55
 
-   "RUN_MODE", "String", "None", "Determines the worker's operational mode. - 'v1': Selects a single-server, legacy workflow. - 'v2': Selects distributed, modern workflow based on the OASIS platform."
+   "RUN_MODE", "String", "None", "Determines the worker's operational mode. ``v1``: single-server legacy workflow. ``v2``: distributed modern workflow. ``server-internal``: internal worker mode where the worker runs inside the server container (used for lightweight single-container deployments)."
 
 Worker Paths
 ^^^^^^^^^^^^
@@ -353,7 +353,7 @@ Celery Results DB connection Values: Applies to All Versions
    :header: "Option Name", "Type", "Default", "Description"
    :widths: 20, 10, 15, 55
 
-   "CELERY_DB_ENGINE", "String", "db+postgresql+psycopg2", "Specifies the database engine for Celery's results backend."
+   "CELERY_DB_ENGINE", "String", "db+postgresql+psycopg", "Specifies the database engine for Celery's results backend."
    "CELERY_DB_HOST", "String", "celery-db", "Hostname for the database used as Celery's results backend."
    "CELERY_DB_PASS", "String", "password", "Password for accessing the database used as Celery's results backend."
    "CELERY_DB_USER", "String", "celery", "Username for accessing the database used as Celery's results backend."
@@ -380,3 +380,30 @@ The Following apply only to the worker images, and are not configurable from the
 
    "OASIS_CELERY_CONCURRENCY", "Integer", "Number of available cores", "Sets the concurrency argument for Celery workers. By default, it equals the number of available cores, but can be set lower to mitigate out-of-memory errors."
    "OASIS_CELERY_EXTRA_ARGS", "String", "None", "Allows passing custom Celery arguments directly into the worker's startup command. Refer to the Celery CLI documentation for available options."
+
+Celery Broker SSL/TLS (v2.5.2+)
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+From version 2.5.2, the Celery broker connection (RabbitMQ) can be secured with SSL/TLS. Use the ``amqps://`` scheme in
+``OASIS_CELERY_BROKER_URL`` and set the following options:
+
+.. csv-table::
+   :header: "Option Name", "Type", "Default", "Description"
+   :widths: 20, 10, 15, 55
+
+   "OASIS_CELERY_BROKER_SSL_CA_CERTS", "String", "None", "Path to the CA certificate file (PEM format) for verifying the RabbitMQ server certificate."
+   "OASIS_CELERY_BROKER_SSL_CERTFILE", "String", "None", "Path to the client certificate file (PEM format). Leave blank for server-only authentication."
+   "OASIS_CELERY_BROKER_SSL_KEYFILE", "String", "None", "Path to the client private key file (PEM format). Leave blank for server-only authentication."
+   "OASIS_CELERY_BROKER_MANAGEMENT_PORT", "Integer", "15671", "RabbitMQ management UI port when using SSL (default AMQPS management port)."
+
+Example environment configuration for SSL:
+
+.. code-block::
+
+    OASIS_CELERY_BROKER_URL: "amqps://rabbit:rabbit@broker:5671"
+    OASIS_CELERY_BROKER_SSL_CA_CERTS: "/ssl/ca_certificate.pem"
+    # Optional client cert auth:
+    # OASIS_CELERY_BROKER_SSL_CERTFILE: "/ssl/client_cert.pem"
+    # OASIS_CELERY_BROKER_SSL_KEYFILE: "/ssl/client_key.pem"
+
+See ``compose/rabbitmq-ssl.docker-compose.yml`` in the OasisPlatform repository for a full example deployment.

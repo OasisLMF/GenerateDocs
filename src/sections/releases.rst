@@ -83,3 +83,14 @@ manage in the requirement files. Below is the summary:
 * ``OasisLMF 1.27.2`` => uses ``ods_tools 3.0.4`` or later
 
 |
+
+Changelogs
+**********
+
+----
+
+.. toctree::
+    :titlesonly:
+
+    ../releases/oasislmf
+    ../releases/oasis_platform

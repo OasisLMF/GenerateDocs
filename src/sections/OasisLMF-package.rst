@@ -38,37 +38,61 @@ Features
 
 For running models locally the CLI provides a ``model`` subcommand with the following options:
 
-* ``model generate-exposure-pre-analysis``: generate new Exposure input using user custom code (ex: geo-coding, exposure 
-  enhancement, or disaggregation...).
-* ``model generate-keys``: generates Oasis keys files from model lookups; these are essentially line items of (location ID, 
-  peril ID, coverage type ID, area peril ID, vulnerability ID) where peril ID and coverage type ID span the full set of 
-  perils and coverage types that the model supports; if the lookup is for a complex/custom model the keys file will have 
+* ``model generate-exposure-pre-analysis``: generate new Exposure input using user custom code (e.g. geo-coding, exposure
+  enhancement, or disaggregation).
+* ``model generate-keys``: generates Oasis keys files from model lookups; these are essentially line items of (location ID,
+  peril ID, coverage type ID, area peril ID, vulnerability ID) where peril ID and coverage type ID span the full set of
+  perils and coverage types that the model supports; if the lookup is for a complex/custom model the keys file will have
   the same format except that area peril ID and vulnerability ID are replaced by a model data JSON string.
-* ``model generate-oasis-files``: generates the Oasis input CSV files for losses (GUL, GUL + IL, or GUL + IL + RIL); it 
-  requires the provision of source exposure and optionally source accounts and reinsurance info and scope files (in OED 
+  Keys can be output in ``oasis``, ``json``, or ``parquet`` format via the ``--keys-format`` flag.
+* ``model generate-oasis-files``: generates the Oasis input files for losses (GUL, GUL + IL, or GUL + IL + RIL); it
+  requires the provision of source exposure and optionally source accounts and reinsurance info and scope files (in OED
   format), as well as assets for instantiating model lookups and generating keys files.
+* ``model generate-pre-loss``: runs pre-loss hooks before the main loss calculation. Custom code can be injected via
+  ``--pre-loss-module`` / ``--pre-loss-class-name``.
+* ``model generate-post-file-gen``: runs post-file-generation hooks after Oasis input files are created but before losses
+  are computed. Custom code injected via ``--post-file-gen-module`` / ``--post-file-gen-class-name``.
 * ``model generate-losses``: generates losses (GUL, or GUL + IL, or GUL + IL + RIL) from a set of pre-existing Oasis files.
-* ``model run``: runs the model from start to finish by generating losses (GUL, or GUL + IL, or GUL + IL + RIL) from the 
-  source exposure, and optionally source accounts and reinsurance info. and scope files (in OED or RMS format), as well as 
-  assets related to lookup instantiation and keys file generation.
+* ``model generate-losses-chunk``: generates losses for a single chunk (used internally by the platform worker).
+* ``model generate-losses-output``: post-processes and collects output from chunked loss generation.
+* ``model run``: runs the model from start to finish — exposure pre-analysis → keys → Oasis files → losses — from the
+  source OED exposure, and optionally source accounts and reinsurance info and scope files.
+* ``model run-postanalysis``: runs the post-analysis hook on a completed set of results without re-running the full model.
+* ``model generate-doc``: prints the analysis settings JSON schema documentation.
+* ``model generate-computation-settings-json-schema``: outputs the computation settings JSON schema for tooling.
 
 |
 
-The optional ``--summarise-exposure`` flag can be issued with ``model generate-oasis-files`` and ``model run`` to generate 
-a summary of Total Insured Values (TIVs) grouped by coverage type and peril. This produces the 
+The optional ``--summarise-exposure`` flag can be issued with ``model generate-oasis-files`` and ``model run`` to generate
+a summary of Total Insured Values (TIVs) grouped by coverage type and peril. This produces the
 ``exposure_summary_report.json`` file.
 
-For remote model execution the ``api`` subcommand provides the following main subcommand:
+For remote model execution the ``api`` subcommand provides the following subcommands:
 
 * ``api run``: runs the model remotely (same as ``model run``) but via the Oasis API
+* ``api generate-oasis-files``: remotely generates Oasis input files via the API
+* ``api generate-losses``: remotely generates losses via the API
+* ``api list``: lists analyses available on the remote API server
+* ``api get``: retrieves results from a remote analysis
+* ``api delete``: deletes a remote analysis
 
 For generating deterministic losses an ``exposure run`` subcommand is available:
 
 * ``exposure run``: generates deterministic losses (GUL, or GUL + IL, or GUL + IL + RIL)
 
+For utility and maintenance:
+
+* ``warmup``: pre-compiles all Numba JIT functions to eliminate cold-start overhead on the first model run. Recommended
+  after installation — especially in Docker images — to avoid a 2–6 minute compilation delay on first use.
+* ``config``: describes the format of the MDK configuration JSON file.
+* ``config update``: updates a config JSON file with new values.
+* ``version``: prints the installed oasislmf version.
+* ``admin enable-bash-complete``: activates bash tab-completion (see :ref:`bash_enable_package`).
+* ``test``: runs a regression test against an expected set of outputs.
+
 |
 
-The reusable libraries are organised into several sub-packages, the most relevant of which from a model developer or user's 
+The reusable libraries are organised into several sub-packages, the most relevant of which from a model developer or user's
 perspective are:
 
 * ``api_client``
@@ -89,7 +113,7 @@ Starting from 1st January 2019, Pandas will no longer be supporting Python 2. As
 are **dropping Python 2 (2.7) support** as of this release (1.3.4). The last version which still supports Python 2.7 is 
 version ``1.3.3`` (published 12/03/2019).
 
-Also for this release (and all future releases) a **minimum of Python 3.8 is required**.
+Also for this release (and all future releases) a **minimum of Python 3.10 is required**.
 
 |
 
@@ -104,7 +128,8 @@ The latest released version of the package, or a specific package version, can b
 
 .. code-block::
 
-    pip install oasislmf[==<version string>]
+    pip install oasislmf
+    pip install oasislmf==<version string>
 
 |
 
@@ -121,6 +146,44 @@ You can also install from a specific branch ``<branch name>`` using:
 .. code-block::
 
     pip install [-v] git+{https,ssh}://git@github.com/OasisLMF/OasisLMF.git@<branch name>#egg=oasislmf
+
+|
+
+macOS Apple Silicon (M1/M2/M3/M4)
+##################################
+
+OasisLMF installs natively on Apple Silicon Macs via ``pip install oasislmf``. Ensure you have:
+
+* **Python 3.10+** — the system Python on macOS is 3.9; install a newer version via ``brew install python@3.12`` or ``pyenv``.
+* **macOS 12 (Monterey) or later** — required for scipy ARM64 wheels.
+
+For optional geospatial extras (``pip install oasislmf[extra]``), also install:
+
+.. code-block::
+
+    brew install spatialindex geos
+
+|
+
+JIT Cache Warmup
+################
+
+OasisLMF uses Numba JIT compilation for performance-critical calculations. The first run after installation incurs a
+one-time compilation overhead of 2–6 minutes. Pre-compile all JIT functions to eliminate this delay:
+
+.. code-block::
+
+    oasislmf warmup
+
+In Docker images, you can bake the cache in at build time:
+
+.. code-block::
+
+    RUN pip install oasislmf && oasislmf warmup
+
+.. note::
+    JIT caches are CPU-architecture-specific. ``oasislmf warmup`` in a Docker image is most effective when the build
+    machine and the runtime machine share the same CPU architecture.
 
 |
 
@@ -246,14 +309,17 @@ This should be ran ensuring the development dependencies are kept up to date.
 ods_tools
 #########
 
-OasisLMF uses the ods_tools package to read exposure files and the setting files. The version compatible with each OasisLMF 
-is manage in the requirement files. Below is the summary:
+OasisLMF uses the ods_tools package to read exposure files and the settings files. The compatible version for each
+OasisLMF release is managed in the requirements files. Below is the current summary:
 
 * OasisLMF 1.23.x or before => no ods_tools
 * OasisLMF 1.26.x => use ods_tools 2.3.2
 * OasisLMF 1.27.0 => use ods_tools 3.0.0 or later
 * OasisLMF 1.27.1 => use ods_tools 3.0.0 or later
 * OasisLMF 1.27.2 => use ods_tools 3.0.4 or later
+* OasisLMF 2.3.x => use ods_tools 3.2.x or later
+* OasisLMF 2.4.x => use ods_tools 4.0.x or later
+* OasisLMF 2.5.x => use ods_tools 5.0.x or later
 
 |
 
@@ -310,84 +376,18 @@ Publishing
 
 ----
 
-Before publishing the latest version of the package make you sure increment the ``__version__`` value in 
-``oasislmf/__init__.py``, and commit the change. You'll also need to install the ``twine`` Python package which 
-``setuptools`` uses for publishing packages on PyPI. If publishing wheels then you'll also need to install the ``wheel`` 
-Python package.
+Version management and PyPI releases are handled automatically by the CI pipeline (``version.yml`` and ``publish.yml``
+workflows). Manually publishing is not normally required.
 
-|
-
-Using the ``publish`` subcommand in ``setup.py``
-################################################
-
-The distribution format can be either a source distribution or a platform-specific wheel. To publish the source 
-distribution package run:
+To build and upload manually (using modern ``build`` + ``twine``):
 
 .. code-block::
 
-    python setup.py publish --sdist
+    pip install build twine
+    python -m build
+    twine upload dist/*
 
-Or to publish the platform specific wheel run:
-
-.. code-block::
-
-    python setup.py publish --wheel
-
-|
-
-Creating a bdist for another platform
-#####################################
-
-To create a distribution for a non-host platform use the ``--plat-name`` flag:
-
-.. code-block::
-
-     python setup.py bdist_wheel --plat-name Linux_x86_64
-
-or
-
-.. code-block::
-
-     python setup.py bdist_wheel --plat-name Darwin_x86_64
-
-|
-
-Manually publishing, with a GPG signature
-#########################################
-
-The first step is to create the distribution package with the desired format: 
-
-For the source distribution run:
-
-.. code-block::
-
-    python setup.py sdist
-
-|
-
-Which will create a ``.tar.gz`` file in the ``dist`` subfolder, or for the platform specific wheel run:
-
-.. code-block::
-
-    python setup.py bdist_wheel
-
-|
-
-Which will create ``.whl`` file in the ``dist`` subfolder. To attach a GPG signature using your default private key you can 
-then run:
-
-.. code-block::
-
-    gpg --detach-sign -a dist/<package file name>.{tar.gz,whl}
-
-|
-
-This will create ``.asc`` signature file named ``<package file name>.{tar.gz,whl}.asc`` in ``dist``. You can just publish 
-the package with the signature using:
-
-.. code-block::
-
-    twine upload dist/<package file name>.{tar.gz,whl} dist/<package file name>.{tar.gz,whl}.asc
+The ``__version__`` value in ``oasislmf/__init__.py`` must be incremented before building.
 
 |
 
