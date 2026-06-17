@@ -84,6 +84,7 @@ It allows regression of the models after updates to the Oasis Platform code, and
 
     sections/absolute-damage.rst
     sections/analysis_settings
+    sections/api-client.rst
     sections/API.rst
     sections/camel.rst
     sections/correlation.rst
