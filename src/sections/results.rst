@@ -750,6 +750,10 @@ by summarycalc, above):
 
 **Internal data**
 
+The Moment report requires the event_rates.csv file to calculate the EventRate
+
+* input/event_rates.csv
+
 The Quantile report requires the quantile.bin file
 
 * input/quantile.bin
@@ -763,6 +767,8 @@ The Quantile report requires the quantile.bin file
 For each SummaryId and EventId, the sample mean and standard deviation is calculated from the sampled losses in the 
 summarycalc stream and output to file. The analytical mean is also output as a seperate record, differentiated by a 
 'SampleType' field. Variations of the exposure value are also output (see below for details).
+
+The EventRate column requires the prescence of a event_rates.csv file which contains the mapping from EventId to EventRate.
 
 |
 
