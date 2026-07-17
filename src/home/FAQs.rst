@@ -52,7 +52,7 @@ What models do I have access to in Oasis?
 
 Although there are numerous models available on the Oasis platform, access to them depend on the agreements in place between the user and the model vendor. 
 All available models will be accessible in the UI or via the API.
-A list of the current models in Oasis can be found `here <https://oasislmf.org/community/model-providers>`_.
+A list of the current models in Oasis can be found `here <https://oasislmf.org/community/model-providers>`__.
 
 |
 
@@ -84,7 +84,7 @@ Where can I sign-up to receive Oasis updates via email?
 -------------------------------------------------------
 
 
-Just enter your email address `here <https://oasislmf.us5.list-manage.com/subscribe?u=be9ff9f3b08aafb8d6eb75624&id=ba1e1fb4fb>`_.  
+Just enter your email address `here <https://oasislmf.us5.list-manage.com/subscribe?u=be9ff9f3b08aafb8d6eb75624&id=ba1e1fb4fb>`__.  
 
 |
 
@@ -217,6 +217,6 @@ These make up the “open standard” data formats used in Oasis where the expos
 Historically, all input and output formats have been proprietary which makes transferring of data and analytical work between models and users difficult. 
 The “open standards” are governed and curated by a steering committee that is made up of participants from insurers, reinsurers, brokers and cat model vendors. 
 The “open standard” is a market initiative to increase transparency and efficiency throughout the cat modelling community.
-Find out more `here <https://oasislmf.org/open-data-standards>`_. 
+Find out more `here <https://oasislmf.org/open-data-standards>`__. 
 
 |
