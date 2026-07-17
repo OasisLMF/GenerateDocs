@@ -1,12 +1,98 @@
 # GenerateDocs
 
+**Version-pinned orchestrator for the aggregated Oasis documentation site.**
 
-## Building the Documentation via Docker 
-`docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .`
+GenerateDocs holds no documentation content. Each Oasis component owns and builds its own
+Sphinx docs; this repo pins the version of each and assembles them into one site:
 
-`docker run -v $(pwd):/tmp/output oasis_doc_builder:latest`
-Which creates a tar file in the the current dir `oasis_docs.tar.gz`
+```
+output/site/            landing page (built from ./src)
+output/site/<path>/     each component's own docs (e.g. /oasislmf, /platform, /oed, /ord …)
+```
 
-## Building Locally 
+Cross-component links resolve via intersphinx and are rewritten to page-relative paths, so the
+assembled tree is relocatable — it works opened as local files, from any server, or under a
+GitHub Pages sub-path.
 
-`./build.sh`
+## What gets built
+
+The manifest [`modules.json`](modules.json) lists every component and the ref to build it from:
+
+```jsonc
+{
+  "name": "ord", "repo": "ODS_OpenResultsData",
+  "ref": "docs/migration",     // pin to a release tag for a released site
+  "docs_source": "docs/source",
+  "path": "ord",               // published under /ord/
+  "title": "Open Results Data (ORD)"
+}
+```
+
+Edit `modules.json` to add a component or change a pinned version.
+
+## Build locally
+
+**Prerequisites:** Python 3, `git`, and the doc toolchain in `requirements.txt` (Sphinx, Furo,
+MyST-NB, sphinx-design, sphinx-autoapi, sphinxcontrib-redoc, `oasislmf`, `ods-tools`).
+
+### Option A — from your local checkouts (fastest for iterating)
+
+Check the component repos out next to this one (`../OasisLMF`, `../OasisPlatform`,
+`../ODS_OpenResultsData`, …) on the branch you want, then:
+
+```bash
+./build.sh --local
+```
+
+This builds every component from your local checkouts and assembles the site. To run the
+orchestrator directly in an environment that already has the toolchain (skipping the venv step):
+
+```bash
+python orchestrate.py --use-local            # build all components + landing
+python orchestrate.py --use-local --only ord ods-tools   # just these
+```
+
+### Option B — pinned clone (CI / release)
+
+Clone each component at the `ref` pinned in `modules.json` and build:
+
+```bash
+./build.sh                     # == orchestrate.py --clone
+```
+
+### Useful flags (`orchestrate.py`)
+
+| Flag | Effect |
+| --- | --- |
+| `--use-local [BASE]` | build from `BASE/<repo>` checkouts (default: parent dir) |
+| `--clone` | clone each repo at its pinned `ref` into `./modules/` |
+| `--only NAME …` | build a subset of components |
+| `--keep-going` | continue past a failing component (and pass `--keep-going` to Sphinx) |
+| `--single-pass` | skip the cross-reference pass (faster; intersphinx links won't resolve) |
+| `--absolute-links` | keep cross-links as absolute URLs instead of page-relative |
+| `--output DIR` | output directory (default `output/site`) |
+
+## View the result
+
+The assembled site is static — just open the landing page:
+
+```bash
+xdg-open output/site/index.html      # or open it in your browser
+```
+
+Everything navigates from the filesystem. The only feature that needs a server is the search
+box (browsers block its data load over `file://`):
+
+```bash
+python -m http.server 8080 --directory output/site
+# then browse http://localhost:8080/
+```
+
+## Build via Docker
+
+```bash
+docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .
+docker run -v "$(pwd)":/tmp/output oasis_doc_builder:latest
+```
+
+`build.sh` also packages the site as `output/oasis_docs.tar.gz`.
