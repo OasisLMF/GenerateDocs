@@ -99,9 +99,11 @@ def rewrite_cross_links(site_dir, base_url, module_paths):
 
             def repl(m):
                 path = m.group(2)
-                if path.startswith(mods):
+                # component cross-links (…/<module>/…) and the landing "home" link (index.html)
+                if path.startswith(mods) or path in ("", "index.html"):
                     hits[0] += 1
-                    return f'{m.group(1)}="{relroot}{path}"'
+                    rel = path or "index.html"
+                    return f'{m.group(1)}="{relroot}{rel}"'
                 return m.group(0)
 
             with open(fp, encoding="utf-8") as fh:
