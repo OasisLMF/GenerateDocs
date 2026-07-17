@@ -8,18 +8,17 @@ available SaaS and support providers and handling common errors.
 Sections
 --------
 
-----
 
-:doc:`Oasis Platform <../../sections/Oasis-platform>`
+`Oasis Platform <../platform/index.html>`_
 
-:doc:`API <../../sections/API>`
+`API <../platform/index.html>`_
 
-:doc:`Oasis Workflow <../../sections/Oasis-workflow>`
+`Oasis Workflow <../oasislmf/index.html>`_
 
-:doc:`Oasis UI <../../sections/Oasis-UI>`
+`Oasis UI <https://github.com/OasisLMF/OasisUI>`_
 
-:doc:`SaaS Providers <../../sections/SaaS-providers>`
+`SaaS Providers <../platform/index.html>`_
 
-.. :doc:`Error Handling <../../sections/errors>`
+.. `Error Handling <../platform/index.html>`_
 
-:doc:`Camel <../../sections/camel>`
+`Camel <../oed/index.html>`_

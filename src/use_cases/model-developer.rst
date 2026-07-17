@@ -9,24 +9,23 @@ Platform.
 Sections
 --------
 
-----
 
-:doc:`Oasis Model Data Formats <../../sections/Oasis-model-data-formats>`
+`Oasis Model Data Formats <../oasislmf/index.html>`_
 
-:doc:`OED - Open Exposure Data <../../sections/OED>`
+`OED - Open Exposure Data <../oed/index.html>`_
 
-:doc:`Keys Service <../../sections/keys-service>`
+`Keys Service <../oasislmf/index.html>`_
 
-:doc:`MDK - Model Development Kit <../../sections/model-development-kit>`
+`MDK - Model Development Kit <../oasislmf/index.html>`_
 
-:doc:`Model Settings <../../sections/model_settings>`
+`Model Settings <../ods-tools/index.html>`_
 
-:doc:`Analysis Settings <../../sections/analysis_settings>`
+`Analysis Settings <../ods-tools/index.html>`_
 
-:doc:`Results <../../sections/results>`
+`Results <../oasislmf/index.html>`_
 
-:doc:`Oasis Platform <../../sections/Oasis-platform>`
+`Oasis Platform <../platform/index.html>`_
 
-:doc:`Oasis UI <../../sections/Oasis-UI>`
+`Oasis UI <https://github.com/OasisLMF/OasisUI>`_
 
-:doc:`SaaS Providers <../../sections/SaaS-providers>`
+`SaaS Providers <../platform/index.html>`_

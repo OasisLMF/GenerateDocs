@@ -1,23 +1,22 @@
-Introduction:
-=============
+Oasis LMF Documentation
+=======================
 
-----
 
-* **What is Oasis**: The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
-  It is also a community that seeks to unlock and change the world around catastrophe modelling to better understand risk in insurance and beyond. 
-  While its development is largely driven by the global (re-)insurance community, it seeks to provide tools and utility to all.
-  For more information about the Oasis LMF initiative visit `oasislmf.org <http://www.oasislmf.org/>`_.
+* **What is Oasis**: The Oasis Loss Modelling Framework is an open source catastrophe modelling
+  platform, free to use by anyone. It is also a community that seeks to unlock and change the
+  world around catastrophe modelling to better understand risk in insurance and beyond. While
+  its development is largely driven by the global (re-)insurance community, it seeks to provide
+  tools and utility to all. For more information visit `oasislmf.org <http://www.oasislmf.org/>`_.
 
-* **How the documentation is structured**: This documentation is broken down into 4 main areas: Model developers, Model 
-  users, Installing and developing Oasis, and Supporting and Oasis model deployment. These are the different use cases that 
-  are detailed in this documentation. By selecting your use case, the relevant information can be accessed.
+* **How this documentation is organised**: Each Oasis component owns and publishes its own
+  documentation. This site aggregates those component sites — pinned to specific versions — into
+  one place. Pick a component below, or start from a use case.
 
 |
 
 Overview
 --------
 
-----
 
 .. figure:: images/oasis_ecosystem_new.png
     :alt: Oasis Ecosystem
@@ -26,42 +25,68 @@ Overview
 
 |
 
-Our main users are:
-*******************
+Documentation by component
+--------------------------
 
-----
 
-**Model developers**, who build, test and publish the risk models. 
-They are typically scientists or software developers, working in a risk modelling company or academia.
+.. grid:: 1 1 2 3
+    :gutter: 3
 
-**Risk analysts** who operate the models for decision support purposes.
-The core user group are analysts at insurance or reinsurance organizations who are running the models to support pricing and portfolio management.
-This would also cover government and third sector users.
+    .. grid-item-card:: OasisLMF — MDK & kernel
+        :link: oasislmf/index.html
+        :link-type: url
 
-**Enterprise risk systems** at insurance or reinsurance organizations, where Oasis risk models will be integrated using APIs into pricing and portfolio management workflows.
+        The Model Development Kit and the loss-calculation kernel (pytools): GUL, FM, outputs,
+        keys/lookup, methodology.
+
+    .. grid-item-card:: Oasis Platform
+        :link: platform/index.html
+        :link-type: url
+
+        The API, workers and deployment — running models at scale, and driving them via the API.
+
+    .. grid-item-card:: ODS Tools
+        :link: ods-tools/index.html
+        :link-type: url
+
+        Loading/validating OED, transforming to OED (ODTF), and the analysis/model settings
+        schema reference.
+
+    .. grid-item-card:: Open Exposure Data (OED)
+        :link: oed/index.html
+        :link-type: url
+
+        The exposure data standard — file structure, hierarchy, field and coded-value reference.
+
+    .. grid-item-card:: Open Results Data (ORD)
+        :link: ord/index.html
+        :link-type: url
+
+        The results data standard — result tables, fields and worked examples.
+
+    .. grid-item-card:: Oasis Models
+        :link: models/index.html
+        :link-type: url
+
+        Example and reference models (e.g. PiWind) and how model data is packaged.
 
 |
 
-Our software components are:
-****************************
+The Oasis initiative
+--------------------
 
-----
 
-**Oasis Platform** is a catastrophe modelling system that encompasses a set of data standards; an API; and tools and components for building and running models.
-This is the core part of Oasis underpinning the other components and is where most of the domain specific code and performance optimization is required.
+**Model developers** build, test and publish risk models — typically scientists or software
+developers in a modelling company or academia.
 
-**Oasis User Interface (UI)** is a web-based application for uploading exposure data, running models deployed in Oasis, and retrieving results data.
-It is targeted at operating models by (re)insurance companies in in conjunction with existing exposure management and reporting tools; model evaluation; and using models in government or third sector contexts.
+**Risk analysts** operate the models for decision support — analysts at (re)insurers running
+models for pricing and portfolio management, plus government and third-sector users.
 
-**Oasis Model Development Kit (MDK)** is a set of tools for building, calibrating and creating a model, ready to be deployed into the Oasis Platform.
-It is designed with a model developer or academic user in mind, who are likely to be comfortable working directly with the data from the command line or programmatically.
-
-**Oasis Model Library** is a hosted catalogue for Oasis models, hosted in AWS. 
-It allows regression of the models after updates to the Oasis Platform code, and validation of model operation and scalability within a hosted Oasis Platform.
-
-----
+**Enterprise risk systems** integrate Oasis models via APIs into pricing and portfolio
+management workflows.
 
 .. toctree::
+    :hidden:
     :titlesonly:
     :caption: Home:
 
@@ -71,60 +96,10 @@ It allows regression of the models after updates to the Oasis Platform code, and
     home/FAQs.rst
 
 .. toctree::
+    :hidden:
     :titlesonly:
     :caption: Use Cases:
 
     use_cases/model-developer
     use_cases/model-users
     use_cases/installing-deploying-Oasis
-
-.. toctree::
-    :titlesonly:
-    :caption: Sections:
-
-    sections/absolute-damage.rst
-    sections/analysis_settings
-    sections/api-client.rst
-    sections/API.rst
-    sections/camel.rst
-    sections/correlation.rst
-    sections/currency_conversion.rst
-    sections/deployment.rst
-    sections/disaggregation.rst
-    sections/financial-module.rst
-    sections/geocoding.rst
-    sections/keys-service.rst
-    sections/ktools.rst
-    sections/model-data-library.rst
-    sections/model-development-kit.rst
-    sections/model-providers.rst
-    sections/model_settings
-    sections/modelling-methodology.rst
-    sections/Oasis-evaluation.rst
-    sections/Oasis-file-formats.rst
-    sections/Oasis-model-data-formats.rst
-    sections/Oasis-models.rst
-    sections/Oasis-platform.rst
-    sections/Oasis-UI.rst
-    sections/Oasis-workflow.rst
-    sections/OasisLMF-package.rst
-    sections/ODS-tools.rst
-    sections/ODS.rst
-    sections/ODTF.rst
-    sections/OED.rst
-    sections/ORD.rst
-    sections/platform_1
-    sections/platform_2
-    sections/post-loss-amplification.rst
-    sections/pre-analysis-adjustments.rst
-    sections/pytools.rst
-    sections/releases.rst
-    sections/results.rst
-    sections/SaaS-providers.rst
-    sections/sampling-methodology.rst
-    sections/versioning.rst
-    sections/vulnerability-adjustments.rst
-    
-.. 
-  sections to be populated: sections/pre-analysis-adjustments.rst, sections/errors.rst, sections/complex-model.rst
-
