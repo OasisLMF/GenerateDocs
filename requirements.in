@@ -14,7 +14,8 @@ sphinx-copybutton
 
 # Reference-generation extensions used by components
 sphinx-autoapi          # OasisLMF API reference (AST-based)
-sphinxcontrib-redoc     # OasisPlatform REST API reference
+# OasisPlatform's REST API reference is rendered by Redoc vendored in-repo
+# (_static/redoc/), so it needs no Sphinx extension here.
 
 # OasisLMF conf.py imports the package (version + CLI options at build time);
 # ods-tools drives the ODS_Tools OED notebook.
@@ -28,6 +29,3 @@ jinja2
 markupsafe
 docutils
 lxml[html_clean]
-
-# sphinxcontrib-redoc imports pkg_resources, removed in setuptools>=81
-setuptools<81
