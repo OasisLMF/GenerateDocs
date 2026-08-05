@@ -76,17 +76,22 @@ def build(src_dir, out_dir, keep_going, env_extra=None):
 
 
 def rewrite_cross_links(site_dir, base_url, module_paths):
-    """Rewrite absolute in-site cross-component links to page-relative paths.
+    """Rewrite in-site links to page-relative paths, and point the sidebar logo at the landing.
 
-    Intersphinx emits cross-references as absolute URLs (``base_url`` + ``<path>/…``) so they are
-    depth-correct on the published site. Rewriting them to paths relative to each HTML file makes
-    the assembled tree fully relocatable — cross-links resolve when opened as local files
-    (``file://``), from any server, and under a project sub-path — without changing intra-module
-    links. Only links whose path starts with a known module path are touched.
+    Two rewrites, applied per HTML file relative to its depth below the site root:
+
+    - Intersphinx emits cross-references as absolute URLs (``base_url`` + ``<path>/…``); rewriting
+      them relative to each file makes the assembled tree fully relocatable — cross-links resolve
+      when opened as local files (``file://``), from any server, and under a project sub-path.
+      Only links whose path starts with a known module path (or the landing ``index.html``) are
+      touched.
+    - Furo links its sidebar-brand logo to each component's own index; repoint it at the
+      aggregated landing (the site-root ``index.html``) so the logo always returns there.
     """
     prefix = base_url
     mods = tuple(module_paths)
     pat = re.compile(r'(href|src)="' + re.escape(prefix) + r'([^"]*)"')
+    brand_pat = re.compile(r'(<a\b[^>]*\bclass="sidebar-brand[^"]*"[^>]*\bhref=")[^"]*(")')
     count = 0
     for root, _dirs, files in os.walk(site_dir):
         depth = 0 if os.path.relpath(root, site_dir) == "." else os.path.relpath(root, site_dir).count(os.sep) + 1
@@ -109,6 +114,9 @@ def rewrite_cross_links(site_dir, base_url, module_paths):
             with open(fp, encoding="utf-8") as fh:
                 s = fh.read()
             s2 = pat.sub(repl, s)
+            # point the sidebar logo at the aggregated landing (site-root index)
+            s2, n_brand = brand_pat.subn(rf'\g<1>{relroot}index.html\g<2>', s2)
+            hits[0] += n_brand
             if hits[0]:
                 with open(fp, "w", encoding="utf-8") as fh:
                     fh.write(s2)
