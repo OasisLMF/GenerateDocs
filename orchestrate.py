@@ -51,6 +51,28 @@ def clone_or_update(org, repo, ref, dest):
     return dest
 
 
+def pip_install_editable(repo_dir):
+    """Install a module's package editable from its checkout, without touching dependencies.
+
+    For modules marked ``"editable": true`` in the manifest (the org's own packages, e.g.
+    oasislmf), the docs must document the *source being built at the pinned ref* — not the
+    last PyPI release. Sphinx/autoapi imports the package to resolve version info and inherited
+    docstrings, so an ``pip install -e`` from the checkout points those imports at this source.
+    ``--no-deps`` links only the package (its dependency tree is already satisfied by
+    requirements.txt), keeping it fast and avoiding accidental upgrades.
+    """
+    print(f"  == editable install: {repo_dir} ==")
+    # editable_mode=compat puts the repo on sys.path (like the old develop install) so ALL
+    # submodules resolve — the default "strict" finder can miss submodules and clashes with a
+    # pre-existing wheel install of the same package.
+    proc = subprocess.run([sys.executable, "-m", "pip", "install", "-e", repo_dir, "--no-deps", "-q",
+                           "--config-settings", "editable_mode=compat"],
+                          capture_output=True, text=True)
+    if proc.returncode != 0:
+        sys.stderr.write(proc.stdout[-2000:] + proc.stderr[-2000:])
+        print(f"  !! editable install failed for {repo_dir} (continuing with installed package)")
+
+
 def build(src_dir, out_dir, keep_going, env_extra=None):
     """Run sphinx-build; return the number of warnings (or None on failure).
 
@@ -174,6 +196,9 @@ def main():
             print(f"  !! repo not found: {repo_dir}")
             results.append((name, "MISSING", None, shown_ref))
             continue
+        # the org's own packages are installed editable so autoapi/notebooks document THIS source
+        if m.get("editable"):
+            pip_install_editable(repo_dir)
         built.append((m, os.path.join(repo_dir, m["docs_source"]),
                       os.path.join(args.output, m["path"]), shown_ref))
 

@@ -30,6 +30,12 @@ The manifest [`modules.json`](modules.json) lists every component and the ref to
 
 Edit `modules.json` to add a component or change a pinned version.
 
+Modules that are the org's own importable packages (e.g. `oasislmf`, `ods-tools`) carry
+`"editable": true`. Before building such a module the orchestrator runs
+`pip install -e <checkout> --no-deps` so Sphinx/autoapi and the executable notebooks document
+**the source at the pinned ref**, not the last PyPI release. Their dependencies still come from
+`requirements.txt`.
+
 ## Build locally
 
 **Prerequisites:** Python 3, `git`, and the doc toolchain in `requirements.txt` (Sphinx, Furo,
