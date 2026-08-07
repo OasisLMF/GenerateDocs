@@ -14,6 +14,52 @@ Cross-component links resolve via intersphinx and are rewritten to page-relative
 assembled tree is relocatable — it works opened as local files, from any server, or under a
 GitHub Pages sub-path.
 
+## Quick start (local dev)
+
+Build the whole site from local checkouts and preview it in a browser.
+
+**1. Clone GenerateDocs and the component repos side by side** (the `--local` build expects
+them next to each other):
+
+```bash
+mkdir oasis-docs && cd oasis-docs
+for repo in GenerateDocs OasisLMF OasisPlatform ODS_Tools \
+            ODS_OpenExposureData ODS_OpenResultsData OasisModels; do
+  git clone https://github.com/OasisLMF/$repo.git
+done
+```
+
+**2. Set up a Python environment and install the doc toolchain** (Python 3.10+):
+
+```bash
+cd GenerateDocs
+python -m venv venv && source venv/bin/activate
+pip install -r requirements.txt
+```
+
+**3. Build the aggregated site from your local checkouts:**
+
+```bash
+python orchestrate.py --use-local        # builds all components + landing into build/html/
+```
+
+(Or `./build.sh --local`, which creates its own venv and installs `requirements.txt` for you —
+handy for a clean one-shot build.)
+
+**4. Preview it in a local server** (recommended — search and the version selector's 404
+fallback need a served site, not `file://`):
+
+```bash
+python -m http.server 8080 --directory build/html
+# then open http://localhost:8080/
+```
+
+Iterating on one component is faster with `--only`:
+
+```bash
+python orchestrate.py --use-local --only ord ods-tools
+```
+
 ## What gets built
 
 The manifest [`modules.json`](modules.json) lists every component and the ref to build it from:
@@ -36,27 +82,17 @@ Modules that are the org's own importable packages (e.g. `oasislmf`, `ods-tools`
 **the source at the pinned ref**, not the last PyPI release. Their dependencies still come from
 `requirements.txt`.
 
-## Build locally
+## Build modes
 
-**Prerequisites:** Python 3, `git`, and the doc toolchain in `requirements.txt` (Sphinx, Furo,
-MyST-NB, sphinx-design, sphinx-autoapi, sphinxcontrib-redoc, `oasislmf`, `ods-tools`).
+**Prerequisites:** Python 3.10+, `git`, and the doc toolchain in `requirements.txt` (Sphinx,
+Furo, MyST-NB, sphinx-design, sphinx-copybutton, sphinx-autoapi, `oasislmf`, `ods-tools`). The
+Platform REST API is rendered by a **vendored Redoc bundle** (in `OasisPlatform/docs`), so no
+Sphinx redoc extension is needed.
 
-### Option A — from your local checkouts (fastest for iterating)
+### Option A — from your local checkouts (see [Quick start](#quick-start-local-dev))
 
-Check the component repos out next to this one (`../OasisLMF`, `../OasisPlatform`,
-`../ODS_OpenResultsData`, …) on the branch you want, then:
-
-```bash
-./build.sh --local
-```
-
-This builds every component from your local checkouts and assembles the site. To run the
-orchestrator directly in an environment that already has the toolchain (skipping the venv step):
-
-```bash
-python orchestrate.py --use-local            # build all components + landing
-python orchestrate.py --use-local --only ord ods-tools   # just these
-```
+`./build.sh --local` (own venv) or `python orchestrate.py --use-local` (existing env), building
+each component from the sibling checkouts.
 
 ### Option B — pinned clone (CI / release)
 
@@ -102,18 +138,18 @@ fallback needs the site served (it does a `HEAD` request), degrading to a direct
 
 ## View the result
 
-The assembled site is static — just open the landing page:
+The assembled site is static. For a quick look you can open it straight from disk:
 
 ```bash
-xdg-open build/html/index.html      # or open it in your browser
+xdg-open build/html/index.html      # navigation, cross-links and logo all work over file://
 ```
 
-Everything navigates from the filesystem. The only feature that needs a server is the search
-box (browsers block its data load over `file://`):
+But **prefer a local server** — the search box and the version selector's 404 fallback make
+XHR/`HEAD` requests that browsers block over `file://`:
 
 ```bash
 python -m http.server 8080 --directory build/html
-# then browse http://localhost:8080/
+# then browse http://localhost:8080/   (Ctrl-C to stop)
 ```
 
 ## Build via Docker
