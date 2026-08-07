@@ -216,18 +216,21 @@ def write_versions_index(root, latest_version=None):
             shutil.rmtree(latest_dir)
         os.makedirs(latest_dir, exist_ok=True)
         _write_redirect(os.path.join(latest_dir, "index.html"), f"../{target}/index.html")
-    return vers
+    return vers, target
 
 
-def inject_version_switcher(root):
+def inject_version_switcher(root, latest=None):
     """(Re)inject the sidebar version dropdown into every page of every version dir.
 
     Idempotent: strips any previously-injected switcher first, so re-running after a new version
     is added refreshes every version's dropdown with the full list. Options are baked from the
-    current version list; the shared version-switch.js (written at ``root``) wires up navigation
-    with the 404 fallback.
+    current version list; the option for ``latest`` (default: the newest version) is marked
+    "(latest)". The shared version-switch.js (written at ``root``) wires up navigation with the
+    404 fallback.
     """
     vers = _list_versions(root)
+    if latest not in vers:
+        latest = vers[0] if vers else None
     with open(os.path.join(root, "version-switch.js"), "w", encoding="utf-8") as fh:
         fh.write(SWITCHER_JS)
     # inject right before Furo's sidebar search form (present regardless of the brand markup,
@@ -245,7 +248,7 @@ def inject_version_switcher(root):
                 rel_root = "../" * (page_path.count("/") + 1)          # page -> versioned root
                 opts = "".join(
                     f'<option value="{v}"{" selected" if v == ver else ""}>'
-                    f'{v if v == "latest" else v.lstrip("v")}</option>' for v in vers)
+                    f'{v.lstrip("v")}{" (latest)" if v == latest else ""}</option>' for v in vers)
                 widget = (
                     f'<div class="oasis-version-switch" data-version="{ver}" data-page="{page_path}" '
                     f'data-root="{rel_root}" style="padding:.5rem 1rem .25rem">'
@@ -518,10 +521,9 @@ def main():
     # versioned publishing: write versions.json + root redirect, then (re)inject the sidebar
     # version selector across every version so each dropdown lists the full set
     if args.deploy_version:
-        vers = write_versions_index(args.output, args.deploy_version if args.latest else None)
-        _, n = inject_version_switcher(args.output)
-        target = args.deploy_version if (args.latest and args.deploy_version in vers) else (vers[0] if vers else "?")
-        print(f"version selector: {vers} — injected into {n} pages; "
+        vers, target = write_versions_index(args.output, args.deploy_version if args.latest else None)
+        _, n = inject_version_switcher(args.output, latest=target)
+        print(f"version selector: {vers} (latest={target}) — injected into {n} pages; "
               f"root and /latest/ redirect to {target}")
 
     print("\n===== summary =====")
