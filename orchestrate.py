@@ -146,6 +146,110 @@ def rewrite_cross_links(site_dir, base_url, module_paths):
     return count
 
 
+# -- Versioned publishing ---------------------------------------------------
+# A versioned site lives under <root>/<version>/… with a versions.json + a root redirect at
+# <root>. Every page carries a sidebar version dropdown; switching navigates to the same page
+# under the chosen version, falling back to that version's landing if the page doesn't exist
+# there (the 404 fallback). The dropdown options are baked at build time (so the list shows even
+# under file://); the fallback needs a served site (a HEAD request), degrading to a direct jump
+# under file://.
+SWITCHER_JS = """\
+(function () {
+  document.querySelectorAll('.oasis-version-switch select').forEach(function (sel) {
+    var w = sel.closest('.oasis-version-switch');
+    var root = w.dataset.root, page = w.dataset.page, cur = w.dataset.version;
+    sel.addEventListener('change', function () {
+      var v = sel.value;
+      if (v === cur) return;
+      var target = root + v + '/' + page, landing = root + v + '/index.html';
+      // 404 fallback: if the same page is missing in the target version, go to its landing
+      fetch(target, { method: 'HEAD' })
+        .then(function (r) { location.href = r.ok ? target : landing; })
+        .catch(function () { location.href = target; });  // file:// blocks HEAD -> best effort
+    });
+  });
+})();
+"""
+
+_SWITCH_BLOCK_RE = re.compile(
+    r'<div class="oasis-version-switch".*?</div>\s*<script src="[^"]*version-switch\.js"[^>]*></script>',
+    re.S)
+
+
+def _list_versions(root):
+    """Version dirs = immediate subdirs of root containing an index.html. 'latest' sorts first,
+    the rest newest-first."""
+    vers = [d for d in os.listdir(root)
+            if os.path.isdir(os.path.join(root, d)) and os.path.exists(os.path.join(root, d, "index.html"))]
+    vers.sort(key=lambda d: (d != "latest", d), reverse=False)
+    if "latest" in vers:                      # keep 'latest' first, others newest-first after it
+        rest = sorted((v for v in vers if v != "latest"), reverse=True)
+        vers = ["latest"] + rest
+    else:
+        vers.sort(reverse=True)
+    return vers
+
+
+def write_versions_index(root, default_version):
+    """Write versions.json and the root index.html redirect from the version dirs present."""
+    vers = _list_versions(root)
+    label = lambda v: v if v == "latest" else v.lstrip("v")
+    with open(os.path.join(root, "versions.json"), "w", encoding="utf-8") as fh:
+        json.dump([{"label": label(v), "path": v} for v in vers], fh, indent=2)
+    dflt = default_version if default_version in vers else (vers[0] if vers else default_version)
+    with open(os.path.join(root, "index.html"), "w", encoding="utf-8") as fh:
+        fh.write('<!doctype html><meta charset="utf-8">'
+                 f'<meta http-equiv="refresh" content="0; url={dflt}/index.html">'
+                 '<title>Oasis documentation</title>'
+                 f'<a href="{dflt}/index.html">Continue to the Oasis documentation</a>')
+    return vers
+
+
+def inject_version_switcher(root):
+    """(Re)inject the sidebar version dropdown into every page of every version dir.
+
+    Idempotent: strips any previously-injected switcher first, so re-running after a new version
+    is added refreshes every version's dropdown with the full list. Options are baked from the
+    current version list; the shared version-switch.js (written at ``root``) wires up navigation
+    with the 404 fallback.
+    """
+    vers = _list_versions(root)
+    with open(os.path.join(root, "version-switch.js"), "w", encoding="utf-8") as fh:
+        fh.write(SWITCHER_JS)
+    anchor = '</a><form class="sidebar-search-container"'
+    injected = 0
+    for ver in vers:
+        vdir = os.path.join(root, ver)
+        for dirpath, _dirs, files in os.walk(vdir):
+            for f in files:
+                if not f.endswith(".html"):
+                    continue
+                fp = os.path.join(dirpath, f)
+                page_path = os.path.relpath(fp, vdir).replace(os.sep, "/")
+                rel_root = "../" * (page_path.count("/") + 1)          # page -> versioned root
+                opts = "".join(
+                    f'<option value="{v}"{" selected" if v == ver else ""}>'
+                    f'{v if v == "latest" else v.lstrip("v")}</option>' for v in vers)
+                widget = (
+                    f'<div class="oasis-version-switch" data-version="{ver}" data-page="{page_path}" '
+                    f'data-root="{rel_root}" style="padding:.5rem 1rem .25rem">'
+                    '<label style="display:block;font-size:.7rem;letter-spacing:.08em;'
+                    'text-transform:uppercase;opacity:.7;margin-bottom:.25rem">Version</label>'
+                    '<select style="width:100%;padding:.3rem .4rem;border-radius:6px;'
+                    'border:1px solid var(--color-background-border);'
+                    'background:var(--color-background-primary);'
+                    'color:var(--color-foreground-primary);font:inherit">'
+                    f'{opts}</select></div>'
+                    f'<script src="{rel_root}version-switch.js" defer></script>')
+                s = open(fp, encoding="utf-8").read()
+                s = _SWITCH_BLOCK_RE.sub("", s)          # strip any previous injection
+                if anchor in s:
+                    s = s.replace(anchor, "</a>" + widget + '<form class="sidebar-search-container"', 1)
+                    open(fp, "w", encoding="utf-8").write(s)
+                    injected += 1
+    return vers, injected
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -166,6 +270,12 @@ def main():
                     help="keep cross-component links as absolute site_base_url URLs instead of "
                          "rewriting them to page-relative (relative is the default, so the site "
                          "is relocatable and works under file://)")
+    ap.add_argument("--deploy-version", metavar="NAME",
+                    help="assemble into <output>/NAME/ and add a sidebar version selector; "
+                         "maintains <output>/versions.json and a root redirect. Run once per "
+                         "version (against an <output> that already holds the others) to accumulate.")
+    ap.add_argument("--latest", action="store_true",
+                    help="with --deploy-version, make the root redirect point at this version")
     args = ap.parse_args()
 
     manifest = load_manifest()
@@ -180,6 +290,10 @@ def main():
         use_local_base = args.use_local or os.path.abspath(os.path.join(HERE, os.pardir))
 
     site_base = manifest.get("site_base_url", "").rstrip("/") + "/" if manifest.get("site_base_url") else ""
+
+    # with --deploy-version the aggregated site is assembled into <output>/<version>/, with
+    # versions.json + the root redirect living at <output>; otherwise the site is <output> itself.
+    site_out = os.path.join(args.output, args.deploy_version) if args.deploy_version else args.output
 
     # resolve each module's source + output dirs
     built = []            # [(module, src_dir, out_dir, shown_ref)]
@@ -200,7 +314,7 @@ def main():
         if m.get("editable"):
             pip_install_editable(repo_dir)
         built.append((m, os.path.join(repo_dir, m["docs_source"]),
-                      os.path.join(args.output, m["path"]), shown_ref))
+                      os.path.join(site_out, m["path"]), shown_ref))
 
     # -- pass 1: build every module (produces each objects.inv) --------------
     for m, src_dir, out_dir, shown_ref in built:
@@ -234,16 +348,24 @@ def main():
 
     # top-level landing page (this repo's slim ./src) — no cross-refs needed
     print("\n== landing (./src) ==")
-    landing_warns = build(os.path.join(HERE, "src"), args.output, args.keep_going)
+    landing_warns = build(os.path.join(HERE, "src"), site_out, args.keep_going)
     results.append(["landing", "OK" if landing_warns is not None else "FAILED", landing_warns, "-"])
 
-    # publish the manifest alongside the site (for a version selector)
-    shutil.copy(os.path.join(HERE, "modules.json"), os.path.join(args.output, "modules.json"))
+    # publish the manifest alongside the site
+    shutil.copy(os.path.join(HERE, "modules.json"), os.path.join(site_out, "modules.json"))
 
     # make cross-component links page-relative so the assembled site is relocatable
     if not args.absolute_links and site_base:
-        n = rewrite_cross_links(args.output, site_base, [m["path"] + "/" for m in modules])
+        n = rewrite_cross_links(site_out, site_base, [m["path"] + "/" for m in modules])
         print(f"\nrewrote {n} cross-component link(s) to page-relative")
+
+    # versioned publishing: write versions.json + root redirect, then (re)inject the sidebar
+    # version selector across every version so each dropdown lists the full set
+    if args.deploy_version:
+        write_versions_index(args.output, args.deploy_version if args.latest else "latest")
+        vers, n = inject_version_switcher(args.output)
+        print(f"version selector: {vers} — injected into {n} pages; root redirects to "
+              f"{args.deploy_version if args.latest else 'latest'}")
 
     print("\n===== summary =====")
     for name, status, warns, ref in results:

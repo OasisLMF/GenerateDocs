@@ -77,6 +77,28 @@ Clone each component at the `ref` pinned in `modules.json` and build:
 | `--single-pass` | skip the cross-reference pass (faster; intersphinx links won't resolve) |
 | `--absolute-links` | keep cross-links as absolute URLs instead of page-relative |
 | `--output DIR` | output directory (default `build/html`) |
+| `--deploy-version NAME` | assemble into `build/html/NAME/` and add a sidebar version selector |
+| `--latest` | with `--deploy-version`, point the root redirect at this version |
+
+## Versioned publishing
+
+`--deploy-version NAME` assembles the site into `build/html/NAME/`, maintains a
+`build/html/versions.json` and a root `index.html` redirect, and injects a **version
+dropdown** into every page's sidebar. Switching version navigates to the same page under the
+chosen version, **falling back to that version's landing** if the page doesn't exist there.
+
+Each release is one run against an output tree that already holds the other versions, so they
+accumulate:
+
+```bash
+# in CI: restore the existing published site into build/html first, then add the new version
+python orchestrate.py --clone --deploy-version 2.5.7 --latest   # newest → root redirect
+```
+
+The version list is scanned from the sub-directories present, so `versions.json`, the redirect
+and every dropdown stay consistent. The dropdown list works offline (`file://`); the 404
+fallback needs the site served (it does a `HEAD` request), degrading to a direct jump under
+`file://`.
 
 ## View the result
 
