@@ -254,6 +254,108 @@ def inject_version_switcher(root):
     return vers, injected
 
 
+# -- Federated search -------------------------------------------------------
+# Each component is its own Sphinx build with its own searchindex.js, so the aggregated site
+# has no single index. This makes the top-level search page federate: it fetches every
+# component's index, searches them together, and lists results grouped by component. Every
+# page's sidebar search box is repointed here so search from anywhere covers the whole site.
+# (Fetching indexes needs the site served, like Sphinx's own search — no worse than before.)
+SEARCH_ALL_JS = """\
+// Federated search across all component Sphinx indexes of this site version.
+(function () {
+  var AREAS = __AREAS__;                       // [{label, path}]  path "" = the landing
+  var params = new URLSearchParams(location.search);
+  var q = (params.get("q") || "").trim();
+  var box = document.querySelector('input[name="q"]');
+  if (box) box.value = q;
+  var out = document.getElementById("search-results");
+  if (!out) return;
+  if (!q) { out.innerHTML = "<p>Type a query above to search all Oasis documentation.</p>"; return; }
+  out.innerHTML = "<p>Searching\\u2026</p>";
+  var words = q.toLowerCase().split(/\\s+/).filter(Boolean);
+
+  function parseIndex(txt) {
+    var s = txt.trim();
+    return JSON.parse(s.slice(s.indexOf("(") + 1, s.lastIndexOf(")")));
+  }
+  function matchTerms(terms, w, weight, scores) {
+    for (var t in terms) {
+      if (t.indexOf(w) === 0 || w.indexOf(t) === 0) {          // approx-stem: either is a prefix
+        var v = terms[t]; v = Array.isArray(v) ? v : [v];
+        for (var i = 0; i < v.length; i++) scores[v[i]] = (scores[v[i]] || 0) + weight;
+      }
+    }
+  }
+  function searchArea(area, idx) {
+    var scores = {}, dn = idx.docnames || [], ti = idx.titles || [];
+    words.forEach(function (w) {
+      for (var i = 0; i < dn.length; i++) {
+        if (dn[i].toLowerCase().indexOf(w) >= 0 || (ti[i] || "").toLowerCase().indexOf(w) >= 0)
+          scores[i] = (scores[i] || 0) + 8;                    // title / path hit
+      }
+      matchTerms(idx.titleterms || {}, w, 5, scores);
+      matchTerms(idx.terms || {}, w, 2, scores);
+    });
+    return Object.keys(scores).map(function (i) {
+      var pre = area.path ? area.path + "/" : "";
+      return { area: area.label, score: scores[i],
+               title: ti[i] || dn[i], url: pre + dn[i] + ".html" };
+    });
+  }
+
+  Promise.all(AREAS.map(function (a) {
+    var url = (a.path ? a.path + "/" : "") + "searchindex.js";
+    return fetch(url).then(function (r) { return r.text(); })
+      .then(function (t) { return searchArea(a, parseIndex(t)); })
+      .catch(function () { return []; });
+  })).then(function (lists) {
+    var all = [].concat.apply([], lists).sort(function (a, b) { return b.score - a.score; });
+    if (!all.length) { out.innerHTML = "<p>No results found for <strong>" + q + "</strong>.</p>"; return; }
+    var html = '<p>' + all.length + ' result(s) for <strong>' + q + '</strong>:</p><ul class="search">';
+    all.slice(0, 200).forEach(function (r) {
+      html += '<li><a href="' + r.url + '">' + r.title + '</a>' +
+              ' <span class="context" style="opacity:.7">\\u2014 ' + r.area + '</span></li>';
+    });
+    out.innerHTML = html + "</ul>";
+  });
+})();
+"""
+
+
+def build_federated_search(site_out, modules):
+    """Make the top-level search federate over all component indexes, and repoint every page's
+    search box at it. Returns (areas, pages_repointed)."""
+    areas = [{"label": "Home", "path": ""}] + \
+            [{"label": m.get("title", m["path"]), "path": m["path"]} for m in modules]
+    with open(os.path.join(site_out, "search-all.js"), "w", encoding="utf-8") as fh:
+        fh.write(SEARCH_ALL_JS.replace("__AREAS__", json.dumps(areas)))
+
+    # rewrite the landing search page to use the federated script instead of Sphinx's per-build one
+    sp = os.path.join(site_out, "search.html")
+    if os.path.exists(sp):
+        s = open(sp, encoding="utf-8").read()
+        s = s.replace('<script src="_static/searchtools.js"></script>',
+                      '<script src="search-all.js" defer></script>')
+        open(sp, "w", encoding="utf-8").write(s)
+
+    # point every page's sidebar search box at the site-root federated search page
+    action_re = re.compile(r'(<form class="sidebar-search-container"[^>]*\baction=")[^"]*search\.html(")')
+    repointed = 0
+    for dirpath, _dirs, files in os.walk(site_out):
+        for f in files:
+            if not f.endswith(".html"):
+                continue
+            fp = os.path.join(dirpath, f)
+            page_path = os.path.relpath(fp, site_out).replace(os.sep, "/")
+            relroot = "../" * page_path.count("/")
+            s = open(fp, encoding="utf-8").read()
+            s2, n = action_re.subn(rf'\g<1>{relroot}search.html\g<2>', s)
+            if n:
+                open(fp, "w", encoding="utf-8").write(s2)
+                repointed += 1
+    return areas, repointed
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -362,6 +464,10 @@ def main():
     if not args.absolute_links and site_base:
         n = rewrite_cross_links(site_out, site_base, [m["path"] + "/" for m in modules])
         print(f"\nrewrote {n} cross-component link(s) to page-relative")
+
+    # federate search over all component indexes + repoint every search box at the top-level page
+    areas, repointed = build_federated_search(site_out, modules)
+    print(f"federated search: {len(areas)} area(s); repointed search box on {repointed} pages")
 
     # versioned publishing: write versions.json + root redirect, then (re)inject the sidebar
     # version selector across every version so each dropdown lists the full set
