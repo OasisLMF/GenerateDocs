@@ -6,8 +6,8 @@ GenerateDocs holds no documentation content. Each Oasis component owns and build
 Sphinx docs; this repo pins the version of each and assembles them into one site:
 
 ```
-output/site/            landing page (built from ./src)
-output/site/<path>/     each component's own docs (e.g. /oasislmf, /platform, /oed, /ord …)
+build/html/            landing page (built from ./src)
+build/html/<path>/     each component's own docs (e.g. /oasislmf, /platform, /oed, /ord …)
 ```
 
 Cross-component links resolve via intersphinx and are rewritten to page-relative paths, so the
@@ -76,21 +76,21 @@ Clone each component at the `ref` pinned in `modules.json` and build:
 | `--keep-going` | continue past a failing component (and pass `--keep-going` to Sphinx) |
 | `--single-pass` | skip the cross-reference pass (faster; intersphinx links won't resolve) |
 | `--absolute-links` | keep cross-links as absolute URLs instead of page-relative |
-| `--output DIR` | output directory (default `output/site`) |
+| `--output DIR` | output directory (default `build/html`) |
 
 ## View the result
 
 The assembled site is static — just open the landing page:
 
 ```bash
-xdg-open output/site/index.html      # or open it in your browser
+xdg-open build/html/index.html      # or open it in your browser
 ```
 
 Everything navigates from the filesystem. The only feature that needs a server is the search
 box (browsers block its data load over `file://`):
 
 ```bash
-python -m http.server 8080 --directory output/site
+python -m http.server 8080 --directory build/html
 # then browse http://localhost:8080/
 ```
 

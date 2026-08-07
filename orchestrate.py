@@ -5,8 +5,8 @@ GenerateDocs no longer holds documentation content — each repository owns and 
 Sphinx docs. This script reads ``modules.json`` (the pinned manifest), builds each module's
 docs from its own repo at the pinned ``ref``, and assembles them under one output tree:
 
-    output/site/                 <- top-level landing (built from ./src)
-    output/site/<path>/          <- each module's own docs (e.g. /oasislmf, /platform, /oed)
+    build/html/                  <- top-level landing (built from ./src)
+    build/html/<path>/           <- each module's own docs (e.g. /oasislmf, /platform, /oed)
 
 Two source modes:
   --clone            clone/checkout each repo at its pinned ``ref`` into ./modules/<repo>
@@ -154,8 +154,8 @@ def main():
                      help="clone each repo at its pinned ref into ./modules/<repo>")
     src.add_argument("--use-local", metavar="BASE", nargs="?", const="",
                      help="build from BASE/<repo> checkouts (default: parent of this repo)")
-    ap.add_argument("--output", default=os.path.join(HERE, "output", "site"),
-                    help="output site directory (default: output/site)")
+    ap.add_argument("--output", default=os.path.join(HERE, "build", "html"),
+                    help="output site directory (default: build/html — the path the deploy CI publishes)")
     ap.add_argument("--keep-going", action="store_true",
                     help="pass --keep-going to sphinx-build and continue past a failing module")
     ap.add_argument("--only", nargs="*", help="build only these module names")

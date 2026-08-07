@@ -3,7 +3,7 @@
 #
 # GenerateDocs is a version-pinned orchestrator: it holds no component content. Each module's
 # docs are built from its own repository at the ref pinned in modules.json, and assembled under
-# output/site/<path>/ with a thin landing page at the root. See orchestrate.py + modules.json.
+# build/html/<path>/ with a thin landing page at the root. See orchestrate.py + modules.json.
 #
 # Usage:
 #   ./build.sh              # CI/release: clone each repo at its pinned ref, then build
@@ -28,5 +28,5 @@ python "$DIR_BASE/orchestrate.py" $MODE --keep-going
 
 # Package the assembled site
 mkdir -p "$DIR_BASE/output"
-tar -czf "$DIR_BASE/output/oasis_docs.tar.gz" -C "$DIR_BASE/output/site" .
-printf "\n== Built output/site and output/oasis_docs.tar.gz ==\n"
+tar -czf "$DIR_BASE/output/oasis_docs.tar.gz" -C "$DIR_BASE/build/html" .
+printf "\n== Built build/html and output/oasis_docs.tar.gz ==\n"
