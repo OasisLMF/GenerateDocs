@@ -176,18 +176,20 @@ _SWITCH_BLOCK_RE = re.compile(
     re.S)
 
 
+def _version_key(name):
+    """Natural sort key for a version dir: numeric components descending, ignoring a 'v' prefix
+    (so 2.5.10 > 2.5.6 > v2.4.0). Non-numeric tails compare as text."""
+    parts = re.split(r"[.\-_]", name.lstrip("vV"))
+    return [(0, int(p)) if p.isdigit() else (1, p) for p in parts]
+
+
 def _list_versions(root):
     """Version dirs = immediate subdirs of root containing an index.html. 'latest' sorts first,
-    the rest newest-first."""
+    then the rest newest-first (version-aware)."""
     vers = [d for d in os.listdir(root)
             if os.path.isdir(os.path.join(root, d)) and os.path.exists(os.path.join(root, d, "index.html"))]
-    vers.sort(key=lambda d: (d != "latest", d), reverse=False)
-    if "latest" in vers:                      # keep 'latest' first, others newest-first after it
-        rest = sorted((v for v in vers if v != "latest"), reverse=True)
-        vers = ["latest"] + rest
-    else:
-        vers.sort(reverse=True)
-    return vers
+    rest = sorted((v for v in vers if v != "latest"), key=_version_key, reverse=True)
+    return (["latest"] if "latest" in vers else []) + rest
 
 
 def write_versions_index(root, default_version):
