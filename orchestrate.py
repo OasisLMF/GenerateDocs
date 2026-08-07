@@ -218,7 +218,9 @@ def inject_version_switcher(root):
     vers = _list_versions(root)
     with open(os.path.join(root, "version-switch.js"), "w", encoding="utf-8") as fh:
         fh.write(SWITCHER_JS)
-    anchor = '</a><form class="sidebar-search-container"'
+    # inject right before Furo's sidebar search form (present regardless of the brand markup,
+    # so this also works on the legacy site's older template)
+    anchor = '<form class="sidebar-search-container"'
     injected = 0
     for ver in vers:
         vdir = os.path.join(root, ver)
@@ -246,7 +248,7 @@ def inject_version_switcher(root):
                 s = open(fp, encoding="utf-8").read()
                 s = _SWITCH_BLOCK_RE.sub("", s)          # strip any previous injection
                 if anchor in s:
-                    s = s.replace(anchor, "</a>" + widget + '<form class="sidebar-search-container"', 1)
+                    s = s.replace(anchor, widget + anchor, 1)
                     open(fp, "w", encoding="utf-8").write(s)
                     injected += 1
     return vers, injected
