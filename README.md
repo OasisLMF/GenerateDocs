@@ -136,6 +136,10 @@ and every dropdown stay consistent. The dropdown list works offline (`file://`);
 fallback needs the site served (it does a `HEAD` request), degrading to a direct jump under
 `file://`.
 
+**Publishing a release** is done by CI, not by hand — see **[RELEASING.md](RELEASING.md)** for
+the step-by-step (pin `modules.json` to the release tags → cut a GitHub release or run the
+deploy workflow).
+
 ## View the result
 
 The assembled site is static. For a quick look you can open it straight from disk:
