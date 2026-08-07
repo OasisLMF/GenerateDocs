@@ -114,7 +114,7 @@ Clone each component at the `ref` pinned in `modules.json` and build:
 | `--absolute-links` | keep cross-links as absolute URLs instead of page-relative |
 | `--output DIR` | output directory (default `build/html`) |
 | `--deploy-version NAME` | assemble into `build/html/NAME/` and add a sidebar version selector |
-| `--latest` | with `--deploy-version`, point the root redirect at this version |
+| `--latest` | with `--deploy-version`, make the site root and `/latest/` redirect to this version |
 
 ## Versioned publishing
 
@@ -122,6 +122,10 @@ Clone each component at the `ref` pinned in `modules.json` and build:
 `build/html/versions.json` and a root `index.html` redirect, and injects a **version
 dropdown** into every page's sidebar. Switching version navigates to the same page under the
 chosen version, **falling back to that version's landing** if the page doesn't exist there.
+
+`latest` is **not a version** — it's a redirect. The site root and `/latest/` both forward to
+the newest version (or the one built with `--latest`); there's no duplicate `latest/` site and
+it never appears in the dropdown.
 
 Each release is one run against an output tree that already holds the other versions, so they
 accumulate:

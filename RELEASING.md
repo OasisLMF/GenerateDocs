@@ -74,6 +74,7 @@ Once the workflow is green, open `https://oasislmf.github.io/`:
 - **Pages source branch:** the deploy targets `gh-pages` (see `PAGES_BRANCH` in
   `.github/workflows/build-deploy.yml`) — confirm GitHub Pages for `OasisLMF.github.io` is set
   to serve that branch.
-- **A "latest tracks main" channel** (optional): pin `modules.json` refs to `main` and publish
-  with `version: latest` to keep a rolling `/latest/` alongside the tagged versions.
+- **`/latest/` is automatic** — it's a redirect, not a published version. The site root and
+  `/latest/` always forward to the newest version (or the one deployed with `set_latest`); you
+  never publish a version literally called "latest", and it never appears in the version dropdown.
 - **Secret:** the deploy uses `BUILD_DEPLOY_TOKEN` (write access to `OasisLMF.github.io`).

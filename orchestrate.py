@@ -184,26 +184,38 @@ def _version_key(name):
 
 
 def _list_versions(root):
-    """Version dirs = immediate subdirs of root containing an index.html. 'latest' sorts first,
-    then the rest newest-first (version-aware)."""
+    """Real version dirs = immediate subdirs (with an index.html) other than the ``latest`` alias,
+    newest-first (version-aware). ``latest`` is a redirect, not a version, so it never appears."""
     vers = [d for d in os.listdir(root)
-            if os.path.isdir(os.path.join(root, d)) and os.path.exists(os.path.join(root, d, "index.html"))]
-    rest = sorted((v for v in vers if v != "latest"), key=_version_key, reverse=True)
-    return (["latest"] if "latest" in vers else []) + rest
+            if d != "latest" and os.path.isdir(os.path.join(root, d))
+            and os.path.exists(os.path.join(root, d, "index.html"))]
+    return sorted(vers, key=_version_key, reverse=True)
 
 
-def write_versions_index(root, default_version):
-    """Write versions.json and the root index.html redirect from the version dirs present."""
-    vers = _list_versions(root)
-    label = lambda v: v if v == "latest" else v.lstrip("v")
-    with open(os.path.join(root, "versions.json"), "w", encoding="utf-8") as fh:
-        json.dump([{"label": label(v), "path": v} for v in vers], fh, indent=2)
-    dflt = default_version if default_version in vers else (vers[0] if vers else default_version)
-    with open(os.path.join(root, "index.html"), "w", encoding="utf-8") as fh:
+def _write_redirect(path, target):
+    with open(path, "w", encoding="utf-8") as fh:
         fh.write('<!doctype html><meta charset="utf-8">'
-                 f'<meta http-equiv="refresh" content="0; url={dflt}/index.html">'
+                 f'<meta http-equiv="refresh" content="0; url={target}">'
                  '<title>Oasis documentation</title>'
-                 f'<a href="{dflt}/index.html">Continue to the Oasis documentation</a>')
+                 f'<a href="{target}">Continue to the Oasis documentation</a>')
+
+
+def write_versions_index(root, latest_version=None):
+    """Write versions.json and the redirects. ``latest`` is an alias (a redirect), never a copy:
+    the site root and ``/latest/`` both redirect to ``latest_version`` (or, if not given, the
+    newest version by number). Returns the real version list."""
+    vers = _list_versions(root)
+    with open(os.path.join(root, "versions.json"), "w", encoding="utf-8") as fh:
+        json.dump([{"label": v.lstrip("v"), "path": v} for v in vers], fh, indent=2)
+    target = latest_version if (latest_version in vers) else (vers[0] if vers else None)
+    if target:
+        _write_redirect(os.path.join(root, "index.html"), f"{target}/index.html")
+        # /latest/ is a stable bookmarkable URL implemented as a redirect stub (not a duplicate site)
+        latest_dir = os.path.join(root, "latest")
+        if os.path.isdir(latest_dir):
+            shutil.rmtree(latest_dir)
+        os.makedirs(latest_dir, exist_ok=True)
+        _write_redirect(os.path.join(latest_dir, "index.html"), f"../{target}/index.html")
     return vers
 
 
@@ -506,10 +518,11 @@ def main():
     # versioned publishing: write versions.json + root redirect, then (re)inject the sidebar
     # version selector across every version so each dropdown lists the full set
     if args.deploy_version:
-        write_versions_index(args.output, args.deploy_version if args.latest else "latest")
-        vers, n = inject_version_switcher(args.output)
-        print(f"version selector: {vers} — injected into {n} pages; root redirects to "
-              f"{args.deploy_version if args.latest else 'latest'}")
+        vers = write_versions_index(args.output, args.deploy_version if args.latest else None)
+        _, n = inject_version_switcher(args.output)
+        target = args.deploy_version if (args.latest and args.deploy_version in vers) else (vers[0] if vers else "?")
+        print(f"version selector: {vers} — injected into {n} pages; "
+              f"root and /latest/ redirect to {target}")
 
     print("\n===== summary =====")
     for name, status, warns, ref in results:
