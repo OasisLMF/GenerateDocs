@@ -287,7 +287,7 @@ SEARCH_ALL_JS = """\
     }
   }
   function searchArea(area, idx) {
-    var scores = {}, dn = idx.docnames || [], ti = idx.titles || [];
+    var scores = {}, dn = idx.docnames || [], ti = idx.titles || [], fn = idx.filenames || [];
     words.forEach(function (w) {
       for (var i = 0; i < dn.length; i++) {
         if (dn[i].toLowerCase().indexOf(w) >= 0 || (ti[i] || "").toLowerCase().indexOf(w) >= 0)
@@ -296,11 +296,36 @@ SEARCH_ALL_JS = """\
       matchTerms(idx.titleterms || {}, w, 5, scores);
       matchTerms(idx.terms || {}, w, 2, scores);
     });
+    var pre = area.path ? area.path + "/" : "";
     return Object.keys(scores).map(function (i) {
-      var pre = area.path ? area.path + "/" : "";
       return { area: area.label, score: scores[i],
-               title: ti[i] || dn[i], url: pre + dn[i] + ".html" };
+               title: ti[i] || dn[i], url: pre + dn[i] + ".html",
+               // Sphinx ships the page source under _sources/<filename>.txt — used for the snippet
+               src: fn[i] ? pre + "_sources/" + fn[i] + ".txt" : null };
     });
+  }
+
+  // strip the noisiest reST/MyST markup so the excerpt reads as prose
+  function clean(t) {
+    return t
+      .replace(/:[a-z]+:`([^`]+)`/gi, "$1")      // :ref:`text` -> text
+      .replace(/^\\s*\\.\\.[ \\t].*$/gm, " ")       // directive lines (.. figure:: …)
+      .replace(/^[=~^#*_-]{2,}\\s*$/gm, " ")       // section underline rows
+      .replace(/[`*]/g, "")                       // stray backticks / emphasis stars
+      .replace(/\\s+/g, " ").trim();
+  }
+  // a short context excerpt around the first matched word, with the terms highlighted
+  function snippet(raw) {
+    var text = clean(raw), low = text.toLowerCase(), pos = -1;
+    words.forEach(function (w) { var p = low.indexOf(w); if (p >= 0 && (pos < 0 || p < pos)) pos = p; });
+    if (pos < 0) return "";
+    var start = Math.max(0, pos - 80);
+    var ex = text.slice(start, pos + 160).replace(/\\s+/g, " ").trim();
+    words.forEach(function (w) {
+      var hw = w.replace(/[^a-z0-9]/gi, "");                    // alnum-only → safe in RegExp
+      if (hw) ex = ex.replace(new RegExp("(" + hw + ")", "ig"), '<span class="highlighted">$1</span>');
+    });
+    return (start > 0 ? "\\u2026" : "") + ex + "\\u2026";
   }
 
   Promise.all(AREAS.map(function (a) {
@@ -309,14 +334,23 @@ SEARCH_ALL_JS = """\
       .then(function (t) { return searchArea(a, parseIndex(t)); })
       .catch(function () { return []; });
   })).then(function (lists) {
-    var all = [].concat.apply([], lists).sort(function (a, b) { return b.score - a.score; });
+    var all = [].concat.apply([], lists).sort(function (a, b) { return b.score - a.score; }).slice(0, 80);
     if (!all.length) { out.innerHTML = "<p>No results found for <strong>" + q + "</strong>.</p>"; return; }
     var html = '<p>' + all.length + ' result(s) for <strong>' + q + '</strong>:</p><ul class="search">';
-    all.slice(0, 200).forEach(function (r) {
+    all.forEach(function (r, i) {
       html += '<li><a href="' + r.url + '">' + r.title + '</a>' +
-              ' <span class="context" style="opacity:.7">\\u2014 ' + r.area + '</span></li>';
+              ' <span style="opacity:.6;font-size:.85em">\\u2014 ' + r.area + '</span>' +
+              '<div class="context" id="oasis-ctx-' + i + '" style="margin:.15rem 0 .5rem;opacity:.85"></div></li>';
     });
     out.innerHTML = html + "</ul>";
+    // fill the excerpts lazily from each page's source
+    all.forEach(function (r, i) {
+      if (!r.src) return;
+      fetch(r.src).then(function (res) { return res.ok ? res.text() : ""; }).then(function (txt) {
+        var s = txt && snippet(txt);
+        if (s) { var el = document.getElementById("oasis-ctx-" + i); if (el) el.innerHTML = s; }
+      }).catch(function () {});
+    });
   });
 })();
 """
