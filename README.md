@@ -82,6 +82,15 @@ Modules that are the org's own importable packages (e.g. `oasislmf`, `ods-tools`
 **the source at the pinned ref**, not the last PyPI release. Their dependencies still come from
 `requirements.txt`.
 
+## Runnable tutorial notebooks
+
+Tutorials authored as executable MyST notebooks (`file_format: mystnb`) are rendered with their
+outputs, and the orchestrator also publishes a clean, runnable **`.ipynb`** beside each one and
+injects a *"Run this tutorial yourself"* block (download link + how to set up an environment).
+This uses `jupytext` to convert the MyST source — no build outputs are baked into the download.
+No per-component configuration is needed; any `tutorials/*.md` notebook is picked up
+automatically.
+
 ## Build modes
 
 **Prerequisites:** Python 3.10+, `git`, and the doc toolchain in `requirements.txt` (Sphinx,

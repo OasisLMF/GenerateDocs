@@ -405,6 +405,87 @@ def build_federated_search(site_out, modules):
     return areas, repointed
 
 
+_NB_MARKER = "oasis-run-yourself"          # idempotency guard for the injected block
+_NB_FRONTMATTER = re.compile(r"file_format:\s*mystnb|kernelspec:")
+
+
+def _nb_run_block(name, org, repo):
+    """The 'Run this tutorial yourself' admonition + notebook download link (HTML)."""
+    return (
+        f'<div class="admonition tip {_NB_MARKER}">\n'
+        f'<p class="admonition-title">Run this tutorial yourself</p>\n'
+        f'<p>This page is a Jupyter notebook, executed when the docs are built. '
+        f'<a class="reference download internal" download href="{name}.ipynb">'
+        f'<code class="xref download docutils literal notranslate">'
+        f'<span class="pre">Download&nbsp;{name}.ipynb</span></code></a></p>\n'
+        f'<p>Set up an environment and open it in Jupyter:</p>\n'
+        f'<div class="highlight"><pre>'
+        f'python -m venv venv &amp;&amp; source venv/bin/activate\n'
+        f'pip install oasislmf jupyterlab matplotlib\n'
+        f'jupyter lab {name}.ipynb</pre></div>\n'
+        f'<p>The example data ships in the '
+        f'<a class="reference external" href="https://github.com/{org}/{repo}">{repo}</a> '
+        f'repository (under <code class="docutils literal notranslate">'
+        f'<span class="pre">docs/source/tutorials/</span></code>); tutorials that run a model '
+        f'need that model’s data and the loss engine — follow the prerequisites '
+        f'described on this page.</p>\n'
+        f'</div>\n'
+    )
+
+
+def add_notebook_downloads(built, org):
+    """For each executable tutorial notebook, publish a downloadable ``.ipynb`` next to its page
+    and inject a 'Run this tutorial yourself' block with the download link.
+
+    Notebooks are authored as MyST-Markdown (``file_format: mystnb``); we convert the source with
+    jupytext into a clean, runnable ``.ipynb`` (no build outputs) and drop it beside the rendered
+    HTML. Returns the number of notebooks published."""
+    try:
+        import jupytext
+    except ImportError:
+        print("  !! jupytext not installed — skipping notebook downloads "
+              "(add jupytext to requirements.txt)")
+        return 0
+
+    published = 0
+    for m, src_dir, out_dir, _ref in built:
+        tut_src = os.path.join(src_dir, "tutorials")
+        tut_out = os.path.join(out_dir, "tutorials")
+        if not os.path.isdir(tut_src) or not os.path.isdir(tut_out):
+            continue
+        for fn in sorted(os.listdir(tut_src)):
+            if not fn.endswith(".md"):
+                continue
+            md = os.path.join(tut_src, fn)
+            head = "".join(open(md, encoding="utf-8").readlines()[:12])
+            if not _NB_FRONTMATTER.search(head):     # not an executable notebook (e.g. index.md)
+                continue
+            name = fn[:-3]
+            html = os.path.join(tut_out, name + ".html")
+            if not os.path.exists(html):
+                continue
+            # convert MyST source -> a clean runnable notebook (drop jupytext/myst metadata)
+            try:
+                nb = jupytext.read(md)
+            except Exception as e:                   # noqa: BLE001 - report and carry on
+                print(f"  !! could not convert {m['name']}/tutorials/{fn}: {e}")
+                continue
+            for k in ("jupytext", "file_format"):
+                nb.metadata.pop(k, None)
+            jupytext.write(nb, os.path.join(tut_out, name + ".ipynb"), fmt="ipynb")
+            # inject the download/run block right after the page's <h1> (idempotent)
+            s = open(html, encoding="utf-8").read()
+            if _NB_MARKER in s:
+                published += 1
+                continue
+            block = _nb_run_block(name, org, m["repo"])
+            s2, n = re.subn(r"(</h1>)", r"\1\n" + block, s, count=1)
+            if n:
+                open(html, "w", encoding="utf-8").write(s2)
+            published += 1
+    return published
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__,
                                  formatter_class=argparse.RawDescriptionHelpFormatter)
@@ -517,6 +598,10 @@ def main():
     # federate search over all component indexes + repoint every search box at the top-level page
     areas, repointed = build_federated_search(site_out, modules)
     print(f"federated search: {len(areas)} area(s); repointed search box on {repointed} pages")
+
+    # publish a downloadable .ipynb for each executable tutorial + a 'run it yourself' block
+    nbs = add_notebook_downloads(built, org)
+    print(f"tutorial notebooks: published {nbs} downloadable .ipynb")
 
     # versioned publishing: write versions.json + root redirect, then (re)inject the sidebar
     # version selector across every version so each dropdown lists the full set
