@@ -97,6 +97,36 @@ def build(src_dir, out_dir, keep_going, env_extra=None):
     return warnings
 
 
+# Furo's sidebar brand: one <a class="sidebar-brand"> wrapping the logo container and the
+# brand-text span. We rebuild it as a <div> holding two separate links.
+# Match only the true brand link — ``sidebar-brand`` as a whole class, optionally with further
+# space-separated classes (e.g. ``sidebar-brand centered``). Crucially this must NOT match the
+# inner ``sidebar-brand-logo-link`` / ``sidebar-brand-text`` anchors we create, or a re-run nests
+# them; requiring a ``"`` or space right after ``sidebar-brand`` excludes the ``-…`` variants.
+_BRAND_BLOCK_RE = re.compile(r'<a\b[^>]*class="(sidebar-brand(?:\s[^"]*)?)"[^>]*>(.*?)</a>', re.S)
+
+
+def _split_brand(m, root_index, comp_index):
+    """Rebuild a Furo sidebar-brand link so the logo and the brand text link to different pages.
+
+    ``m`` matches the whole ``<a class="sidebar-brand …">…</a>`` block; return a ``<div>`` with the
+    logo linking to ``root_index`` (aggregated landing) and the brand text to ``comp_index`` (the
+    component's own index). Idempotent — a block already split is returned unchanged."""
+    cls, inner = m.group(1), m.group(2)
+    if "sidebar-brand-logo-link" in inner:          # already split on a previous pass
+        return m.group(0)
+    inner = re.sub(
+        r'(<div class="sidebar-logo-container">.*?</div>)',
+        rf'<a class="sidebar-brand-logo-link" href="{root_index}" style="text-decoration:none">\1</a>',
+        inner, count=1, flags=re.S)
+    inner = re.sub(
+        r'<span class="sidebar-brand-text">(.*?)</span>',
+        rf'<a class="sidebar-brand-text" href="{comp_index}" '
+        r'style="text-decoration:none;color:var(--color-sidebar-brand-text)">\1</a>',
+        inner, count=1, flags=re.S)
+    return f'<div class="{cls}">{inner}</div>'
+
+
 def rewrite_cross_links(site_dir, base_url, module_paths):
     """Rewrite in-site links to page-relative paths, and point the sidebar logo at the landing.
 
@@ -107,11 +137,14 @@ def rewrite_cross_links(site_dir, base_url, module_paths):
       when opened as local files (``file://``), from any server, and under a project sub-path.
       Only links whose path starts with a known module path (or the landing ``index.html``) are
       touched.
-    - Furo links its sidebar-brand logo to each component's own index; repoint it at the
-      aggregated landing (the site-root ``index.html``) so the logo always returns there.
+    - Furo wraps the sidebar logo *and* brand text in a single link to the component's own index.
+      On a component page we split that link so the **logo** returns to the aggregated landing
+      (site-root ``index.html``) while the **brand text** still goes to that component's own index
+      (``<module>/index.html``). On the landing/other pages the single link points at the landing.
     """
     prefix = base_url
     mods = tuple(module_paths)
+    modset = {mp.rstrip("/") for mp in module_paths}
     pat = re.compile(r'(href|src)="' + re.escape(prefix) + r'([^"]*)"')
     brand_pat = re.compile(r'(<a\b[^>]*\bclass="sidebar-brand[^"]*"[^>]*\bhref=")[^"]*(")')
     count = 0
@@ -136,8 +169,15 @@ def rewrite_cross_links(site_dir, base_url, module_paths):
             with open(fp, encoding="utf-8") as fh:
                 s = fh.read()
             s2 = pat.sub(repl, s)
-            # point the sidebar logo at the aggregated landing (site-root index)
-            s2, n_brand = brand_pat.subn(rf'\g<1>{relroot}index.html\g<2>', s2)
+            # sidebar brand: split on component pages (logo -> landing, text -> component index),
+            # single link -> landing elsewhere
+            seg = os.path.relpath(fp, site_dir).replace(os.sep, "/").split("/")[0]
+            module = seg if seg in modset else None
+            if module:
+                s2, n_brand = _BRAND_BLOCK_RE.subn(
+                    lambda m: _split_brand(m, f"{relroot}index.html", f"{relroot}{module}/index.html"), s2)
+            else:
+                s2, n_brand = brand_pat.subn(rf'\g<1>{relroot}index.html\g<2>', s2)
             hits[0] += n_brand
             if hits[0]:
                 with open(fp, "w", encoding="utf-8") as fh:
