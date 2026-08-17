@@ -169,11 +169,4 @@ python -m http.server 8080 --directory build/html
 # then browse http://localhost:8080/   (Ctrl-C to stop)
 ```
 
-## Build via Docker
-
-```bash
-docker build -f docker/Dockerfile.oasis_docbuilder -t oasis_doc_builder .
-docker run -v "$(pwd)":/tmp/output oasis_doc_builder:latest
-```
-
 `build.sh` also packages the site as `output/oasis_docs.tar.gz`.
