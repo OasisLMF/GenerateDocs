@@ -1,0 +1,10 @@
+version: 2
+updates:
+  # Actions are pinned to commit SHAs rather than floating major tags, so the code CI runs is
+  # fixed by this repository instead of by wherever someone last moved that tag. Dependabot is
+  # the other half of that: it turns each upstream release into a reviewable pull request,
+  # instead of the update arriving silently between two runs.
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
