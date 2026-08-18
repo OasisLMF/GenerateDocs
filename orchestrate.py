@@ -483,8 +483,12 @@ def add_notebook_downloads(built, org):
     try:
         import jupytext
     except ImportError:
-        print("  !! jupytext not installed — skipping notebook downloads "
-              "(add jupytext to requirements.txt)")
+        # jupytext IS pinned in requirements.txt, so this means the current environment
+        # is out of date, not that the dependency is missing from the manifest. Saying
+        # "add it to requirements.txt" sends the reader to a file that already has it.
+        print("  !! jupytext not available in this environment — skipping notebook "
+              "downloads; the published pages will have no 'Download .ipynb' link. "
+              "It is pinned in requirements.txt, so run: pip install -r requirements.txt")
         return 0
 
     published = 0
