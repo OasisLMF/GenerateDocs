@@ -12,5 +12,4 @@ available SaaS and support providers and handling common errors.
    API <https://oasislmf.github.io/platform/reference/index.html>
    Oasis Workflow <https://oasislmf.github.io/oasislmf/how-to/model-development-kit.html>
    Oasis UI <https://github.com/OasisLMF/OasisUI>
-   SaaS Providers <https://oasislmf.github.io/platform/index.html>
-   Camel <https://oasislmf.github.io/oed/index.html>
+   SaaS Providers <https://oasislmf.github.io/platform/how-to/deployment.html#saas-providers>

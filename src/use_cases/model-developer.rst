@@ -18,4 +18,4 @@ Platform.
    Results <https://oasislmf.github.io/oasislmf/reference/outputs/results.html>
    Oasis Platform <https://oasislmf.github.io/platform/index.html>
    Oasis UI <https://github.com/OasisLMF/OasisUI>
-   SaaS Providers <https://oasislmf.github.io/platform/index.html>
+   SaaS Providers <https://oasislmf.github.io/platform/how-to/deployment.html#saas-providers>
