@@ -40,6 +40,9 @@ DEFAULT_IGNORE = [
     r'^https?://[^/]*\bexample\.com',
     r'^https?://stackoverflow\.com/',
     r'^https?://[^/]*\bstackexchange\.com/',
+    # reachable in a browser, but the TLS chain does not verify from a plain CI
+    # runner (curl exit 60), so it reports ERR every week with nothing to fix
+    r'^https?://docs\.precisely\.com/',
 ]
 
 LINK_RE = re.compile(r'(?:href|src)="([^"]+)"')
@@ -166,9 +169,11 @@ def main():
             out.append("")
             for url, code, reason in sorted(ext_failures, key=lambda x: str(x[1])):
                 where = os.path.relpath(external[url][0], args.site)
-                out.append(f"- `{code or 'ERR'}` {url}  (e.g. from `{where}`)")
+                detail = f" — {reason}" if reason else ""
+                out.append(f"- `{code or 'ERR'}` {url}{detail}  (e.g. from `{where}`)")
             out += ["", "_Not every failure is rot: 403 usually means the host blocks "
-                        "automated requests, and 000 is a network/DNS error._"]
+                    "automated requests, and `ERR` covers DNS, TLS and timeouts — check the "
+                    "reason before editing a page._"]
 
     report(out, args.summary)
 

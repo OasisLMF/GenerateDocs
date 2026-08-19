@@ -74,7 +74,7 @@ How do I gain access to more models?
 
 More models can be added to the user account once agreements with the vendors are in place. 
 However, the majority of models can be accessed for a limited time for evaluation purposes via a hosted environment.
-Please contact the `Oasis team <http://support@oasislmf.org/>`_ for more information on this option.
+Please contact the `Oasis team <mailto:Support@oasislmf.org>`_ for more information on this option.
 
 |
 
