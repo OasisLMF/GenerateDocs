@@ -1,12 +1,10 @@
 version: 2
 updates:
-  # Actions authored by GitHub (actions/*) are referenced by major tag: we already trust the
-  # platform that runs the workflow, so a SHA adds little there while costing the automatic
-  # patch and security fixes a major tag picks up. Third-party actions are pinned to a commit
-  # SHA instead, because a tag in someone else's repository can be moved or deleted and the
-  # code runs with our secrets in scope. Dependabot covers both: major-tag bumps for the
-  # first, and SHA bumps for the second, each as a reviewable pull request rather than an
-  # update arriving silently between two runs.
+  # Actions are referenced by major tag, so they keep picking up patch and security fixes on
+  # their own. That leaves the exact code a run executes decided upstream, which is the
+  # tradeoff Dependabot covers: a major bump arrives as a reviewable pull request rather than
+  # silently between two runs. Note it does not cover movement *within* a major tag, which is
+  # how a script none of us had seen started running here once before.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
