@@ -27,6 +27,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v7
+        with:
+          persist-credentials: false   # nothing here pushes; build.sh clones public repos only
 
       - name: Set up Python
         uses: actions/setup-python@v7
