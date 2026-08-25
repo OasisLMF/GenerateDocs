@@ -1,9 +1,12 @@
 version: 2
 updates:
-  # Actions are pinned to commit SHAs rather than floating major tags, so the code CI runs is
-  # fixed by this repository instead of by wherever someone last moved that tag. Dependabot is
-  # the other half of that: it turns each upstream release into a reviewable pull request,
-  # instead of the update arriving silently between two runs.
+  # Actions authored by GitHub (actions/*) are referenced by major tag: we already trust the
+  # platform that runs the workflow, so a SHA adds little there while costing the automatic
+  # patch and security fixes a major tag picks up. Third-party actions are pinned to a commit
+  # SHA instead, because a tag in someone else's repository can be moved or deleted and the
+  # code runs with our secrets in scope. Dependabot covers both: major-tag bumps for the
+  # first, and SHA bumps for the second, each as a reviewable pull request rather than an
+  # update arriving silently between two runs.
   - package-ecosystem: "github-actions"
     directory: "/"
     schedule:
