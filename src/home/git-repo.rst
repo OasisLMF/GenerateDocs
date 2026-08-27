@@ -1,11 +1,11 @@
-GitHub reposistories
-====================
+GitHub repositories
+===================
 
 The OasisLMF GitHub can be found here: https://github.com/OasisLMF.
 
 |
 
-**The OasisLMF GitHub currently hosts these reposistories:**
+**The OasisLMF GitHub currently hosts these repositories:**
 
 
 * `build <https://github.com/OasisLMF/build>`_
@@ -123,7 +123,7 @@ framework. It enables a user to import their exposure and financial data before 
 by the model are based on the user-defined outputs, which are extensively customisable, catering for most user requirements.
 
 
-* `OasisWorkerController <https://github.com/OasisLMF/OasisWorkerController>`_ **This is labelled as public archive - so not sure if it should be here?**
+* `OasisWorkerController <https://github.com/OasisLMF/OasisWorkerController>`_ *(archived)*
 
 This repository contains an example of how you can control workers in your oasis deployment. The process connects to 
 the websocket in the api and monitors it for changes in the queue utilization.
