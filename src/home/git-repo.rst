@@ -99,7 +99,7 @@ in `Oasis-models <../models/index.html>`_
 
 * `OasisPiWind <https://github.com/OasisLMF/OasisPiWind>`_
 
-This is the original test model in Oasis and is an example of a multi-peril model implementation representing ficticious 
+This is the original test model in Oasis and is an example of a multi-peril model implementation representing fictitious 
 events with wind and flood affecting the Town of Melton Mowbray in England.
 
 
@@ -113,7 +113,11 @@ This repository provides core components of the Oasis platform, specifically:
 
 * `OasisPlatformLot3 <https://github.com/OasisLMF/OasisPlatformLot3>`_
 
-?
+This repository holds the ``lot3`` Python package, which provides two shared components:
+``df_reader``, dataframe readers that stand in for direct ``pandas.read_csv``/``read_parquet``
+calls and add ``filter()`` and ``sql()`` support on top of Dask, and ``filestore``, a storage
+abstraction with local, AWS S3 and Azure ABFS backends. The repository has had no commits since
+October 2023.
 
 
 * `OasisUI <https://github.com/OasisLMF/OasisUI>`_
