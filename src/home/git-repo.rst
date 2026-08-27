@@ -116,8 +116,7 @@ This repository provides core components of the Oasis platform, specifically:
 This repository holds the ``lot3`` Python package, which provides two shared components:
 ``df_reader``, dataframe readers that stand in for direct ``pandas.read_csv``/``read_parquet``
 calls and add ``filter()`` and ``sql()`` support on top of Dask, and ``filestore``, a storage
-abstraction with local, AWS S3 and Azure ABFS backends. The repository has had no commits since
-October 2023.
+abstraction with local, AWS S3 and Azure ABFS backends.
 
 
 * `OasisUI <https://github.com/OasisLMF/OasisUI>`_
