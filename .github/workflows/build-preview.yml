@@ -16,10 +16,18 @@ jobs:
     runs-on: ubuntu-22.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v7
+        with:
+          # checkout v6 moved its credentials out of .git/config into a separate file, so the
+          # `git config --unset-all http.…extraheader` that pr-preview-action runs no longer
+          # clears them. Requests to github.com then keep this workflow's GITHUB_TOKEN, which
+          # cannot see the private PreviewDocs repository, and the deploy fails with
+          # "Repository not found". Nothing after this step needs the credentials — build.sh
+          # only clones public repos, and the deploy carries its own token.
+          persist-credentials: false
 
-      - name: Set up Python 3.12
-        uses: actions/setup-python@v4
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v7
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
