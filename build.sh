@@ -1,79 +1,32 @@
 #!/bin/bash
+# Build the aggregated Oasis documentation site.
+#
+# GenerateDocs is a version-pinned orchestrator: it holds no component content. Each module's
+# docs are built from its own repository at the ref pinned in modules.json, and assembled under
+# build/html/<path>/ with a thin landing page at the root. See orchestrate.py + modules.json.
+#
+# Usage:
+#   ./build.sh              # CI/release: clone each repo at its pinned ref, then build
+#   ./build.sh --local      # dev: build from local checkouts next to this repo
+set -e
 
-GH_TOKEN=$1
 DIR_BASE="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-DIR_ENV=$DIR_BASE/venv
-DIR_MODULES=$DIR_BASE/modules
-DIR_RELEASE="${DIR_BASE}/src/releases/" 
-URL_RELEASE_TAG='https://api.github.com/repos/oasislmf/OasisPlatform/releases/tags/<TAG>'
-URL_RELEASE_LATEST='https://api.github.com/repos/oasislmf/OasisPlatform/releases/latest'
+DIR_ENV="$DIR_BASE/venv"
+MODE="--clone"
+[ "$1" == "--local" ] && MODE="--use-local"
 
-set -e 
-## SETUP BUILD ENVIROMENT 
-    git_modules=(
-        #'OasisLMF'
-        #'OasisPlatform'
-        #'Ktools'
-    )
-    for module in "${git_modules[@]}"; do
-        cd $DIR_MODULES
-        if [ ! -d $module ]; then
-            printf "\n== Download %s ==\n" "${module}"
-            git clone "https://github.com/OasisLMF/${module}.git"
-        else 
-            printf "\n== Update %s ==\n" "${module}"
-            cd $module
-            git pull
-        fi 
-    done
+# Python environment
+if [ ! -f "${DIR_ENV}/bin/activate" ]; then
+    printf "\n== Create Python virtualenv ==\n"
+    python3 -m venv "$DIR_ENV"
+fi
+source "${DIR_ENV}/bin/activate"
+pip install -q -r requirements.txt
 
-    # Create Python virtualenv
-    cd $DIR_BASE
-    if [ ! -f ${DIR_ENV}/bin/activate ]; then
-        printf "\n == Create Python virtualenv =="
-        virtualenv -p python3 $DIR_ENV 
-    fi 
-    source ${DIR_ENV}/bin/activate
+# Build + assemble all modules and the landing
+python "$DIR_BASE/orchestrate.py" $MODE --keep-going
 
-# Update python env
-    pip install -r requirements.txt
-    ###pip install -r $DIR_BASE/modules/OasisPlatform/requirements.in
-
-# Script to extract / prase RELEASE.md / CHANGELOG.md  notes 
-    #sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/Ktools/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/ktools.md
-    #sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisLMF/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasislmf.md
-    #sed -n '/start_latest_release/,/end_latest_release/p;/end_latest_release/q' $DIR_MODULES/OasisPlatform/CHANGELOG.rst | sed '1d;$d' > $DIR_RELEASE/oasis_platform.md
-
-# Get the latest release notes
-    #if ! [ -x "$(command -v jq)" ]; then
-    #    echo 'Error: jq is not installed.' >&2
-    #else    
-    #    #cd $DIR_MODULES/OasisPlatform
-    #    #curl -s $URL_RELEASE_LATEST | jq -r '{body} | .body' > latest_release.md
-    #fi
-
-# Get Known issues 
-    #if [ ! -z "$GH_TOKEN" ]; then
-    #    cd $DIR_BASE
-    #    ./known_issues.py $GH_TOKEN > $DIR_MODULES/OasisPlatform/known_issues.md
-    #    echo 'Witten known_issues list'
-    #else
-    #    echo 'Missing GitHub token'
-    #    exit 1
-    #fi 
-
-# Update JSON specs 
-    ./update-redoc.py
-
-# Build docs
-    cd $DIR_BASE
-    make html SPHINXBUILD="python ${DIR_ENV}/bin/sphinx-build"
-
-# Create TAR
-    if [[ ! -d "$DIR_BASE/output/" ]]; then 
-        mkdir $DIR_BASE/output/
-    fi 
-    tar -czvf oasis_docs.tar.gz -C build/html/ .
-    mv oasis_docs.tar.gz $DIR_BASE/output/
-
-
+# Package the assembled site
+mkdir -p "$DIR_BASE/output"
+tar -czf "$DIR_BASE/output/oasis_docs.tar.gz" -C "$DIR_BASE/build/html" .
+printf "\n== Built build/html and output/oasis_docs.tar.gz ==\n"

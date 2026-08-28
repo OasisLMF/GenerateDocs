@@ -1,8 +1,0 @@
-# Git store
-./.git/
-
-# Virtual env
-venv/
-
-# Cloned repos
-./modules/

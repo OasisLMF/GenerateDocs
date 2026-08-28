@@ -1,21 +1,36 @@
-sphinx<8.0.0
+# Documentation toolchain for the aggregated Oasis docs build (orchestrate.py / build.sh).
+# The orchestrator builds each component's OWN Sphinx docs, so this must cover the union of
+# every component conf.py's extensions.
+
+# Sphinx + theme
+sphinx
+furo
+
+# MyST Markdown + executable notebooks (myst-nb bundles myst-parser)
+myst-nb
+myst-parser
+sphinx-design
+sphinx-copybutton
+
+# Reference-generation extensions used by components
+sphinx-autoapi          # OasisLMF API reference (AST-based)
+# OasisPlatform's REST API reference is rendered by Redoc vendored in-repo
+# (_static/redoc/), so it needs no Sphinx extension here.
+
+# OasisLMF conf.py imports the package (version + CLI options at build time);
+# ods-tools drives the ODS_Tools OED notebook.
+oasislmf
+ods-tools>=5.0.0
+
+# Notebook execution (executable tutorials plot with matplotlib; pandas/numpy come via oasislmf)
+matplotlib
+
+# Support
 sphinx-autobuild
-sphinxcontrib-httpdomain
-sphinx-jsonschema==1.19.1
-#nbsphinx
-lxml[html_clean]
-sphinx_rtd_theme
-recommonmark
-m2r
-sphinx-autoapi
 requests
-celery
 jinja2
 markupsafe
 docutils
-furo
-sphinxcontrib-youtube
-virtualenv
-sphinxcontrib-redoc
-lxml_html_clean
-ods-tools>=5.0.0
+lxml[html_clean]
+
+jupytext

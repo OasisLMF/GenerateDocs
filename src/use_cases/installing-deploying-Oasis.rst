@@ -1,25 +1,15 @@
 Installing/Deploying the Oasis Platform
 =======================================
 
-This section will be of interest to IT professionals looking to install and support the Oasis Platform for users within an 
-organisation. Here you will learn about the Oasis Platform options, the API library, the Oasis Workflow, the Oasis UI and 
+This section will be of interest to IT professionals looking to install and support the Oasis Platform for users within an
+organisation. Here you will learn about the Oasis Platform options, the API library, the Oasis Workflow, the Oasis UI and
 available SaaS and support providers and handling common errors.
 
-Sections
---------
+.. toctree::
+   :maxdepth: 1
 
-----
-
-:doc:`Oasis Platform <../../sections/Oasis-platform>`
-
-:doc:`API <../../sections/API>`
-
-:doc:`Oasis Workflow <../../sections/Oasis-workflow>`
-
-:doc:`Oasis UI <../../sections/Oasis-UI>`
-
-:doc:`SaaS Providers <../../sections/SaaS-providers>`
-
-.. :doc:`Error Handling <../../sections/errors>`
-
-:doc:`Camel <../../sections/camel>`
+   Oasis Platform <https://oasislmf.github.io/platform/index.html>
+   API <https://oasislmf.github.io/platform/reference/index.html>
+   Oasis Workflow <https://oasislmf.github.io/oasislmf/how-to/model-development-kit.html>
+   Oasis UI <https://github.com/OasisLMF/OasisUI>
+   SaaS Providers <https://oasislmf.github.io/platform/how-to/deployment.html#saas-providers>

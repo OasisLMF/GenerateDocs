@@ -1,33 +1,87 @@
-name: Build and Deploy
+name: Build and Deploy (versioned)
+
+# Publishes a versioned build of the aggregated Oasis documentation to
+# OasisLMF/OasisLMF.github.io. A publish is an intentional act (a release), so this runs on a
+# GitHub release, or on demand via the Actions "Run workflow" button.
+#
+# Versions accumulate: the job restores the currently-published site, assembles the new version
+# into it (orchestrate.py --deploy-version), which regenerates versions.json + the root redirect
+# and refreshes the sidebar version selector across every version, then deploys the whole tree.
+#
+# Before publishing version X, pin the component refs in modules.json to X's tags and commit —
+# the build clones each component at those refs.
 on:
-  push:
-    branches:
-      - main
-      - master
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version label to publish (e.g. 2.5.7, or "latest")'
+        required: true
+      set_latest:
+        description: 'Point the site root at this version'
+        type: boolean
+        default: true
+  release:
+    types: [published]
 
 permissions:
   contents: write
 
+# the published branch of the org Pages repo (GitHub Pages must be configured to serve it)
+env:
+  PAGES_REPO: OasisLMF/OasisLMF.github.io
+  PAGES_BRANCH: gh-pages
+
 jobs:
   build-and-deploy:
-    concurrency: ci-${{ github.ref }} # Recommended if you intend to make multiple deployments in quick succession.
+    concurrency: ci-deploy          # serialise deploys so accumulation stays consistent
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        uses: actions/checkout@v3
+      - name: Checkout GenerateDocs
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
 
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - name: Resolve version + latest
+        id: v
+        run: |
+          if [ "${{ github.event_name }}" = "release" ]; then
+            echo "version=${{ github.event.release.tag_name }}" >> "$GITHUB_OUTPUT"
+            # a normal (non-prerelease) release becomes the site's latest
+            echo "latest=${{ !github.event.release.prerelease }}" >> "$GITHUB_OUTPUT"
+          else
+            echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
+            echo "latest=${{ inputs.set_latest }}" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Set up Python
+        uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
         with:
-          python-version: '3.11'
+          python-version: '3.12'
       - run: pip install -r requirements.txt
 
-      - name: Build
-        run: ./build.sh
+      - name: Restore the currently-published site (so versions accumulate)
+        run: |
+          mkdir -p build/html
+          if git clone --depth 1 --branch "$PAGES_BRANCH" \
+               "https://x-access-token:${{ secrets.BUILD_DEPLOY_TOKEN }}@github.com/${PAGES_REPO}.git" existing 2>/dev/null; then
+            rsync -a --exclude '.git' existing/ build/html/
+            rm -rf existing
+            echo "restored existing site ($(find build/html -maxdepth 1 -mindepth 1 -type d | wc -l) version dirs)"
+          else
+            echo "no existing published site on ${PAGES_BRANCH} — first deploy"
+          fi
 
-      - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4
+      - name: Build this version (accumulating into build/html)
+        run: |
+          LATEST_FLAG=""
+          [ "${{ steps.v.outputs.latest }}" = "true" ] && LATEST_FLAG="--latest"
+          python orchestrate.py --clone --keep-going \
+            --deploy-version "${{ steps.v.outputs.version }}" $LATEST_FLAG
+
+      - name: Deploy the full versioned site
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445  # v4.9.0
         with:
           folder: build/html
-          repository-name: OasisLMF/OasisLMF.github.io
+          repository-name: ${{ env.PAGES_REPO }}
+          branch: ${{ env.PAGES_BRANCH }}
           token: ${{ secrets.BUILD_DEPLOY_TOKEN }}
+          # build/html is the full intended site (restored + new version), so a clean deploy is safe
+          clean: true
