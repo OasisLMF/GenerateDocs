@@ -1,7 +1,6 @@
 Introduction
 =============
 
-----
 
 * **What is Oasis**: The Oasis Loss Modelling Framework is an open source catastrophe modelling platform, free to use by anyone.
   It is also a community that seeks to unlock and change the world around catastrophe modelling to better understand risk in insurance and beyond. 
@@ -17,7 +16,6 @@ Introduction
 Overview
 --------
 
-----
 
 .. figure:: ../images/oasis_ecosystem_new.png
     :alt: Oasis Ecosystem
@@ -30,7 +28,6 @@ Overview
 Our main users are:
 *******************
 
-----
 
 **Model developers**, who build, test and publish the risk models. 
 They are typically scientists or software developers, working in a risk modelling company or academia.
@@ -46,7 +43,6 @@ This would also cover government and third sector users.
 Our software components are:
 ****************************
 
-----
 
 **Oasis Platform** is a catastrophe modelling system that encompasses a set of data standards; an API; and tools and components for building and running models.
 This is the core part of Oasis underpinning the other components and is where most of the domain specific code and performance optimization is required.

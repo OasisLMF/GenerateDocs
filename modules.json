@@ -1,0 +1,59 @@
+{
+  "//": "Version-pinned manifest for the aggregated Oasis documentation site.",
+  "//pinning": "Each module's docs are built from its own repo at the pinned `ref`. Pin to a release tag (e.g. '2.5.5') for a released site; a branch (e.g. 'docs/migration' or 'main') tracks the tip. `path` is the URL sub-directory the module is published under; `docs_source` is the Sphinx source dir within the repo.",
+  "org": "OasisLMF",
+  "site_base_url": "https://oasislmf.github.io/",
+  "//intersphinx": "Cross-component references resolve via each module's built objects.inv (local, produced in the orchestrator's first pass); the link target is site_base_url + <path>/ so links are correct at any page depth. Use roles like {external+ord:doc}`reference/tables`.",
+  "modules": [
+    {
+      "name": "oasislmf",
+      "editable": true,
+      "repo": "OasisLMF",
+      "ref": "docs/migration",
+      "docs_source": "docs/source",
+      "path": "oasislmf",
+      "title": "OasisLMF — MDK & kernel"
+    },
+    {
+      "name": "platform",
+      "repo": "OasisPlatform",
+      "ref": "docs/migration",
+      "docs_source": "docs/source",
+      "path": "platform",
+      "title": "Oasis Platform"
+    },
+    {
+      "name": "ods-tools",
+      "editable": true,
+      "repo": "ODS_Tools",
+      "ref": "docs/migration",
+      "docs_source": "docs/source",
+      "path": "ods-tools",
+      "title": "ODS Tools"
+    },
+    {
+      "name": "oed",
+      "repo": "ODS_OpenExposureData",
+      "ref": "docs/migration",
+      "docs_source": "docs/source",
+      "path": "oed",
+      "title": "Open Exposure Data (OED)"
+    },
+    {
+      "name": "ord",
+      "repo": "ODS_OpenResultsData",
+      "ref": "docs/migration",
+      "docs_source": "docs/source",
+      "path": "ord",
+      "title": "Open Results Data (ORD)"
+    },
+    {
+      "name": "models",
+      "repo": "OasisModels",
+      "ref": "docs/migration",
+      "docs_source": "docs/source",
+      "path": "models",
+      "title": "Oasis Models"
+    }
+  ]
+}
