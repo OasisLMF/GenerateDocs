@@ -1,0 +1,38 @@
+name: Publish
+
+# One-click release: pins modules.json to release tags (via "Update refs"), then builds and
+# deploys the versioned site (via "Build and Deploy (versioned)") from the resulting commit.
+#
+# Run this instead of running "Update refs" and "Build and Deploy" separately when you just
+# want to publish. Use them separately if you want to review the resolved refs before deploying.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version label to publish (e.g. 2.5.7)'
+        required: true
+      set_latest:
+        description: 'Point the site root at this version'
+        type: boolean
+        default: true
+      modules:
+        description: 'Optional ref overrides as "name=ref,name=ref" (unlisted modules are
+          auto-scanned for their latest release)'
+        required: false
+        type: string
+
+jobs:
+  update-refs:
+    uses: ./.github/workflows/update-refs.yml
+    with:
+      modules: ${{ inputs.modules }}
+    secrets: inherit
+
+  deploy:
+    needs: update-refs
+    uses: ./.github/workflows/build-deploy.yml
+    with:
+      version: ${{ inputs.version }}
+      set_latest: ${{ inputs.set_latest }}
+      ref: main
+    secrets: inherit

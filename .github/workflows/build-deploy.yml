@@ -9,7 +9,8 @@ name: Build and Deploy (versioned)
 # and refreshes the sidebar version selector across every version, then deploys the whole tree.
 #
 # Before publishing version X, pin the component refs in modules.json to X's tags and commit —
-# the build clones each component at those refs.
+# the build clones each component at those refs. (The "publish" workflow does this for you by
+# running "update refs" first, then calling this workflow with the resulting commit.)
 on:
   workflow_dispatch:
     inputs:
@@ -22,6 +23,21 @@ on:
         default: true
   release:
     types: [published]
+  workflow_call:
+    inputs:
+      version:
+        description: 'Version label to publish (e.g. 2.5.7, or "latest")'
+        required: true
+        type: string
+      set_latest:
+        description: 'Point the site root at this version'
+        type: boolean
+        default: true
+      ref:
+        description: 'Commit/branch to build from (defaults to the triggering ref) — used by
+          "publish" to pick up the commit "update refs" just pushed to main'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -38,6 +54,10 @@ jobs:
     steps:
       - name: Checkout GenerateDocs
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+        with:
+          # explicit ref (set by "publish") overrides the SHA this run started at, so a commit
+          # "update refs" pushed to main after this run began is still picked up
+          ref: ${{ inputs.ref || github.sha }}
 
       - name: Resolve version + latest
         id: v
