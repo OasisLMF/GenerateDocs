@@ -9,15 +9,15 @@
       "name": "oasislmf",
       "editable": true,
       "repo": "OasisLMF",
-      "ref": "docs/migration",
+      "ref": "2.5.7",
       "docs_source": "docs/source",
       "path": "oasislmf",
-      "title": "OasisLMF — MDK & kernel"
+      "title": "OasisLMF \u2014 MDK & kernel"
     },
     {
       "name": "platform",
       "repo": "OasisPlatform",
-      "ref": "docs/migration",
+      "ref": "2.5.7",
       "docs_source": "docs/source",
       "path": "platform",
       "title": "Oasis Platform"
@@ -26,7 +26,7 @@
       "name": "ods-tools",
       "editable": true,
       "repo": "ODS_Tools",
-      "ref": "docs/migration",
+      "ref": "5.0.8",
       "docs_source": "docs/source",
       "path": "ods-tools",
       "title": "ODS Tools"
