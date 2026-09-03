@@ -93,7 +93,7 @@ jobs:
                   changed = True
 
           with open("modules.json", "w") as f:
-              json.dump(data, f, indent=2)
+              json.dump(data, f, indent=2, ensure_ascii=False)
               f.write("\n")
 
           with open(os.environ["GITHUB_OUTPUT"], "a") as f:
