@@ -1,0 +1,108 @@
+name: Update refs
+
+# Pins modules.json's component refs to release tags and commits the result to main.
+#
+# Only the modules you give a version for are touched — leave an input blank to leave that
+# module's ref exactly as it is. Nothing is auto-scanned.
+#
+# This only updates modules.json; it does not build or publish anything. Run "Publish" instead
+# to do both in one go.
+on:
+  workflow_dispatch:
+    inputs: &module-inputs
+      oasislmf:
+        description: 'New ref for oasislmf (OasisLMF) — blank to leave unchanged'
+        required: false
+        type: string
+      platform:
+        description: 'New ref for platform (OasisPlatform) — blank to leave unchanged'
+        required: false
+        type: string
+      ods-tools:
+        description: 'New ref for ods-tools (ODS_Tools) — blank to leave unchanged'
+        required: false
+        type: string
+      oed:
+        description: 'New ref for oed (ODS_OpenExposureData) — blank to leave unchanged'
+        required: false
+        type: string
+      ord:
+        description: 'New ref for ord (ODS_OpenResultsData) — blank to leave unchanged'
+        required: false
+        type: string
+      models:
+        description: 'New ref for models (OasisModels) — blank to leave unchanged'
+        required: false
+        type: string
+  workflow_call:
+    inputs: *module-inputs
+    outputs:
+      changed:
+        description: 'Whether modules.json was modified'
+        value: ${{ jobs.update-refs.outputs.changed }}
+
+permissions:
+  contents: write
+
+jobs:
+  update-refs:
+    runs-on: ubuntu-latest
+    outputs:
+      changed: ${{ steps.apply.outputs.changed }}
+    steps:
+      - name: Checkout GenerateDocs
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+
+      - name: Resolve and apply refs
+        id: apply
+        env:
+          VERSION_OASISLMF: ${{ inputs.oasislmf }}
+          VERSION_PLATFORM: ${{ inputs.platform }}
+          VERSION_ODS_TOOLS: ${{ inputs['ods-tools'] }}
+          VERSION_OED: ${{ inputs.oed }}
+          VERSION_ORD: ${{ inputs.ord }}
+          VERSION_MODELS: ${{ inputs.models }}
+        run: |
+          python - <<'EOF'
+          import json, os
+
+          with open("modules.json") as f:
+              data = json.load(f)
+
+          # maps modules.json module name -> the env var carrying its new ref
+          version_envs = {
+              "oasislmf": "VERSION_OASISLMF",
+              "platform": "VERSION_PLATFORM",
+              "ods-tools": "VERSION_ODS_TOOLS",
+              "oed": "VERSION_OED",
+              "ord": "VERSION_ORD",
+              "models": "VERSION_MODELS",
+          }
+
+          changed = False
+          for mod in data["modules"]:
+              name = mod["name"]
+              new_ref = os.environ.get(version_envs[name], "").strip()
+              if not new_ref:
+                  continue
+              print(f"{name}: {mod['ref']} -> {new_ref}")
+              if mod["ref"] != new_ref:
+                  mod["ref"] = new_ref
+                  changed = True
+
+          with open("modules.json", "w") as f:
+              json.dump(data, f, indent=2)
+              f.write("\n")
+
+          with open(os.environ["GITHUB_OUTPUT"], "a") as f:
+              f.write(f"changed={'true' if changed else 'false'}\n")
+          EOF
+
+      - name: Commit modules.json
+        if: steps.apply.outputs.changed == 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add modules.json
+          git commit -m "chore: update module refs"
+          git push origin HEAD:main

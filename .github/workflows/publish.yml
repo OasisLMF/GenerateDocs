@@ -1,0 +1,62 @@
+name: Publish
+
+# One-click release: pins modules.json to release tags (via "Update refs"), then builds and
+# deploys the versioned site (via "Build and Deploy (versioned)") from the resulting commit.
+#
+# Run this instead of running "Update refs" and "Build and Deploy" separately when you just
+# want to publish. Use them separately if you want to review the resolved refs before deploying.
+on:
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version label to publish (e.g. 2.5.7)'
+        required: true
+      set_latest:
+        description: 'Point the site root at this version'
+        type: boolean
+        default: true
+      oasislmf:
+        description: 'New ref for oasislmf (OasisLMF) — blank to leave unchanged'
+        required: false
+        type: string
+      platform:
+        description: 'New ref for platform (OasisPlatform) — blank to leave unchanged'
+        required: false
+        type: string
+      ods-tools:
+        description: 'New ref for ods-tools (ODS_Tools) — blank to leave unchanged'
+        required: false
+        type: string
+      oed:
+        description: 'New ref for oed (ODS_OpenExposureData) — blank to leave unchanged'
+        required: false
+        type: string
+      ord:
+        description: 'New ref for ord (ODS_OpenResultsData) — blank to leave unchanged'
+        required: false
+        type: string
+      models:
+        description: 'New ref for models (OasisModels) — blank to leave unchanged'
+        required: false
+        type: string
+
+jobs:
+  update-refs:
+    uses: ./.github/workflows/update-refs.yml
+    with:
+      oasislmf: ${{ inputs.oasislmf }}
+      platform: ${{ inputs.platform }}
+      ods-tools: ${{ inputs['ods-tools'] }}
+      oed: ${{ inputs.oed }}
+      ord: ${{ inputs.ord }}
+      models: ${{ inputs.models }}
+    secrets: inherit
+
+  deploy:
+    needs: update-refs
+    uses: ./.github/workflows/build-deploy.yml
+    with:
+      version: ${{ inputs.version }}
+      set_latest: ${{ inputs.set_latest }}
+      ref: main
+    secrets: inherit
