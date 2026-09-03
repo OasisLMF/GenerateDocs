@@ -12,7 +12,7 @@
       "ref": "2.5.7",
       "docs_source": "docs/source",
       "path": "oasislmf",
-      "title": "OasisLMF — MDK & kernel"
+      "title": "OasisLMF \u2014 MDK & kernel"
     },
     {
       "name": "platform",
@@ -34,7 +34,7 @@
     {
       "name": "oed",
       "repo": "ODS_OpenExposureData",
-      "ref": "main",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "oed",
       "title": "Open Exposure Data (OED)"
@@ -42,7 +42,7 @@
     {
       "name": "ord",
       "repo": "ODS_OpenResultsData",
-      "ref": "main",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "ord",
       "title": "Open Results Data (ORD)"
