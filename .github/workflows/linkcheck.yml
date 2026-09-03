@@ -31,7 +31,7 @@ jobs:
           persist-credentials: false   # nothing here pushes; build.sh clones public repos only
 
       - name: Set up Python
-        uses: actions/setup-python@v7
+        uses: actions/setup-python@v7.0.0
         with:
           python-version: '3.12'
       - run: pip install -r requirements.txt
