@@ -9,7 +9,7 @@
       "name": "oasislmf",
       "editable": true,
       "repo": "OasisLMF",
-      "ref": "2.5.7",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "oasislmf",
       "title": "OasisLMF — MDK & kernel"
@@ -17,7 +17,7 @@
     {
       "name": "platform",
       "repo": "OasisPlatform",
-      "ref": "2.5.7",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "platform",
       "title": "Oasis Platform"
@@ -26,7 +26,7 @@
       "name": "ods-tools",
       "editable": true,
       "repo": "ODS_Tools",
-      "ref": "5.0.8",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "ods-tools",
       "title": "ODS Tools"
@@ -34,7 +34,7 @@
     {
       "name": "oed",
       "repo": "ODS_OpenExposureData",
-      "ref": "main",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "oed",
       "title": "Open Exposure Data (OED)"
@@ -42,7 +42,7 @@
     {
       "name": "ord",
       "repo": "ODS_OpenResultsData",
-      "ref": "main",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "ord",
       "title": "Open Results Data (ORD)"
@@ -50,7 +50,7 @@
     {
       "name": "models",
       "repo": "OasisModels",
-      "ref": "main",
+      "ref": "docs/migration",
       "docs_source": "docs/source",
       "path": "models",
       "title": "Oasis Models"

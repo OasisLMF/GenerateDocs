@@ -46,8 +46,8 @@ def clone_or_update(org, repo, ref, dest):
         sh(["git", "clone", "--depth", "1", "--branch", ref, url, dest])
     else:
         sh(["git", "-C", dest, "fetch", "--depth", "1", "origin", ref])
-        sh(["git", "-C", dest, "checkout", "-f", "FETCH_HEAD"])
-        sh(["git", "-C", dest, "reset", "--hard", "FETCH_HEAD"])
+        sh(["git", "-C", dest, "checkout", "-f", ref])
+        sh(["git", "-C", dest, "reset", "--hard", f"origin/{ref}"])
     return dest
 
 
