@@ -10,10 +10,11 @@ permissions:
 
 on:
   workflow_dispatch:
-    inputs:
+    inputs: &publish-inputs
       version:
         description: 'Version label to publish (e.g. 2.5.7)'
         required: true
+        type: string
       set_latest:
         description: 'Point the site root at this version'
         type: boolean
@@ -46,6 +47,8 @@ on:
         description: 'New ref for models (OasisModels) — blank to leave unchanged'
         required: false
         type: string
+  workflow_call:
+    inputs: *publish-inputs
 
 jobs:
   update-refs:
