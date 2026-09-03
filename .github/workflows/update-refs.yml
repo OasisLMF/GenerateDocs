@@ -41,6 +41,9 @@ on:
       changed:
         description: 'Whether modules.json was modified'
         value: ${{ jobs.update-refs.outputs.changed }}
+      sha:
+        description: 'SHA of the commit that pinned the refs (empty if nothing changed)'
+        value: ${{ jobs.update-refs.outputs.sha }}
 
 permissions:
   contents: write
@@ -51,9 +54,55 @@ jobs:
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.apply.outputs.changed }}
+      sha: ${{ steps.commit.outputs.sha }}
     steps:
       - name: Checkout GenerateDocs
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+
+      - name: Validate refs exist
+        env:
+          VERSION_OASISLMF: ${{ inputs.oasislmf }}
+          VERSION_PLATFORM: ${{ inputs.platform }}
+          VERSION_ODS_TOOLS: ${{ inputs['ods-tools'] }}
+          VERSION_OED: ${{ inputs.oed }}
+          VERSION_ORD: ${{ inputs.ord }}
+          VERSION_MODELS: ${{ inputs.models }}
+        run: |
+          python - <<'EOF'
+          import json, os, subprocess, sys
+
+          with open("modules.json") as f:
+              data = json.load(f)
+          org = data["org"]
+
+          # maps modules.json module name -> the env var carrying its new ref
+          version_envs = {
+              "oasislmf": "VERSION_OASISLMF",
+              "platform": "VERSION_PLATFORM",
+              "ods-tools": "VERSION_ODS_TOOLS",
+              "oed": "VERSION_OED",
+              "ord": "VERSION_ORD",
+              "models": "VERSION_MODELS",
+          }
+
+          failed = []
+          for mod in data["modules"]:
+              name = mod["name"]
+              new_ref = os.environ.get(version_envs[name], "").strip()
+              if not new_ref:
+                  continue
+              url = f"https://github.com/{org}/{mod['repo']}.git"
+              print(f"checking {name}: {url} @ {new_ref}")
+              proc = subprocess.run(["git", "ls-remote", "--exit-code", url, new_ref],
+                                     capture_output=True, text=True)
+              if proc.returncode != 0 or not proc.stdout.strip():
+                  failed.append(f"{name}: ref {new_ref!r} not found in {org}/{mod['repo']}")
+
+          if failed:
+              for msg in failed:
+                  print(f"::error::{msg}")
+              sys.exit(1)
+          EOF
 
       - name: Resolve and apply refs
         id: apply
@@ -102,9 +151,11 @@ jobs:
 
       - name: Commit modules.json
         if: steps.apply.outputs.changed == 'true'
+        id: commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add modules.json
           git commit -m "chore: update module refs"
           git push origin HEAD:${{ github.ref_name }}
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"

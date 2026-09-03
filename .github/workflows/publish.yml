@@ -5,6 +5,9 @@ name: Publish
 #
 # Run this instead of running "Update refs" and "Build and Deploy" separately when you just
 # want to publish. Use them separately if you want to review the resolved refs before deploying.
+permissions:
+  contents: write
+
 on:
   workflow_dispatch:
     inputs:
@@ -60,3 +63,24 @@ jobs:
       set_latest: ${{ inputs.set_latest }}
       ref: ${{ github.ref_name }}
     secrets: inherit
+
+  rollback:
+    # deploy failed (or never got a chance to run, e.g. a cancelled job) after update-refs
+    # actually committed a ref change — undo exactly that commit so a bad publish never leaves
+    # modules.json pinned to a ref nothing was built from.
+    needs: [update-refs, deploy]
+    if: always() && needs.update-refs.outputs.changed == 'true' && needs.deploy.result != 'success'
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout GenerateDocs
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
+        with:
+          ref: ${{ github.ref_name }}
+          fetch-depth: 0
+
+      - name: Revert the ref-pinning commit
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git revert --no-edit ${{ needs.update-refs.outputs.sha }}
+          git push origin HEAD:${{ github.ref_name }}
