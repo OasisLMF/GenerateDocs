@@ -58,5 +58,5 @@ jobs:
     with:
       version: ${{ inputs.version }}
       set_latest: ${{ inputs.set_latest }}
-      ref: main
+      ref: ${{ github.ref_name }}
     secrets: inherit
