@@ -21,6 +21,10 @@ on:
         description: 'Point the site root at this version'
         type: boolean
         default: true
+      pages_branch:
+        description: 'Branch of the Pages repo to publish to (blank defaults to "gh-pages")'
+        required: false
+        type: string
   release:
     types: [published]
   workflow_call:
@@ -38,6 +42,10 @@ on:
           "publish" to pick up the commit "update refs" just pushed to main'
         required: false
         type: string
+      pages_branch:
+        description: 'Branch of the Pages repo to publish to (blank defaults to "gh-pages")'
+        required: false
+        type: string
 
 permissions:
   contents: write
@@ -45,7 +53,6 @@ permissions:
 # the published branch of the org Pages repo (GitHub Pages must be configured to serve it)
 env:
   PAGES_REPO: OasisLMF/OasisLMF.github.io
-  PAGES_BRANCH: gh-pages
 
 jobs:
   build-and-deploy:
@@ -70,6 +77,7 @@ jobs:
             echo "version=${{ inputs.version }}" >> "$GITHUB_OUTPUT"
             echo "latest=${{ inputs.set_latest }}" >> "$GITHUB_OUTPUT"
           fi
+          echo "pages_branch=${{ inputs.pages_branch || 'gh-pages' }}" >> "$GITHUB_OUTPUT"
 
       - name: Set up Python
         uses: actions/setup-python@a26af69be951a213d495a4c3e4e4022e16d87065  # v5.6.0
@@ -78,6 +86,8 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Restore the currently-published site (so versions accumulate)
+        env:
+          PAGES_BRANCH: ${{ steps.v.outputs.pages_branch }}
         run: |
           mkdir -p build/html
           if git clone --depth 1 --branch "$PAGES_BRANCH" \
@@ -101,7 +111,7 @@ jobs:
         with:
           folder: build/html
           repository-name: ${{ env.PAGES_REPO }}
-          branch: ${{ env.PAGES_BRANCH }}
+          branch: ${{ steps.v.outputs.pages_branch }}
           token: ${{ secrets.BUILD_DEPLOY_TOKEN }}
           # build/html is the full intended site (restored + new version), so a clean deploy is safe
           clean: true

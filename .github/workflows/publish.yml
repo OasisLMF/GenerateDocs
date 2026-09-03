@@ -15,9 +15,28 @@ on:
         description: 'Point the site root at this version'
         type: boolean
         default: true
-      modules:
-        description: 'Optional ref overrides as "name=ref,name=ref" (unlisted modules are
-          auto-scanned for their latest release)'
+      oasislmf:
+        description: 'New ref for oasislmf (OasisLMF) — blank to leave unchanged'
+        required: false
+        type: string
+      platform:
+        description: 'New ref for platform (OasisPlatform) — blank to leave unchanged'
+        required: false
+        type: string
+      ods-tools:
+        description: 'New ref for ods-tools (ODS_Tools) — blank to leave unchanged'
+        required: false
+        type: string
+      oed:
+        description: 'New ref for oed (ODS_OpenExposureData) — blank to leave unchanged'
+        required: false
+        type: string
+      ord:
+        description: 'New ref for ord (ODS_OpenResultsData) — blank to leave unchanged'
+        required: false
+        type: string
+      models:
+        description: 'New ref for models (OasisModels) — blank to leave unchanged'
         required: false
         type: string
 
@@ -25,7 +44,12 @@ jobs:
   update-refs:
     uses: ./.github/workflows/update-refs.yml
     with:
-      modules: ${{ inputs.modules }}
+      oasislmf: ${{ inputs.oasislmf }}
+      platform: ${{ inputs.platform }}
+      ods-tools: ${{ inputs['ods-tools'] }}
+      oed: ${{ inputs.oed }}
+      ord: ${{ inputs.ord }}
+      models: ${{ inputs.models }}
     secrets: inherit
 
   deploy:

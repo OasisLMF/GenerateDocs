@@ -2,28 +2,40 @@ name: Update refs
 
 # Pins modules.json's component refs to release tags and commits the result to main.
 #
-# By default every module is set to its own latest published GitHub release (components tag
-# independently, so this can — and usually will — land different version strings per module).
-# Pass "modules" to override a subset instead, e.g. "oasislmf=2.5.7,ord=3.0.1" — anything not
-# listed there is still auto-scanned.
+# Only the modules you give a version for are touched — leave an input blank to leave that
+# module's ref exactly as it is. Nothing is auto-scanned.
 #
 # This only updates modules.json; it does not build or publish anything. Run "Publish" instead
 # to do both in one go.
 on:
   workflow_dispatch:
-    inputs:
-      modules:
-        description: 'Optional overrides as "name=ref,name=ref" (unlisted modules are
-          auto-scanned for their latest release)'
+    inputs: &module-inputs
+      oasislmf:
+        description: 'New ref for oasislmf (OasisLMF) — blank to leave unchanged'
+        required: false
+        type: string
+      platform:
+        description: 'New ref for platform (OasisPlatform) — blank to leave unchanged'
+        required: false
+        type: string
+      ods-tools:
+        description: 'New ref for ods-tools (ODS_Tools) — blank to leave unchanged'
+        required: false
+        type: string
+      oed:
+        description: 'New ref for oed (ODS_OpenExposureData) — blank to leave unchanged'
+        required: false
+        type: string
+      ord:
+        description: 'New ref for ord (ODS_OpenResultsData) — blank to leave unchanged'
+        required: false
+        type: string
+      models:
+        description: 'New ref for models (OasisModels) — blank to leave unchanged'
         required: false
         type: string
   workflow_call:
-    inputs:
-      modules:
-        description: 'Optional overrides as "name=ref,name=ref" (unlisted modules are
-          auto-scanned for their latest release)'
-        required: false
-        type: string
+    inputs: *module-inputs
     outputs:
       changed:
         description: 'Whether modules.json was modified'
@@ -44,44 +56,39 @@ jobs:
       - name: Resolve and apply refs
         id: apply
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          OVERRIDES: ${{ inputs.modules }}
+          VERSION_OASISLMF: ${{ inputs.oasislmf }}
+          VERSION_PLATFORM: ${{ inputs.platform }}
+          VERSION_ODS_TOOLS: ${{ inputs['ods-tools'] }}
+          VERSION_OED: ${{ inputs.oed }}
+          VERSION_ORD: ${{ inputs.ord }}
+          VERSION_MODELS: ${{ inputs.models }}
         run: |
           python - <<'EOF'
-          import json, os, subprocess
+          import json, os
 
           with open("modules.json") as f:
               data = json.load(f)
 
-          overrides = {}
-          raw = os.environ.get("OVERRIDES", "").strip()
-          if raw:
-              for pair in raw.split(","):
-                  pair = pair.strip()
-                  if not pair:
-                      continue
-                  name, ref = pair.split("=", 1)
-                  overrides[name.strip()] = ref.strip()
+          # maps modules.json module name -> the env var carrying its new ref
+          version_envs = {
+              "oasislmf": "VERSION_OASISLMF",
+              "platform": "VERSION_PLATFORM",
+              "ods-tools": "VERSION_ODS_TOOLS",
+              "oed": "VERSION_OED",
+              "ord": "VERSION_ORD",
+              "models": "VERSION_MODELS",
+          }
 
-          org = data["org"]
           changed = False
           for mod in data["modules"]:
-              name, repo = mod["name"], mod["repo"]
-              if name in overrides:
-                  new_ref = overrides.pop(name)
-                  print(f"{name}: pinned to {new_ref} (override)")
-              else:
-                  new_ref = subprocess.run(
-                      ["gh", "api", f"repos/{org}/{repo}/releases/latest", "--jq", ".tag_name"],
-                      check=True, capture_output=True, text=True,
-                  ).stdout.strip()
-                  print(f"{name}: latest release is {new_ref}")
+              name = mod["name"]
+              new_ref = os.environ.get(version_envs[name], "").strip()
+              if not new_ref:
+                  continue
+              print(f"{name}: {mod['ref']} -> {new_ref}")
               if mod["ref"] != new_ref:
                   mod["ref"] = new_ref
                   changed = True
-
-          if overrides:
-              raise SystemExit(f"unknown module(s) in overrides: {', '.join(overrides)}")
 
           with open("modules.json", "w") as f:
               json.dump(data, f, indent=2)
