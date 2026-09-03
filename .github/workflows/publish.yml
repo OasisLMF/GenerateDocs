@@ -18,6 +18,10 @@ on:
         description: 'Point the site root at this version'
         type: boolean
         default: true
+      pages_branch:
+        description: 'Branch of the Pages repo to publish to (blank defaults to "gh-pages")'
+        required: false
+        type: string
       oasislmf:
         description: 'New ref for oasislmf (OasisLMF) — blank to leave unchanged'
         required: false
@@ -62,6 +66,7 @@ jobs:
       version: ${{ inputs.version }}
       set_latest: ${{ inputs.set_latest }}
       ref: ${{ github.ref_name }}
+      pages_branch: ${{ inputs.pages_branch }}
     secrets: inherit
 
   rollback:
