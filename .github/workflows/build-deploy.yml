@@ -68,6 +68,11 @@ jobs:
   build-and-deploy:
     concurrency: ci-deploy          # serialise deploys so accumulation stays consistent
     runs-on: ubuntu-latest
+    # cross-repo workflow_call runs share GITHUB_WORKSPACE with the caller's own checkout;
+    # keep everything in our own subdirectory instead of relying on workspace root.
+    defaults:
+      run:
+        working-directory: generateDocs
     steps:
       - name: Resolve GenerateDocs branch
         id: repo
@@ -88,6 +93,8 @@ jobs:
           # explicit ref (set by "publish", the commit "update refs" just pushed) overrides
           # the resolved branch tip
           ref: ${{ inputs.ref || steps.repo.outputs.branch }}
+          # own subdirectory, not workspace root — see the job-level `defaults.run` above
+          path: generateDocs
 
       - name: Resolve version + latest
         id: v
@@ -111,10 +118,13 @@ jobs:
       - name: Restore the currently-published site (so versions accumulate)
         env:
           PAGES_BRANCH: ${{ steps.v.outputs.pages_branch }}
+          # BUILD_GIT_TOKEN is the caller's own cross-repo PAT (e.g. platform_oasis, which has
+          # no BUILD_DEPLOY_TOKEN of its own); BUILD_DEPLOY_TOKEN covers a direct/local run.
+          PAGES_TOKEN: ${{ secrets.BUILD_GIT_TOKEN || secrets.BUILD_DEPLOY_TOKEN }}
         run: |
           mkdir -p build/html
           if git clone --depth 1 --branch "$PAGES_BRANCH" \
-               "https://x-access-token:${{ secrets.BUILD_DEPLOY_TOKEN }}@github.com/${PAGES_REPO}.git" existing 2>/dev/null; then
+               "https://x-access-token:${PAGES_TOKEN}@github.com/${PAGES_REPO}.git" existing 2>/dev/null; then
             rsync -a --exclude '.git' existing/ build/html/
             rm -rf existing
             echo "restored existing site ($(find build/html -maxdepth 1 -mindepth 1 -type d | wc -l) version dirs)"
@@ -132,9 +142,11 @@ jobs:
       - name: Deploy the full versioned site
         uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445  # v4.9.0
         with:
-          folder: build/html
+          folder: generateDocs/build/html
           repository-name: ${{ env.PAGES_REPO }}
           branch: ${{ steps.v.outputs.pages_branch }}
-          token: ${{ secrets.BUILD_DEPLOY_TOKEN }}
+          # BUILD_GIT_TOKEN is the caller's own cross-repo PAT (e.g. platform_oasis, which has
+          # no BUILD_DEPLOY_TOKEN of its own); BUILD_DEPLOY_TOKEN covers a direct/local run.
+          token: ${{ secrets.BUILD_GIT_TOKEN || secrets.BUILD_DEPLOY_TOKEN }}
           # build/html is the full intended site (restored + new version), so a clean deploy is safe
           clean: true
