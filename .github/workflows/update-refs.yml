@@ -82,8 +82,10 @@ jobs:
           repository: OasisLMF/GenerateDocs
           ref: ${{ steps.repo.outputs.branch }}
           # the default GITHUB_TOKEN is scoped to the caller's repo when this runs as a
-          # cross-repo reusable workflow, and can't push commits back to GenerateDocs
-          token: ${{ secrets.BUILD_DEPLOY_TOKEN }}
+          # cross-repo reusable workflow, and can't push commits back to GenerateDocs.
+          # BUILD_GIT_TOKEN is the caller's own cross-repo PAT (e.g. platform_oasis, which has
+          # no BUILD_DEPLOY_TOKEN of its own); BUILD_DEPLOY_TOKEN covers a direct/local run.
+          token: ${{ secrets.BUILD_GIT_TOKEN || secrets.BUILD_DEPLOY_TOKEN }}
 
       - name: Validate refs exist
         env:
