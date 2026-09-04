@@ -76,6 +76,8 @@ jobs:
     steps:
       - name: Resolve GenerateDocs branch
         id: repo
+        # runs before checkout creates ./generateDocs, so stay at workspace root
+        working-directory: .
         run: |
           if [ -n "${{ inputs.gendoc_branch }}" ]; then
             BRANCH="${{ inputs.gendoc_branch }}"
