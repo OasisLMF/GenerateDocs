@@ -68,11 +68,6 @@ jobs:
   build-and-deploy:
     concurrency: ci-deploy          # serialise deploys so accumulation stays consistent
     runs-on: ubuntu-latest
-    # cross-repo workflow_call runs share GITHUB_WORKSPACE with the caller's own checkout;
-    # keep everything in our own subdirectory instead of relying on workspace root.
-    defaults:
-      run:
-        working-directory: generateDocs
     steps:
       - name: Resolve GenerateDocs branch
         id: repo
@@ -93,8 +88,6 @@ jobs:
           # explicit ref (set by "publish", the commit "update refs" just pushed) overrides
           # the resolved branch tip
           ref: ${{ inputs.ref || steps.repo.outputs.branch }}
-          # own subdirectory, not workspace root — see the job-level `defaults.run` above
-          path: generateDocs
 
       - name: Resolve version + latest
         id: v
@@ -116,21 +109,26 @@ jobs:
       - run: pip install -r requirements.txt
 
       - name: Restore the currently-published site (so versions accumulate)
+        # Clone gh-pages straight into build/html and keep its .git — the Deploy step below
+        # then commits the new version on top of this real history and does a fast-forward
+        # push, rather than force-pushing an unrelated tree.
         env:
           PAGES_BRANCH: ${{ steps.v.outputs.pages_branch }}
           # BUILD_GIT_TOKEN is the caller's own cross-repo PAT (e.g. platform_oasis, which has
           # no BUILD_DEPLOY_TOKEN of its own); BUILD_DEPLOY_TOKEN covers a direct/local run.
           PAGES_TOKEN: ${{ secrets.BUILD_GIT_TOKEN || secrets.BUILD_DEPLOY_TOKEN }}
         run: |
-          mkdir -p build/html
-          if git clone --depth 1 --branch "$PAGES_BRANCH" \
-               "https://x-access-token:${PAGES_TOKEN}@github.com/${PAGES_REPO}.git" existing 2>/dev/null; then
-            rsync -a --exclude '.git' existing/ build/html/
-            rm -rf existing
+          REMOTE="https://x-access-token:${PAGES_TOKEN}@github.com/${PAGES_REPO}.git"
+          if git clone --depth 1 --branch "$PAGES_BRANCH" "$REMOTE" build/html 2>/dev/null; then
             echo "restored existing site ($(find build/html -maxdepth 1 -mindepth 1 -type d | wc -l) version dirs)"
           else
+            mkdir -p build/html
+            git -C build/html init -q -b "$PAGES_BRANCH"
+            git -C build/html remote add origin "$REMOTE"
             echo "no existing published site on ${PAGES_BRANCH} — first deploy"
           fi
+          git -C build/html config user.name "github-actions[bot]"
+          git -C build/html config user.email "41898282+github-actions[bot]@users.noreply.github.com"
 
       - name: Build this version (accumulating into build/html)
         run: |
@@ -140,13 +138,14 @@ jobs:
             --deploy-version "${{ steps.v.outputs.version }}" $LATEST_FLAG
 
       - name: Deploy the full versioned site
-        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445  # v4.9.0
-        with:
-          folder: generateDocs/build/html
-          repository-name: ${{ env.PAGES_REPO }}
-          branch: ${{ steps.v.outputs.pages_branch }}
-          # BUILD_GIT_TOKEN is the caller's own cross-repo PAT (e.g. platform_oasis, which has
-          # no BUILD_DEPLOY_TOKEN of its own); BUILD_DEPLOY_TOKEN covers a direct/local run.
-          token: ${{ secrets.BUILD_GIT_TOKEN || secrets.BUILD_DEPLOY_TOKEN }}
-          # build/html is the full intended site (restored + new version), so a clean deploy is safe
-          clean: true
+        # Commits the built tree on top of the clone from the Restore step and fast-forward
+        # pushes it — fails if the branch moved since the clone, rather than overwriting it.
+        run: |
+          cd build/html
+          git add -A
+          if git diff --cached --quiet; then
+            echo "nothing changed — skipping deploy"
+          else
+            git commit -q -m "Deploy ${{ steps.v.outputs.version }}"
+            git push origin "HEAD:${{ steps.v.outputs.pages_branch }}"
+          fi
