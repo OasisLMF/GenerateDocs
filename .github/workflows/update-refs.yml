@@ -11,6 +11,11 @@ name: Update refs
 on:
   workflow_dispatch:
     inputs: &module-inputs
+      gendoc_branch:
+        description: 'Branch of GenerateDocs to update (blank: "main" if called from another
+          repo, else the branch this workflow was triggered from)'
+        required: false
+        type: string
       oasislmf:
         description: 'New ref for oasislmf (OasisLMF) — blank to leave unchanged'
         required: false
@@ -50,14 +55,35 @@ permissions:
 
 jobs:
   update-refs:
-    concurrency: update-refs-${{ github.ref_name }}   # serialise pushes to this branch
+    # github.ref_name is the CALLER's ref when this runs as a reusable workflow invoked from
+    # another repo (e.g. platform_oasis), so it's only a valid GenerateDocs branch when this
+    # repo is the one actually running (no gendoc_branch override needed in that case).
+    concurrency: update-refs-${{ inputs.gendoc_branch || (github.repository == 'OasisLMF/GenerateDocs' && github.ref_name) || 'main' }}
     runs-on: ubuntu-latest
     outputs:
       changed: ${{ steps.apply.outputs.changed }}
       sha: ${{ steps.commit.outputs.sha }}
     steps:
+      - name: Resolve GenerateDocs branch
+        id: repo
+        run: |
+          if [ -n "${{ inputs.gendoc_branch }}" ]; then
+            BRANCH="${{ inputs.gendoc_branch }}"
+          elif [ "${{ github.repository }}" = "OasisLMF/GenerateDocs" ]; then
+            BRANCH="${{ github.ref_name }}"
+          else
+            BRANCH="main"
+          fi
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
       - name: Checkout GenerateDocs
         uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1  # v7.0.1
+        with:
+          repository: OasisLMF/GenerateDocs
+          ref: ${{ steps.repo.outputs.branch }}
+          # the default GITHUB_TOKEN is scoped to the caller's repo when this runs as a
+          # cross-repo reusable workflow, and can't push commits back to GenerateDocs
+          token: ${{ secrets.BUILD_DEPLOY_TOKEN }}
 
       - name: Validate refs exist
         env:
@@ -157,5 +183,5 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add modules.json
           git commit -m "chore: update module refs"
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin HEAD:${{ steps.repo.outputs.branch }}
           echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"

@@ -15,6 +15,11 @@ on:
         description: 'Version label to publish (e.g. 2.5.7)'
         required: true
         type: string
+      gendoc_branch:
+        description: 'Branch of GenerateDocs to publish from (blank: "main" if called from
+          another repo, else the branch this workflow was triggered from)'
+        required: false
+        type: string
       set_latest:
         description: 'Point the site root at this version'
         type: boolean
@@ -54,6 +59,7 @@ jobs:
   update-refs:
     uses: ./.github/workflows/update-refs.yml
     with:
+      gendoc_branch: ${{ inputs.gendoc_branch }}
       oasislmf: ${{ inputs.oasislmf }}
       platform: ${{ inputs.platform }}
       ods-tools: ${{ inputs['ods-tools'] }}
@@ -68,7 +74,10 @@ jobs:
     with:
       version: ${{ inputs.version }}
       set_latest: ${{ inputs.set_latest }}
-      ref: ${{ github.ref_name }}
+      # pick up the exact commit "update refs" just pushed (empty when it made no changes,
+      # in which case build-deploy falls back to resolving gendoc_branch itself)
+      ref: ${{ needs.update-refs.outputs.sha }}
+      gendoc_branch: ${{ inputs.gendoc_branch }}
       pages_branch: ${{ inputs.pages_branch }}
     secrets: inherit
 
@@ -80,15 +89,31 @@ jobs:
     if: always() && needs.update-refs.outputs.changed == 'true' && needs.deploy.result != 'success'
     runs-on: ubuntu-latest
     steps:
+      - name: Resolve GenerateDocs branch
+        id: repo
+        run: |
+          if [ -n "${{ inputs.gendoc_branch }}" ]; then
+            BRANCH="${{ inputs.gendoc_branch }}"
+          elif [ "${{ github.repository }}" = "OasisLMF/GenerateDocs" ]; then
+            BRANCH="${{ github.ref_name }}"
+          else
+            BRANCH="main"
+          fi
+          echo "branch=$BRANCH" >> "$GITHUB_OUTPUT"
+
       - name: Checkout GenerateDocs
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262  # v4.4.0
         with:
-          ref: ${{ github.ref_name }}
+          repository: OasisLMF/GenerateDocs
+          ref: ${{ steps.repo.outputs.branch }}
           fetch-depth: 0
+          # the default GITHUB_TOKEN is scoped to the caller's repo when this runs as a
+          # cross-repo reusable workflow, and can't push commits back to GenerateDocs
+          token: ${{ secrets.BUILD_DEPLOY_TOKEN }}
 
       - name: Revert the ref-pinning commit
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git revert --no-edit ${{ needs.update-refs.outputs.sha }}
-          git push origin HEAD:${{ github.ref_name }}
+          git push origin HEAD:${{ steps.repo.outputs.branch }}
