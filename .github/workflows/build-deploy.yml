@@ -114,9 +114,7 @@ jobs:
         # push, rather than force-pushing an unrelated tree.
         env:
           PAGES_BRANCH: ${{ steps.v.outputs.pages_branch }}
-          # BUILD_GIT_TOKEN is the caller's own cross-repo PAT (e.g. platform_oasis, which has
-          # no BUILD_DEPLOY_TOKEN of its own); BUILD_DEPLOY_TOKEN covers a direct/local run.
-          PAGES_TOKEN: ${{ secrets.BUILD_GIT_TOKEN || secrets.BUILD_DEPLOY_TOKEN }}
+          PAGES_TOKEN: ${{ secrets.BUILD_DEPLOY_TOKEN }}
         run: |
           REMOTE="https://x-access-token:${PAGES_TOKEN}@github.com/${PAGES_REPO}.git"
           if git clone --depth 1 --branch "$PAGES_BRANCH" "$REMOTE" build/html 2>/dev/null; then
