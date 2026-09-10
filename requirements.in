@@ -20,7 +20,7 @@ sphinx-autoapi          # OasisLMF API reference (AST-based)
 # OasisLMF conf.py imports the package (version + CLI options at build time);
 # ods-tools drives the ODS_Tools OED notebook.
 oasislmf
-ods-tools>=5.0.0
+ods-tools>=5.0.8
 
 # Notebook execution (executable tutorials plot with matplotlib; pandas/numpy come via oasislmf)
 matplotlib
