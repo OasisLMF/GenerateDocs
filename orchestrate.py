@@ -240,14 +240,47 @@ def _write_redirect(path, target):
                  f'<a href="{target}">Continue to the Oasis documentation</a>')
 
 
+def _current_latest(root):
+    """The version the existing ``/latest/`` stub redirects to, or None if there isn't one."""
+    try:
+        with open(os.path.join(root, "latest", "index.html"), encoding="utf-8") as fh:
+            m = re.search(r'url=\.\./([^/"]+)/index\.html', fh.read())
+    except OSError:
+        return None
+    return m.group(1) if m else None
+
+
+def _write_404(path, target):
+    """Root 404 page (GitHub Pages serves it for any missing path). Deep links under ``/latest/``
+    only have a stub index, so forward them to the same page — query and #anchor kept — under
+    ``target``; a page missing there just lands on this 404 again, without the redirect."""
+    with open(path, "w", encoding="utf-8") as fh:
+        fh.write('<!doctype html><meta charset="utf-8"><meta name="robots" content="noindex">'
+                 '<title>Page not found · Oasis documentation</title>'
+                 '<script>(function () {'
+                 'var p = location.pathname, i = p.indexOf("/latest/");'
+                 f'if (i >= 0) location.replace(p.slice(0, i) + "/{target}/" + p.slice(i + 8)'
+                 ' + location.search + location.hash);'
+                 '})();</script>'
+                 '<p>Page not found. <a href="/">Go to the Oasis documentation</a></p>')
+
+
 def write_versions_index(root, latest_version=None):
     """Write versions.json and the redirects. ``latest`` is an alias (a redirect), never a copy:
-    the site root and ``/latest/`` both redirect to ``latest_version`` (or, if not given, the
-    newest version by number). Returns the real version list."""
+    the site root and ``/latest/`` (deep links too, via the root 404.html) redirect to
+    ``latest_version``. If not given, the existing ``/latest/`` target is kept, so publishing a
+    back-version or pre-release doesn't move it; with no (valid) existing target, the newest
+    version by number is used. Returns the real version list and the target."""
     vers = _list_versions(root)
     with open(os.path.join(root, "versions.json"), "w", encoding="utf-8") as fh:
         json.dump([{"label": v.lstrip("v"), "path": v} for v in vers], fh, indent=2)
-    target = latest_version if (latest_version in vers) else (vers[0] if vers else None)
+    current = _current_latest(root)
+    if latest_version in vers:
+        target = latest_version
+    elif current in vers:
+        target = current
+    else:
+        target = vers[0] if vers else None
     if target:
         _write_redirect(os.path.join(root, "index.html"), f"{target}/index.html")
         # /latest/ is a stable bookmarkable URL implemented as a redirect stub (not a duplicate site)
@@ -256,6 +289,7 @@ def write_versions_index(root, latest_version=None):
             shutil.rmtree(latest_dir)
         os.makedirs(latest_dir, exist_ok=True)
         _write_redirect(os.path.join(latest_dir, "index.html"), f"../{target}/index.html")
+        _write_404(os.path.join(root, "404.html"), target)
     return vers, target
 
 

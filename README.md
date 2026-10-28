@@ -133,8 +133,10 @@ dropdown** into every page's sidebar. Switching version navigates to the same pa
 chosen version, **falling back to that version's landing** if the page doesn't exist there.
 
 `latest` is **not a version** — it's a redirect. The site root and `/latest/` both forward to
-the newest version (or the one built with `--latest`); there's no duplicate `latest/` site and
-it never appears in the dropdown.
+the version last built with `--latest` (a run without `--latest` keeps the current target; with
+none yet, the newest version is used); there's no duplicate `latest/` site and it never appears
+in the dropdown. Deep links such as `/latest/oasislmf/…/results.html#anchor` are forwarded to the
+same page and anchor in that version by a generated root `404.html`.
 
 Each release is one run against an output tree that already holds the other versions, so they
 accumulate:
