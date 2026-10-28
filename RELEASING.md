@@ -75,6 +75,8 @@ Once the workflow is green, open `https://oasislmf.github.io/`:
   `.github/workflows/build-deploy.yml`) — confirm GitHub Pages for `OasisLMF.github.io` is set
   to serve that branch.
 - **`/latest/` is automatic** — it's a redirect, not a published version. The site root and
-  `/latest/` always forward to the newest version (or the one deployed with `set_latest`); you
-  never publish a version literally called "latest", and it never appears in the version dropdown.
+  `/latest/` (including deep links like `/latest/oasislmf/…`, via the generated root `404.html`)
+  forward to the version last deployed with `set_latest`; deploys without it leave that target
+  alone. You never publish a version literally called "latest", and it never appears in the
+  version dropdown.
 - **Secret:** the deploy uses `BUILD_DEPLOY_TOKEN` (write access to `OasisLMF.github.io`).
